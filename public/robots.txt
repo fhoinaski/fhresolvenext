@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fhresolve.com.br/sitemap.xml
