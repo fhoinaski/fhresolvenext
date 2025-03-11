@@ -4,20 +4,21 @@ import { useEffect, useState, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import dynamic from 'next/dynamic';
+import axios from '@/lib/axios';
+import { Providers } from './providers';
 
-
-import Hero from './components/Hero';
-import LoadingScreen from './components/LoadingScreen';
-import Header from './components/Header';
+import Hero from '../components/Hero';
+import LoadingScreen from '../components/LoadingScreen';
+import Header from '../components/Header';
 
 // Componentes carregados dinamicamente
-const About = dynamic(() => import('./components/About'), { ssr: false });
-const Benefits = dynamic(() => import('./components/Benefits'), { ssr: false });
-const Portfolio = dynamic(() => import('./components/Portfolio'), { ssr: false });
-const Testimonials = dynamic(() => import('./components/Testimonials'), { ssr: false });
-const Contact = dynamic(() => import('./components/Contact'), { ssr: false });
-const ServiceMap = dynamic(() => import('./components/ServiceMap'), { ssr: false });
-const Footer = dynamic(() => import('./components/Footer'), { ssr: false });
+const About = dynamic(() => import('../components/About'), { ssr: false });
+const Benefits = dynamic(() => import('../components/Benefits'), { ssr: false });
+const Portfolio = dynamic(() => import('../components/Portfolio'), { ssr: false });
+const Testimonials = dynamic(() => import('../components/Testimonials'), { ssr: false });
+const Contact = dynamic(() => import('../components/Contact'), { ssr: false });
+const ServiceMap = dynamic(() => import('../components/ServiceMap'), { ssr: false });
+const Footer = dynamic(() => import('../components/Footer'), { ssr: false });
 
 // Componente de carregamento
 const SectionLoader = () => (
@@ -29,124 +30,130 @@ const SectionLoader = () => (
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const [theme, setTheme] = useState('dark'); // Tema escuro como padrão
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
+  const [defaultTheme, setDefaultTheme] = useState<'light' | 'dark' | 'system'>('system');
+  const [maintenanceMode, setMaintenanceMode] = useState(false);
 
   useEffect(() => {
-    // Define o tema escuro como padrão na inicialização
-    const initialTheme = 'dark';
-    setTheme(initialTheme);
-    localStorage.setItem('theme', initialTheme);
-    document.documentElement.setAttribute('data-theme', initialTheme);
-    
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 4000);
-    
-    return () => clearTimeout(timer);
+    // Buscar configurações do site
+    const fetchSettings = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get('/api/settings');
+        if (response.data.defaultTheme) {
+          setDefaultTheme(response.data.defaultTheme);
+        }
+        if (response.data.maintenanceMode !== undefined) {
+          setMaintenanceMode(response.data.maintenanceMode);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar configurações:', error);
+      } finally {
+        // Configurar timer para simulação de carregamento
+        const timer = setTimeout(() => {
+          setLoading(false);
+        }, 2000);
+        
+        return () => clearTimeout(timer);
+      }
+    };
+
+    fetchSettings();
   }, []);
 
-  useEffect(() => {
-    // Inicializa GSAP apenas no cliente
-    // NOTA: GSAP precisa ser importado aqui para evitar problemas de SSR
-    const initGSAP = async () => {
-      if (!loading) {
-        const { gsap } = await import('gsap');
-        const { ScrollTrigger } = await import('gsap/dist/ScrollTrigger');
-        const { ScrollToPlugin } = await import('gsap/dist/ScrollToPlugin');
-        
-        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-        
-        document.querySelectorAll('.animate-on-scroll').forEach((section) => {
-          gsap.fromTo(
-            section,
-            { opacity: 0, y: 20 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              scrollTrigger: {
-                trigger: section,
-                start: 'top 85%',
-                once: true,
-              },
-            }
-          );
-        });
-      }
-    };
-    
-    initGSAP();
-    
-    return () => {
-      // Limpeza do GSAP
-      if (typeof window !== "undefined") {
-        import('gsap/dist/ScrollTrigger').then(({ ScrollTrigger }) => {
-          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        });
-      }
-    };
-  }, [loading]);
+  // Renderiza a página de manutenção se o modo de manutenção estiver ativo
+  if (maintenanceMode && !loading) {
+    return (
+      <Providers initialTheme={defaultTheme}>
+        <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-[var(--color-gray)] dark:bg-[var(--color-primary)]">
+          <div className="text-center max-w-lg">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--color-accent)]">
+              Site em Manutenção
+            </h1>
+            <p className="text-[var(--color-text)]/80 mb-8">
+              Estamos realizando alguns ajustes para melhorar sua experiência. 
+              Voltaremos em breve.
+            </p>
+            <div className="w-full h-2 bg-[var(--color-neutral)]/30 rounded-full overflow-hidden">
+              <motion.div 
+                className="h-full bg-[var(--color-accent)]"
+                initial={{ width: 0 }}
+                animate={{ width: '100%' }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+            </div>
+            <p className="mt-8 text-sm text-[var(--color-text)]/60">
+              Para solicitações urgentes, entre em contato pelo WhatsApp
+            </p>
+            <a 
+              href="https://wa.me/5548991919791" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-accent)] text-white rounded-md hover:bg-[var(--color-accent-dark)] transition-all shadow-sm"
+            >
+              <MessageCircle size={18} />
+              Contato via WhatsApp
+            </a>
+          </div>
+        </div>
+      </Providers>
+    );
+  }
 
   return (
-    <AnimatePresence mode="wait">
-      {loading ? (
-        <LoadingScreen key="loader" />
-      ) : (
-        <motion.div 
-          key="content"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col min-h-screen"
-        >
-          <Header theme={theme} toggleTheme={toggleTheme} />
-          <main className="flex-grow">
-            <Hero />
-            <Suspense fallback={<SectionLoader />}>
-              <Benefits />
-            </Suspense>
-            <Suspense fallback={<SectionLoader />}>
-              <About />
-            </Suspense>
-            <Suspense fallback={<SectionLoader />}>
-              <Portfolio />
-            </Suspense>
-            <Suspense fallback={<SectionLoader />}>
-              <Testimonials />
-            </Suspense>
-            <Suspense fallback={<SectionLoader />}>
-              <ServiceMap />
-            </Suspense>
-            <Suspense fallback={<SectionLoader />}>
-              <Contact />
-            </Suspense>
-          </main>
-          <Suspense fallback={<div className="h-20" />}>
-            <Footer />
-          </Suspense>
-          <motion.a
-            href="https://wa.me/5548991919791"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fixed bottom-6 right-6 bg-[var(--color-accent)] text-white p-3 rounded-full shadow-lg z-50 flex items-center justify-center"
-            whileHover={{ scale: 1.1, boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1 }}
-            aria-label="Entre em contato via WhatsApp"
+    <Providers initialTheme={defaultTheme}>
+      <AnimatePresence mode="wait">
+        {loading ? (
+          <LoadingScreen key="loader" />
+        ) : (
+          <motion.div 
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col min-h-screen"
           >
-            <MessageCircle size={26} />
-          </motion.a>
-        </motion.div>
-      )}
-    </AnimatePresence>
+            <Header />
+            <main className="flex-grow">
+              <Hero />
+              <Suspense fallback={<SectionLoader />}>
+                <Benefits />
+              </Suspense>
+              <Suspense fallback={<SectionLoader />}>
+                <About />
+              </Suspense>
+              <Suspense fallback={<SectionLoader />}>
+                <Portfolio />
+              </Suspense>
+              <Suspense fallback={<SectionLoader />}>
+                <Testimonials />
+              </Suspense>
+              <Suspense fallback={<SectionLoader />}>
+                <ServiceMap />
+              </Suspense>
+              <Suspense fallback={<SectionLoader />}>
+                <Contact />
+              </Suspense>
+            </main>
+            <Suspense fallback={<div className="h-20" />}>
+              <Footer />
+            </Suspense>
+            <motion.a
+              href="https://wa.me/5548991919791"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="fixed bottom-6 right-6 bg-[var(--color-accent)] text-white p-3 rounded-full shadow-lg z-50 flex items-center justify-center"
+              whileHover={{ scale: 1.1, boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1 }}
+              aria-label="Entre em contato via WhatsApp"
+            >
+              <MessageCircle size={26} />
+            </motion.a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </Providers>
   );
 }

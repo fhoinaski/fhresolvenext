@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
+  darkMode: ['class', '[data-theme="dark"]'],
   content: [
     './src/app/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
@@ -37,6 +37,13 @@ export default {
         accent: {
           DEFAULT: 'var(--color-accent)',
           20: 'rgba(var(--color-accent-rgb), 0.2)',
+        },
+        gray: {
+          900: '#252525',
+          600: '#4B5563',
+          500: '#6B7280',
+          400: '#9CA3AF',
+          300: '#D1D5DB',
         },
       },
       borderColor: {

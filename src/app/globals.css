@@ -116,6 +116,19 @@ html.no-scroll {
   outline-offset: 3px;
   border-radius: 0.25rem;
 }
+@layer utilities {
+  .text-adaptive {
+    @apply text-[var(--color-text)];
+  }
+  
+  .text-adaptive-secondary {
+    @apply text-[var(--color-text)] opacity-80;
+  }
+  
+  .text-adaptive-muted {
+    @apply text-[var(--color-text)] opacity-60;
+  }
+}
 
 /* Componentes */
 @layer components {

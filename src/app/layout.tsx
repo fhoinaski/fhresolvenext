@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://fhresolve.com.br/og-image.jpg', // Adicione uma imagem otimizada no /public
+        url: 'https://fhresolve.com.br/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'FH Resolve - Serviços Residenciais em Florianópolis',
@@ -50,6 +50,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
+        <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
@@ -78,6 +79,30 @@ export default function RootLayout({
               "priceRange": "$$",
               "openingHours": "Mo-Sa 08:00-18:00"
             })
+          }}
+        />
+        {/* Script para prevenir flash de tema incorreto */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  // Verifica se estamos no dashboard observando a URL
+                  const isDashboard = window.location.pathname.startsWith('/dashboard');
+                  const themeKey = isDashboard ? 'dashboard-theme' : 'site-theme';
+                  
+                  const savedTheme = localStorage.getItem(themeKey);
+                  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+                  
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) {
+                  console.error('Error accessing localStorage', e);
+                  // Em caso de erro, definir tema padrão
+                  document.documentElement.setAttribute('data-theme', 'light');
+                }
+              })();
+            `,
           }}
         />
       </head>

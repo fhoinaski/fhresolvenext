@@ -56,6 +56,9 @@ const Hero: React.FC = () => {
     { icon: <ShieldCheck size={22} />, title: 'Qualidade Garantida', desc: 'Atendimento rápido e serviço de excelência.' },
   ];
 
+  //força troca da cor do thema 
+  
+
   // Verificar se é dispositivo móvel
   useEffect(() => {
     const handleResize = () => {

@@ -1,18 +1,21 @@
+'use client';
+
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon, Wrench, MessageCircle } from 'lucide-react';
+import { useTheme } from '@/context/ThemeContext';
+import { useFeedback } from '../context/FeedbackContext';
 
-interface HeaderProps {
-  theme: string;
-  toggleTheme: () => void;
-}
 
-const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const headerRef = useRef<HTMLElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
+  
+  const { theme, toggleTheme } = useTheme();
+  const { showToast } = useFeedback();
 
   const navLinks = [
     { name: 'Início', href: '#hero' },
@@ -50,6 +53,15 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       document.body.style.overflow = '';
     };
   }, [isOpen]);
+
+  const handleThemeChange = () => {
+    toggleTheme();
+    // Forçar atualização dos componentes com um pequeno atraso
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 100);
+    showToast(`Tema alterado para ${theme === 'light' ? 'escuro' : 'claro'}`, 'success');
+  };
 
   const handleLinkClick = (href: string) => {
     setIsOpen(false);
@@ -152,7 +164,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
         <div className="flex items-center gap-3">
           <motion.button
-            onClick={toggleTheme}
+            onClick={handleThemeChange}
             className="p-2 rounded-full bg-[var(--color-neutral)]/5 hover:bg-[var(--color-accent)]/10 transition-colors z-50"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}

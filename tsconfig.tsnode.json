@@ -1,0 +1,13 @@
+{
+    "ts-node": {
+      "esm": true,
+      "experimentalResolver": true
+    },
+    "compilerOptions": {
+      "module": "ESNext",
+      "target": "ES2017",
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "strict": true
+    }
+  }
