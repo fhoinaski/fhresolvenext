@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useState, ReactNode, useMemo } from 'react';
+import { useEffect, useState, ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Map as MapIcon, List, Navigation, Star, CheckCircle, AlertCircle, X } from 'lucide-react';
+import { MapPin, Map as MapIcon, List, Navigation } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 
 // Importação dinâmica para evitar problemas de SSR com react-leaflet
@@ -81,7 +81,8 @@ const locations = [
 ];
 
 const ServiceMap: React.FC = () => {
-  const isDarkMode = true;
+  // Força o tema claro
+  const isDarkMode = false;
   
   const [isMounted, setIsMounted] = useState(false);
   const [activeTab, setActiveTab] = useState<'map' | 'list'>('map');
@@ -189,9 +190,7 @@ const ServiceMap: React.FC = () => {
               className={`flex-1 py-3 flex items-center justify-center gap-2 transition-colors ${
                 activeTab === 'map'
                   ? 'bg-[var(--color-accent)] text-white font-medium'
-                  : isDarkMode 
-                    ? 'bg-[#333333] text-white hover:bg-[var(--color-accent)]/10' 
-                    : 'bg-white text-[var(--color-text)] hover:bg-[var(--color-accent)]/10'
+                  : 'bg-white text-[var(--color-text)] hover:bg-[var(--color-accent)]/10'
               }`}
               aria-label="Ver mapa"
             >
@@ -204,9 +203,7 @@ const ServiceMap: React.FC = () => {
               className={`flex-1 py-3 flex items-center justify-center gap-2 transition-colors ${
                 activeTab === 'list'
                   ? 'bg-[var(--color-accent)] text-white font-medium'
-                  : isDarkMode 
-                    ? 'bg-[#333333] text-white hover:bg-[var(--color-accent)]/10' 
-                    : 'bg-white text-[var(--color-text)] hover:bg-[var(--color-accent)]/10'
+                  : 'bg-white text-[var(--color-text)] hover:bg-[var(--color-accent)]/10'
               }`}
               aria-label="Ver lista de regiões"
             >
@@ -228,10 +225,8 @@ const ServiceMap: React.FC = () => {
                 exit="hidden"
                 variants={isMobile ? tabVariants : {}}
               >
-                <div className={`p-6 rounded-lg transition-all duration-300 border border-[var(--color-neutral)]/30 shadow-custom-sm ${
-                  isDarkMode ? 'bg-[#333333]' : 'bg-white'
-                }`}>
-                  <h3 className={`text-lg font-medium mb-6 flex items-center ${isDarkMode ? 'text-white' : 'text-[var(--color-text)]'}`}>
+                <div className="p-6 rounded-lg transition-all duration-300 border border-[var(--color-neutral)]/30 shadow-custom-sm bg-white">
+                  <h3 className="text-lg font-medium mb-6 flex items-center text-[var(--color-text)]">
                     <MapPin className="h-5 w-5 text-[var(--color-accent)] mr-2" />
                     Regiões Atendidas
                   </h3>
@@ -242,9 +237,7 @@ const ServiceMap: React.FC = () => {
                         className={`p-3 rounded-lg cursor-pointer transition-all duration-200 ${
                           location.name === selectedLocation
                             ? 'bg-[var(--color-accent)] text-white'
-                            : isDarkMode
-                              ? 'bg-[#3A3A3A] text-white hover:bg-[var(--color-neutral)]/20'
-                              : 'bg-[#EDEDED] text-[var(--color-text)] hover:bg-[var(--color-neutral)]/20'
+                            : 'bg-[var(--color-neutral)] text-[var(--color-text)] hover:bg-[var(--color-neutral)]/20'
                         }`}
                         whileHover={{ scale: 1.02, x: 2 }}
                         whileTap={{ scale: 0.98 }}
@@ -309,9 +302,8 @@ const ServiceMap: React.FC = () => {
                 exit="hidden"
                 variants={isMobile ? tabVariants : {}}
               >
-                <div className={`h-[450px] md:h-[500px] relative overflow-hidden p-2 rounded-lg border border-[var(--color-neutral)]/30 shadow-custom-sm ${
-                  isDarkMode ? 'bg-[#333333]' : 'bg-white'
-                }`}>                  {isMounted && (
+                <div className="h-[450px] md:h-[500px] relative overflow-hidden p-2 rounded-lg border border-[var(--color-neutral)]/30 shadow-custom-sm bg-white">
+                  {isMounted && (
                     <MapContainer
                       center={{ lat: -27.5132, lng: -48.4618 }}
                       zoom={12}
@@ -405,9 +397,7 @@ const ServiceMap: React.FC = () => {
 
                   {/* Botão de localização */}
                   <motion.button
-                    className={`absolute bottom-4 right-4 p-3 rounded-full border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)]/10 transition-all duration-300 z-[1000] ${
-                      isDarkMode ? 'bg-[#333333]' : 'bg-white'
-                    }`}
+                    className="absolute bottom-4 right-4 p-3 rounded-full border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)]/10 transition-all duration-300 z-[1000] bg-white"
                     onClick={handleGetUserLocation}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -421,9 +411,7 @@ const ServiceMap: React.FC = () => {
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className={`absolute top-4 left-0 right-0 mx-auto w-max px-3 py-1.5 z-[1000] flex items-center gap-2 rounded-lg border border-[var(--color-neutral)]/30 shadow-custom-sm ${
-                        isDarkMode ? 'bg-[#333333] text-white' : 'bg-white text-[var(--color-text)]'
-                      }`}
+                      className="absolute top-4 left-0 right-0 mx-auto w-max px-3 py-1.5 z-[1000] flex items-center gap-2 rounded-lg border border-[var(--color-neutral)]/30 shadow-custom-sm bg-white text-[var(--color-text)]"
                     >
                       <MapPin size={14} className="text-[var(--color-accent)]" />
                       <span className="font-medium text-sm">{selectedLocation}</span>
