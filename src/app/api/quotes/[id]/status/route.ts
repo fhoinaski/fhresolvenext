@@ -1,38 +1,33 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import dbConnect from '@/lib/mongodb';
 import QuoteModel from '@/models/quote';
 
-interface Params {
-  params: {
-    id: string;
-  };
-}
-
-export async function PUT(req: Request, { params }: Params) {
+export async function PUT(request: NextRequest, context: any) {
   try {
     const session = await getServerSession();
-    
+
     if (!session) {
       return NextResponse.json(
         { error: 'Não autorizado' },
         { status: 401 }
       );
     }
-    
+
     await dbConnect();
-    
-    const { status, notes } = await req.json();
-    
+
+    const id = context.params.id;
+    const { status, notes } = await request.json();
+
     if (!status || !['novo', 'em_contato', 'convertido', 'encerrado'].includes(status)) {
       return NextResponse.json(
         { error: 'Status inválido' },
         { status: 400 }
       );
     }
-    
+
     const updatedQuote = await QuoteModel.findByIdAndUpdate(
-      params.id,
+      id,
       {
         status,
         notes,
@@ -40,14 +35,14 @@ export async function PUT(req: Request, { params }: Params) {
       },
       { new: true }
     );
-    
+
     if (!updatedQuote) {
       return NextResponse.json(
         { error: 'Orçamento não encontrado' },
         { status: 404 }
       );
     }
-    
+
     return NextResponse.json({
       message: 'Status atualizado com sucesso',
       data: updatedQuote,

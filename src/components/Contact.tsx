@@ -95,7 +95,7 @@ const Contact: React.FC = () => {
     border focus:outline-none focus:ring-2 bg-[var(--color-card-bg)] text-[var(--color-card-text)] transition-all`;
 
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-[var(--color-light)] dark:bg-[var(--color-primary)]">
+    <section id="contact" className="py-16 sm:py-20 bg-[var(--color-light)]">
       <div className="container">
         <div className="text-center mb-12">
           <motion.span 

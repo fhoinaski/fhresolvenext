@@ -21,6 +21,13 @@
   
   /* Adição de tom intermediário */
   --color-accent-dark: #247885; /* Versão mais escura do turquesa para hover */
+  --color-accent-light: #4BAAB7; /* Versão mais clara do turquesa para efeitos */
+  
+  /* Cores de ação */
+  --color-success: #22c55e; /* Verde para indicar sucesso */
+  --color-warning: #f59e0b; /* Amarelo para indicar avisos */
+  --color-error: #ef4444; /* Vermelho para indicar erros */
+  --color-info: #3b82f6; /* Azul para informações */
   
   /* RGB para animações e opacidades */
   --color-accent-rgb: 43, 141, 154; /* Azul Turquesa em RGB */
@@ -41,25 +48,40 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Variáveis para animações */
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+  --transition-slow: 350ms;
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  
+  /* Variáveis para bordas arredondadas */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
 }
 
 [data-theme="dark"] {
-  /* Tema Escuro com a nova paleta */
-  --color-primary: #252525; /* Preto */
-  --color-accent: #2B8D9A; /* Azul Turquesa */
-  --color-secondary: #8D9192; /* Cinza Médio */
-  --color-neutral: #8D9192; /* Cinza Médio para neutro no dark mode */
-  --color-text: #FFFFFF; /* Branco para texto no dark mode */
-  --color-text-light: #FFFFFF; /* Branco para texto sobre fundos escuros */
-  --color-dark: #252525; /* Preto */
-  --color-light: #333333; /* Uma versão um pouco mais clara do preto para o fundo */
-  --color-gray: #3A3A3A; /* Cinza escuro para backgrounds secundários */
-  --color-paralel: #EDEDED; /* Cinza claro */
-  --color-card-bg: #333333; /* Fundo de cards no dark mode */
-  --color-card-text: #FFFFFF; /* Texto branco para cards no dark mode */
+  --color-text: #FFFFFF !important;
+  --color-text-light: #FFFFFF !important;
+  --color-card-bg: #333333 !important;
+  --color-card-text: #FFFFFF !important;
+  --color-light: #1F1F1F !important; /* Escurecido para maior contraste */
+  --color-dark: #252525 !important;
+  --color-primary: #FFFFFF !important;
+  --color-gray: #3A3A3A !important;
+  --color-neutral: #8D9192 !important;
   
-  /* Adição de tom intermediário */
-  --color-accent-dark: #247885; /* Versão mais escura do turquesa para hover */
+  /* Ajustes de sombras para o tema escuro */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 /* Definindo fontes */
@@ -87,9 +109,57 @@ html.no-scroll {
 
 /* Transições suaves */
 *, *::before, *::after {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter;
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: var(--transition-fast);
+}
+
+/* Forçar todas as classes text-[var(--color-text)] para terem a cor correta no tema dark */
+[data-theme="dark"] .text-\[var\(--color-text\)\] {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .text-\[var\(--color-text\)\]\/80,
+[data-theme="dark"] .text-\[var\(--color-text\)\]\/70 {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme="dark"] .text-\[var\(--color-card-text\)\] {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .bg-\[var\(--color-card-bg\)\] {
+  background-color: #333333 !important;
+}
+
+[data-theme="dark"] .dark\:text-white {
+  color: #FFFFFF !important;
+}
+
+/* Aplicar cores corretas para texto em elementos card */
+[data-theme="dark"] .card, 
+[data-theme="dark"] .card-text {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .card-text-secondary {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Define variável específica para texto no modo dark */
+[data-theme="dark"] {
+  --color-text-dark: #FFFFFF !important;
+}
+
+/* Cores específicas para o tema dark */
+.dark-theme .card {
+  background-color: #333333;
+  color: #FFFFFF;
+}
+
+.dark-theme .section-title,
+.dark-theme .section-subtitle {
+  color: #FFFFFF;
 }
 
 /* Scrollbar minimalista */
@@ -114,9 +184,61 @@ html.no-scroll {
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
-  border-radius: 0.25rem;
+  border-radius: var(--radius-sm);
 }
+
 @layer utilities {
+  /* Utilitários para mascaras e efeitos visuais */
+  .mask-right {
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+  
+  .mask-bottom {
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  }
+  
+  .mask-radial {
+    mask-image: radial-gradient(circle, black 40%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle, black 40%, transparent 70%);
+  }
+  
+  /* Utilitários para backdrops */
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
+  
+  .backdrop-saturate-50 {
+    backdrop-filter: saturate(50%);
+  }
+  
+  /* Efeito de máscara para a barra de progresso */
+  .loading-bar {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .loading-bar-progress {
+    mask-image: linear-gradient(to right, transparent 100%, black 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 100%, black 100%);
+  }
+
+  /* Animações de partículas */
+  .particle-tool {
+    animation: float-tool 5s infinite ease-in-out;
+  }
+
+  @keyframes float-tool {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(10deg);
+    }
+  }
+  
+  /* Utilitários para texto adaptativo */
   .text-adaptive {
     @apply text-[var(--color-text)];
   }
@@ -127,6 +249,19 @@ html.no-scroll {
   
   .text-adaptive-muted {
     @apply text-[var(--color-text)] opacity-60;
+  }
+  
+  /* Utilitários para glassmorphism */
+  .glass {
+    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border border-white/20 dark:border-gray-800/20;
+  }
+  
+  .glass-dark {
+    @apply bg-gray-900/70 backdrop-blur-md border border-gray-800/20;
+  }
+  
+  .glass-light {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
   }
 }
 
@@ -156,6 +291,22 @@ html.no-scroll {
   }
   .btn-outline:hover {
     background-color: rgba(var(--color-accent-rgb), 0.1);
+  }
+  
+  .btn-success {
+    @apply bg-green-600 text-white hover:bg-green-700;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+  
+  .btn-warning {
+    @apply bg-yellow-500 text-white hover:bg-yellow-600;
+  }
+  
+  .btn-info {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
   }
 
   .section-title {
@@ -192,7 +343,99 @@ html.no-scroll {
   }
 
   .badge-primary {
-    @apply bg-accent-20 text-[var(--color-accent)];
+    @apply bg-[var(--color-accent)]/20 text-[var(--color-accent)];
+  }
+  
+  .badge-success {
+    @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400;
+  }
+  
+  .badge-danger {
+    @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+  }
+  
+  .badge-info {
+    @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400;
+  }
+  
+  .badge-neutral {
+    @apply bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300;
+  }
+  
+  /* Componentes de tabela responsiva */
+  .table-container {
+    @apply w-full overflow-x-auto rounded-lg shadow-sm;
+  }
+  
+  .table-responsive {
+    @apply min-w-full divide-y divide-[var(--color-neutral)]/20;
+  }
+  
+  .table-header {
+    @apply bg-[var(--color-neutral)]/10 border-b border-[var(--color-neutral)]/20;
+  }
+  
+  .table-header-cell {
+    @apply px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-[var(--color-card-text)] opacity-70 cursor-pointer hover:text-[var(--color-accent)];
+  }
+  
+  .table-row {
+    @apply hover:bg-[var(--color-neutral)]/5 transition-colors;
+  }
+  
+  .table-cell {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-[var(--color-card-text)];
+  }
+  
+  /* Componentes de botões de ação */
+  .action-icon-button {
+    @apply p-1.5 rounded-full text-[var(--color-card-text)] opacity-70 hover:bg-[var(--color-accent)]/10 hover:text-[var(--color-accent)] hover:opacity-100 transition-all;
+  }
+  
+  /* Componentes de cards para mobile */
+  .mobile-card {
+    @apply bg-[var(--color-neutral)]/5 rounded-lg overflow-hidden border border-[var(--color-neutral)]/20 mb-4;
+  }
+  
+  .mobile-card-header {
+    @apply p-4 flex justify-between items-start;
+  }
+  
+  .mobile-card-content {
+    @apply px-4 py-2 space-y-2 text-sm;
+  }
+  
+  .mobile-card-footer {
+    @apply bg-[var(--color-neutral)]/10 px-4 py-3 flex justify-end gap-2;
+  }
+  
+  /* Componentes de modais */
+  .modal-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm;
+  }
+  
+  .modal-container {
+    @apply bg-[var(--color-card-bg)] rounded-lg shadow-xl w-full max-w-md overflow-hidden;
+  }
+  
+  .modal-accent-border {
+    @apply p-1 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)];
+  }
+  
+  .modal-content {
+    @apply p-5 bg-[var(--color-card-bg)] rounded-t-lg;
+  }
+  
+  .modal-header {
+    @apply flex items-center gap-3 mb-6;
+  }
+  
+  .modal-footer {
+    @apply flex justify-end space-x-3 mt-6;
   }
 }
 
@@ -227,6 +470,24 @@ html.no-scroll {
   animation: float 4s ease-in-out infinite;
 }
 
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
 /* Responsividade */
 @media (max-width: 640px) {
   .section-title {
@@ -242,6 +503,73 @@ html.no-scroll {
   }
   .container {
     padding-left: 1.5rem;  /* sm:px-6 */
+    padding-right: 1.5rem;
+  }
+  
+  /* Ajustes para visualização em dispositivos móveis */
+  .mobile-card {
+    padding: 1rem !important;
+  }
+
+  .mobile-card-header {
+    margin-bottom: 0.75rem !important;
+  }
+
+  .mobile-card-content {
+    font-size: 0.875rem !important;
+  }
+
+  /* Botões mais adequados para toque */
+  .mobile-action-button {
+    padding: 0.625rem !important;
+    min-height: 2.5rem !important;
+    min-width: 2.5rem !important;
+  }
+
+  /* Melhor visualização de status badges em mobile */
+  .status-badge {
+    padding: 0.25rem 0.75rem !important;
+    font-size: 0.7rem !important;
+  }
+  
+  /* Classes para melhorar a visualização de texto em mobile */
+  .mobile-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  /* Ajuste automático de texto para tamanhos de tela menores */
+  .mobile-break-words {
+    word-break: break-word;
+    hyphens: auto;
+  }
+  
+  /* Melhor visualização de modais em telas pequenas */
+  .mobile-modal {
+    width: 92vw !important;
+    max-width: none !important;
+    margin: 1rem auto !important;
+  }
+  
+  .mobile-modal-content {
+    padding: 1rem !important;
+  }
+  
+  .mobile-modal-actions {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+  
+  .mobile-modal-actions button {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 }
@@ -270,16 +598,6 @@ html.no-scroll {
 
 .dark .text-white {
   color: var(--color-text-light);
-}
-
-/* Classe de pulse personalizada */
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.animate-pulse-slow {
-  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* Novas classes utilitárias para espaçamento consistente */
@@ -323,4 +641,94 @@ html.no-scroll {
 
 .shadow-custom-xl {
   box-shadow: var(--shadow-xl);
+}
+
+/* Classes utilitárias para transições */
+.transition-fast {
+  transition-duration: var(--transition-fast);
+}
+
+.transition-normal {
+  transition-duration: var(--transition-normal);
+}
+
+.transition-slow {
+  transition-duration: var(--transition-slow);
+}
+
+/* Utilitários para bordas arredondadas */
+.rounded-custom-sm {
+  border-radius: var(--radius-sm);
+}
+
+.rounded-custom-md {
+  border-radius: var(--radius-md);
+}
+
+.rounded-custom-lg {
+  border-radius: var(--radius-lg);
+}
+
+.rounded-custom-xl {
+  border-radius: var(--radius-xl);
+}
+
+.rounded-custom-2xl {
+  border-radius: var(--radius-2xl);
+}
+
+.rounded-custom-full {
+  border-radius: var(--radius-full);
+}
+
+/* Classe de utilitário para esconder elementos em mobile */
+.hide-on-mobile {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+
+/* Classe de utilitário para mostrar elementos apenas em mobile */
+.show-on-mobile {
+  @media (min-width: 769px) {
+    display: none !important;
+  }
+}
+
+/* Layout de grid adaptativo */
+.mobile-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* Correções para Leaflet popups no modo dark */
+.leaflet-popup-content-wrapper {
+  background-color: white !important;
+  color: #333 !important;
+}
+
+.leaflet-popup-tip {
+  background-color: white !important;
+}
+
+/* Garante que os textos nas listas no modo dark sejam sempre visíveis */
+[data-theme="dark"] .bg-\[var\(--color-card-bg\)\]:not(.bg-\[var\(--color-accent\)\]) li:not(.bg-\[var\(--color-accent\)\]) {
+  color: #FFFFFF;
+}
+
+/* Corrige cor do texto nas tabs móveis que não estão ativas */
+[data-theme="dark"] button:not(.bg-\[var\(--color-accent\)\]) .text-\[var\(--color-text\)\] {
+  color: #FFFFFF !important;
+}
+
+/* Garantir que itens de navegação sejam visíveis no modo dark */
+[data-theme="dark"] .bg-\[var\(--color-gray\)\] {
+  background-color: #3A3A3A !important;
+  color: #FFFFFF;
+}
+
+/* Corrige a cor do texto nos itens de região não selecionados */
+[data-theme="dark"] .bg-\[var\(--color-gray\)\] .text-\[var\(--color-card-text\)\] {
+  color: #FFFFFF !important;
 }

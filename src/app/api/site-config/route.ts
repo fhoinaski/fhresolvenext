@@ -1,121 +1,133 @@
 // src/app/api/site-config/route.ts
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth';
 import dbConnect from '@/lib/mongodb';
 import SettingsModel from '@/models/settings';
+import { z } from 'zod';
+
+interface SiteConfig {
+  siteName: string;
+  siteDescription: string;
+  contactInfo: {
+    email: string;
+    phone: string;
+    address: string;
+  };
+  socialMedia: {
+    instagram?: string;
+    facebook?: string;
+    whatsapp?: string;
+  };
+  tracking?: {
+    facebookPixel?: string;
+    tiktokPixel?: string;
+    googleTagManager?: string;
+  };
+  updatedAt: Date;
+}
+
+const SiteConfigSchema = z.object({
+  siteName: z.string().min(1, 'Nome do site é obrigatório'),
+  siteDescription: z.string().min(1, 'Descrição é obrigatória'),
+  contactInfo: z.object({
+    email: z.string().email('Email inválido'),
+    phone: z.string().min(10, 'Telefone deve ter pelo menos 10 dígitos'),
+    address: z.string().min(5, 'Endereço muito curto'),
+  }),
+  socialMedia: z.object({
+    instagram: z.string().optional(),
+    facebook: z.string().optional(),
+    whatsapp: z.string().min(10, 'WhatsApp deve ter pelo menos 10 dígitos').optional(),
+  }),
+  tracking: z.object({
+    facebookPixel: z.string().optional(),
+    tiktokPixel: z.string().optional(),
+    googleTagManager: z.string().optional(),
+  }).optional(),
+});
+
+const defaultConfig: SiteConfig = {
+  siteName: 'FH Resolve',
+  siteDescription: 'Serviços profissionais de manutenção residencial em Florianópolis',
+  contactInfo: {
+    email: 'contato@fhresolve.com.br',
+    phone: '48991919791',
+    address: 'Ratones, Florianópolis - SC',
+  },
+  socialMedia: {
+    instagram: '',
+    facebook: '',
+    whatsapp: '48991919791',
+  },
+  tracking: {
+    facebookPixel: '',
+    tiktokPixel: '',
+    googleTagManager: '',
+  },
+  updatedAt: new Date(),
+};
+
+let cachedConfig: SiteConfig | null = null;
+let cacheTime = 0;
+const CACHE_TTL = 60 * 60 * 1000;
+
+async function getConfig(): Promise<SiteConfig> {
+  const now = Date.now();
+  if (cachedConfig && now - cacheTime < CACHE_TTL) return cachedConfig;
+
+  await dbConnect();
+  const siteConfig = await SettingsModel.findOne({}).lean();
+
+  if (!siteConfig) {
+    await SettingsModel.create(defaultConfig);
+    cachedConfig = defaultConfig;
+    cacheTime = now;
+    return defaultConfig;
+  }
+
+  cachedConfig = { ...defaultConfig, ...siteConfig, updatedAt: siteConfig.updatedAt || new Date() };
+  cacheTime = now;
+  return cachedConfig;
+}
 
 export async function GET() {
   try {
-    await dbConnect();
-    
-    // Buscar as configurações existentes ou retornar um objeto padrão
-    const siteConfig = await SettingsModel.findOne({}).lean() || {
-      siteName: 'FH Resolve',
-      siteDescription: 'Serviços profissionais de manutenção residencial em Florianópolis',
-      contactInfo: {
-        email: 'contato@fhresolve.com.br',
-        phone: '48991919791',
-        address: 'Ratones, Florianópolis - SC'
-      },
-      socialMedia: {
-        instagram: '',
-        facebook: '',
-        whatsapp: '48991919791'
-      },
-      themes: {
-        light: {
-          primary: '#252525',
-          accent: '#2B8D9A',
-          secondary: '#8D9192',
-          neutral: '#EDEDED',
-          text: '#252525',
-          textLight: '#FFFFFF',
-          dark: '#252525',
-          light: '#FFFFFF',
-          gray: '#EDEDED',
-          cardBg: '#FFFFFF',
-          cardText: '#252525',
-          paralel: '#F5F5F5',
-          accentDark: '#247885'
-        },
-        dark: {
-          primary: '#252525',
-          accent: '#2B8D9A',
-          secondary: '#8D9192',
-          neutral: '#8D9192',
-          text: '#FFFFFF',
-          textLight: '#FFFFFF',
-          dark: '#252525',
-          light: '#333333',
-          gray: '#3A3A3A',
-          cardBg: '#333333',
-          cardText: '#FFFFFF',
-          paralel: '#EDEDED',
-          accentDark: '#247885'
-        }
-      },
-      activeTemplate: 'default',
-      activeTheme: 'light',
-      defaultTheme: 'light',
-      maintenanceMode: false,
-      logoUrl: '/logo.svg',
-      faviconUrl: '/favicon.ico'
-    };
-    
-    return NextResponse.json(siteConfig);
+    const config = await getConfig();
+    return NextResponse.json(config);
   } catch (error) {
-    console.error('Erro ao buscar configurações do site:', error);
-    return NextResponse.json(
-      { error: 'Erro ao buscar configurações do site' },
-      { status: 500 }
-    );
+    console.error('Erro ao buscar configurações:', error);
+    return NextResponse.json({ error: 'Erro ao buscar configurações' }, { status: 500 });
   }
 }
 
-export async function POST(req: Request) {
+export async function POST(request: Request) {
   try {
     const session = await getServerSession(authOptions);
-    
-    // Verificar se é um administrador
-    if (!session || session.user.role !== 'admin') {
-      return NextResponse.json(
-        { error: 'Não autorizado' },
-        { status: 401 }
-      );
+    if (!session) {
+      return NextResponse.json({ error: 'Não autorizado' }, { status: 401 });
     }
-    
+
+    const data = await request.json();
+    const validatedData = SiteConfigSchema.parse(data);
+
     await dbConnect();
-    const data = await req.json();
-    
-    // Validar campos obrigatórios
-    if (!data.siteName || !data.siteDescription) {
-      return NextResponse.json(
-        { error: 'Nome do site e descrição são obrigatórios' },
-        { status: 400 }
-      );
-    }
-    
-    // Atualizar ou criar configurações
-    const updatedConfig = await SettingsModel.findOneAndUpdate(
-      {}, // Filtro vazio para encontrar qualquer documento (haverá apenas um)
-      { 
-        ...data,
-        updatedBy: session.user.id,
-        updatedAt: new Date()
-      },
+    const config = await SettingsModel.findOneAndUpdate(
+      {},
+      { ...validatedData, updatedAt: new Date() },
       { upsert: true, new: true }
     );
-    
-    return NextResponse.json({
-      message: 'Configurações salvas com sucesso',
-      data: updatedConfig
-    });
+
+    // Limpar cache
+    cachedConfig = null;
+    cacheTime = 0;
+
+    return NextResponse.json(config);
   } catch (error) {
-    console.error('Erro ao salvar configurações do site:', error);
-    return NextResponse.json(
-      { error: 'Erro ao salvar configurações do site' },
-      { status: 500 }
-    );
+    console.error('Erro ao salvar configurações:', error);
+    if (error instanceof z.ZodError) {
+      return NextResponse.json({ error: 'Dados inválidos', details: error.errors }, { status: 400 });
+    }
+    return NextResponse.json({ error: 'Erro ao salvar configurações' }, { status: 500 });
   }
 }

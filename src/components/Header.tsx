@@ -1,11 +1,15 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon, Wrench, MessageCircle } from 'lucide-react';
-import { useTheme } from '@/context/ThemeContext';
+import { motion, AnimatePresence, useSpring } from 'framer-motion';
+import { Menu, X, Wrench, MessageCircle } from 'lucide-react';
 import { useFeedback } from '../context/FeedbackContext';
+import { useSiteConfig } from '@/context/SiteConfigContext';
 
+interface CommonContextType {
+  theme?: 'light' | 'dark';
+  toggleTheme?: () => void;
+}
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +18,6 @@ const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   
-  const { theme, toggleTheme } = useTheme();
   const { showToast } = useFeedback();
 
   const navLinks = [
@@ -22,6 +25,7 @@ const Header = () => {
     { name: 'Serviços', href: '#benefits' },
     { name: 'Sobre', href: '#about' },
     { name: 'Trabalhos', href: '#portfolio' },
+   
     { name: 'Contato', href: '#contact' },
   ];
 
@@ -35,7 +39,7 @@ const Header = () => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
+          if (rect.top <= 120 && rect.bottom >= 0) {
             setActiveSection(section);
             break;
           }
@@ -44,65 +48,108 @@ const Header = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, [navLinks]);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.classList.add('menu-open');
+    } else {
+      const timer = setTimeout(() => {
+        document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+    
     return () => {
       document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
     };
   }, [isOpen]);
 
-  const handleThemeChange = () => {
-    toggleTheme();
-    // Forçar atualização dos componentes com um pequeno atraso
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 100);
-    showToast(`Tema alterado para ${theme === 'light' ? 'escuro' : 'claro'}`, 'success');
-  };
-
   const handleLinkClick = (href: string) => {
-    setIsOpen(false);
+    if (isOpen) {
+      setTimeout(() => {
+        setIsOpen(false);
+      }, 100);
+    }
+    
+    if (href.startsWith('/')) {
+      window.location.href = href;
+      return;
+    }
+    
     const element = document.querySelector(href);
     if (element) {
       const headerHeight = headerRef.current?.offsetHeight || 0;
-      window.scrollTo({
-        top: element.getBoundingClientRect().top + window.scrollY - headerHeight,
-        behavior: 'smooth',
+      
+      requestAnimationFrame(() => {
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - headerHeight - 20;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
       });
     }
   };
 
   const getHeaderBackground = () => {
+    const baseBg = 'bg-[var(--color-light)]';
     if (isOpen) {
-      return theme === 'light'
-        ? 'bg-white/95 backdrop-blur-md'
-        : 'bg-[var(--color-primary)]/95 backdrop-blur-md';
+      return `${baseBg}/95 backdrop-blur-md`;
     }
-
     if (scrolled) {
-      return theme === 'light'
-        ? 'bg-white/90 backdrop-blur-md shadow-sm'
-        : 'bg-[var(--color-primary)]/90 backdrop-blur-md shadow-sm';
+      return `${baseBg}/90 backdrop-blur-md shadow-sm`;
     }
-
-    return theme === 'light'
-      ? 'bg-white/80 backdrop-blur-sm'
-      : 'bg-[var(--color-primary)]/80 backdrop-blur-sm';
+    return `${baseBg}/80 backdrop-blur-sm`;
   };
 
   const getLinkClass = (isActive: boolean) => {
-    const baseClass = "relative font-medium py-2 px-1 transition-colors";
+    const baseClass = "relative font-medium py-2 px-1 transition-all";
     
     if (isActive) {
       return `${baseClass} text-[var(--color-accent)]`;
     }
     
-    return theme === 'light' 
-      ? `${baseClass} text-[var(--color-primary)]/80 hover:text-[var(--color-accent)]` 
-      : `${baseClass} text-[var(--color-text)]/80 hover:text-[var(--color-accent)]`;
+    return `${baseClass} text-[var(--color-primary)]/80 hover:text-[var(--color-accent)]`;
+  };
+
+  const mobileMenuVariants = {
+    closed: { 
+      x: "-100%",
+      opacity: 0,
+      transition: { 
+        type: "spring", 
+        stiffness: 400, 
+        damping: 40,
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+        when: "afterChildren"
+      }
+    },
+    open: { 
+      x: 0, 
+      opacity: 1,
+      transition: { 
+        type: "spring", 
+        stiffness: 300, 
+        damping: 30,
+        staggerChildren: 0.07,
+        delayChildren: 0.1,
+        when: "beforeChildren"
+      }
+    }
+  };
+
+  const mobileNavItemVariants = {
+    closed: { x: -20, opacity: 0 },
+    open: { x: 0, opacity: 1 }
   };
 
   return (
@@ -127,7 +174,7 @@ const Header = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.02, x: 3 }}
           whileTap={{ scale: 0.98 }}
         >
           <Wrench className="h-6 w-6 text-[var(--color-accent)]" aria-hidden="true" />
@@ -154,7 +201,11 @@ const Header = () => {
                   <motion.div
                     className="absolute -bottom-1 left-0 w-full h-0.5 bg-[var(--color-accent)] rounded-full"
                     layoutId="activeNavIndicator"
-                    transition={{ duration: 0.3 }}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 500, 
+                      damping: 30 
+                    }}
                   />
                 )}
               </motion.a>
@@ -164,29 +215,6 @@ const Header = () => {
 
         <div className="flex items-center gap-3">
           <motion.button
-            onClick={handleThemeChange}
-            className="p-2 rounded-full bg-[var(--color-neutral)]/5 hover:bg-[var(--color-accent)]/10 transition-colors z-50"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label={`Alternar para tema ${theme === 'light' ? 'escuro' : 'claro'}`}
-          >
-            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-          </motion.button>
-
-          <motion.a
-            href="https://wa.me/5548991919791"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-[var(--color-accent)] text-white rounded-md hover:bg-[var(--color-accent-dark)] transition-all shadow-sm z-50"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            aria-label="Contato via WhatsApp"
-          >
-            <MessageCircle size={16} aria-hidden="true" />
-            <span className="text-sm font-medium">Orçamento Grátis</span>
-          </motion.a>
-
-          <motion.button
             className="md:hidden z-50 p-2 rounded-md bg-[var(--color-accent)] text-white"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
@@ -195,7 +223,29 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
+            <AnimatePresence initial={false} mode="wait">
+              {isOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -45, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 45, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X size={20} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 45, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -45, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu size={20} />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.button>
         </div>
 
@@ -205,12 +255,12 @@ const Header = () => {
               id="mobile-menu"
               ref={navRef}
               className="fixed inset-0 w-full min-h-screen md:hidden z-40 overflow-y-auto"
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.3 }}
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={mobileMenuVariants}
               style={{
-                backgroundColor: theme === 'light' ? 'rgba(255, 255, 255, 0.98)' : 'rgba(17, 24, 39, 0.98)',
+                backgroundColor: 'rgba(255, 255, 255, 0.98)',
                 backdropFilter: 'blur(10px)',
               }}
             >
@@ -226,13 +276,14 @@ const Header = () => {
                           e.preventDefault();
                           handleLinkClick(link.href);
                         }}
-                        className={`block py-3 px-4 text-base font-medium rounded-lg transition-colors ${
+                        className={`block py-3 px-4 text-base font-medium rounded-lg transition-all ${
                           isActive
                             ? `bg-[var(--color-accent)]/10 text-[var(--color-accent)] font-medium border-l-2 border-[var(--color-accent)]`
                             : `text-[var(--color-text)]/80 dark:text-[var(--color-text)]/80 hover:bg-[var(--color-neutral)]/10`
                         }`}
-                        whileHover={{ x: 3 }}
-                        whileTap={{ x: 0 }}
+                        variants={mobileNavItemVariants}
+                        whileHover={{ x: 5, backgroundColor: isActive ? undefined : 'rgba(var(--color-accent-rgb), 0.05)' }}
+                        whileTap={{ x: 0, scale: 0.98 }}
                       >
                         {link.name}
                       </motion.a>
@@ -240,17 +291,22 @@ const Header = () => {
                   })}
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[var(--color-neutral)]/20">
-                  <a
+                <motion.div 
+                  className="mt-6 pt-4 border-t border-[var(--color-neutral)]/20"
+                  variants={mobileNavItemVariants}
+                >
+                  <motion.a
                     href="https://wa.me/5548991919791"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-[var(--color-accent)] text-white py-3 px-4 rounded-lg font-medium"
+                    className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-[var(--color-accent)] text-white rounded-lg font-medium shadow-md"
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    whileTap={{ scale: 0.97, y: 0 }}
                   >
-                    <MessageCircle size={18} />
-                    Fale pelo WhatsApp
-                  </a>
-                </div>
+                    <MessageCircle className="h-5 w-5" />
+                    <span>Fale Conosco via WhatsApp</span>
+                  </motion.a>
+                </motion.div>
               </div>
             </motion.div>
           )}

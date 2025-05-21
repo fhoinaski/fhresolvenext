@@ -1,16 +1,16 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import ReviewModel from '@/models/review';
 
-export async function GET(req: Request, context: { params: Promise<{ id: string }> }) {
+// Função GET
+export async function GET(request: NextRequest, context: any) {
   console.log('=== Iniciando GET /api/reviews/[id] ===');
   try {
     console.log('Conectando ao MongoDB...');
     await dbConnect();
     console.log('Conexão com MongoDB estabelecida com sucesso');
 
-    const params = await context.params;
-    const { id } = params;
+    const id = context.params.id; // Acessando id diretamente sem Promise
     console.log('Token recebido (como id):', id);
 
     console.log('Buscando review no banco de dados...');
@@ -23,14 +23,17 @@ export async function GET(req: Request, context: { params: Promise<{ id: string 
     }
 
     console.log('Review encontrado:', review);
-    return NextResponse.json({
-      name: review.name,
-      location: review.location,
-      isTokenUsed: review.isTokenUsed,
-      isApproved: review.isApproved,
-      rating: review.rating,
-      text: review.text,
-    }, { status: 200 });
+    return NextResponse.json(
+      {
+        name: review.name,
+        location: review.location,
+        isTokenUsed: review.isTokenUsed,
+        isApproved: review.isApproved,
+        rating: review.rating,
+        text: review.text,
+      },
+      { status: 200 }
+    );
   } catch (error: any) {
     console.error('Erro ao buscar avaliação:', {
       message: error.message,
@@ -43,13 +46,13 @@ export async function GET(req: Request, context: { params: Promise<{ id: string 
   }
 }
 
-export async function PUT(req: Request, context: { params: Promise<{ id: string }> }) {
+// Função PUT
+export async function PUT(request: NextRequest, context: any) {
   console.log('=== Iniciando PUT /api/reviews/[id] ===');
   try {
     await dbConnect();
-    const params = await context.params; // Garantir que params seja resolvido
-    const { id } = params; // Extrair id após await
-    const { rating, text, isTokenUsed } = await req.json();
+    const id = context.params.id; // Acessando id diretamente sem Promise
+    const { rating, text, isTokenUsed } = await request.json();
 
     console.log('Dados recebidos para atualização:', { token: id, rating, text, isTokenUsed });
 

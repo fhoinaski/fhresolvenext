@@ -1,14 +1,13 @@
 'use client';
 
 import { useEffect, useState, Suspense } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import axios from '@/lib/axios';
 import { Providers } from './providers';
 
 import Hero from '../components/Hero';
-import LoadingScreen from '../components/LoadingScreen';
 import Header from '../components/Header';
 
 // Componentes carregados dinamicamente
@@ -29,39 +28,34 @@ const SectionLoader = () => (
 );
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
   const [defaultTheme, setDefaultTheme] = useState<'light' | 'dark' | 'system'>('system');
   const [maintenanceMode, setMaintenanceMode] = useState(false);
 
   useEffect(() => {
-    // Buscar configurações do site
     const fetchSettings = async () => {
       try {
-        setLoading(true);
-        const response = await axios.get('/api/settings');
-        if (response.data.defaultTheme) {
+        const response = await axios.get('/api/settings', {
+          timeout: 5000
+        }).catch(error => {
+          console.error('Erro na requisição de settings:', error);
+          return { data: {} };
+        });
+        
+        if (response.data?.defaultTheme) {
           setDefaultTheme(response.data.defaultTheme);
         }
-        if (response.data.maintenanceMode !== undefined) {
+        
+        if (response.data?.maintenanceMode !== undefined) {
           setMaintenanceMode(response.data.maintenanceMode);
         }
       } catch (error) {
         console.error('Erro ao buscar configurações:', error);
-      } finally {
-        // Configurar timer para simulação de carregamento
-        const timer = setTimeout(() => {
-          setLoading(false);
-        }, 2000);
-        
-        return () => clearTimeout(timer);
       }
     };
-
     fetchSettings();
   }, []);
 
-  // Renderiza a página de manutenção se o modo de manutenção estiver ativo
-  if (maintenanceMode && !loading) {
+  if (maintenanceMode) {
     return (
       <Providers initialTheme={defaultTheme}>
         <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-[var(--color-gray)] dark:bg-[var(--color-primary)]">
@@ -101,59 +95,62 @@ export default function Home() {
 
   return (
     <Providers initialTheme={defaultTheme}>
-      <AnimatePresence mode="wait">
-        {loading ? (
-          <LoadingScreen key="loader" />
-        ) : (
-          <motion.div 
-            key="content"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col min-h-screen"
-          >
-            <Header />
-            <main className="flex-grow">
-              <Hero />
-              <Suspense fallback={<SectionLoader />}>
-                <Benefits />
-              </Suspense>
-              <Suspense fallback={<SectionLoader />}>
-                <About />
-              </Suspense>
-              <Suspense fallback={<SectionLoader />}>
-                <Portfolio />
-              </Suspense>
-              <Suspense fallback={<SectionLoader />}>
-                <Testimonials />
-              </Suspense>
-              <Suspense fallback={<SectionLoader />}>
-                <ServiceMap />
-              </Suspense>
-              <Suspense fallback={<SectionLoader />}>
-                <Contact />
-              </Suspense>
-            </main>
-            <Suspense fallback={<div className="h-20" />}>
-              <Footer />
-            </Suspense>
-            <motion.a
-              href="https://wa.me/5548991919791"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="fixed bottom-6 right-6 bg-[var(--color-accent)] text-white p-3 rounded-full shadow-lg z-50 flex items-center justify-center"
-              whileHover={{ scale: 1.1, boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1 }}
-              aria-label="Entre em contato via WhatsApp"
-            >
-              <MessageCircle size={26} />
-            </motion.a>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        key="content"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ 
+          duration: 0.8,
+          ease: "easeInOut" 
+        }}
+        className="flex flex-col min-h-screen"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          <Header />
+        </motion.div>
+        <main className="flex-grow">
+          <Hero />
+          <Suspense fallback={<SectionLoader />}>
+            <Benefits />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <About />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <Portfolio />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <Testimonials />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <ServiceMap />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <Contact />
+          </Suspense>
+        </main>
+        <Suspense fallback={<div className="h-20" />}>
+          <Footer />
+        </Suspense>
+        <motion.a
+          href="https://wa.me/5548991919791"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 bg-[var(--color-accent)] text-white p-3 rounded-full shadow-lg z-50 flex items-center justify-center"
+          whileHover={{ scale: 1.1, boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          aria-label="Entre em contato via WhatsApp"
+        >
+          <MessageCircle size={26} />
+        </motion.a>
+      </motion.div>
     </Providers>
   );
 }

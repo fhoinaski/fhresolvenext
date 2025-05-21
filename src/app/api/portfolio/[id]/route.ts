@@ -1,19 +1,14 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import dbConnect from '@/lib/mongodb';
 import PortfolioModel from '@/models/portfolio';
 
-interface Params {
-  params: {
-    id: string;
-  };
-}
-
-export async function GET(req: Request, { params }: Params) {
+export async function GET(request: NextRequest, context: any) {
   try {
     await dbConnect();
     
-    const portfolioItem = await PortfolioModel.findById(params.id);
+    const id = context.params.id;
+    const portfolioItem = await PortfolioModel.findById(id);
     
     if (!portfolioItem) {
       return NextResponse.json(
@@ -32,7 +27,7 @@ export async function GET(req: Request, { params }: Params) {
   }
 }
 
-export async function PUT(req: Request, { params }: Params) {
+export async function PUT(request: NextRequest, context: any) {
   try {
     const session = await getServerSession();
     
@@ -45,9 +40,9 @@ export async function PUT(req: Request, { params }: Params) {
     
     await dbConnect();
     
-    const data = await req.json();
+    const id = context.params.id;
+    const data = await request.json();
     
-    // Validação básica
     if (!data.title || !data.description || !data.category) {
       return NextResponse.json(
         { error: 'Dados incompletos' },
@@ -56,7 +51,7 @@ export async function PUT(req: Request, { params }: Params) {
     }
     
     const updatedPortfolioItem = await PortfolioModel.findByIdAndUpdate(
-      params.id,
+      id,
       {
         ...data,
         updatedAt: new Date(),
@@ -83,7 +78,7 @@ export async function PUT(req: Request, { params }: Params) {
   }
 }
 
-export async function DELETE(req: Request, { params }: Params) {
+export async function DELETE(request: NextRequest, context: any) {
   try {
     const session = await getServerSession();
     
@@ -96,7 +91,8 @@ export async function DELETE(req: Request, { params }: Params) {
     
     await dbConnect();
     
-    const deletedPortfolioItem = await PortfolioModel.findByIdAndDelete(params.id);
+    const id = context.params.id;
+    const deletedPortfolioItem = await PortfolioModel.findByIdAndDelete(id);
     
     if (!deletedPortfolioItem) {
       return NextResponse.json(

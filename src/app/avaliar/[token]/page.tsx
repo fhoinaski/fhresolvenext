@@ -1,5 +1,6 @@
-import dynamic from 'next/dynamic';
+// src/app/avaliar/[token]/page.tsx
+import ClientReviewWrapper from './ClientReviewWrapper';
 
-const ReviewPage = dynamic(() => import('./ReviewPage'), { ssr: false });
-
-export default ReviewPage;
+export default function Page() {
+  return <ClientReviewWrapper />;
+}

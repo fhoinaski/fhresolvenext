@@ -19,32 +19,39 @@ interface ServiceDetailsProps {
 
 // Coordenadas de Ratones, Florianópolis
 const RATONES_COORDS = {
-  lat: -27.5132, 
+  lat: -27.5132,
   lng: -48.4618
 };
 
 // Raio de cobertura sem taxa adicional (em km)
-const COVERAGE_RADIUS = 20;
+const COVERAGE_RADIUS = 15;
+// Taxa adicional por km
+const ADDITIONAL_PRICE_PER_KM = 10;
+
+// Valor mínimo para serviços em Ratones
+const MINIMUM_PRICE = 150;
+// Componentes de detalhes do serviço
 
 const Benefits: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { once: true, amount: 0.2 });
   const [selectedService, setSelectedService] = useState<ServiceDetailsProps | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [userLocation, setUserLocation] = useState<{lat: number, lng: number} | null>(null);
+  const [userLocation, setUserLocation] = useState<{ lat: number, lng: number } | null>(null);
   const [distance, setDistance] = useState<number | null>(null);
   const [locationError, setLocationError] = useState<string | null>(null);
   const [isCheckingLocation, setIsCheckingLocation] = useState(false);
+  const isDarkMode = false;
 
   // Detectar dispositivo móvel
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 640);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => {
       window.removeEventListener('resize', checkMobile);
     };
@@ -55,11 +62,11 @@ const Benefits: React.FC = () => {
     const R = 6371; // Raio da Terra em km
     const dLat = (lat2 - lat1) * Math.PI / 180;
     const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = 
-      Math.sin(dLat/2) * Math.sin(dLat/2) +
-      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
-      Math.sin(dLon/2) * Math.sin(dLon/2); 
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distance = R * c; // Distância em km
     return Math.round(distance * 10) / 10; // Arredondar para uma casa decimal
   };
@@ -68,7 +75,7 @@ const Benefits: React.FC = () => {
   const getUserLocation = () => {
     setIsCheckingLocation(true);
     setLocationError(null);
-    
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -77,13 +84,13 @@ const Benefits: React.FC = () => {
             lng: position.coords.longitude
           };
           setUserLocation(userCoords);
-          
+
           // Calcular distância até Ratones
           const dist = calculateDistance(
             userCoords.lat, userCoords.lng,
             RATONES_COORDS.lat, RATONES_COORDS.lng
           );
-          
+
           setDistance(dist);
           setIsCheckingLocation(false);
         },
@@ -92,7 +99,7 @@ const Benefits: React.FC = () => {
           setLocationError("Não foi possível obter sua localização. Verifique as permissões do navegador.");
           setIsCheckingLocation(false);
         },
-        { 
+        {
           enableHighAccuracy: true,
           timeout: 10000,
           maximumAge: 0
@@ -106,78 +113,135 @@ const Benefits: React.FC = () => {
 
   // Dados expandidos para cada serviço com valores corrigidos
   const benefitsData = [
-    { 
-      icon: <ShieldCheck className="h-7 w-7" />, 
-      title: 'Confiabilidade', 
+    {
+      icon: <ShieldCheck className="h-7 w-7" />,
+      title: 'Confiabilidade',
       description: 'Serviços com garantia.',
       details: {
-        features: ['Garantia em todos os serviços executados', 'Profissionais qualificados e experientes', 'Atendimento ético e transparente'],
-        benefits: ['Tranquilidade na contratação', 'Garantia de até 90 dias para serviços realizados', 'Compromisso com a qualidade'],
+        features: ['Garantia em todos os serviços executados', 'Profissional qualificado e experiente', 'Atendimento ético e transparente', 'Uso de materiais de qualidade', 'Orçamento sem compromisso'],
+        benefits: ['Tranquilidade na contratação', 'Garantia de até 90 dias para serviços realizados', 'Compromisso com a qualidade', 'Satisfação garantida'],
         pricing: {
           basePrice: 'R$ 150,00',
-          additionalInfo: 'Valor mínimo para áreas até 20km de Ratones'
+          additionalInfo: 'Valor mínimo para áreas até 10km'
         }
       }
     },
-    { 
-      icon: <Clock className="h-7 w-7" />, 
-      title: 'Rapidez', 
+    {
+      icon: <Clock className="h-7 w-7" />,
+      title: 'Rapidez',
       description: 'Atendimento ágil.',
       details: {
-        features: ['Resposta rápida em até 1 hora', 'Agendamento flexível', 'Atendimento de emergência disponível'],
-        benefits: ['Solução rápida para seus problemas', 'Economia de tempo', 'Redução do tempo de espera'],
+        features: [ 'Agendamento flexível', 'Atendimento de emergência disponível', 'Horários estendidos incluindo finais de semana', 'Equipe sempre disponível'],
+        benefits: ['Solução rápida para seus problemas', 'Economia de tempo', 'Redução do tempo de espera', 'Menos transtornos no seu dia a dia'],
         pricing: {
           basePrice: 'R$ 150,00',
           additionalInfo: 'Taxa adicional para atendimentos emergenciais'
         }
       }
     },
-    { 
-      icon: <Zap className="h-7 w-7" />, 
-      title: 'Serviços Elétricos', 
+    {
+      icon: <Zap className="h-7 w-7" />,
+      title: 'Serviços Elétricos',
       description: 'Soluções completas.',
       details: {
-        features: ['Instalação de tomadas e interruptores', 'Montagem de lustres e luminárias', 'Instalação de chuveiros elétricos', 'Reparos em curtos-circuitos'],
-        benefits: ['Segurança para sua residência', 'Economia de energia', 'Prevenção de acidentes'],
+        features: [
+          'Instalação de tomadas e interruptores',
+          'Montagem de lustres e luminárias',
+          'Instalação de chuveiros elétricos',
+          'Reparos em curtos-circuitos',
+          'Instalação de ventiladores de teto',
+          'Manutenção de disjuntores e quadros elétricos',
+          'Substituição de fios e cabos danificados',
+          'Instalação de sensores de presença',
+          // 'Instalação de ar-condicionado',
+          'Identificação e solução de falhas elétricas',
+          // 'Adequação e atualização de redes elétricas',
+          'Instalação de equipamentos eletrônicos',
+          'Instalação de iluminação externa e jardim',
+          'Reparo em sistemas de segurança'
+        ],
+        benefits: ['Segurança para sua residência', 'Economia de energia', 'Prevenção de acidentes', 'Instalações dentro das normas técnicas'],
         pricing: {
           basePrice: 'A partir de R$ 150,00',
           additionalInfo: 'Valor pode variar conforme complexidade'
         }
       }
     },
-    { 
-      icon: <Droplet className="h-7 w-7" />, 
-      title: 'Serviços Hidráulicos', 
+    {
+      icon: <Droplet className="h-7 w-7" />,
+      title: 'Serviços Hidráulicos',
       description: 'Reparos e instalações.',
       details: {
-        features: ['Reparo de vazamentos', 'Desentupimento de pias e ralos', 'Instalação de torneiras e chuveiros', 'Troca de registros e válvulas'],
-        benefits: ['Economia na conta de água', 'Prevenção de infiltrações', 'Aumento da vida útil das instalações'],
+        features: [
+          'Reparo de vazamentos',
+          'Desentupimento de pias e ralos',
+          'Instalação de torneiras e chuveiros',
+          'Troca de registros e válvulas',
+          'Conserto de caixas acopladas',
+          'Manutenção de bombas d\'água',
+          'Instalação de filtros e purificadores',
+          'Troca de tubulações',
+          'Impermeabilização de áreas úmidas',
+          'Instalação de pias e cubas',
+          'Manutenção de caixas d\'água',
+          // 'Instalação de aquecedores a gás',
+          // 'Detecção de vazamentos ocultos',
+          'Desentupimento de tubulações externas',
+          'Instalação de sistemas de irrigação',
+          'Reparo em calhas e rufos'
+        ],
+        benefits: ['Economia na conta de água', 'Prevenção de infiltrações', 'Aumento da vida útil das instalações', 'Solução definitiva para problemas recorrentes'],
         pricing: {
           basePrice: 'A partir de R$ 150,00',
           additionalInfo: 'Valor pode variar conforme complexidade'
         }
       }
     },
-    { 
-      icon: <Wrench className="h-7 w-7" />, 
-      title: 'Serviços Gerais', 
+    {
+      icon: <Wrench className="h-7 w-7" />,
+      title: 'Serviços Gerais',
       description: 'Montagem e reparos.',
       details: {
-        features: ['Montagem de móveis', 'Fixação de prateleiras e quadros', 'Pequenos reparos em alvenaria', 'Instalação de persianas e cortinas'],
-        benefits: ['Otimização dos espaços', 'Acabamento de qualidade', 'Praticidade no dia a dia'],
+        features: [
+          'Montagem de móveis',
+          'Fixação de prateleiras e quadros',
+          'Pequenos reparos em alvenaria',
+          'Instalação de persianas e cortinas',
+          'Limpezas externas e internas',
+          'Manutenção de telhados e calhas',
+          'Reparos em pinturas',
+          'Tratamento de umidade',
+          'Limpeza de pisos e telhas',
+          'Instalação de portas e fechaduras',
+          'Montagem e instalação de armários',
+          'Conserto de gavetas e dobradiças',
+          'Reparos em pisos e revestimentos',
+          'Instalação de box e espelhos',
+          'Vedação de janelas e portas',
+          'Instalação de antenas',
+          // 'Reparo em portões e cercas',
+          'Instalação de corrimãos e guarda-corpos',
+          'Manutenção preventiva residencial',
+          'Limpeza de calhas e rufos',
+          'Reparo de rachaduras em paredes',
+          'Aplicação de silicone e vedantes',
+          'Troca de vidros e esquadrias',
+          'Limpeza de caixas d\'água'
+        ],
+        benefits: ['Otimização dos espaços', 'Acabamento de qualidade', 'Praticidade no dia a dia', 'Valorização do imóvel'],
         pricing: {
           basePrice: 'A partir de R$ 150,00',
           additionalInfo: 'Valor pode variar conforme complexidade do serviço'
         }
       }
     },
-    { 
-      icon: <CreditCard className="h-7 w-7" />, 
-      title: 'Parcelamento', 
+    {
+      icon: <CreditCard className="h-7 w-7" />,
+      title: 'Parcelamento',
       description: 'Até 12x sem juros.',
       details: {
-        features: ['Parcelamento em até 12x sem juros', 'Aceitamos todos os cartões', 'Desconto para pagamento à vista', 'Transferência via PIX'],
-        benefits: ['Flexibilidade de pagamento', 'Planejamento financeiro', 'Solução imediata sem comprometer o orçamento'],
+        features: ['Parcelamento em até 12x sem juros', 'Aceitamos todos os cartões', 'Desconto para pagamento à vista', 'Transferência via PIX', 'Opções de pagamento via boleto'],
+        benefits: ['Flexibilidade de pagamento', 'Planejamento financeiro', 'Solução imediata sem comprometer o orçamento', 'Facilidade e segurança nas transações'],
         pricing: {
           basePrice: 'R$ 150,00',
           additionalInfo: 'Valor mínimo para parcelamento'
@@ -188,12 +252,12 @@ const Benefits: React.FC = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1, 
-      transition: { 
+    visible: {
+      opacity: 1,
+      transition: {
         staggerChildren: 0.1,
         delayChildren: 0.2
-      } 
+      }
     },
   };
 
@@ -209,7 +273,7 @@ const Benefits: React.FC = () => {
     } else {
       document.body.style.overflow = '';
     }
-    
+
     return () => {
       document.body.style.overflow = '';
     };
@@ -217,24 +281,24 @@ const Benefits: React.FC = () => {
 
   // Modal de detalhes do serviço com melhor responsividade
   const ServiceDetailsModal: React.FC<{ service: ServiceDetailsProps, onClose: () => void }> = ({ service, onClose }) => (
-    <motion.div 
+    <motion.div
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
       {/* Backdrop com efeito de blur */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
       />
-      
+
       {/* Conteúdo do modal */}
-      <motion.div 
-        className="bg-[var(--color-card-bg)] rounded-lg shadow-xl w-full max-w-lg relative z-10 max-h-[90vh] overflow-y-auto"
+      <motion.div
+        className={`${isDarkMode ? 'bg-[#333333]' : 'bg-white'} rounded-lg shadow-xl w-full max-w-lg relative z-10 max-h-[90vh] overflow-y-auto`}
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
@@ -244,36 +308,36 @@ const Benefits: React.FC = () => {
         }}
       >
         {/* Cabeçalho estilizado */}
-        <div className="sticky top-0 bg-[var(--color-card-bg)] z-10 border-b border-[var(--color-neutral)]/20">
+        <div className={`sticky top-0 ${isDarkMode ? 'bg-[#333333]' : 'bg-white'} z-10 border-b border-[var(--color-neutral)]/20`}>
           <div className="relative px-4 py-5 sm:p-6">
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-[var(--color-accent)]/10 rounded-full" />
             <div className="absolute top-0 right-0 w-20 h-20 bg-[var(--color-accent)]/20 rounded-full" />
-            
-            <button 
-              onClick={onClose} 
+
+            <button
+              onClick={onClose}
               className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full bg-[var(--color-neutral)]/10 hover:bg-[var(--color-neutral)]/20 transition-colors z-20"
               aria-label="Fechar"
             >
               <X size={18} className="text-[var(--color-text)]" />
             </button>
-            
+
             <div className="flex items-center gap-3 sm:gap-4 relative">
               <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] flex-shrink-0">
                 {service.icon}
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold card-text">{service.title}</h3>
-                <p className="text-[var(--color-card-text)]/80 text-sm sm:text-base">{service.description}</p>
+                <h3 className={`text-xl sm:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-[#252525]'}`}>{service.title}</h3>
+                <p className={`${isDarkMode ? 'text-white/80' : 'text-[#252525]/80'} text-sm sm:text-base`}>{service.description}</p>
               </div>
             </div>
           </div>
         </div>
-        
+
         {/* Corpo do modal com detalhes */}
         <div className="px-4 py-3 sm:px-6 sm:pb-6">
           {/* Recursos */}
           <div className="mb-5">
-            <h4 className="text-base sm:text-lg font-medium card-text flex items-center gap-2 mb-3">
+            <h4 className={`text-base sm:text-lg font-medium ${isDarkMode ? 'text-white' : 'text-[#252525]'} flex items-center gap-2 mb-3`}>
               <span className="w-5 h-5 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center text-[var(--color-accent)]">
                 <ChevronRight size={14} />
               </span>
@@ -281,8 +345,8 @@ const Benefits: React.FC = () => {
             </h4>
             <ul className="space-y-2">
               {service.details.features.map((feature, idx) => (
-                <motion.li 
-                  key={idx} 
+                <motion.li
+                  key={idx}
                   className="flex items-start gap-2"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -293,15 +357,15 @@ const Benefits: React.FC = () => {
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                   </span>
-                  <span className="card-text-secondary text-sm sm:text-base">{feature}</span>
+                  <span className={`${isDarkMode ? 'text-white/80' : 'text-[#252525]/80'} text-sm sm:text-base`}>{feature}</span>
                 </motion.li>
               ))}
             </ul>
           </div>
-          
+
           {/* Benefícios */}
           <div className="mb-5">
-            <h4 className="text-base sm:text-lg font-medium card-text flex items-center gap-2 mb-3">
+            <h4 className={`text-base sm:text-lg font-medium ${isDarkMode ? 'text-white' : 'text-[#252525]'} flex items-center gap-2 mb-3`}>
               <span className="w-5 h-5 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center text-[var(--color-accent)]">
                 <ChevronRight size={14} />
               </span>
@@ -309,8 +373,8 @@ const Benefits: React.FC = () => {
             </h4>
             <ul className="space-y-2">
               {service.details.benefits.map((benefit, idx) => (
-                <motion.li 
-                  key={idx} 
+                <motion.li
+                  key={idx}
                   className="flex items-start gap-2"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -323,15 +387,15 @@ const Benefits: React.FC = () => {
                       <path d="M2 12l10 5 10-5"></path>
                     </svg>
                   </span>
-                  <span className="card-text-secondary text-sm sm:text-base">{benefit}</span>
+                  <span className={`${isDarkMode ? 'text-white/80' : 'text-[#252525]/80'} text-sm sm:text-base`}>{benefit}</span>
                 </motion.li>
               ))}
             </ul>
           </div>
-          
+
           {/* Área de cobertura com verificação de localização */}
-          <motion.div 
-            className="p-3 sm:p-4 bg-[var(--color-neutral)]/10 rounded-lg mb-5"
+          <motion.div
+            className={`p-3 sm:p-4 ${isDarkMode ? 'bg-[var(--color-neutral)]/20' : 'bg-[var(--color-neutral)]/10'} rounded-lg mb-5`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -340,9 +404,9 @@ const Benefits: React.FC = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-[var(--color-accent)]" />
-                  <span className="font-medium card-text text-sm sm:text-base">Área de Cobertura</span>
+                  <span className={`font-medium ${isDarkMode ? 'text-white' : 'text-[#252525]'} text-sm sm:text-base`}>Área de Cobertura</span>
                 </div>
-                <button 
+                <button
                   onClick={getUserLocation}
                   disabled={isCheckingLocation}
                   className="text-xs sm:text-sm px-2 py-1 bg-[var(--color-accent)]/10 text-[var(--color-accent)] rounded hover:bg-[var(--color-accent)]/20 transition-colors flex items-center gap-1"
@@ -351,26 +415,26 @@ const Benefits: React.FC = () => {
                   <Navigation className="h-3 w-3" />
                 </button>
               </div>
-              
+
               <div className="text-sm">
-                <p className="card-text-secondary">Até 20km de Ratones, Florianópolis</p>
+                <p className={`${isDarkMode ? 'text-white/80' : 'text-[#252525]/80'}`}>Até 10km de Ratones, Florianópolis</p>
                 
+
                 {locationError && (
-                  <div className="mt-2 text-red-500 bg-red-50 dark:bg-red-900/20 p-2 rounded-md flex items-start gap-2">
+                  <div className={`mt-2 ${isDarkMode ? 'bg-red-900/20 text-red-400' : 'bg-red-50 text-red-500'} p-2 rounded-md flex items-start gap-2`}>
                     <AlertTriangle className="h-4 w-4 mt-0.5 flex-shrink-0" />
                     <span className="text-xs">{locationError}</span>
                   </div>
                 )}
-                
+
                 {distance !== null && (
-                  <div className={`mt-2 p-2 rounded-md flex items-start gap-2 ${
-                    distance <= COVERAGE_RADIUS 
-                      ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400' 
-                      : 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400'
-                  }`}>
+                  <div className={`mt-2 p-2 rounded-md flex items-start gap-2 ${distance <= COVERAGE_RADIUS
+                      ? isDarkMode ? 'bg-green-900/20 text-green-400' : 'bg-green-50 text-green-600'
+                      : isDarkMode ? 'bg-amber-900/20 text-amber-400' : 'bg-amber-50 text-amber-600'
+                    }`}>
                     <span className="text-xs flex items-center gap-1">
                       <span className="font-medium">Sua localização:</span> {distance} km de Ratones
-                      {distance <= COVERAGE_RADIUS 
+                      {distance <= COVERAGE_RADIUS
                         ? ' (dentro da área de cobertura)'
                         : ` (${(distance - COVERAGE_RADIUS).toFixed(1)}km além da área de cobertura padrão)`
                       }
@@ -380,23 +444,23 @@ const Benefits: React.FC = () => {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Preços */}
-          <motion.div 
-            className="p-3 sm:p-4 bg-[var(--color-accent)]/5 rounded-lg mb-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between"
+          <motion.div
+            className={`p-3 sm:p-4 ${isDarkMode ? 'bg-[var(--color-accent)]/10' : 'bg-[var(--color-accent)]/5'} rounded-lg mb-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
             <div className="flex items-center gap-2 sm:gap-3">
               <CreditCard className="h-5 w-5 text-[var(--color-accent)]" />
-              <span className="font-medium card-text text-sm sm:text-base">Valor</span>
+              <span className={`font-medium ${isDarkMode ? 'text-white' : 'text-[#252525]'} text-sm sm:text-base`}>Valor</span>
             </div>
-            <div className="card-text-secondary text-sm sm:text-base text-right">
+            <div className={`${isDarkMode ? 'text-white/80' : 'text-[#252525]/80'} text-sm sm:text-base text-right`}>
               <div className="font-medium">
                 {service.details.pricing.basePrice}
                 {distance !== null && distance > COVERAGE_RADIUS && (
-                  <span className="text-amber-500 dark:text-amber-400">
+                  <span className={`${isDarkMode ? 'text-amber-400' : 'text-amber-500'}`}>
                     {' + taxa adicional por distância'}
                   </span>
                 )}
@@ -406,7 +470,7 @@ const Benefits: React.FC = () => {
               )}
             </div>
           </motion.div>
-          
+
           {/* Botões */}
           <div className="flex flex-col sm:flex-row gap-3">
             <motion.a
@@ -419,10 +483,10 @@ const Benefits: React.FC = () => {
             >
               Solicitar Orçamento
             </motion.a>
-            
+
             <motion.button
               onClick={onClose}
-              className="flex-1 py-3 px-4 border border-[var(--color-neutral)]/30 rounded-md font-medium hover:bg-[var(--color-neutral)]/10 transition-colors card-text"
+              className={`flex-1 py-3 px-4 border border-[var(--color-neutral)]/30 rounded-md font-medium hover:bg-[var(--color-neutral)]/10 transition-colors ${isDarkMode ? 'text-white' : 'text-[#252525]'}`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
@@ -436,13 +500,13 @@ const Benefits: React.FC = () => {
   );
 
   return (
-    <section 
-      id="benefits" 
-      ref={sectionRef} 
-      className="py-16 sm:py-20 bg-[var(--color-gray)] dark:bg-[var(--color-gray)]"
+    <section
+      id="benefits"
+      ref={sectionRef}
+      className={`py-16 sm:py-20 ${isDarkMode ? 'bg-[#3A3A3A]' : 'bg-[#EDEDED]'}`}
     >
       <div className="container">
-        <motion.div 
+        <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -451,11 +515,11 @@ const Benefits: React.FC = () => {
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-medium mb-4">
             Nossos Serviços
           </span>
-          <h2 className="section-title mb-4">Soluções Completas</h2>
-          <p className="section-subtitle">O que podemos fazer por você</p>
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-[var(--color-text)]'}`}>Soluções Completas</h2>
+          <p className={`text-base md:text-lg ${isDarkMode ? 'text-white/80' : 'text-[var(--color-text)]/80'} max-w-2xl mx-auto`}>O que podemos fazer por você</p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -468,8 +532,8 @@ const Benefits: React.FC = () => {
               variants={itemVariants}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
-              <div className="card h-full flex flex-col dark:bg-[var(--color-card-bg)] transition-all duration-500 
-                            border-2 border-transparent group-hover:border-[var(--color-accent)]/20">
+              <div className={`card h-full flex flex-col ${isDarkMode ? 'bg-[var(--color-card-bg)]' : 'bg-white'} transition-all duration-500 
+                            border-2 border-transparent group-hover:border-[var(--color-accent)]/20`}>
                 <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--color-accent)]/5 rounded-bl-full -z-10 
                               group-hover:w-full group-hover:h-full group-hover:rounded-none transition-all duration-500"></div>
                 <div className="flex flex-col items-center text-center h-full">
@@ -478,8 +542,8 @@ const Benefits: React.FC = () => {
                                 group-hover:bg-[var(--color-accent)]/20 transition-all duration-300">
                     {benefit.icon}
                   </div>
-                  <h3 className="text-xl font-medium mb-3 card-text">{benefit.title}</h3>
-                  <p className="text-[var(--color-secondary)] mb-5">{benefit.description}</p>
+                  <h3 className={`text-xl font-medium mb-3 ${isDarkMode ? 'text-white' : 'text-[var(--color-card-text)]'}`}>{benefit.title}</h3>
+                  <p className={`${isDarkMode ? 'text-white/80' : 'text-[var(--color-secondary)]'} mb-5`}>{benefit.description}</p>
                   <div className="mt-auto pt-4">
                     <motion.button
                       onClick={() => setSelectedService(benefit)}
@@ -496,7 +560,7 @@ const Benefits: React.FC = () => {
           ))}
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="mt-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -517,9 +581,9 @@ const Benefits: React.FC = () => {
       {/* Modal de detalhes */}
       <AnimatePresence>
         {selectedService && (
-          <ServiceDetailsModal 
-            service={selectedService} 
-            onClose={() => setSelectedService(null)} 
+          <ServiceDetailsModal
+            service={selectedService}
+            onClose={() => setSelectedService(null)}
           />
         )}
       </AnimatePresence>

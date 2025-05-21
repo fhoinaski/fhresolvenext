@@ -1,82 +1,26 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useRouter, useParams } from 'next/navigation';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import { Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Star } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
+import { useReview } from '@/hooks/useReview';
 
 export default function ReviewPage() {
-  const router = useRouter();
-  const { token } = useParams();
-  const [review, setReview] = useState<{
-    name: string;
-    location: string;
-    isTokenUsed: boolean;
-    isApproved: boolean;
-    rating?: number;
-    text?: string;
-  } | null>(null);
-  const [rating, setRating] = useState<number>(0);
-  const [text, setText] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(true);
-  const [submitting, setSubmitting] = useState<boolean>(false);
-  const [submitted, setSubmitted] = useState<boolean>(false);
+  const {
+    review,
+    rating,
+    setRating,
+    text,
+    setText,
+    loading,
+    submitting,
+    submitted,
+    setSubmitted,
+    handleSubmit,
+  } = useReview();
 
-  useEffect(() => {
-    if (token) {
-      fetchReview();
-    }
-  }, [token]);
-
-  useEffect(() => {
-    if (review && review.isTokenUsed && !review.isApproved) {
-      setRating(review.rating || 0);
-      setText(review.text || '');
-    }
-  }, [review]);
-
-  const fetchReview = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get(`/api/reviews/${token}`);
-      setReview(response.data);
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Link inválido ou expirado.');
-      router.push('/');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (rating < 1 || rating > 5) {
-      toast.error('Por favor, selecione uma avaliação entre 1 e 5 estrelas.');
-      return;
-    }
-    if (!text.trim()) {
-      toast.error('Por favor, escreva um comentário.');
-      return;
-    }
-
-    setSubmitting(true);
-    try {
-      await axios.put(`/api/reviews/${token}`, { rating, text, isTokenUsed: true });
-      setReview({ ...review!, rating, text, isTokenUsed: true });
-      setSubmitted(true);
-      toast.success(review?.isTokenUsed ? 'Avaliação atualizada com sucesso!' : 'Avaliação enviada com sucesso! Obrigado.');
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Erro ao processar avaliação. Tente novamente.');
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  const renderStars = (currentRating: number = rating) => {
-    return Array(5)
+  const renderStars = (currentRating: number = rating) =>
+    Array(5)
       .fill(0)
       .map((_, index) => (
         <motion.button
@@ -90,15 +34,13 @@ export default function ReviewPage() {
         >
           <Star
             size={32}
-            className={`transition-all duration-300 ${
-              index < currentRating
+            className={`transition-all duration-300 ${index < currentRating
                 ? 'fill-[var(--color-accent)] text-[var(--color-accent)]'
                 : 'text-[var(--color-secondary)] hover:text-[var(--color-accent-dark)]'
-            }`}
+              }`}
           />
         </motion.button>
       ));
-  };
 
   if (loading) {
     return (
@@ -118,6 +60,20 @@ export default function ReviewPage() {
   }
 
   if (!review) return null;
+
+  const linkVariants = {
+    rest: {
+      scale: 1,
+      backgroundColor: 'var(--color-accent)',
+    },
+    hover: {
+      scale: 1.05,
+      backgroundColor: 'var(--color-accent-dark)',
+    },
+    tap: {
+      scale: 0.95,
+    },
+  };
 
   return (
     <motion.div
@@ -176,9 +132,7 @@ export default function ReviewPage() {
               <p className="text-sm text-[var(--color-text)]/70 dark:text-[var(--color-text-light)]/70">
                 Obrigado, {review.name}, por avaliar sua experiência em {review.location}!
               </p>
-              <div className="flex justify-center gap-4">
-                {renderStars(review.rating)}
-              </div>
+              <div className="flex justify-center gap-4">{renderStars(review.rating)}</div>
               <p className="text-base italic text-[var(--color-dark)] dark:text-[var(--color-text)]">
                 "{review.text}"
               </p>
@@ -187,8 +141,10 @@ export default function ReviewPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary w-full mt-6 inline-block text-center"
-                whileHover={{ scale: 1.05, backgroundColor: 'var(--color-accent-dark)' }}
-                whileTap={{ scale: 0.95 }}
+                variants={linkVariants}
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 Visitar o Site
@@ -241,40 +197,12 @@ export default function ReviewPage() {
                 <motion.button
                   type="submit"
                   disabled={submitting}
-                  className="btn btn-primary w-full text-white flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn btn-primary w-full"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  <AnimatePresence mode="wait">
-                    {submitting ? (
-                      <motion.div
-                        key="spinner"
-                        className="flex items-center gap-2"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <motion.div
-                          className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                        />
-                        Enviando...
-                      </motion.div>
-                    ) : (
-                      <motion.span
-                        key="text"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {review.isTokenUsed ? 'Salvar Alterações' : 'Enviar Avaliação'}
-                      </motion.span>
-                    )}
-                  </AnimatePresence>
+                  {submitting ? 'Enviando...' : 'Enviar Avaliação'}
                 </motion.button>
               </form>
             </motion.div>

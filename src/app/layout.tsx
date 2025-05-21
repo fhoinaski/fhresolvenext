@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import { Toaster } from '@/components/ui/Toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,8 +17,8 @@ export const metadata: Metadata = {
     ],
     shortcut: ['/shortcut-icon.png'],
   },
-  title: 'FH Resolve - Marido de Aluguel em Florianópolis | Reparos Residenciais',
-  description: 'Serviços de marido de aluguel em Florianópolis: reparos elétricos, hidráulicos e gerais em Ratones, Jurerê, Ingleses e região. Orçamento grátis via WhatsApp!',
+  title: 'FH Resolve - Soluções em Manutenção',
+  description: 'Soluções completas em manutenção predial, elétrica, hidráulica e muito mais.',
   keywords: 'marido de aluguel Florianópolis, manutenção residencial Ratones, reparos elétricos Jurerê, serviços hidráulicos Ingleses, FH Resolve',
   openGraph: {
     title: 'FH Resolve - Manutenção Residencial em Florianópolis',
@@ -48,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -81,13 +83,11 @@ export default function RootLayout({
             })
           }}
         />
-        {/* Script para prevenir flash de tema incorreto */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
-                  // Verifica se estamos no dashboard observando a URL
                   const isDashboard = window.location.pathname.startsWith('/dashboard');
                   const themeKey = isDashboard ? 'dashboard-theme' : 'site-theme';
                   
@@ -98,7 +98,6 @@ export default function RootLayout({
                   document.documentElement.setAttribute('data-theme', theme);
                 } catch (e) {
                   console.error('Error accessing localStorage', e);
-                  // Em caso de erro, definir tema padrão
                   document.documentElement.setAttribute('data-theme', 'light');
                 }
               })();
@@ -107,7 +106,15 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

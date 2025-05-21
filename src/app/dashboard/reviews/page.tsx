@@ -1,326 +1,286 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Card, Heading } from '@/components/ui/Card';
-import { Star, ThumbsUp, ThumbsDown, Plus, Copy, CheckCircle, Link as LinkIcon } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { useRouter, useParams } from 'next/navigation';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { Star } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Card } from '@/components/ui/Card';
 
-interface Review {
-  _id: string;
-  name: string;
-  location: string;
-  rating: number;
-  text: string;
-  image?: string;
-  isApproved: boolean;
-  createdAt: string;
-  isTokenUsed: boolean;
-}
-
-export default function ReviewsPage() {
+export default function ReviewPage() {
   const router = useRouter();
-  const [reviews, setReviews] = useState<Review[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [showGenerateModal, setShowGenerateModal] = useState(false);
-  const [newReview, setNewReview] = useState({ name: '', location: '' });
-  const [generatedLink, setGeneratedLink] = useState('');
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [linkCopied, setLinkCopied] = useState(false);
+  const { token } = useParams();
+  const [review, setReview] = useState<{
+    name: string;
+    location: string;
+    isTokenUsed: boolean;
+    isApproved: boolean;
+    rating?: number;
+    text?: string;
+  } | null>(null);
+  const [rating, setRating] = useState<number>(0);
+  const [text, setText] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
+  const [submitting, setSubmitting] = useState<boolean>(false);
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
   useEffect(() => {
-    fetchReviews();
-  }, []);
+    if (token) {
+      fetchReview();
+    }
+  }, [token]);
 
-  const fetchReviews = async () => {
+  useEffect(() => {
+    if (review && review.isTokenUsed && !review.isApproved) {
+      setRating(review.rating || 0);
+      setText(review.text || '');
+    }
+  }, [review]);
+
+  const fetchReview = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('/api/reviews', { withCredentials: true });
-      setReviews(response.data);
-    } catch (error) {
-      console.error('Erro ao buscar avaliações:', error);
-      toast.error('Erro ao carregar avaliações');
+      const response = await axios.get(`/api/reviews/${token}`);
+      setReview(response.data);
+    } catch (error: any) {
+      toast.error(error.response?.data?.error || 'Link inválido ou expirado.');
+      router.push('/');
     } finally {
       setLoading(false);
     }
   };
 
-  const approveReview = async (id: string) => {
-    try {
-      await axios.post(`/api/reviews/${id}/approve`, { approve: true }, { withCredentials: true });
-      toast.success('Avaliação aprovada com sucesso');
-      fetchReviews();
-    } catch (error) {
-      console.error('Erro ao aprovar avaliação:', error);
-      toast.error('Erro ao aprovar avaliação');
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (rating < 1 || rating > 5) {
+      toast.error('Por favor, selecione uma avaliação entre 1 e 5 estrelas.');
+      return;
     }
-  };
-
-  const rejectReview = async (id: string) => {
-    try {
-      await axios.post(`/api/reviews/${id}/approve`, { approve: false }, { withCredentials: true });
-      toast.success('Avaliação rejeitada com sucesso');
-      fetchReviews();
-    } catch (error) {
-      console.error('Erro ao rejeitar avaliação:', error);
-      toast.error('Erro ao rejeitar avaliação');
-    }
-  };
-
-  const generateReviewLink = async () => {
-    if (!newReview.name.trim() || !newReview.location.trim()) {
-      toast.error('Nome e localização não podem estar vazios');
+    if (!text.trim()) {
+      toast.error('Por favor, escreva um comentário.');
       return;
     }
 
-    setIsGenerating(true);
-
+    setSubmitting(true);
     try {
-      const response = await axios.post(
-        '/api/reviews/generate-token',
-        {
-          name: newReview.name.trim(),
-          location: newReview.location.trim(),
-        },
-        { withCredentials: true } // Enviar cookies de autenticação
-      );
-
-      setGeneratedLink(response.data.reviewLink);
-      toast.success('Link gerado com sucesso');
+      await axios.put(`/api/reviews/${token}`, { rating, text, isTokenUsed: true });
+      setReview({ ...review!, rating, text, isTokenUsed: true });
+      setSubmitted(true);
+      toast.success(review?.isTokenUsed ? 'Avaliação atualizada com sucesso!' : 'Avaliação enviada com sucesso! Obrigado.');
     } catch (error: any) {
-      console.error('Erro ao gerar link:', error);
-      const errorMessage =
-        error.response?.data?.error || 'Erro ao gerar link de avaliação';
-      const details = error.response?.data?.details
-        ? `: ${JSON.stringify(error.response.data.details)}`
-        : '';
-      toast.error(`${errorMessage}${details}`);
+      toast.error(error.response?.data?.error || 'Erro ao processar avaliação. Tente novamente.');
     } finally {
-      setIsGenerating(false);
+      setSubmitting(false);
     }
   };
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(generatedLink);
-    setLinkCopied(true);
-    toast.success('Link copiado para a área de transferência');
-    setTimeout(() => setLinkCopied(false), 3000);
-  };
-
-  const renderStars = (rating: number) => {
+  const renderStars = (currentRating: number = rating) => {
     return Array(5)
       .fill(0)
       .map((_, index) => (
-        <Star
+        <motion.button
           key={index}
-          size={16}
-          className={index < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}
-        />
+          type="button"
+          onClick={review?.isApproved || submitted ? undefined : () => setRating(index + 1)}
+          className={`focus:outline-none ${review?.isApproved || submitted ? 'cursor-default' : ''}`}
+          whileHover={review?.isApproved || submitted ? {} : { scale: 1.2, rotate: 10 }}
+          whileTap={review?.isApproved || submitted ? {} : { scale: 0.9 }}
+          transition={{ type: 'spring', stiffness: 300 }}
+        >
+          <Star
+            size={32}
+            className={`transition-all duration-300 ${
+              index < currentRating
+                ? 'fill-[var(--color-accent)] text-[var(--color-accent)]'
+                : 'text-[var(--color-secondary)] hover:text-[var(--color-accent-dark)]'
+            }`}
+          />
+        </motion.button>
       ));
   };
 
+  if (loading) {
+    return (
+      <motion.div
+        className="min-h-screen flex items-center justify-center bg-[var(--color-gray)]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.div
+          className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-accent)]"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+        />
+      </motion.div>
+    );
+  }
+
+  if (!review) return null;
+
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <Heading title="Avaliações" description="Gerencie as avaliações de clientes" />
-        <button
-          onClick={() => setShowGenerateModal(true)}
-          className="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md flex items-center gap-2"
-        >
-          <Plus size={16} />
-          Gerar Link
-        </button>
-      </div>
-
-      {loading ? (
-        <div className="flex justify-center py-8">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent"></div>
-        </div>
-      ) : reviews.length === 0 ? (
-        <Card>
-          <div className="py-8 text-center">
-            <p className="text-gray-500 dark:text-gray-400 mb-4">Nenhuma avaliação ainda</p>
-            <button
-              onClick={() => setShowGenerateModal(true)}
-              className="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md inline-flex items-center gap-2"
+    <motion.div
+      className="min-h-screen flex items-center justify-center bg-[var(--color-gray)] p-4 relative overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle at center, rgba(var(--color-accent-rgb), 0.1) 0%, transparent 70%)',
+          maskImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.8) 30%, transparent 70%)',
+          WebkitMaskImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.8) 30%, transparent 70%)',
+        }}
+      />
+      <Card className="relative z-10 w-full max-w-md mx-4 sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+        <AnimatePresence mode="wait">
+          {submitted && !review.isApproved ? (
+            <motion.div
+              key="submitted"
+              className="text-center space-y-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
-              <Plus size={16} />
-              Gerar Link para Avaliação
-            </button>
-          </div>
-        </Card>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reviews.map((review) => (
-            <Card key={review._id} className={review.isTokenUsed ? '' : 'border-dashed border-amber-500'}>
-              <div className="p-4">
-                {!review.isTokenUsed ? (
-                  <div className="text-center py-4">
-                    <p className="font-medium mb-2">Link enviado para {review.name}</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                      Aguardando cliente completar a avaliação
-                    </p>
-                    <div className="text-amber-500 animate-pulse flex items-center justify-center gap-2">
-                      <LinkIcon size={16} />
-                      <span className="text-sm">Link ativo</span>
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    <div className="flex justify-between">
-                      <div>
-                        <h3 className="font-medium text-lg">{review.name}</h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{review.location}</p>
-                      </div>
-                      <div
-                        className={`text-xs px-2 py-1 rounded-full ${
-                          review.isApproved
-                            ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
-                            : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
-                        }`}
-                      >
-                        {review.isApproved ? 'Aprovada' : 'Pendente'}
-                      </div>
-                    </div>
-                    <div className="flex my-3">{renderStars(review.rating)}</div>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">"{review.text}"</p>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">
-                      {new Date(review.createdAt).toLocaleDateString('pt-BR')}
-                    </div>
-                    {!review.isApproved && (
-                      <div className="mt-4 flex justify-end space-x-2">
-                        <button
-                          onClick={() => rejectReview(review._id)}
-                          className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md"
-                          title="Rejeitar"
-                        >
-                          <ThumbsDown size={16} />
-                        </button>
-                        <button
-                          onClick={() => approveReview(review._id)}
-                          className="p-2 text-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-md"
-                          title="Aprovar"
-                        >
-                          <ThumbsUp size={16} />
-                        </button>
-                      </div>
-                    )}
-                  </>
-                )}
+              <h1 className="text-lg font-medium text-[var(--color-text)]">
+                Avaliação Enviada
+              </h1>
+              <p className="text-sm text-[var(--color-text)]/70">
+                Obrigado, {review.name}, por sua avaliação! Ela será revisada em breve.
+              </p>
+              <motion.button
+                onClick={() => setSubmitted(false)}
+                className="btn btn-primary px-4 py-2 text-white"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                Editar Avaliação
+              </motion.button>
+            </motion.div>
+          ) : review.isApproved ? (
+            <motion.div
+              key="approved"
+              className="text-center space-y-4"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1 className="text-lg font-medium text-[var(--color-text)]">
+                Avaliação Aprovada
+              </h1>
+              <p className="text-sm text-[var(--color-text)]/70">
+                Obrigado, {review.name}, por avaliar sua experiência em {review.location}!
+              </p>
+              <div className="flex justify-center gap-4">
+                {renderStars(review.rating)}
               </div>
-            </Card>
-          ))}
-        </div>
-      )}
-
-      {/* Modal para gerar link de avaliação */}
-      {showGenerateModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-md">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Gerar Link para Avaliação</h2>
-              {generatedLink ? (
-                <div className="space-y-4">
-                  <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-md">
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                      Link gerado com sucesso! Compartilhe com o cliente:
-                    </p>
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="text"
-                        value={generatedLink}
-                        readOnly
-                        className="flex-1 p-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
-                      />
-                      <button
-                        onClick={copyToClipboard}
-                        className="p-2 text-accent hover:bg-accent/10 rounded-md"
-                        title="Copiar link"
+              <p className="text-base italic text-[var(--color-text)]">
+                "{review.text}"
+              </p>
+              <motion.a
+                href={typeof window !== 'undefined' ? window.location.origin : '/'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary w-full mt-6 inline-block text-center"
+                whileHover={{ scale: 1.05, backgroundColor: 'var(--color-accent-dark)' }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                Visitar o Site
+              </motion.a>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="form"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 50 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1 className="text-lg font-medium text-center text-[var(--color-text)]">
+                {review.isTokenUsed ? 'Editar Avaliação' : 'Deixe sua Avaliação'}
+              </h1>
+              <p className="text-sm text-center text-[var(--color-text)]/70 mt-2">
+                {review.isTokenUsed
+                  ? `Olá, ${review.name}! Você pode editar sua avaliação de ${review.location} antes da aprovação.`
+                  : `Olá, ${review.name}! Por favor, avalie sua experiência em ${review.location}.`}
+              </p>
+              <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+                <motion.div
+                  className="flex justify-center gap-4"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                >
+                  {renderStars()}
+                </motion.div>
+                <div>
+                  <label
+                    htmlFor="text"
+                    className="block text-sm font-medium text-[var(--color-text)] mb-1"
+                  >
+                    Comentário
+                  </label>
+                  <motion.textarea
+                    id="text"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    className="w-full px-3 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-text)] border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/50"
+                    rows={4}
+                    placeholder="Escreva seu comentário aqui..."
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  />
+                </div>
+                <motion.button
+                  type="submit"
+                  disabled={submitting}
+                  className="btn btn-primary w-full text-white flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <AnimatePresence mode="wait">
+                    {submitting ? (
+                      <motion.div
+                        key="spinner"
+                        className="flex items-center gap-2"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        {linkCopied ? <CheckCircle size={20} /> : <Copy size={20} />}
-                      </button>
-                    </div>
-                  </div>
-                  <div className="flex justify-end">
-                    <button
-                      onClick={() => {
-                        setShowGenerateModal(false);
-                        setGeneratedLink('');
-                        setNewReview({ name: '', location: '' });
-                        fetchReviews();
-                      }}
-                      className="px-4 py-2 bg-accent hover:bg-accent/90 text-white rounded-md"
-                    >
-                      Concluir
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                    >
-                      Nome do Cliente
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      value={newReview.name}
-                      onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                      placeholder="Digite o nome do cliente"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="location"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                    >
-                      Localização
-                    </label>
-                    <input
-                      id="location"
-                      type="text"
-                      value={newReview.location}
-                      onChange={(e) => setNewReview({ ...newReview, location: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                      placeholder="Ex: Jurerê, Florianópolis"
-                    />
-                  </div>
-                  <div className="flex justify-end space-x-3">
-                    <button
-                      onClick={() => {
-                        setShowGenerateModal(false);
-                        setNewReview({ name: '', location: '' });
-                      }}
-                      className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800"
-                    >
-                      Cancelar
-                    </button>
-                    <button
-                      onClick={generateReviewLink}
-                      disabled={isGenerating || !newReview.name.trim() || !newReview.location.trim()}
-                      className="px-4 py-2 bg-accent hover:bg-accent/90 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-                    >
-                      {isGenerating ? (
-                        <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                          Gerando...
-                        </>
-                      ) : (
-                        'Gerar Link'
-                      )}
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+                        <motion.div
+                          className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                        />
+                        Enviando...
+                      </motion.div>
+                    ) : (
+                      <motion.span
+                        key="text"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {review.isTokenUsed ? 'Salvar Alterações' : 'Enviar Avaliação'}
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
+              </form>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </Card>
+    </motion.div>
   );
 }

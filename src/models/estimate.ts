@@ -2,14 +2,20 @@ import mongoose from 'mongoose';
 
 const { Schema, models } = mongoose;
 
+// Schema para itens de orçamento detalhado
 const estimateItemSchema = new Schema({
   description: {
     type: String,
-    required: [true, 'Descrição do item é obrigatória'],
+    required: function() {
+      // Somente requer descrição se o tipo de orçamento for "detailed"
+      return this.parent().estimateType === 'detailed';
+    },
   },
   quantity: {
     type: Number,
-    required: [true, 'Quantidade é obrigatória'],
+    required: function() {
+      return this.parent().estimateType === 'detailed';
+    },
     min: [0.01, 'Quantidade deve ser maior que 0'],
   },
   unit: {
@@ -18,12 +24,65 @@ const estimateItemSchema = new Schema({
   },
   unitPrice: {
     type: Number,
-    required: [true, 'Preço unitário é obrigatório'],
+    required: function() {
+      return this.parent().estimateType === 'detailed';
+    },
     min: [0, 'Preço unitário não pode ser negativo'],
   },
 });
 
+// Schema para materiais
+const materialItemSchema = new Schema({
+  description: {
+    type: String,
+    required: function() {
+      return this.parent().estimateType === 'materials';
+    },
+  },
+  quantity: {
+    type: Number,
+    required: function() {
+      return this.parent().estimateType === 'materials';
+    },
+    min: [0.01, 'Quantidade deve ser maior que 0'],
+  },
+  unit: {
+    type: String,
+    default: 'un',
+  },
+  unitPrice: {
+    type: Number,
+    required: function() {
+      return this.parent().estimateType === 'materials';
+    },
+    min: [0, 'Preço unitário não pode ser negativo'],
+  },
+});
+
+// Schema para serviços
+const serviceItemSchema = new Schema({
+  description: {
+    type: String,
+    required: function() {
+      return this.parent().estimateType === 'simple' || this.parent().estimateType === 'materials';
+    },
+  },
+  value: {
+    type: Number,
+    required: function() {
+      return this.parent().estimateType === 'simple' || this.parent().estimateType === 'materials';
+    },
+    min: [0, 'Valor não pode ser negativo'],
+  },
+});
+
 const estimateSchema = new Schema({
+  estimateType: {
+    type: String,
+    enum: ['detailed', 'materials', 'simple'],
+    default: 'detailed',
+    required: [true, 'Tipo de orçamento é obrigatório'],
+  },
   clientName: {
     type: String,
     required: [true, 'Nome do cliente é obrigatório'],
@@ -45,7 +104,54 @@ const estimateSchema = new Schema({
   description: {
     type: String,
   },
-  items: [estimateItemSchema],
+  items: {
+    type: [estimateItemSchema],
+    validate: [
+      {
+        validator: function(items) {
+          // Somente valida se o tipo for "detailed"
+          if (this.estimateType === 'detailed') {
+            return items && items.length > 0;
+          }
+          return true;
+        },
+        message: 'Orçamento detalhado requer pelo menos um item'
+      }
+    ],
+    default: undefined
+  },
+  materials: {
+    type: [materialItemSchema],
+    validate: [
+      {
+        validator: function(materials) {
+          // Somente valida se o tipo for "materials"
+          if (this.estimateType === 'materials') {
+            return materials && materials.length > 0;
+          }
+          return true;
+        },
+        message: 'Orçamento de materiais requer pelo menos um material'
+      }
+    ],
+    default: undefined
+  },
+  services: {
+    type: [serviceItemSchema],
+    validate: [
+      {
+        validator: function(services) {
+          // Valida se o tipo for "simple" ou "materials"
+          if (this.estimateType === 'simple' || this.estimateType === 'materials') {
+            return services && services.length > 0;
+          }
+          return true;
+        },
+        message: 'Orçamento requer pelo menos um serviço'
+      }
+    ],
+    default: undefined
+  },
   subtotal: {
     type: Number,
     default: 0,
@@ -53,10 +159,12 @@ const estimateSchema = new Schema({
   discount: {
     type: Number,
     default: 0,
+    min: [0, 'Desconto não pode ser negativo'],
   },
   tax: {
     type: Number,
     default: 0,
+    min: [0, 'Taxa não pode ser negativa'],
   },
   total: {
     type: Number,
@@ -94,29 +202,31 @@ const estimateSchema = new Schema({
   },
 });
 
-// Pré-save para calcular os valores
-estimateSchema.pre('save', function(next) {
-  // Calcular subtotal
-  this.subtotal = this.items.reduce((sum, item) => {
-    return sum + (item.quantity * item.unitPrice);
-  }, 0);
-  
-  // Calcular total com desconto e taxas
+// Pré-save para calcular valores com base no tipo de orçamento
+estimateSchema.pre('save', function (next) {
+  let subtotal = 0;
+
+  if (this.estimateType === 'detailed' && this.items && this.items.length > 0) {
+    subtotal = this.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0);
+  } else if (this.estimateType === 'materials') {
+    const materialTotal = this.materials && this.materials.length > 0 
+      ? this.materials.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0)
+      : 0;
+    const serviceTotal = this.services && this.services.length > 0
+      ? this.services.reduce((sum, service) => sum + service.value, 0)
+      : 0;
+    subtotal = materialTotal + serviceTotal;
+  } else if (this.estimateType === 'simple' && this.services && this.services.length > 0) {
+    subtotal = this.services.reduce((sum, service) => sum + service.value, 0);
+  }
+
+  this.subtotal = subtotal;
   let total = this.subtotal;
-  
-  if (this.discount) {
-    total -= this.discount;
-  }
-  
-  if (this.tax) {
-    total += this.tax;
-  }
-  
+  if (this.discount) total -= this.discount;
+  if (this.tax) total += this.tax;
   this.total = total;
-  
-  // Atualiza a data de modificação
+
   this.updatedAt = new Date();
-  
   next();
 });
 

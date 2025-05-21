@@ -5,9 +5,8 @@ import { useState, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Sun, Bell, User, Calculator } from 'lucide-react';
-import { useTheme } from '@/context/ThemeContext';
 import Link from 'next/link';
-import { useFeedback } from '../../context/FeedbackContext';
+import { useFeedback } from '@/context/FeedbackContext';
 
 export function Topbar() {
   const { data: session } = useSession();
@@ -19,25 +18,10 @@ export function Topbar() {
   ]);
   const [showNotifications, setShowNotifications] = useState(false);
   const { showToast } = useFeedback();
-  
-  // Só usamos o theme depois do componente montar para evitar erros de hidratação
-  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('light');
-  
+
   useEffect(() => {
     setMounted(true);
   }, []);
-  
-  // Usamos o hook apenas após a montagem
-  useEffect(() => {
-    if (mounted) {
-      try {
-        const { theme, toggleTheme } = useTheme();
-        setCurrentTheme(theme);
-      } catch (error) {
-        console.error("Erro ao acessar o tema:", error);
-      }
-    }
-  }, [mounted]);
 
   const menuVariants = {
     hidden: { opacity: 0, y: -10 },
@@ -58,15 +42,14 @@ export function Topbar() {
     setNotifications(notifications.map(n => ({ ...n, read: true })));
     showToast('Todas as notificações marcadas como lidas', 'success');
   };
-  
-  // Se não estiver montado, renderize um placeholder para evitar erros de hidratação
+
+  // Se não estiver montado, renderize um placeholder
   if (!mounted) {
     return (
       <header className="sticky top-0 z-30 bg-[var(--color-card-bg)] text-[var(--color-card-text)] border-b border-[var(--color-neutral)]/30 shadow-md py-3 px-4">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-semibold hidden md:block">Admin Dashboard</h1>
           <div className="flex items-center space-x-4">
-            {/* Placeholders para manter a mesma estrutura */}
             <div className="w-8 h-8"></div>
             <div className="w-8 h-8"></div>
             <div className="w-8 h-8"></div>
@@ -75,9 +58,6 @@ export function Topbar() {
       </header>
     );
   }
-  
-  // Use o ThemeProvider externo de forma segura
-  const { theme, toggleTheme } = useTheme();
 
   return (
     <motion.header
@@ -85,10 +65,6 @@ export function Topbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="sticky top-0 z-30 bg-[var(--color-card-bg)] text-[var(--color-card-text)] border-b border-[var(--color-neutral)]/30 shadow-md"
-      style={{
-        maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
-        WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
-      }}
     >
       <div className="flex items-center justify-between px-4 py-3">
         <h1 className="text-xl font-semibold hidden md:block">Admin Dashboard</h1>
@@ -98,7 +74,6 @@ export function Topbar() {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            onClick={toggleTheme}
             className="p-2 rounded-lg bg-[var(--color-neutral)]/20 hover:bg-[var(--color-accent)]/20 transition-colors"
             aria-label="Alternar tema"
           >
@@ -201,7 +176,7 @@ export function Topbar() {
                   </div>
                   <Link
                     href="/dashboard/estimates/new"
-                    className="block px-4 py-2 text-sm hover:bg-[var(--color-neutral)]/20 transition-colors flex items-center gap-1.5"
+                    className="px-4 py-2 text-sm hover:bg-[var(--color-neutral)]/20 transition-colors flex items-center gap-1.5"
                   >
                     <Calculator size={14} className="text-[var(--color-accent)]" />
                     Novo Orçamento

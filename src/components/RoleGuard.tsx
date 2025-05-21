@@ -12,10 +12,10 @@ interface RoleGuardProps {
   fallbackUrl?: string;
 }
 
-export const RoleGuard: React.FC<RoleGuardProps> = ({ 
-  children, 
-  allowedRoles, 
-  fallbackUrl = '/dashboard' 
+export const RoleGuard: React.FC<RoleGuardProps> = ({
+  children,
+  allowedRoles,
+  fallbackUrl = '/dashboard',
 }) => {
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -23,9 +23,9 @@ export const RoleGuard: React.FC<RoleGuardProps> = ({
 
   useEffect(() => {
     if (status === 'authenticated') {
-      const hasRequiredRole = session?.user?.role && allowedRoles.includes(session.user.role);
+      const hasRequiredRole = session?.user?.role ? allowedRoles.includes(session.user.role) : false;
       setIsAuthorized(hasRequiredRole);
-      
+
       if (!hasRequiredRole) {
         router.push(fallbackUrl);
       }

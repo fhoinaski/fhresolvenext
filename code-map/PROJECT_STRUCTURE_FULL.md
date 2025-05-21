@@ -1,246 +1,339 @@
-# Estrutura do Projeto - Parte FULL
-  
-  **Gerado em:** 10/03/2025, 22:42:39  
-  **Node Version:** v18.20.4  
-  **Diretório Raiz:** `E:\Projetos\fhresolve\fhresolve`
-  
-  ## Estrutura de Pastas
-  ```
-  📁 public/
-  📄 logo.svg
-  📄 robots.txt
-📁 src/
-  📁 app/
-    📁 api/
-      📁 auth/
-        📁 [...nextauth]/
-          📄 route.ts
-      📁 dashboard/
-        📁 stats/
-          📄 route.ts
-      📁 estimates/
-        📁 [id]/
-          📁 status/
-            📄 route.ts
-          📄 route.ts
-        📄 route.ts
-      📁 portfolio/
-        📁 [id]/
-          📄 route.ts
-        📄 route.ts
-      📁 quotes/
-        📁 [id]/
-          📁 status/
-            📄 route.ts
-        📄 route.ts
-      📁 reviews/
-        📁 [id]/
-          📁 approve/
-            📄 route.ts
-          📄 route.ts
-        📁 generate-token/
-          📄 route.ts
-        📄 route.ts
-      📁 settings/
-        📄 route.ts
-      📁 site-config/
-        📄 route.ts
-      📁 users/
-        📄 route.ts
-    📁 avaliar/
-      📁 [token]/
-        📄 page.tsx
-        📄 ReviewPage.tsx
-    📁 dashboard/
-      📁 appearance/
-        📄 page.tsx
-      📁 blog/
-        📁 new/
-          📄 page.tsx
-        📄 page.tsx
-      📁 estimates/
-        📁 new/
-          📄 page.tsx
-        📄 page.tsx
-      📁 portfolio/
-        📁 new/
-          📄 page.tsx
-        📄 page.tsx
-      📁 quotes/
-        📄 page.tsx
-      📁 reviews/
-        📄 page.tsx
-      📁 settings/
-        📄 page.tsx
-      📁 users/
-        📄 page.tsx
-      📁 videos/
-        📁 new/
-          📄 page.tsx
-        📄 page.tsx
-      📄 layout.tsx
-      📄 page.tsx
-    📁 login/
-      📄 page.tsx
-    📁 orcamento/
-      📁 [token]/
-        📄 page.tsx
-    📄 globals.css
-    📄 layout.tsx
-    📄 page.tsx
-    📄 providers.tsx
-    📄 sitemap.xml
-  📁 components/
-    📁 dashboard/
-      📄 Sidebar.tsx
-      📄 Stats.tsx
-      📄 ThemeEditor.tsx
-      📄 Topbar.tsx
-    📁 ui/
-      📄 Card.tsx
-      📄 Heading.tsx
-      📄 LoadingSpinner.tsx
-    📄 About.tsx
-    📄 Benefits.tsx
-    📄 Blog.tsx
-    📄 Contact.tsx
-    📄 FeedbackToast.tsx
-    📄 Footer.tsx
-    📄 Header.tsx
-    📄 Hero.tsx
-    📄 LoadingScreen.tsx
-    📄 MapContent.tsx
-    📄 Portfolio.tsx
-    📄 Projects.tsx
-    📄 Reviews.tsx
-    📄 RoleGuard.tsx
-    📄 ServiceMap.tsx
-    📄 Testimonials.tsx
-  📁 context/
-    📄 FeedbackContext.tsx
-    📄 SiteConfigContext.tsx
-    📄 ThemeContext.tsx
-  📁 lib/
-    📄 axios.ts
-    📄 drive-service.ts
-    📄 mongodb.ts
-  📁 models/
-    📄 blog.ts
-    📄 estimate.ts
-    📄 portfolio.ts
-    📄 quote.ts
-    📄 review.ts
-    📄 settings.ts
-    📄 user.ts
-    📄 video.ts
-  📁 scripts/
-    📄 create-admin.ts
-  📁 types/
-    📄 next-auth.d.ts
-  📄 middleware.ts
-📄 eslint.config.mjs
-📄 next-env.d.ts
-📄 next.config.ts
-📄 package.json
-📄 postcss.config.mjs
-📄 README.md
-📄 tailwind.config.mjs
-📄 tsconfig.json
-📄 tsconfig.tsnode.json
+# Análise de Projeto para IA - fhresolve-admin 
 
-  ```
-  
-  ## Conteúdo Detalhado
-  - 📁 public/
-  - 📄 logo.svg
-    [Arquivo binário]
+**🚨 Instrução Fundamental para a IA:**
+**VOCÊ DEVE USAR ESTE DOCUMENTO COMO A ÚNICA FONTE DE CONTEXTO.**
+Analise o projeto, responda às perguntas e gere código/sugestões baseando-se **exclusivamente** nas informações contidas aqui (visão geral, dependências, scripts, estrutura de pastas e conteúdo dos arquivos fornecidos).
+**Não invente arquivos, funções ou dependências que não estejam listados.**
 
-  - 📄 robots.txt
-    [Arquivo binário]
+---
 
-- 📁 src/
-  - 📁 app/
-    - 📁 api/
-      - 📁 auth/
-        - 📁 [...nextauth]/
-          - 📄 route.ts
-          
+**Gerado em:** 21/05/2025, 11:15:09
+**Diretório Raiz Analisado:** `E:\Projetos\fhresolve\fhresolve`
+**Node Version:** v18.20.4 | **Plataforma:** win32
+
+## 1. Visão Geral do Projeto
+
+**Nome:** fhresolve-admin
+**Versão:** 0.1.0
+**Descrição:** (não definida)
+**Ponto de Entrada Principal (main):** `(não definido)`
+**Ponto de Entrada Módulo (module):** `(não definido)`
+
+**Resumo do README.md:**
+```markdown
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+
+## 2. Dependências
+
+### Dependências Principais (`dependencies`):
+```json
+{
+  "@hookform/resolvers": "^3.3.4",
+  "@tanstack/react-query-persist-client": "^5.67.3",
+  "animate.css": "^4.1.1",
+  "animejs": "^3.2.2",
+  "axios": "^1.8.2",
+  "bcryptjs": "^2.4.3",
+  "date-fns": "^3.6.0",
+  "dotenv": "^16.4.7",
+  "framer-motion": "^12.4.10",
+  "gsap": "^3.12.7",
+  "leaflet": "^1.9.4",
+  "lucide-react": "^0.479.0",
+  "mongoose": "^8.2.2",
+  "next": "15.2.1",
+  "next-auth": "^4.24.11",
+  "next-themes": "^0.4.6",
+  "react": "^19.0.0",
+  "react-dom": "^19.0.0",
+  "react-hook-form": "^7.51.1",
+  "react-hot-toast": "^2.4.1",
+  "react-icons": "^5.0.1",
+  "react-leaflet": "^5.0.0",
+  "recharts": "^2.12.3",
+  "sanitize-html": "^2.14.0",
+  "sonner": "^2.0.3",
+  "type-fest": "^4.37.0",
+  "zod": "^3.22.4"
+}
+```
+
+### Dependências de Desenvolvimento (`devDependencies`):
+```json
+{
+  "@esbuild-kit/esm-loader": "^2.6.5",
+  "@types/bcryptjs": "^2.4.6",
+  "@types/leaflet": "^1.9.16",
+  "@types/node": "^20",
+  "@types/react": "^19",
+  "@types/react-dom": "^19",
+  "@types/sanitize-html": "^2.13.0",
+  "autoprefixer": "^10.4.21",
+  "eslint": "^9",
+  "eslint-config-next": "15.2.1",
+  "postcss": "^8.4.47",
+  "tailwindcss": "^3.4.14",
+  "ts-node": "^10.9.2",
+  "typescript": "^5"
+}
+```
+
+## 3. Scripts (`package.json`)
+
+| Script | Comando |
+|---|---|
+| `dev` | `next dev` |
+| `build` | `next build` |
+| `start` | `next start` |
+| `lint` | `next lint` |
+| `create-admin` | `node --loader @esbuild-kit/esm-loader src/scripts/create-admin.ts` |
+
+## 4. Estrutura de Pastas
+
+```
+fhresolve/
+├── 📁 src/
+│   ├── 📁 app/
+│   │   ├── 📁 api/
+│   │   │   ├── 📁 auth/
+│   │   │   │   └── 📁 [...nextauth]/
+│   │   │   │       └── 📄 route.ts
+│   │   │   ├── 📁 dashboard/
+│   │   │   │   └── 📁 stats/
+│   │   │   │       └── 📄 route.ts
+│   │   │   ├── 📁 estimates/
+│   │   │   │   ├── 📁 [id]/
+│   │   │   │   │   ├── 📁 status/
+│   │   │   │   │   │   └── 📄 route.ts
+│   │   │   │   │   └── 📄 route.ts
+│   │   │   │   └── 📄 route.ts
+│   │   │   ├── 📁 portfolio/
+│   │   │   │   ├── 📁 [id]/
+│   │   │   │   │   └── 📄 route.ts
+│   │   │   │   └── 📄 route.ts
+│   │   │   ├── 📁 quotes/
+│   │   │   │   ├── 📁 [id]/
+│   │   │   │   │   └── 📁 status/
+│   │   │   │   │       └── 📄 route.ts
+│   │   │   │   └── 📄 route.ts
+│   │   │   ├── 📁 reviews/
+│   │   │   │   ├── 📁 [id]/
+│   │   │   │   │   ├── 📁 approve/
+│   │   │   │   │   │   └── 📄 route.ts
+│   │   │   │   │   └── 📄 route.ts
+│   │   │   │   ├── 📁 generate-token/
+│   │   │   │   │   └── 📄 route.ts
+│   │   │   │   └── 📄 route.ts
+│   │   │   ├── 📁 settings/
+│   │   │   │   └── 📄 route.ts
+│   │   │   ├── 📁 site-config/
+│   │   │   │   └── 📄 route.ts
+│   │   │   └── 📁 users/
+│   │   │       └── 📄 route.ts
+│   │   ├── 📁 avaliar/
+│   │   │   └── 📁 [token]/
+│   │   │       ├── 📄 page.tsx
+│   │   │       └── 📄 ReviewPage.tsx
+│   │   ├── 📁 dashboard/
+│   │   │   ├── 📁 appearance/
+│   │   │   │   └── 📄 page.tsx
+│   │   │   ├── 📁 blog/
+│   │   │   │   ├── 📁 new/
+│   │   │   │   │   └── 📄 page.tsx
+│   │   │   │   └── 📄 page.tsx
+│   │   │   ├── 📁 estimates/
+│   │   │   │   ├── 📁 new/
+│   │   │   │   │   └── 📄 page.tsx
+│   │   │   │   └── 📄 page.tsx
+│   │   │   ├── 📁 portfolio/
+│   │   │   │   ├── 📁 new/
+│   │   │   │   │   └── 📄 page.tsx
+│   │   │   │   └── 📄 page.tsx
+│   │   │   ├── 📁 quotes/
+│   │   │   │   └── 📄 page.tsx
+│   │   │   ├── 📁 reviews/
+│   │   │   │   └── 📄 page.tsx
+│   │   │   ├── 📁 settings/
+│   │   │   │   └── 📄 page.tsx
+│   │   │   ├── 📁 users/
+│   │   │   │   └── 📄 page.tsx
+│   │   │   ├── 📁 videos/
+│   │   │   │   ├── 📁 new/
+│   │   │   │   │   └── 📄 page.tsx
+│   │   │   │   └── 📄 page.tsx
+│   │   │   ├── 📄 layout.tsx
+│   │   │   └── 📄 page.tsx
+│   │   ├── 📁 login/
+│   │   │   └── 📄 page.tsx
+│   │   ├── 📁 orcamento/
+│   │   │   └── 📁 [token]/
+│   │   │       └── 📄 page.tsx
+│   │   ├── 📁 portfolio/
+│   │   │   └── 📄 page.tsx
+│   │   ├── 📁 utils/
+│   │   │   ├── 📄 formatters.ts
+│   │   │   └── 📄 themeAdapter.ts
+│   │   ├── 📄 globals.css
+│   │   ├── 📄 layout.tsx
+│   │   ├── 📄 page.tsx
+│   │   ├── 📄 providers.tsx
+│   │   └── 📄 sitemap.xml
+│   ├── 📁 components/
+│   │   ├── 📁 dashboard/
+│   │   │   ├── 📄 Sidebar.tsx
+│   │   │   ├── 📄 Stats.tsx
+│   │   │   └── 📄 Topbar.tsx
+│   │   ├── 📁 estimate-view/
+│   │   │   ├── 📄 ConfirmModal.tsx
+│   │   │   ├── 📄 ContactSection.tsx
+│   │   │   ├── 📄 DetailsSection.tsx
+│   │   │   ├── 📄 ErrorState.tsx
+│   │   │   ├── 📄 EstimateHeader.tsx
+│   │   │   ├── 📄 FeedbackModal.tsx
+│   │   │   ├── 📄 Footer.tsx
+│   │   │   ├── 📄 Header.tsx
+│   │   │   ├── 📄 HistoryPanel.tsx
+│   │   │   ├── 📄 ItemsSection.tsx
+│   │   │   ├── 📄 LoadingState.tsx
+│   │   │   ├── 📄 NotesSection.tsx
+│   │   │   ├── 📄 ShareModal.tsx
+│   │   │   └── 📄 SummarySection.tsx
+│   │   ├── 📁 new-estimate/
+│   │   │   ├── 📄 ActionButtons.tsx
+│   │   │   ├── 📄 AdditionalInfoCard.tsx
+│   │   │   ├── 📄 ClientInfoCard.tsx
+│   │   │   ├── 📄 DetailedItemsTable.tsx
+│   │   │   ├── 📄 EstimateDetailsCard.tsx
+│   │   │   ├── 📄 EstimateTypeSelector.tsx
+│   │   │   ├── 📄 MaterialsTable.tsx
+│   │   │   ├── 📄 PageHeader.tsx
+│   │   │   ├── 📄 ServicesTable.tsx
+│   │   │   ├── 📄 SuccessModal.tsx
+│   │   │   └── 📄 TotalsCard.tsx
+│   │   ├── 📁 settings/
+│   │   │   ├── 📄 AdvancedSettings.tsx
+│   │   │   ├── 📄 AppearanceSettings.tsx
+│   │   │   ├── 📄 ColorPicker.tsx
+│   │   │   ├── 📄 ContactSettings.tsx
+│   │   │   ├── 📄 GeneralSettings.tsx
+│   │   │   ├── 📄 SaveButton.tsx
+│   │   │   ├── 📄 ServiceEditor.tsx
+│   │   │   ├── 📄 SettingsSidebar.tsx
+│   │   │   └── 📄 TemplateEditor.tsx
+│   │   ├── 📁 ui/
+│   │   │   ├── 📄 Button.tsx
+│   │   │   ├── 📄 Card.tsx
+│   │   │   ├── 📄 Heading.tsx
+│   │   │   ├── 📄 Input.tsx
+│   │   │   ├── 📄 LoadingSpinner.tsx
+│   │   │   ├── 📄 Modal.tsx
+│   │   │   └── 📄 Toaster.tsx
+│   │   ├── 📄 About.tsx
+│   │   ├── 📄 Benefits.tsx
+│   │   ├── 📄 Blog.tsx
+│   │   ├── 📄 Contact.tsx
+│   │   ├── 📄 FeedbackToast.tsx
+│   │   ├── 📄 Footer.tsx
+│   │   ├── 📄 Header.tsx
+│   │   ├── 📄 Hero.tsx
+│   │   ├── 📄 LoadingScreen.tsx
+│   │   ├── 📄 MapContent.tsx
+│   │   ├── 📄 Portfolio.tsx
+│   │   ├── 📄 ProjectCard.tsx
+│   │   ├── 📄 Projects.tsx
+│   │   ├── 📄 Reviews.tsx
+│   │   ├── 📄 RoleGuard.tsx
+│   │   ├── 📄 ServiceMap.tsx
+│   │   ├── 📄 Testimonials.tsx
+│   │   ├── 📄 ThemeProvider.tsx
+│   │   └── 📄 Tracking.tsx
+│   ├── 📁 context/
+│   │   ├── 📄 AppContext.tsx
+│   │   ├── 📄 FeedbackContext.tsx
+│   │   └── 📄 SiteConfigContext.tsx
+│   ├── 📁 data/
+│   │   └── 📄 projects.ts
+│   ├── 📁 hooks/
+│   │   ├── 📄 useCalculations.ts
+│   │   ├── 📄 useEstimateSchema.ts
+│   │   ├── 📄 useReview.ts
+│   │   ├── 📄 useSettingsData.ts
+│   │   └── 📄 useSiteConfig.ts
+│   ├── 📁 lib/
+│   │   ├── 📄 auth.ts
+│   │   ├── 📄 axios.ts
+│   │   ├── 📄 drive-service.ts
+│   │   ├── 📄 mongodb.ts
+│   │   ├── 📄 motion-variants.ts
+│   │   ├── 📄 projects.ts
+│   │   └── 📄 utils.ts
+│   ├── 📁 models/
+│   │   ├── 📄 blog.ts
+│   │   ├── 📄 estimate.ts
+│   │   ├── 📄 portfolio.ts
+│   │   ├── 📄 quote.ts
+│   │   ├── 📄 review.ts
+│   │   ├── 📄 settings.ts
+│   │   ├── 📄 user.ts
+│   │   └── 📄 video.ts
+│   ├── 📁 scripts/
+│   │   └── 📄 create-admin.ts
+│   ├── 📁 types/
+│   │   ├── 📄 estimate.ts
+│   │   ├── 📄 leaflet.d.ts
+│   │   ├── 📄 next-auth.d.ts
+│   │   ├── 📄 project.ts
+│   │   └── 📄 settings.ts
+│   └── 📄 middleware.ts
+├── 📄 eslint.config.mjs
+├── 📄 jsconfig.json
+├── 📄 next-env.d.ts
+├── 📄 next.config.ts
+├── 📄 postcss.config.mjs
+├── 📄 README-animacoes.md
+├── 📄 README.md
+├── 📄 tailwind.config.mjs
+├── 📄 tsconfig.json
+└── 📄 tsconfig.tsnode.json
+```
+
+## 5. Conteúdo Detalhado dos Arquivos
+
+---
+### 📄 Arquivo: `src/app/api/auth/[...nextauth]/route.ts`
+
 ```typescript
 import NextAuth from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import bcrypt from 'bcryptjs';
-import dbConnect from '@/lib/mongodb';
-import UserModel from '@/models/user';
-
-// Exportar as opções para uso em getServerSession
-export const authOptions = {
-  providers: [
-    CredentialsProvider({
-      name: 'Credentials',
-      credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Senha", type: "password" }
-      },
-      async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          throw new Error('Email e senha são obrigatórios');
-        }
-
-        await dbConnect();
-        const user = await UserModel.findOne({ email: credentials.email }).lean();
-        
-        if (!user) {
-          throw new Error('Usuário não encontrado');
-        }
-        
-        const isPasswordValid = await bcrypt.compare(credentials.password, user.password);
-        if (!isPasswordValid) {
-          throw new Error('Senha inválida');
-        }
-        
-        return {
-          id: user._id.toString(),
-          email: user.email,
-          name: user.name,
-          role: user.role
-        };
-      }
-    })
-  ],
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-        token.role = user.role;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      if (token) {
-        session.user.id = token.id as string;
-        session.user.role = token.role as string;
-      }
-      return session;
-    }
-  },
-  pages: {
-    signIn: '/login',
-  },
-  session: {
-    strategy: 'jwt' as const,
-  },
-  secret: process.env.NEXTAUTH_SECRET,
-};
+import { authOptions } from '@/lib/auth';
 
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
 ```
 
-      - 📁 dashboard/
-        - 📁 stats/
-          - 📄 route.ts
-          
+
+---
+### 📄 Arquivo: `src/app/api/dashboard/stats/route.ts`
+
 ```typescript
 // Adicionar ao arquivo existente src/app/api/dashboard/stats/route.ts (ou criar se não existir)
 
@@ -301,74 +394,69 @@ export async function GET() {
 }
 ```
 
-      - 📁 estimates/
-        - 📁 [id]/
-          - 📁 status/
-            - 📄 route.ts
-            
+
+---
+### 📄 Arquivo: `src/app/api/estimates/[id]/status/route.ts`
+
 ```typescript
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import dbConnect from '@/lib/mongodb';
 import EstimateModel from '@/models/estimate';
 
-interface Params {
-  params: {
-    id: string;
-  };
-}
-
-export async function PUT(req: Request, { params }: Params) {
+// Função PUT
+export async function PUT(request: NextRequest, context: any) {
   try {
     const session = await getServerSession();
-    
+
     // Verifica se é um admin ou se é o próprio cliente (através do token)
     let isAuthorized = false;
-    
+
     if (session) {
       isAuthorized = true;
     } else {
-      const { token } = await req.json();
+      const { token } = await request.json();
       if (token) {
-        const estimate = await EstimateModel.findOne({ token }).lean();
-        isAuthorized = estimate && estimate.token === token;
+        const estimate = await EstimateModel.findOne({ token }).lean() as { token?: string } | null;
+        isAuthorized = Boolean(estimate && estimate.token === token);
       }
     }
-    
+
     if (!isAuthorized) {
       return NextResponse.json(
         { error: 'Não autorizado' },
         { status: 401 }
       );
     }
-    
+
     await dbConnect();
-    
-    const { status } = await req.json();
-    
+
+    const id = context.params.id;
+    const { status } = await request.json();
+
     if (!status || !['draft', 'sent', 'accepted', 'rejected', 'expired'].includes(status)) {
       return NextResponse.json(
         { error: 'Status inválido' },
         { status: 400 }
       );
     }
-    
+
     const updatedEstimate = await EstimateModel.findByIdAndUpdate(
-      params.id,
+      id,
       {
         status,
         updatedAt: new Date(),
       },
       { new: true }
     );
-    
+
     if (!updatedEstimate) {
       return NextResponse.json(
         { error: 'Orçamento não encontrado' },
         { status: 404 }
       );
     }
-    
+
     return NextResponse.json({
       message: 'Status atualizado com sucesso',
       data: updatedEstimate,
@@ -383,49 +471,44 @@ export async function PUT(req: Request, { params }: Params) {
 }
 ```
 
-          - 📄 route.ts
-          
+
+---
+### 📄 Arquivo: `src/app/api/estimates/[id]/route.ts`
+
 ```typescript
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { Types } from 'mongoose';
 import dbConnect from '@/lib/mongodb';
 import EstimateModel from '@/models/estimate';
 
-interface Params {
-  params: {
-    id: string;
-  };
-}
-
-export async function GET(req: Request, { params }: Params) {
+// Função GET
+export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     await dbConnect();
-    
-    const id = params.id;
+
+    const id = await params.id; // Desestruturando params diretamente
     let estimate = null;
-    
-    // Verifica se o ID parece ser um ObjectId válido do MongoDB
-    const isValidObjectId = Types.ObjectId.isValid(id) && 
-                           (new Types.ObjectId(id)).toString() === id;
-    
+    console.log('id:', id);
+
+    const isValidObjectId =
+      Types.ObjectId.isValid(id) && new Types.ObjectId(id).toString() === id;
+
     if (isValidObjectId) {
-      // Tenta buscar por ID do MongoDB
       estimate = await EstimateModel.findById(id).lean();
     }
-    
-    // Se não é um ObjectId válido ou não encontrou, tenta buscar por token
+
     if (!estimate) {
       estimate = await EstimateModel.findOne({ token: id }).lean();
     }
-    
+
     if (!estimate) {
       return NextResponse.json(
         { error: 'Orçamento não encontrado' },
         { status: 404 }
       );
     }
-    
+
     return NextResponse.json(estimate);
   } catch (error) {
     console.error('Erro ao buscar orçamento:', error);
@@ -436,53 +519,52 @@ export async function GET(req: Request, { params }: Params) {
   }
 }
 
-export async function PUT(req: Request, { params }: Params) {
+// Função PUT
+export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const session = await getServerSession();
-    
+
     if (!session) {
       return NextResponse.json(
         { error: 'Não autorizado' },
         { status: 401 }
       );
     }
-    
+
     await dbConnect();
-    const id = params.id;
-    const data = await req.json();
-    
-    // Validação básica
+    const id  = params.id; // Desestruturando params diretamente
+    const data = await request.json();
+
     if (!data.clientName || !data.clientPhone || !data.title) {
       return NextResponse.json(
         { error: 'Dados incompletos: cliente, telefone e título são obrigatórios' },
         { status: 400 }
       );
     }
-    
-    // Verifica se o ID é um ObjectId válido
+
     if (!Types.ObjectId.isValid(id)) {
       return NextResponse.json(
         { error: 'ID inválido' },
         { status: 400 }
       );
     }
-    
+
     const updatedEstimate = await EstimateModel.findByIdAndUpdate(
       id,
       { ...data, updatedAt: new Date() },
       { new: true, runValidators: true }
     );
-    
+
     if (!updatedEstimate) {
       return NextResponse.json(
         { error: 'Orçamento não encontrado' },
         { status: 404 }
       );
     }
-    
+
     return NextResponse.json({
       message: 'Orçamento atualizado com sucesso',
-      data: updatedEstimate
+      data: updatedEstimate,
     });
   } catch (error) {
     console.error('Erro ao atualizar orçamento:', error);
@@ -493,39 +575,39 @@ export async function PUT(req: Request, { params }: Params) {
   }
 }
 
-export async function DELETE(req: Request, { params }: Params) {
+// Função DELETE
+export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const session = await getServerSession();
-    
+
     if (!session) {
       return NextResponse.json(
         { error: 'Não autorizado' },
         { status: 401 }
       );
     }
-    
+
     await dbConnect();
-    const id = params.id;
-    
-    // Verifica se o ID é um ObjectId válido
+    const  id  = params.id; // Desestruturando params diretamente
+
     if (!Types.ObjectId.isValid(id)) {
       return NextResponse.json(
         { error: 'ID inválido' },
         { status: 400 }
       );
     }
-    
+
     const deletedEstimate = await EstimateModel.findByIdAndDelete(id);
-    
+
     if (!deletedEstimate) {
       return NextResponse.json(
         { error: 'Orçamento não encontrado' },
         { status: 404 }
       );
     }
-    
+
     return NextResponse.json({
-      message: 'Orçamento excluído com sucesso'
+      message: 'Orçamento excluído com sucesso',
     });
   } catch (error) {
     console.error('Erro ao excluir orçamento:', error);
@@ -537,8 +619,10 @@ export async function DELETE(req: Request, { params }: Params) {
 }
 ```
 
-        - 📄 route.ts
-        
+
+---
+### 📄 Arquivo: `src/app/api/estimates/route.ts`
+
 ```typescript
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
@@ -553,7 +637,7 @@ const generateUniqueToken = async (): Promise<string> => {
 
   while (attempts < maxAttempts) {
     const token = randomBytes(16).toString('hex');
-    const existing = await EstimateModel.findOne({ token });
+    const existing = await EstimateModel.findOne({ token }).lean();
     if (!existing) return token;
     attempts++;
   }
@@ -563,45 +647,33 @@ const generateUniqueToken = async (): Promise<string> => {
 export async function GET() {
   try {
     const session = await getServerSession();
-    
     if (!session) {
-      return NextResponse.json(
-        { error: 'Não autorizado' },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: 'Não autorizado' }, { status: 401 });
     }
-    
+
     await dbConnect();
-    
     const estimates = await EstimateModel.find({})
       .sort({ createdAt: -1 })
       .lean();
-    
+
     return NextResponse.json(estimates);
   } catch (error) {
     console.error('Erro ao buscar orçamentos:', error);
-    return NextResponse.json(
-      { error: 'Erro ao buscar orçamentos' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Erro interno ao buscar orçamentos' }, { status: 500 });
   }
 }
 
 export async function POST(req: Request) {
   try {
     const session = await getServerSession();
-    
     if (!session) {
-      return NextResponse.json(
-        { error: 'Não autorizado' },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: 'Não autorizado' }, { status: 401 });
     }
-    
+
     await dbConnect();
-    
     const data = await req.json();
-    
+    console.log('Dados recebidos em POST /api/estimates:', data); // Depuração
+
     // Validação básica
     if (!data.clientName || !data.clientPhone || !data.title) {
       return NextResponse.json(
@@ -609,59 +681,71 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
-    
-    // Gerar token único para o orçamento
+
+    // Validação específica por tipo de orçamento
+    if (data.estimateType === 'detailed' && (!data.items || data.items.length === 0)) {
+      return NextResponse.json(
+        { error: 'Orçamento detalhado requer pelo menos um item' },
+        { status: 400 }
+      );
+    }
+    if (data.estimateType === 'materials' && 
+        ((!data.materials || data.materials.length === 0) || (!data.services || data.services.length === 0))) {
+      return NextResponse.json(
+        { error: 'Orçamento de materiais requer pelo menos um material e um serviço' },
+        { status: 400 }
+      );
+    }
+    if (data.estimateType === 'simple' && (!data.services || data.services.length === 0)) {
+      return NextResponse.json(
+        { error: 'Orçamento simplificado requer pelo menos um serviço' },
+        { status: 400 }
+      );
+    }
+
     const token = await generateUniqueToken();
-    
     const newEstimate = await EstimateModel.create({
       ...data,
       token,
       createdBy: session.user.id,
-      status: 'draft'
+      status: 'draft',
     });
-    
-    // Construir o link para o orçamento
+
     const estimateLink = `${process.env.NEXTAUTH_URL}/orcamento/${token}`;
-    
     return NextResponse.json(
       { 
         message: 'Orçamento criado com sucesso', 
         data: newEstimate,
-        estimateLink
+        estimateLink 
       },
       { status: 201 }
     );
-  } catch (error) {
-    console.error('Erro ao criar orçamento:', error);
-    return NextResponse.json(
-      { error: 'Erro ao criar orçamento' },
-      { status: 500 }
-    );
+  } catch (error: any) {
+    console.error('Erro ao criar orçamento:', error.message, error.stack);
+    const errorMsg = error.message.includes('token') 
+      ? 'Erro ao gerar token único' 
+      : 'Erro interno ao criar orçamento';
+    return NextResponse.json({ error: errorMsg }, { status: 500 });
   }
 }
 ```
 
-      - 📁 portfolio/
-        - 📁 [id]/
-          - 📄 route.ts
-          
+
+---
+### 📄 Arquivo: `src/app/api/portfolio/[id]/route.ts`
+
 ```typescript
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import dbConnect from '@/lib/mongodb';
 import PortfolioModel from '@/models/portfolio';
 
-interface Params {
-  params: {
-    id: string;
-  };
-}
-
-export async function GET(req: Request, { params }: Params) {
+export async function GET(request: NextRequest, context: any) {
   try {
     await dbConnect();
     
-    const portfolioItem = await PortfolioModel.findById(params.id);
+    const id = context.params.id;
+    const portfolioItem = await PortfolioModel.findById(id);
     
     if (!portfolioItem) {
       return NextResponse.json(
@@ -680,7 +764,7 @@ export async function GET(req: Request, { params }: Params) {
   }
 }
 
-export async function PUT(req: Request, { params }: Params) {
+export async function PUT(request: NextRequest, context: any) {
   try {
     const session = await getServerSession();
     
@@ -693,9 +777,9 @@ export async function PUT(req: Request, { params }: Params) {
     
     await dbConnect();
     
-    const data = await req.json();
+    const id = context.params.id;
+    const data = await request.json();
     
-    // Validação básica
     if (!data.title || !data.description || !data.category) {
       return NextResponse.json(
         { error: 'Dados incompletos' },
@@ -704,7 +788,7 @@ export async function PUT(req: Request, { params }: Params) {
     }
     
     const updatedPortfolioItem = await PortfolioModel.findByIdAndUpdate(
-      params.id,
+      id,
       {
         ...data,
         updatedAt: new Date(),
@@ -731,7 +815,7 @@ export async function PUT(req: Request, { params }: Params) {
   }
 }
 
-export async function DELETE(req: Request, { params }: Params) {
+export async function DELETE(request: NextRequest, context: any) {
   try {
     const session = await getServerSession();
     
@@ -744,7 +828,8 @@ export async function DELETE(req: Request, { params }: Params) {
     
     await dbConnect();
     
-    const deletedPortfolioItem = await PortfolioModel.findByIdAndDelete(params.id);
+    const id = context.params.id;
+    const deletedPortfolioItem = await PortfolioModel.findByIdAndDelete(id);
     
     if (!deletedPortfolioItem) {
       return NextResponse.json(
@@ -766,8 +851,10 @@ export async function DELETE(req: Request, { params }: Params) {
 }
 ```
 
-        - 📄 route.ts
-        
+
+---
+### 📄 Arquivo: `src/app/api/portfolio/route.ts`
+
 ```typescript
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
@@ -834,47 +921,41 @@ export async function POST(req: Request) {
 }
 ```
 
-      - 📁 quotes/
-        - 📁 [id]/
-          - 📁 status/
-            - 📄 route.ts
-            
+
+---
+### 📄 Arquivo: `src/app/api/quotes/[id]/status/route.ts`
+
 ```typescript
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import dbConnect from '@/lib/mongodb';
 import QuoteModel from '@/models/quote';
 
-interface Params {
-  params: {
-    id: string;
-  };
-}
-
-export async function PUT(req: Request, { params }: Params) {
+export async function PUT(request: NextRequest, context: any) {
   try {
     const session = await getServerSession();
-    
+
     if (!session) {
       return NextResponse.json(
         { error: 'Não autorizado' },
         { status: 401 }
       );
     }
-    
+
     await dbConnect();
-    
-    const { status, notes } = await req.json();
-    
+
+    const id = context.params.id;
+    const { status, notes } = await request.json();
+
     if (!status || !['novo', 'em_contato', 'convertido', 'encerrado'].includes(status)) {
       return NextResponse.json(
         { error: 'Status inválido' },
         { status: 400 }
       );
     }
-    
+
     const updatedQuote = await QuoteModel.findByIdAndUpdate(
-      params.id,
+      id,
       {
         status,
         notes,
@@ -882,14 +963,14 @@ export async function PUT(req: Request, { params }: Params) {
       },
       { new: true }
     );
-    
+
     if (!updatedQuote) {
       return NextResponse.json(
         { error: 'Orçamento não encontrado' },
         { status: 404 }
       );
     }
-    
+
     return NextResponse.json({
       message: 'Status atualizado com sucesso',
       data: updatedQuote,
@@ -904,8 +985,10 @@ export async function PUT(req: Request, { params }: Params) {
 }
 ```
 
-        - 📄 route.ts
-        
+
+---
+### 📄 Arquivo: `src/app/api/quotes/route.ts`
+
 ```typescript
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
@@ -972,24 +1055,23 @@ export async function POST(req: Request) {
 }
 ```
 
-      - 📁 reviews/
-        - 📁 [id]/
-          - 📁 approve/
-            - 📄 route.ts
-            
+
+---
+### 📄 Arquivo: `src/app/api/reviews/[id]/approve/route.ts`
+
 ```typescript
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import ReviewModel from '@/models/review';
 
-export async function POST(req: Request, { params }: { params: { id: string } }) {
+export async function POST(request: NextRequest, context: any) {
   try {
     await dbConnect();
-    const { id } = params;
+    const id = context.params.id;
 
     console.log('Aprovando review com _id:', id);
 
-    const review = await ReviewModel.findById(id); // Usa _id em vez de token
+    const review = await ReviewModel.findById(id);
     if (!review) {
       return NextResponse.json({ error: 'Avaliação não encontrada' }, { status: 404 });
     }
@@ -1008,22 +1090,24 @@ export async function POST(req: Request, { params }: { params: { id: string } })
 }
 ```
 
-          - 📄 route.ts
-          
+
+---
+### 📄 Arquivo: `src/app/api/reviews/[id]/route.ts`
+
 ```typescript
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import ReviewModel from '@/models/review';
 
-export async function GET(req: Request, context: { params: Promise<{ id: string }> }) {
+// Função GET
+export async function GET(request: NextRequest, context: any) {
   console.log('=== Iniciando GET /api/reviews/[id] ===');
   try {
     console.log('Conectando ao MongoDB...');
     await dbConnect();
     console.log('Conexão com MongoDB estabelecida com sucesso');
 
-    const params = await context.params;
-    const { id } = params;
+    const id = context.params.id; // Acessando id diretamente sem Promise
     console.log('Token recebido (como id):', id);
 
     console.log('Buscando review no banco de dados...');
@@ -1036,14 +1120,17 @@ export async function GET(req: Request, context: { params: Promise<{ id: string 
     }
 
     console.log('Review encontrado:', review);
-    return NextResponse.json({
-      name: review.name,
-      location: review.location,
-      isTokenUsed: review.isTokenUsed,
-      isApproved: review.isApproved,
-      rating: review.rating,
-      text: review.text,
-    }, { status: 200 });
+    return NextResponse.json(
+      {
+        name: review.name,
+        location: review.location,
+        isTokenUsed: review.isTokenUsed,
+        isApproved: review.isApproved,
+        rating: review.rating,
+        text: review.text,
+      },
+      { status: 200 }
+    );
   } catch (error: any) {
     console.error('Erro ao buscar avaliação:', {
       message: error.message,
@@ -1056,13 +1143,13 @@ export async function GET(req: Request, context: { params: Promise<{ id: string 
   }
 }
 
-export async function PUT(req: Request, context: { params: Promise<{ id: string }> }) {
+// Função PUT
+export async function PUT(request: NextRequest, context: any) {
   console.log('=== Iniciando PUT /api/reviews/[id] ===');
   try {
     await dbConnect();
-    const params = await context.params; // Garantir que params seja resolvido
-    const { id } = params; // Extrair id após await
-    const { rating, text, isTokenUsed } = await req.json();
+    const id = context.params.id; // Acessando id diretamente sem Promise
+    const { rating, text, isTokenUsed } = await request.json();
 
     console.log('Dados recebidos para atualização:', { token: id, rating, text, isTokenUsed });
 
@@ -1113,9 +1200,10 @@ export async function PUT(req: Request, context: { params: Promise<{ id: string 
 }
 ```
 
-        - 📁 generate-token/
-          - 📄 route.ts
-          
+
+---
+### 📄 Arquivo: `src/app/api/reviews/generate-token/route.ts`
+
 ```typescript
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
@@ -1215,8 +1303,10 @@ export async function POST(req: Request) {
 }
 ```
 
-        - 📄 route.ts
-        
+
+---
+### 📄 Arquivo: `src/app/api/reviews/route.ts`
+
 ```typescript
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
@@ -1242,17 +1332,17 @@ export async function GET() {
 }
 ```
 
-      - 📁 settings/
-        - 📄 route.ts
-        
+
+---
+### 📄 Arquivo: `src/app/api/settings/route.ts`
+
 ```typescript
 // src/app/api/settings/route.ts
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth'; // Importar de lib/auth.ts
 import dbConnect from '@/lib/mongodb';
 import SettingsModel from '@/models/settings';
-
 
 export async function GET() {
   try {
@@ -1307,262 +1397,246 @@ export async function POST(req: Request) {
 }
 ```
 
-      - 📁 site-config/
-        - 📄 route.ts
-        
+
+---
+### 📄 Arquivo: `src/app/api/site-config/route.ts`
+
 ```typescript
 // src/app/api/site-config/route.ts
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth';
 import dbConnect from '@/lib/mongodb';
 import SettingsModel from '@/models/settings';
+import { z } from 'zod';
+
+interface SiteConfig {
+  siteName: string;
+  siteDescription: string;
+  contactInfo: {
+    email: string;
+    phone: string;
+    address: string;
+  };
+  socialMedia: {
+    instagram?: string;
+    facebook?: string;
+    whatsapp?: string;
+  };
+  tracking?: {
+    facebookPixel?: string;
+    tiktokPixel?: string;
+    googleTagManager?: string;
+  };
+  updatedAt: Date;
+}
+
+const SiteConfigSchema = z.object({
+  siteName: z.string().min(1, 'Nome do site é obrigatório'),
+  siteDescription: z.string().min(1, 'Descrição é obrigatória'),
+  contactInfo: z.object({
+    email: z.string().email('Email inválido'),
+    phone: z.string().min(10, 'Telefone deve ter pelo menos 10 dígitos'),
+    address: z.string().min(5, 'Endereço muito curto'),
+  }),
+  socialMedia: z.object({
+    instagram: z.string().optional(),
+    facebook: z.string().optional(),
+    whatsapp: z.string().min(10, 'WhatsApp deve ter pelo menos 10 dígitos').optional(),
+  }),
+  tracking: z.object({
+    facebookPixel: z.string().optional(),
+    tiktokPixel: z.string().optional(),
+    googleTagManager: z.string().optional(),
+  }).optional(),
+});
+
+const defaultConfig: SiteConfig = {
+  siteName: 'FH Resolve',
+  siteDescription: 'Serviços profissionais de manutenção residencial em Florianópolis',
+  contactInfo: {
+    email: 'contato@fhresolve.com.br',
+    phone: '48991919791',
+    address: 'Ratones, Florianópolis - SC',
+  },
+  socialMedia: {
+    instagram: '',
+    facebook: '',
+    whatsapp: '48991919791',
+  },
+  tracking: {
+    facebookPixel: '',
+    tiktokPixel: '',
+    googleTagManager: '',
+  },
+  updatedAt: new Date(),
+};
+
+let cachedConfig: SiteConfig | null = null;
+let cacheTime = 0;
+const CACHE_TTL = 60 * 60 * 1000;
+
+async function getConfig(): Promise<SiteConfig> {
+  const now = Date.now();
+  if (cachedConfig && now - cacheTime < CACHE_TTL) return cachedConfig;
+
+  await dbConnect();
+  const siteConfig = await SettingsModel.findOne({}).lean();
+
+  if (!siteConfig) {
+    await SettingsModel.create(defaultConfig);
+    cachedConfig = defaultConfig;
+    cacheTime = now;
+    return defaultConfig;
+  }
+
+  cachedConfig = { ...defaultConfig, ...siteConfig, updatedAt: siteConfig.updatedAt || new Date() };
+  cacheTime = now;
+  return cachedConfig;
+}
 
 export async function GET() {
   try {
-    await dbConnect();
-    
-    // Buscar as configurações existentes ou retornar um objeto padrão
-    const siteConfig = await SettingsModel.findOne({}).lean() || {
-      siteName: 'FH Resolve',
-      siteDescription: 'Serviços profissionais de manutenção residencial em Florianópolis',
-      contactInfo: {
-        email: 'contato@fhresolve.com.br',
-        phone: '48991919791',
-        address: 'Ratones, Florianópolis - SC'
-      },
-      socialMedia: {
-        instagram: '',
-        facebook: '',
-        whatsapp: '48991919791'
-      },
-      themes: {
-        light: {
-          primary: '#252525',
-          accent: '#2B8D9A',
-          secondary: '#8D9192',
-          neutral: '#EDEDED',
-          text: '#252525',
-          textLight: '#FFFFFF',
-          dark: '#252525',
-          light: '#FFFFFF',
-          gray: '#EDEDED',
-          cardBg: '#FFFFFF',
-          cardText: '#252525',
-          paralel: '#F5F5F5',
-          accentDark: '#247885'
-        },
-        dark: {
-          primary: '#252525',
-          accent: '#2B8D9A',
-          secondary: '#8D9192',
-          neutral: '#8D9192',
-          text: '#FFFFFF',
-          textLight: '#FFFFFF',
-          dark: '#252525',
-          light: '#333333',
-          gray: '#3A3A3A',
-          cardBg: '#333333',
-          cardText: '#FFFFFF',
-          paralel: '#EDEDED',
-          accentDark: '#247885'
-        }
-      },
-      activeTemplate: 'default',
-      activeTheme: 'light',
-      defaultTheme: 'light',
-      maintenanceMode: false,
-      logoUrl: '/logo.svg',
-      faviconUrl: '/favicon.ico'
-    };
-    
-    return NextResponse.json(siteConfig);
+    const config = await getConfig();
+    return NextResponse.json(config);
   } catch (error) {
-    console.error('Erro ao buscar configurações do site:', error);
-    return NextResponse.json(
-      { error: 'Erro ao buscar configurações do site' },
-      { status: 500 }
-    );
+    console.error('Erro ao buscar configurações:', error);
+    return NextResponse.json({ error: 'Erro ao buscar configurações' }, { status: 500 });
   }
 }
 
-export async function POST(req: Request) {
+export async function POST(request: Request) {
   try {
     const session = await getServerSession(authOptions);
-    
-    // Verificar se é um administrador
-    if (!session || session.user.role !== 'admin') {
-      return NextResponse.json(
-        { error: 'Não autorizado' },
-        { status: 401 }
-      );
+    if (!session) {
+      return NextResponse.json({ error: 'Não autorizado' }, { status: 401 });
     }
-    
+
+    const data = await request.json();
+    const validatedData = SiteConfigSchema.parse(data);
+
     await dbConnect();
-    const data = await req.json();
-    
-    // Validar campos obrigatórios
-    if (!data.siteName || !data.siteDescription) {
-      return NextResponse.json(
-        { error: 'Nome do site e descrição são obrigatórios' },
-        { status: 400 }
-      );
-    }
-    
-    // Atualizar ou criar configurações
-    const updatedConfig = await SettingsModel.findOneAndUpdate(
-      {}, // Filtro vazio para encontrar qualquer documento (haverá apenas um)
-      { 
-        ...data,
-        updatedBy: session.user.id,
-        updatedAt: new Date()
-      },
+    const config = await SettingsModel.findOneAndUpdate(
+      {},
+      { ...validatedData, updatedAt: new Date() },
       { upsert: true, new: true }
     );
-    
-    return NextResponse.json({
-      message: 'Configurações salvas com sucesso',
-      data: updatedConfig
-    });
+
+    // Limpar cache
+    cachedConfig = null;
+    cacheTime = 0;
+
+    return NextResponse.json(config);
   } catch (error) {
-    console.error('Erro ao salvar configurações do site:', error);
-    return NextResponse.json(
-      { error: 'Erro ao salvar configurações do site' },
-      { status: 500 }
-    );
+    console.error('Erro ao salvar configurações:', error);
+    if (error instanceof z.ZodError) {
+      return NextResponse.json({ error: 'Dados inválidos', details: error.errors }, { status: 400 });
+    }
+    return NextResponse.json({ error: 'Erro ao salvar configurações' }, { status: 500 });
   }
 }
 ```
 
-      - 📁 users/
-        - 📄 route.ts
-        
+
+---
+### 📄 Arquivo: `src/app/api/users/route.ts`
+
 ```typescript
+// src/app/api/users/route.ts
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import bcrypt from 'bcryptjs';
+import { z } from 'zod';
 import dbConnect from '@/lib/mongodb';
 import UserModel from '@/models/user';
+
+const UserSchema = z.object({
+  name: z.string().min(1, 'Nome é obrigatório').max(100, 'Nome não pode exceder 100 caracteres'),
+  email: z.string().email('Formato de email inválido'),
+  password: z.string().min(6, 'Senha deve ter pelo menos 6 caracteres'),
+  role: z.enum(['admin', 'editor', 'viewer'], { message: 'Função inválida' }),
+});
 
 export async function GET() {
   try {
     const session = await getServerSession();
-    
     if (!session || session.user.role !== 'admin') {
-      return NextResponse.json(
-        { error: 'Não autorizado' },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: 'Não autorizado' }, { status: 401 });
     }
-    
+
     await dbConnect();
-    
     const users = await UserModel.find({})
       .select('-password')
       .sort({ createdAt: -1 })
+      .limit(50) // Limite para performance
       .lean();
-    
+
     return NextResponse.json(users);
   } catch (error) {
     console.error('Erro ao buscar usuários:', error);
-    return NextResponse.json(
-      { error: 'Erro ao buscar usuários' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Erro interno ao buscar usuários' }, { status: 500 });
   }
 }
 
 export async function POST(req: Request) {
   try {
     const session = await getServerSession();
-    
     if (!session || session.user.role !== 'admin') {
-      return NextResponse.json(
-        { error: 'Não autorizado' },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: 'Não autorizado' }, { status: 401 });
     }
-    
+
     await dbConnect();
-    
-    const { name, email, password, role } = await req.json();
-    
-    // Validação básica
-    if (!name?.trim() || !email?.trim() || !password || !role) {
+    const body = await req.json();
+
+    // Validação com Zod
+    const parsedData = UserSchema.safeParse(body);
+    if (!parsedData.success) {
       return NextResponse.json(
-        { error: 'Dados incompletos' },
+        { error: 'Dados inválidos', details: parsedData.error.errors },
         { status: 400 }
       );
     }
-    
-    // Verifica se o email já está em uso
+
+    const { name, email, password, role } = parsedData.data;
+
+    // Verifica email duplicado
     const existingUser = await UserModel.findOne({ email }).lean();
-    
     if (existingUser) {
-      return NextResponse.json(
-        { error: 'Email já está em uso' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Email já está em uso' }, { status: 400 });
     }
-    
-    // Validar formato de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: 'Formato de email inválido' },
-        { status: 400 }
-      );
-    }
-    
-    // Validar força da senha
-    if (password.length < 6) {
-      return NextResponse.json(
-        { error: 'A senha deve ter pelo menos 6 caracteres' },
-        { status: 400 }
-      );
-    }
-    
-    // Validar papel do usuário
-    if (!['admin', 'editor', 'viewer'].includes(role)) {
-      return NextResponse.json(
-        { error: 'Função inválida' },
-        { status: 400 }
-      );
-    }
-    
-    // Cria a senha com hash
+
+    // Hash da senha
     const hashedPassword = await bcrypt.hash(password, 10);
-    
     const newUser = await UserModel.create({
       name: name.trim(),
-      email: email.trim().toLowerCase(),
+      email: email.toLowerCase(),
       password: hashedPassword,
       role,
     });
-    
-    // Remove a senha antes de retornar
+
+    // Remove senha da resposta
     const user = newUser.toObject();
     delete user.password;
-    
+
     return NextResponse.json(
       { message: 'Usuário criado com sucesso', data: user },
       { status: 201 }
     );
   } catch (error) {
     console.error('Erro ao criar usuário:', error);
-    return NextResponse.json(
-      { error: 'Erro ao criar usuário' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Erro interno ao criar usuário' }, { status: 500 });
   }
 }
 ```
 
-    - 📁 avaliar/
-      - 📁 [token]/
-        - 📄 page.tsx
-        
-```tsx
+
+---
+### 📄 Arquivo: `src/app/avaliar/[token]/page.tsx`
+
+```typescript
+// src/app/avaliar/[token]/page.tsx
+'use client';
+
 import dynamic from 'next/dynamic';
 
 const ReviewPage = dynamic(() => import('./ReviewPage'), { ssr: false });
@@ -1570,88 +1644,34 @@ const ReviewPage = dynamic(() => import('./ReviewPage'), { ssr: false });
 export default ReviewPage;
 ```
 
-        - 📄 ReviewPage.tsx
-        
-```tsx
+
+---
+### 📄 Arquivo: `src/app/avaliar/[token]/ReviewPage.tsx`
+
+```typescript
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useRouter, useParams } from 'next/navigation';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import { Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Star } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
+import { useReview } from '@/hooks/useReview';
 
 export default function ReviewPage() {
-  const router = useRouter();
-  const { token } = useParams();
-  const [review, setReview] = useState<{
-    name: string;
-    location: string;
-    isTokenUsed: boolean;
-    isApproved: boolean;
-    rating?: number;
-    text?: string;
-  } | null>(null);
-  const [rating, setRating] = useState<number>(0);
-  const [text, setText] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(true);
-  const [submitting, setSubmitting] = useState<boolean>(false);
-  const [submitted, setSubmitted] = useState<boolean>(false);
+  const {
+    review,
+    rating,
+    setRating,
+    text,
+    setText,
+    loading,
+    submitting,
+    submitted,
+    setSubmitted,
+    handleSubmit,
+  } = useReview();
 
-  useEffect(() => {
-    if (token) {
-      fetchReview();
-    }
-  }, [token]);
-
-  useEffect(() => {
-    if (review && review.isTokenUsed && !review.isApproved) {
-      setRating(review.rating || 0);
-      setText(review.text || '');
-    }
-  }, [review]);
-
-  const fetchReview = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get(`/api/reviews/${token}`);
-      setReview(response.data);
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Link inválido ou expirado.');
-      router.push('/');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (rating < 1 || rating > 5) {
-      toast.error('Por favor, selecione uma avaliação entre 1 e 5 estrelas.');
-      return;
-    }
-    if (!text.trim()) {
-      toast.error('Por favor, escreva um comentário.');
-      return;
-    }
-
-    setSubmitting(true);
-    try {
-      await axios.put(`/api/reviews/${token}`, { rating, text, isTokenUsed: true });
-      setReview({ ...review!, rating, text, isTokenUsed: true });
-      setSubmitted(true);
-      toast.success(review?.isTokenUsed ? 'Avaliação atualizada com sucesso!' : 'Avaliação enviada com sucesso! Obrigado.');
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Erro ao processar avaliação. Tente novamente.');
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  const renderStars = (currentRating: number = rating) => {
-    return Array(5)
+  const renderStars = (currentRating: number = rating) =>
+    Array(5)
       .fill(0)
       .map((_, index) => (
         <motion.button
@@ -1665,15 +1685,13 @@ export default function ReviewPage() {
         >
           <Star
             size={32}
-            className={`transition-all duration-300 ${
-              index < currentRating
+            className={`transition-all duration-300 ${index < currentRating
                 ? 'fill-[var(--color-accent)] text-[var(--color-accent)]'
                 : 'text-[var(--color-secondary)] hover:text-[var(--color-accent-dark)]'
-            }`}
+              }`}
           />
         </motion.button>
       ));
-  };
 
   if (loading) {
     return (
@@ -1693,6 +1711,20 @@ export default function ReviewPage() {
   }
 
   if (!review) return null;
+
+  const linkVariants = {
+    rest: {
+      scale: 1,
+      backgroundColor: 'var(--color-accent)',
+    },
+    hover: {
+      scale: 1.05,
+      backgroundColor: 'var(--color-accent-dark)',
+    },
+    tap: {
+      scale: 0.95,
+    },
+  };
 
   return (
     <motion.div
@@ -1751,9 +1783,7 @@ export default function ReviewPage() {
               <p className="text-sm text-[var(--color-text)]/70 dark:text-[var(--color-text-light)]/70">
                 Obrigado, {review.name}, por avaliar sua experiência em {review.location}!
               </p>
-              <div className="flex justify-center gap-4">
-                {renderStars(review.rating)}
-              </div>
+              <div className="flex justify-center gap-4">{renderStars(review.rating)}</div>
               <p className="text-base italic text-[var(--color-dark)] dark:text-[var(--color-text)]">
                 "{review.text}"
               </p>
@@ -1762,8 +1792,10 @@ export default function ReviewPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary w-full mt-6 inline-block text-center"
-                whileHover={{ scale: 1.05, backgroundColor: 'var(--color-accent-dark)' }}
-                whileTap={{ scale: 0.95 }}
+                variants={linkVariants}
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 Visitar o Site
@@ -1816,40 +1848,12 @@ export default function ReviewPage() {
                 <motion.button
                   type="submit"
                   disabled={submitting}
-                  className="btn btn-primary w-full text-white flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn btn-primary w-full"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  <AnimatePresence mode="wait">
-                    {submitting ? (
-                      <motion.div
-                        key="spinner"
-                        className="flex items-center gap-2"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <motion.div
-                          className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                        />
-                        Enviando...
-                      </motion.div>
-                    ) : (
-                      <motion.span
-                        key="text"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {review.isTokenUsed ? 'Salvar Alterações' : 'Enviar Avaliação'}
-                      </motion.span>
-                    )}
-                  </AnimatePresence>
+                  {submitting ? 'Enviando...' : 'Enviar Avaliação'}
                 </motion.button>
               </form>
             </motion.div>
@@ -1861,319 +1865,160 @@ export default function ReviewPage() {
 }
 ```
 
-    - 📁 dashboard/
-      - 📁 appearance/
-        - 📄 page.tsx
-        
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/appearance/page.tsx`
+
+```typescript
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Card, Heading } from '@/components/ui/Card';
-import { Settings, Palette, Template, Globe, Save, Loader2, Sun, Moon, Monitor } from 'lucide-react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import ThemeEditor from '@/components/dashboard/ThemeEditor';
-import { RoleGuard } from '@/components/RoleGuard';
-import { useSiteConfig } from '@/context/SiteConfigContext';
-import { useFeedback } from '@/context/FeedbackContext';
+import { Card } from '@/components/ui/Card';
+import { useSiteConfig } from '@/hooks/useSiteConfig';
+import { ServiceEditor } from '@/components/settings/ServiceEditor';
+import { TemplateEditor } from '@/components/settings/TemplateEditor';
 
 export default function AppearancePage() {
   const { config, updateConfig, loading } = useSiteConfig();
-  const { showToast } = useFeedback();
-  
-  const [activeTab, setActiveTab] = useState<'theme' | 'template' | 'general'>('theme');
-  const [defaultTheme, setDefaultTheme] = useState<'light' | 'dark' | 'system'>(
-    (config.defaultTheme as 'light' | 'dark' | 'system') || 'light'
-  );
-  const [templateSelection, setTemplateSelection] = useState(config.activeTemplate || 'default');
-  const [siteName, setSiteName] = useState(config.siteName || 'FH Resolve');
-  const [siteDescription, setSiteDescription] = useState(
-    config.siteDescription || 'Serviços profissionais de manutenção residencial em Florianópolis'
-  );
-  const [saving, setSaving] = useState(false);
+  const [activeTab, setActiveTab] = useState<'template' | 'general'>('template');
 
-  // Atualizar estados quando as configurações carregarem
-  useEffect(() => {
-    if (!loading) {
-      setDefaultTheme((config.defaultTheme as 'light' | 'dark' | 'system') || 'light');
-      setTemplateSelection(config.activeTemplate || 'default');
-      setSiteName(config.siteName || 'FH Resolve');
-      setSiteDescription(config.siteDescription || 'Serviços profissionais de manutenção residencial em Florianópolis');
-    }
-  }, [config, loading]);
-
-  // Salvar configurações gerais
-  const saveGeneralSettings = async () => {
-    setSaving(true);
-    try {
-      await updateConfig({
-        defaultTheme,
-        activeTemplate: templateSelection,
-        siteName,
-        siteDescription
-      });
-      showToast('Configurações de aparência salvas com sucesso', 'success');
-    } catch (error) {
-      console.error('Erro ao salvar configurações de aparência:', error);
-      showToast('Erro ao salvar configurações', 'error');
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  // Templates disponíveis
-  const templates = [
-    {
-      id: 'default',
-      name: 'Padrão',
-      description: 'Layout padrão com header, seções principais e footer'
-    },
-    {
-      id: 'minimal',
-      name: 'Minimalista',
-      description: 'Design minimalista com foco em conteúdo'
-    },
-    {
-      id: 'corporate',
-      name: 'Corporativo',
-      description: 'Design profissional para empresas'
-    },
+  const tabs = [
+    { id: 'template', label: 'Templates', icon: <span className="i-lucide-layout" /> },
+    { id: 'general', label: 'Geral', icon: <span className="i-lucide-settings" /> },
   ];
 
-  // Verificar se ainda está carregando
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    updateConfig({ [name]: value });
+  };
+
+  const updateService = (index: number, field: string, value: string) => {
+    const newServices = [...config.services];
+    newServices[index] = { ...newServices[index], [field]: value };
+    updateConfig({ services: newServices });
+  };
+
+  const addTemplate = () => {
+    const newTemplates = [...config.templates, { name: 'Novo Template', styles: {} }];
+    updateConfig({ templates: newTemplates });
+  };
+
+  const updateTemplateStyle = (index: number, key: string, value: string) => {
+    const newTemplates = [...config.templates];
+    newTemplates[index] = {
+      ...newTemplates[index],
+      styles: { ...newTemplates[index].styles, [key]: value },
+    };
+    updateConfig({ templates: newTemplates });
+  };
+
+  const [newTemplateName, setNewTemplateName] = useState('');
+  const [newTemplateStyles, setNewTemplateStyles] = useState<{ [key: string]: string }>({});
+
+  const iconOptions = [
+    { value: 'wrench', label: 'Chave Inglesa' },
+    { value: 'hammer', label: 'Martelo' },
+    { value: 'screwdriver', label: 'Chave de Fenda' },
+    { value: 'paint-roller', label: 'Rolo de Tinta' },
+    { value: 'brush', label: 'Pincel' },
+    { value: 'ruler', label: 'Régua' },
+    { value: 'tape-measure', label: 'Fita Métrica' },
+    { value: 'tool', label: 'Ferramenta' },
+  ];
+
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-accent)]"></div>
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-accent)]" />
       </div>
     );
   }
 
   return (
-    <RoleGuard allowedRoles={['admin']}>
-      <div className="space-y-6">
-        <div className="flex justify-between items-center">
-          <Heading
-            title="Aparência"
-            description="Personalize a aparência e o tema do seu site"
-          />
-          
-          <motion.button
-            onClick={saveGeneralSettings}
-            disabled={saving}
-            className="px-4 py-2 bg-accent hover:bg-accent/90 text-white rounded-md flex items-center gap-2 disabled:opacity-50"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            {saving ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin" />
-                <span>Salvando...</span>
-              </>
-            ) : (
-              <>
-                <Save className="h-4 w-4" />
-                <span>Salvar Alterações</span>
-              </>
-            )}
-          </motion.button>
-        </div>
-
-        <div className="grid grid-cols-12 gap-6">
-          {/* Sidebar de navegação */}
-          <div className="col-span-12 lg:col-span-3">
-            <Card>
-              <div className="p-2">
-                <button
-                  onClick={() => setActiveTab('theme')}
-                  className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
-                    activeTab === 'theme'
-                      ? 'bg-accent text-white'
-                      : 'hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  <Palette size={16} className="inline-block mr-2" />
-                  Editor de Tema
-                </button>
-
-                <button
-                  onClick={() => setActiveTab('template')}
-                  className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
-                    activeTab === 'template'
-                      ? 'bg-accent text-white'
-                      : 'hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  <Template size={16} className="inline-block mr-2" />
-                  Templates
-                </button>
-
-                <button
-                  onClick={() => setActiveTab('general')}
-                  className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
-                    activeTab === 'general'
-                      ? 'bg-accent text-white'
-                      : 'hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  <Settings size={16} className="inline-block mr-2" />
-                  Configurações Gerais
-                </button>
-              </div>
-            </Card>
+    <div className="container mx-auto px-4 py-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Card>
+          <div className="flex border-b border-gray-200">
+            {tabs.map((tab) => (
+              <motion.button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as 'template' | 'general')}
+                className={`px-4 py-2 flex items-center gap-2 text-sm font-medium transition-colors ${
+                  activeTab === tab.id
+                    ? 'border-b-2 border-[var(--color-accent)] text-[var(--color-accent)]'
+                    : 'text-gray-500 hover:text-gray-900'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {tab.icon}
+                {tab.label}
+              </motion.button>
+            ))}
           </div>
 
-          {/* Painéis de configuração */}
-          <div className="col-span-12 lg:col-span-9">
-            {activeTab === 'theme' && (
-              <ThemeEditor />
-            )}
-            
+          <div className="p-6">
             {activeTab === 'template' && (
-              <Card>
-                <div className="p-6 space-y-6">
-                  <h3 className="text-lg font-medium border-b border-gray-200 dark:border-gray-700 pb-2">
-                    Seleção de Template
-                  </h3>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {templates.map((template) => (
-                      <motion.div
-                        key={template.id}
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                        className={`border p-4 rounded-lg cursor-pointer ${
-                          templateSelection === template.id
-                            ? 'border-2 border-accent bg-accent/5'
-                            : 'border-gray-200 dark:border-gray-700 hover:border-accent hover:bg-accent/5'
-                        }`}
-                        onClick={() => setTemplateSelection(template.id)}
-                      >
-                        <div className="h-32 bg-gray-100 dark:bg-gray-800 rounded-md mb-3 flex items-center justify-center">
-                          <Template size={32} className="text-gray-400" />
-                        </div>
-                        <h4 className="font-medium">{template.name}</h4>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                          {template.description}
-                        </p>
-                        {templateSelection === template.id && (
-                          <div className="mt-2 text-xs bg-accent text-white py-1 px-2 rounded inline-block">
-                            Selecionado
-                          </div>
-                        )}
-                      </motion.div>
-                    ))}
-                  </div>
-                  
-                  <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-md border-l-4 border-blue-500">
-                    <p className="text-sm text-blue-700 dark:text-blue-400">
-                      O template selecionado define o layout e a estrutura geral do seu site.
-                      Alterações nesta configuração afetam diretamente a aparência do site para todos os visitantes.
-                    </p>
-                  </div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className="text-lg font-semibold text-gray-900 mb-4">
+                  Configurações de Template
+                </h2>
+                <div className="space-y-4">
+                  <TemplateEditor
+                    templates={config.templates}
+                    updateTemplateStyle={updateTemplateStyle}
+                    addTemplate={addTemplate}
+                    newTemplateName={newTemplateName}
+                    setNewTemplateName={setNewTemplateName}
+                    newTemplateStyles={newTemplateStyles}
+                    setNewTemplateStyles={setNewTemplateStyles}
+                    activeTemplate={config.activeTemplate}
+                    handleChange={handleChange}
+                  />
                 </div>
-              </Card>
+              </motion.div>
             )}
-            
+
             {activeTab === 'general' && (
-              <Card>
-                <div className="p-6 space-y-6">
-                  <h3 className="text-lg font-medium border-b border-gray-200 dark:border-gray-700 pb-2">
-                    Configurações Gerais
-                  </h3>
-                  
-                  <div className="space-y-4">
-                    <div>
-                      <label htmlFor="siteName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Nome do Site
-                      </label>
-                      <input
-                        id="siteName"
-                        type="text"
-                        value={siteName}
-                        onChange={(e) => setSiteName(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-accent"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="siteDescription" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Descrição do Site
-                      </label>
-                      <textarea
-                        id="siteDescription"
-                        value={siteDescription}
-                        onChange={(e) => setSiteDescription(e.target.value)}
-                        rows={3}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-accent"
-                      />
-                      <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                        Esta descrição é usada para SEO e pode aparecer nos resultados de busca.
-                      </p>
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="defaultTheme" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Tema Padrão do Site
-                      </label>
-                      <div className="grid grid-cols-3 gap-3 mt-2">
-                        <div
-                          className={`flex flex-col items-center gap-2 p-3 rounded-lg cursor-pointer border ${
-                            defaultTheme === 'light'
-                              ? 'border-accent bg-accent/5'
-                              : 'border-gray-200 dark:border-gray-700 hover:border-accent hover:bg-accent/5'
-                          }`}
-                          onClick={() => setDefaultTheme('light')}
-                        >
-                          <Sun size={24} className="text-orange-400" />
-                          <span className="text-sm font-medium">Claro</span>
-                        </div>
-                        
-                        <div
-                          className={`flex flex-col items-center gap-2 p-3 rounded-lg cursor-pointer border ${
-                            defaultTheme === 'dark'
-                              ? 'border-accent bg-accent/5'
-                              : 'border-gray-200 dark:border-gray-700 hover:border-accent hover:bg-accent/5'
-                          }`}
-                          onClick={() => setDefaultTheme('dark')}
-                        >
-                          <Moon size={24} className="text-indigo-400" />
-                          <span className="text-sm font-medium">Escuro</span>
-                        </div>
-                        
-                        <div
-                          className={`flex flex-col items-center gap-2 p-3 rounded-lg cursor-pointer border ${
-                            defaultTheme === 'system'
-                              ? 'border-accent bg-accent/5'
-                              : 'border-gray-200 dark:border-gray-700 hover:border-accent hover:bg-accent/5'
-                          }`}
-                          onClick={() => setDefaultTheme('system')}
-                        >
-                          <Monitor size={24} className="text-gray-400" />
-                          <span className="text-sm font-medium">Sistema</span>
-                        </div>
-                      </div>
-                      <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                        Define o tema padrão para novos visitantes. Os usuários ainda poderão alternar entre temas.
-                      </p>
-                    </div>
-                  </div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <h2 className="text-lg font-semibold text-gray-900 mb-4">
+                  Configurações Gerais
+                </h2>
+                <div className="space-y-4">
+                  <ServiceEditor
+                    services={config.services}
+                    updateService={updateService}
+                    iconOptions={iconOptions}
+                  />
                 </div>
-              </Card>
+              </motion.div>
             )}
           </div>
-        </div>
-      </div>
-    </RoleGuard>
+        </Card>
+      </motion.div>
+    </div>
   );
 }
 ```
 
-      - 📁 blog/
-        - 📁 new/
-          - 📄 page.tsx
-          
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/blog/new/page.tsx`
+
+```typescript
 'use client';
 
 import { useState } from 'react';
@@ -2183,31 +2028,45 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import axios from '@/lib/axios';
 import toast from 'react-hot-toast';
-
 import { Card, Heading } from '@/components/ui/Card';
 import { Loader2, ArrowLeft, Upload, X, Calendar, Tag, Eye } from 'lucide-react';
 
+// Schema de validação sem transformação para evitar conflitos de tipo
 const blogSchema = z.object({
   title: z.string().min(1, 'Título é obrigatório'),
-  slug: z.string().min(1, 'Slug é obrigatório')
+  slug: z
+    .string()
+    .min(1, 'Slug é obrigatório')
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Slug deve conter apenas letras minúsculas, números e hífens'),
   excerpt: z.string().min(1, 'Resumo é obrigatório').max(300, 'Resumo deve ter no máximo 300 caracteres'),
   content: z.string().min(1, 'Conteúdo é obrigatório'),
   category: z.string().min(1, 'Categoria é obrigatória'),
-  tags: z.string().transform(val => val ? val.split(',').map(tag => tag.trim()) : []),
+  tags: z.string(), // Mantido como string para evitar conflitos de tipo
   isPublished: z.boolean().default(false),
   publishDate: z.string().optional(),
 });
 
 type BlogFormValues = z.infer<typeof blogSchema>;
 
+// Interface para a imagem de capa
+interface CoverImage {
+  url: string;
+  driveId: string;
+}
+
 export default function NewBlogPostPage() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [coverImage, setCoverImage] = useState<{ url: string; driveId: string; } | null>(null);
+  const [coverImage, setCoverImage] = useState<CoverImage | null>(null);
   const [previewMode, setPreviewMode] = useState(false);
-  
-  const { register, handleSubmit, formState: { errors }, watch } = useForm<BlogFormValues>({
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+    setValue,
+  } = useForm<BlogFormValues>({
     resolver: zodResolver(blogSchema),
     defaultValues: {
       title: '',
@@ -2221,17 +2080,32 @@ export default function NewBlogPostPage() {
     },
   });
 
+  // Valores observados
   const watchedContent = watch('content');
   const watchedTitle = watch('title');
   const watchedExcerpt = watch('excerpt');
+  const watchedCategory = watch('category');
+  const watchedTags = watch('tags');
 
+  // Função para processar tags como array para exibição
+  const getTagsArray = (tagsString: string): string[] => {
+    if (!tagsString) return [];
+    return tagsString.split(',').map(tag => tag.trim()).filter(Boolean);
+  };
+
+  // Submissão do formulário
   const onSubmit = async (data: BlogFormValues) => {
     setIsSubmitting(true);
-    
     try {
-      const response = await axios.post('/api/blog', {
+      // Processar tags antes de enviar
+      const processedData = {
         ...data,
-        coverImage,
+        tags: getTagsArray(data.tags)
+      };
+
+      const response = await axios.post('/api/blog', { 
+        ...processedData,
+        coverImage 
       });
       
       toast.success('Post criado com sucesso');
@@ -2244,21 +2118,19 @@ export default function NewBlogPostPage() {
     }
   };
 
-  // Função para gerar o slug automaticamente a partir do título
-  const generateSlug = (title: string) => {
-    return title
+  // Geração automática de slug
+  const generateSlug = (title: string): string =>
+    title
       .toLowerCase()
       .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '') // Remove acentos
-      .replace(/[^\w\s-]/g, '') // Remove caracteres especiais
-      .replace(/\s+/g, '-') // Substitui espaços por hífens
-      .replace(/-+/g, '-'); // Remove hífens consecutivos
-  };
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-');
 
-  // Função simulada para upload de imagens para o Google Drive
+  // Upload simulado de imagem
   const handleImageUpload = () => {
-    // Simulando uma imagem do Google Drive
-    const newImage = {
+    const newImage: CoverImage = {
       url: 'https://via.placeholder.com/800x400',
       driveId: `mockid-${Date.now()}`,
     };
@@ -2267,17 +2139,17 @@ export default function NewBlogPostPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between gap-4">
+      <header className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <button
             onClick={() => router.back()}
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+            aria-label="Voltar"
           >
             <ArrowLeft size={20} />
           </button>
           <Heading title="Novo Post" description="Adicione um novo post ao blog" />
         </div>
-        
         <button
           type="button"
           onClick={() => setPreviewMode(!previewMode)}
@@ -2286,37 +2158,32 @@ export default function NewBlogPostPage() {
           <Eye size={16} />
           {previewMode ? 'Editar' : 'Visualizar'}
         </button>
-      </div>
+      </header>
 
       {previewMode ? (
-        <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+        <article className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
           {coverImage && (
             <div className="w-full h-64 bg-gray-200 dark:bg-gray-700">
-              <img
-                src={coverImage.url}
-                alt={watchedTitle}
-                className="w-full h-full object-cover"
-              />
+              <img src={coverImage.url} alt={watchedTitle} className="w-full h-full object-cover" />
             </div>
           )}
-          
           <div className="p-8">
             <h1 className="text-3xl font-bold mb-4">{watchedTitle || 'Título do Post'}</h1>
-            
             <div className="flex flex-wrap gap-2 mb-6">
-              {watch('category') && (
+              {watchedCategory && (
                 <span className="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400 rounded-full text-xs">
-                  {watch('category')}
+                  {watchedCategory}
                 </span>
               )}
-              
-              {watch('tags') && watch('tags').toString().split(',').map((tag, index) => (
-                <span key={index} className="px-3 py-1 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300 rounded-full text-xs">
-                  {tag.trim()}
+              {getTagsArray(watchedTags).map((tag, index) => (
+                <span
+                  key={index}
+                  className="px-3 py-1 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300 rounded-full text-xs"
+                >
+                  {tag}
                 </span>
               ))}
             </div>
-            
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
               {watchedExcerpt || 'Resumo do post...'}
             </p>
@@ -2328,252 +2195,255 @@ export default function NewBlogPostPage() {
               )}
             </div>
           </div>
-        </div>
+        </article>
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2 space-y-6">
-              <Card>
-                <div className="space-y-4 p-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 space-y-6">
+            <Card>
+              <div className="space-y-6 p-6">
+                <div>
+                  <label
+                    htmlFor="title"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                  >
+                    Título
+                  </label>
+                  <input
+                    id="title"
+                    type="text"
+                    className={`w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:text-white ${
+                      errors.title ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
+                    }`}
+                    placeholder="Digite o título do post"
+                    {...register('title', {
+                      onChange: (e) => {
+                        const currentSlug = watch('slug');
+                        if (!currentSlug) setValue('slug', generateSlug(e.target.value));
+                      },
+                    })}
+                  />
+                  {errors.title && <p className="mt-1 text-sm text-red-500">{errors.title.message}</p>}
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="slug"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                  >
+                    Slug
+                  </label>
+                  <div className="flex">
+                    <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm">
+                      /blog/
+                    </span>
+                    <input
+                      id="slug"
+                      type="text"
+                      className={`flex-1 min-w-0 block w-full px-3 py-2 border rounded-none rounded-r-md dark:bg-gray-700 dark:text-white ${
+                        errors.slug ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
+                      }`}
+                      placeholder="titulo-do-post"
+                      {...register('slug')}
+                    />
+                  </div>
+                  {errors.slug && <p className="mt-1 text-sm text-red-500">{errors.slug.message}</p>}
+                  <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                    URL amigável para o post. Use apenas letras minúsculas, números e hífens.
+                  </p>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="excerpt"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                  >
+                    Resumo
+                  </label>
+                  <textarea
+                    id="excerpt"
+                    rows={2}
+                    className={`w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:text-white ${
+                      errors.excerpt ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
+                    }`}
+                    placeholder="Digite um breve resumo"
+                    {...register('excerpt')}
+                  />
+                  {errors.excerpt && (
+                    <p className="mt-1 text-sm text-red-500">{errors.excerpt.message}</p>
+                  )}
+                  <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                    Máximo de 300 caracteres. Esse texto aparecerá nos previews e compartilhamentos.
+                  </p>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="content"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                  >
+                    Conteúdo
+                  </label>
+                  <textarea
+                    id="content"
+                    rows={15}
+                    className={`w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:text-white font-mono ${
+                      errors.content ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
+                    }`}
+                    placeholder="Conteúdo do post em markdown ou HTML"
+                    {...register('content')}
+                  />
+                  {errors.content && (
+                    <p className="mt-1 text-sm text-red-500">{errors.content.message}</p>
+                  )}
+                </div>
+              </div>
+            </Card>
+
+            <Card>
+              <div className="p-6">
+                <h3 className="text-lg font-medium mb-4">Imagem de Capa</h3>
+                {coverImage ? (
+                  <div className="relative rounded-md overflow-hidden">
+                    <img src={coverImage.url} alt="Imagem de capa" className="w-full h-48 object-cover" />
+                    <button
+                      type="button"
+                      onClick={() => setCoverImage(null)}
+                      className="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600"
+                    >
+                      <X size={14} />
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleImageUpload}
+                    className="w-full h-48 flex flex-col items-center justify-center gap-2 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  >
+                    <Upload size={24} className="text-gray-400" />
+                    <span className="text-sm text-gray-500">Upload de Imagem de Capa</span>
+                  </button>
+                )}
+                <p className="mt-4 text-sm text-gray-500">
+                  Tamanho recomendado: 1200 x 630 pixels. Formatos suportados: JPG, PNG.
+                </p>
+              </div>
+            </Card>
+          </div>
+
+          <div className="space-y-6">
+            <Card>
+              <div className="p-6">
+                <h3 className="text-lg font-medium mb-4">Publicação</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <input
+                      id="isPublished"
+                      type="checkbox"
+                      className="h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
+                      {...register('isPublished')}
+                    />
+                    <label
+                      htmlFor="isPublished"
+                      className="ml-2 block text-sm text-gray-700 dark:text-gray-300"
+                    >
+                      Publicar post
+                    </label>
+                  </div>
                   <div>
-                    <label htmlFor="title" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Título
+                    <label
+                      htmlFor="publishDate"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                    >
+                      Data de Publicação
+                    </label>
+                    <div className="relative">
+                      <Calendar size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input
+                        id="publishDate"
+                        type="date"
+                        className="pl-10 w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
+                        {...register('publishDate')}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card>
+              <div className="p-6">
+                <h3 className="text-lg font-medium mb-4">Categorização</h3>
+                <div className="space-y-4">
+                  <div>
+                    <label
+                      htmlFor="category"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                    >
+                      Categoria
+                    </label>
+                    <div className="relative">
+                      <Tag size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input
+                        id="category"
+                        type="text"
+                        className={`pl-10 w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:text-white ${
+                          errors.category ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
+                        }`}
+                        placeholder="Ex: Dicas, Tutoriais, etc."
+                        {...register('category')}
+                      />
+                    </div>
+                    {errors.category && (
+                      <p className="mt-1 text-sm text-red-500">{errors.category.message}</p>
+                    )}
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="tags"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                    >
+                      Tags (separadas por vírgula)
                     </label>
                     <input
-                      id="title"
+                      id="tags"
                       type="text"
                       className={`w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:text-white ${
-                        errors.title ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
+                        errors.tags ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
                       }`}
-                      placeholder="Digite o título do post"
-                      {...register('title', {
-                        onChange: (e) => {
-                          const currentSlug = watch('slug');
-                          if (!currentSlug) {
-                            // Se o slug estiver vazio, gera automaticamente
-                            const newSlug = generateSlug(e.target.value);
-                            // @ts-ignore - setValue não está no tipo, mas funciona
-                            setValue('slug', newSlug);
-                          }
-                        }
-                      })}
+                      placeholder="Ex: reforma, dicas, residencial"
+                      {...register('tags')}
                     />
-                    {errors.title && (
-                      <p className="mt-1 text-sm text-red-500">{errors.title.message}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label htmlFor="slug" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Slug
-                    </label>
-                    <div className="flex">
-                      <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm">
-                        /blog/
-                      </span>
-                      <input
-                        id="slug"
-                        type="text"
-                        className={`flex-1 min-w-0 block w-full px-3 py-2 border rounded-none rounded-r-md dark:bg-gray-700 dark:text-white ${
-                          errors.slug ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
-                        }`}
-                        placeholder="titulo-do-post"
-                        {...register('slug')}
-                      />
-                    </div>
-                    {errors.slug && (
-                      <p className="mt-1 text-sm text-red-500">{errors.slug.message}</p>
-                    )}
+                    {errors.tags && <p className="mt-1 text-sm text-red-500">{errors.tags.message}</p>}
                     <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                      URL amigável para o post. Use apenas letras minúsculas, números e hífens.
-                    </p>
-                  </div>
-
-                  <div>
-                    <label htmlFor="excerpt" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Resumo
-                    </label>
-                    <textarea
-                      id="excerpt"
-                      rows={2}
-                      className={`w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:text-white ${
-                        errors.excerpt ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
-                      }`}
-                      placeholder="Digite um breve resumo"
-                      {...register('excerpt')}
-                    />
-                    {errors.excerpt && (
-                      <p className="mt-1 text-sm text-red-500">{errors.excerpt.message}</p>
-                    )}
-                    <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                      Máximo de 300 caracteres. Esse texto aparecerá nos previews e compartilhamentos.
-                    </p>
-                  </div>
-
-                  <div>
-                    <label htmlFor="content" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Conteúdo
-                    </label>
-                    <textarea
-                      id="content"
-                      rows={15}
-                      className={`w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:text-white font-mono ${
-                        errors.content ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
-                      }`}
-                      placeholder="Conteúdo do post em markdown ou HTML"
-                      {...register('content')}
-                    />
-                    {errors.content && (
-                      <p className="mt-1 text-sm text-red-500">{errors.content.message}</p>
-                    )}
-                  </div>
-                </div>
-              </Card>
-
-              <Card>
-                <div className="p-6">
-                  <h3 className="text-lg font-medium mb-4">Imagem de Capa</h3>
-                  <div className="space-y-4">
-                    {coverImage ? (
-                      <div className="relative rounded-md overflow-hidden">
-                        <img
-                          src={coverImage.url}
-                          alt="Imagem de capa"
-                          className="w-full h-48 object-cover"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => setCoverImage(null)}
-                          className="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600"
-                        >
-                          <X size={14} />
-                        </button>
-                      </div>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={handleImageUpload}
-                        className="w-full h-48 flex flex-col items-center justify-center gap-2 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                      >
-                        <Upload size={24} className="text-gray-400" />
-                        <span className="text-sm text-gray-500">Upload de Imagem de Capa</span>
-                      </button>
-                    )}
-                    
-                    <p className="text-sm text-gray-500">
-                      Tamanho recomendado: 1200 x 630 pixels. Formatos suportados: JPG, PNG.
+                      Separe múltiplas tags com vírgulas
                     </p>
                   </div>
                 </div>
-              </Card>
-            </div>
-
-            <div className="space-y-6">
-              <Card>
-                <div className="p-6">
-                  <h3 className="text-lg font-medium mb-4">Publicação</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center">
-                      <input
-                        id="isPublished"
-                        type="checkbox"
-                        className="h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
-                        {...register('isPublished')}
-                      />
-                      <label htmlFor="isPublished" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
-                        Publicar post
-                      </label>
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="publishDate" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Data de Publicação
-                      </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Calendar size={16} className="text-gray-400" />
-                        </div>
-                        <input
-                          id="publishDate"
-                          type="date"
-                          className="pl-10 w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                          {...register('publishDate')}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
-              <Card>
-                <div className="p-6">
-                  <h3 className="text-lg font-medium mb-4">Categorização</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <label htmlFor="category" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Categoria
-                      </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Tag size={16} className="text-gray-400" />
-                        </div>
-                        <input
-                          id="category"
-                          type="text"
-                          className={`pl-10 w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:text-white ${
-                            errors.category ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
-                          }`}
-                          placeholder="Ex: Dicas, Tutoriais, etc."
-                          {...register('category')}
-                        />
-                      </div>
-                      {errors.category && (
-                        <p className="mt-1 text-sm text-red-500">{errors.category.message}</p>
-                      )}
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="tags" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Tags (separadas por vírgula)
-                      </label>
-                      <input
-                        id="tags"
-                        type="text"
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                        placeholder="Ex: reforma, dicas, residencial"
-                        {...register('tags')}
-                      />
-                      <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                        Separe múltiplas tags com vírgulas
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
-              <div className="flex gap-4">
-                <button
-                  type="button"
-                  onClick={() => router.back()}
-                  className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800"
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="flex-1 px-4 py-2 bg-accent hover:bg-accent/90 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <div className="flex items-center justify-center">
-                      <Loader2 className="h-5 w-5 animate-spin mr-2" />
-                      Salvando...
-                    </div>
-                  ) : (
-                    'Salvar'
-                  )}
-                </button>
               </div>
+            </Card>
+
+            <div className="flex gap-4">
+              <button
+                type="button"
+                onClick={() => router.back()}
+                className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800"
+              >
+                Cancelar
+              </button>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="flex-1 px-4 py-2 bg-accent hover:bg-accent/90 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    Salvando...
+                  </div>
+                ) : (
+                  'Salvar'
+                )}
+              </button>
             </div>
           </div>
         </form>
@@ -2583,9 +2453,11 @@ export default function NewBlogPostPage() {
 }
 ```
 
-        - 📄 page.tsx
-        
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/blog/page.tsx`
+
+```typescript
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -2846,61 +2718,59 @@ export default function BlogPage() {
 }
 ```
 
-      - 📁 estimates/
-        - 📁 new/
-          - 📄 page.tsx
-          
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/estimates/new/page.tsx`
+
+```typescript
 'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import axios from '@/lib/axios';
 import toast from 'react-hot-toast';
+import { motion } from 'framer-motion';
 
-import { Card, Heading } from '@/components/ui/Card';
-import { Loader2, ArrowLeft, Plus, Trash2, Calculator, Calendar, Save, CreditCard, CheckCircle } from 'lucide-react';
-
-// Schema para validação
-const estimateItemSchema = z.object({
-  description: z.string().min(1, 'Descrição é obrigatória'),
-  quantity: z.number().positive('Quantidade deve ser maior que zero'),
-  unit: z.string().default('un'),
-  unitPrice: z.number().min(0, 'Preço não pode ser negativo'),
-});
-
-const estimateSchema = z.object({
-  clientName: z.string().min(1, 'Nome do cliente é obrigatório'),
-  clientEmail: z.string().email('Email inválido').optional().or(z.literal('')),
-  clientPhone: z.string().min(1, 'Telefone do cliente é obrigatório'),
-  address: z.string().optional().or(z.literal('')),
-  title: z.string().min(1, 'Título do orçamento é obrigatório'),
-  description: z.string().optional().or(z.literal('')),
-  items: z.array(estimateItemSchema).min(1, 'Adicione pelo menos um item'),
-  subtotal: z.number().optional(),
-  discount: z.number().min(0, 'Desconto não pode ser negativo').optional(),
-  tax: z.number().min(0, 'Taxas não podem ser negativas').optional(),
-  total: z.number().optional(),
-  notes: z.string().optional().or(z.literal('')),
-  paymentTerms: z.string().optional().or(z.literal('')),
-  validUntil: z.string().optional().or(z.literal('')),
-});
-
-type EstimateFormValues = z.infer<typeof estimateSchema>;
+import { Calculator } from 'lucide-react';
+import PageHeader from '@/components/new-estimate/PageHeader';
+import EstimateTypeSelector from '@/components/new-estimate/EstimateTypeSelector';
+import ClientInfoCard from '@/components/new-estimate/ClientInfoCard';
+import EstimateDetailsCard from '@/components/new-estimate/EstimateDetailsCard';
+import DetailedItemsTable from '@/components/new-estimate/DetailedItemsTable';
+import MaterialsTable from '@/components/new-estimate/MaterialsTable';
+import ServicesTable from '@/components/new-estimate/ServicesTable';
+import TotalsCard from '@/components/new-estimate/TotalsCard';
+import AdditionalInfoCard from '@/components/new-estimate/AdditionalInfoCard';
+import ActionButtons from '@/components/new-estimate/ActionButtons';
+import SuccessModal from '@/components/new-estimate/SuccessModal';
+import { useEstimateSchema } from '@/hooks/useEstimateSchema';
+import { useCalculations } from '@/hooks/useCalculations';
+import { EstimateFormValues, EstimateType } from '@/types/estimate';
 
 export default function NewEstimatePage() {
   const router = useRouter();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showLinkModal, setShowLinkModal] = useState(false);
-  const [generatedLink, setGeneratedLink] = useState('');
-  const [linkCopied, setLinkCopied] = useState(false);
-  
-  const { register, handleSubmit, control, watch, setValue, formState: { errors } } = useForm<EstimateFormValues>({
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [showLinkModal, setShowLinkModal] = useState<boolean>(false);
+  const [generatedLink, setGeneratedLink] = useState<string>('');
+  const [linkCopied, setLinkCopied] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [estimateType, setEstimateType] = useState<EstimateType>('detailed');
+
+  const { estimateSchema } = useEstimateSchema();
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const { register, handleSubmit, control, watch, setValue, formState: { errors, isDirty } } = useForm({
     resolver: zodResolver(estimateSchema),
     defaultValues: {
+      estimateType: 'detailed',
       clientName: '',
       clientEmail: '',
       clientPhone: '',
@@ -2908,485 +2778,257 @@ export default function NewEstimatePage() {
       title: '',
       description: '',
       items: [{ description: '', quantity: 1, unit: 'un', unitPrice: 0 }],
+      materials: [{ description: '', quantity: 1, unit: 'un', unitPrice: 0 }],
+      services: [{ description: '', value: 0 }],
       discount: 0,
       tax: 0,
       notes: '',
       paymentTerms: 'Pagamento em até 12x no cartão ou via PIX/transferência bancária.',
-      validUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 dias a partir de hoje
+      validUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
     },
   });
-  
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: 'items',
-  });
-  
-  // Observar os itens para calcular o subtotal
-  const items = watch('items');
+
+  const itemsFieldArray = useFieldArray({ control, name: 'items' });
+  const materialsFieldArray = useFieldArray({ control, name: 'materials' });
+  const servicesFieldArray = useFieldArray({ control, name: 'services' });
+
+  const currentEstimateType = watch('estimateType');
+  const items = watch('items') || [];
+  const materials = watch('materials') || [];
+  const services = watch('services') || [];
   const discount = watch('discount') || 0;
   const tax = watch('tax') || 0;
-  
-  // Calcular subtotal sempre que os itens mudarem
-  const calculateSubtotal = () => {
-    return items.reduce((sum, item) => {
-      return sum + (item.quantity || 0) * (item.unitPrice || 0);
-    }, 0);
-  };
-  
-  // Calcular o total
-  const calculateTotal = () => {
-    const subtotal = calculateSubtotal();
-    let total = subtotal;
-    
-    if (discount) {
-      total -= discount;
-    }
-    
-    if (tax) {
-      total += tax;
-    }
-    
-    return total;
-  };
-  
+
+  const {
+    calculateSubtotal,
+    calculateTotal,
+    calculateMaterialsSubtotal,
+    calculateServicesSubtotal,
+    formatCurrency
+  } = useCalculations(items, materials, services, discount, tax, estimateType);
+
+  useEffect(() => {
+    if (currentEstimateType !== estimateType) setEstimateType(currentEstimateType);
+  }, [currentEstimateType, estimateType]);
+
   const onSubmit = async (data: EstimateFormValues) => {
-    // Adicionar os totais calculados
-    data.subtotal = calculateSubtotal();
-    data.total = calculateTotal();
+    console.log('Iniciando submissão do formulário:', data);
+    
+    // Filtrar dados com base no tipo de orçamento
+    const dataToSend = { ...data };
+    dataToSend.subtotal = calculateSubtotal();
+    dataToSend.total = calculateTotal();
+    
+    // Remover campos desnecessários de acordo com o tipo de orçamento
+    if (dataToSend.estimateType === 'simple') {
+      delete dataToSend.items;
+      delete dataToSend.materials;
+    } else if (dataToSend.estimateType === 'materials') {
+      delete dataToSend.items;
+    } else if (dataToSend.estimateType === 'detailed') {
+      delete dataToSend.materials;
+      delete dataToSend.services;
+    }
     
     setIsSubmitting(true);
-    
+  
     try {
-      const response = await axios.post('/api/estimates', data);
-      
-      toast.success('Orçamento criado com sucesso');
+      console.log('Enviando dados para a API:', dataToSend);
+      const response = await axios.post('/api/estimates', dataToSend);
+      console.log('Resposta da API:', response);
+      toast.success('Orçamento criado com sucesso!');
       setGeneratedLink(response.data.estimateLink);
       setShowLinkModal(true);
-    } catch (error) {
-      console.error('Erro ao criar orçamento:', error);
-      toast.error('Erro ao criar orçamento');
+      setTimeout(() => router.push('/dashboard/estimates'), 500);
+    } catch (error: any) {
+      console.error('Erro detalhado:', error);
+      console.error('Status do erro:', error.response?.status);
+      console.error('Dados do erro:', error.response?.data);
+      const errorMsg = error.response?.data?.error || 'Erro ao salvar orçamento. Verifique os dados e tente novamente.';
+      toast.error(errorMsg);
     } finally {
       setIsSubmitting(false);
+      console.log('Submissão finalizada');
     }
   };
-  
-  const addItem = () => {
-    append({ description: '', quantity: 1, unit: 'un', unitPrice: 0 });
-  };
-  
+
   const copyToClipboard = () => {
     navigator.clipboard.writeText(generatedLink);
     setLinkCopied(true);
-    toast.success('Link copiado para a área de transferência');
+    toast.success('Link copiado para a área de transferência!');
     setTimeout(() => setLinkCopied(false), 3000);
-  };
-  
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(value);
   };
 
   useEffect(() => {
-    // Verificar se há um parâmetro 'from_quote' na URL
     const params = new URLSearchParams(window.location.search);
     const quoteId = params.get('from_quote');
-    
     if (quoteId) {
-      // Buscar os dados do pedido
       const fetchQuote = async () => {
         try {
           const response = await axios.get(`/api/quotes/${quoteId}`);
           const quote = response.data;
-          
-          // Preencher o formulário com os dados do pedido
           setValue('clientName', quote.name);
           setValue('clientPhone', quote.phone);
           setValue('title', `Orçamento para ${quote.name}`);
           setValue('description', quote.message);
-          
-          toast.success('Dados do pedido carregados');
+          toast.success('Dados do pedido carregados!');
         } catch (error) {
           console.error('Erro ao carregar dados do pedido:', error);
           toast.error('Erro ao carregar dados do pedido');
         }
       };
-      
       fetchQuote();
     }
   }, [setValue]);
 
+  const manualSubmit = () => {
+    console.log("Submit manual iniciado");
+
+    // Teste se os dados básicos existem
+    const formData = {
+      estimateType: watch('estimateType'),
+      clientName: watch('clientName'),
+      clientPhone: watch('clientPhone'),
+      title: watch('title'),
+      items: watch('items'),
+      materials: watch('materials'),
+      services: watch('services'),
+      discount: watch('discount'),
+      tax: watch('tax'),
+      notes: watch('notes'),
+      paymentTerms: watch('paymentTerms'),
+      validUntil: watch('validUntil')
+    };
+
+    console.log("Dados do formulário coletados:", formData);
+
+    // Verificação manual dos campos obrigatórios
+    if (!formData.clientName) {
+      toast.error("Nome do cliente é obrigatório");
+      return;
+    }
+
+    if (!formData.clientPhone) {
+      toast.error("Telefone do cliente é obrigatório");
+      return;
+    }
+
+    if (!formData.title) {
+      toast.error("Título do orçamento é obrigatório");
+      return;
+    }
+
+    // Se chegou aqui, os dados básicos estão ok
+    console.log("Validação básica passou, enviando para API");
+    onSubmit(formData as EstimateFormValues);
+  };
+
+  const fadeIn = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.3 } } };
+
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-4">
-        <button
-          onClick={() => router.back()}
-          className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
-        >
-          <ArrowLeft size={20} />
-        </button>
-        <Heading title="Novo Orçamento" description="Crie um orçamento detalhado para seu cliente" />
-      </div>
+    <div className="space-y-6 pb-6">
+      <PageHeader router={router} />
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <EstimateTypeSelector
+          register={register}
+          estimateType={estimateType}
+          setValue={setValue}
+        />
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Dados do Cliente */}
-          <div className="lg:col-span-2 space-y-6">
-            <Card>
-              <div className="p-6">
-                <h3 className="text-lg font-medium mb-4">Dados do Cliente</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="md:col-span-2">
-                    <label htmlFor="clientName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Nome do Cliente
-                    </label>
-                    <input
-                      id="clientName"
-                      {...register('clientName')}
-                      className={`w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:text-white ${
-                        errors.clientName ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
-                      }`}
-                    />
-                    {errors.clientName && (
-                      <p className="mt-1 text-sm text-red-500">{errors.clientName.message}</p>
-                    )}
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="clientPhone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Telefone
-                    </label>
-                    <input
-                      id="clientPhone"
-                      {...register('clientPhone')}
-                      className={`w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:text-white ${
-                        errors.clientPhone ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
-                      }`}
-                    />
-                    {errors.clientPhone && (
-                      <p className="mt-1 text-sm text-red-500">{errors.clientPhone.message}</p>
-                    )}
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="clientEmail" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Email (opcional)
-                    </label>
-                    <input
-                      id="clientEmail"
-                      type="email"
-                      {...register('clientEmail')}
-                      className={`w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:text-white ${
-                        errors.clientEmail ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
-                      }`}
-                    />
-                    {errors.clientEmail && (
-                      <p className="mt-1 text-sm text-red-500">{errors.clientEmail.message}</p>
-                    )}
-                  </div>
-                  
-                  <div className="md:col-span-2">
-                    <label htmlFor="address" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Endereço (opcional)
-                    </label>
-                    <input
-                      id="address"
-                      {...register('address')}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                    />
-                  </div>
-                </div>
-              </div>
-            </Card>
-            
-            {/* Detalhes do Orçamento */}
-            <Card>
-              <div className="p-6">
-                <h3 className="text-lg font-medium mb-4">Detalhes do Orçamento</h3>
-                <div className="space-y-4">
-                  <div>
-                    <label htmlFor="title" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Título do Orçamento
-                    </label>
-                    <input
-                      id="title"
-                      {...register('title')}
-                      className={`w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:text-white ${
-                        errors.title ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
-                      }`}
-                      placeholder="Ex: Reforma do Banheiro"
-                    />
-                    {errors.title && (
-                      <p className="mt-1 text-sm text-red-500">{errors.title.message}</p>
-                    )}
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="description" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Descrição (opcional)
-                    </label>
-                    <textarea
-                      id="description"
-                      {...register('description')}
-                      rows={3}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                      placeholder="Descrição detalhada do serviço a ser realizado"
-                    />
-                  </div>
-                </div>
-              </div>
-            </Card>
-            
-            {/* Itens do Orçamento */}
-            <Card>
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-medium">Itens do Orçamento</h3>
-                  <button
-                    type="button"
-                    onClick={addItem}
-                    className="px-3 py-1 bg-accent hover:bg-accent/90 text-white rounded flex items-center gap-1 text-sm"
-                  >
-                    <Plus size={16} />
-                    Adicionar Item
-                  </button>
-                </div>
-                
-                {errors.items?.message && (
-                  <p className="mb-4 text-sm text-red-500">{errors.items.message}</p>
-                )}
-                
-                <div className="overflow-x-auto">
-                  <table className="w-full min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead>
-                      <tr>
-                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                          Descrição
-                        </th>
-                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-20">
-                          Qtd
-                        </th>
-                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-20">
-                          Un
-                        </th>
-                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-32">
-                          Preço Un
-                        </th>
-                        <th className="px-3 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-32">
-                          Total
-                        </th>
-                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider w-12">
-                          <span className="sr-only">Ações</span>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                      {fields.map((field, index) => (
-                        <tr key={field.id}>
-                          <td className="px-3 py-2">
-                            <input
-                              {...register(`items.${index}.description` as const)}
-                              className={`w-full px-2 py-1 border rounded-md dark:bg-gray-700 dark:text-white text-sm ${
-                                errors.items?.[index]?.description ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
-                              }`}
-                              placeholder="Descrição do item"
-                            />
-                            {errors.items?.[index]?.description && (
-                              <p className="mt-1 text-xs text-red-500">{errors.items?.[index]?.description?.message}</p>
-                            )}
-                          </td>
-                          <td className="px-3 py-2">
-                            <input
-                              type="number"
-                              {...register(`items.${index}.quantity` as const, { valueAsNumber: true })}
-                              className={`w-full px-2 py-1 border rounded-md dark:bg-gray-700 dark:text-white text-sm ${
-                                errors.items?.[index]?.quantity ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
-                              }`}
-                              min="0.01"
-                              step="0.01"
-                            />
-                          </td>
-                          <td className="px-3 py-2">
-                            <input
-                              {...register(`items.${index}.unit` as const)}
-                              className="w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white text-sm"
-                              placeholder="un"
-                            />
-                          </td>
-                          <td className="px-3 py-2">
-                            <input
-                              type="number"
-                              {...register(`items.${index}.unitPrice` as const, { valueAsNumber: true })}
-                              className={`w-full px-2 py-1 border rounded-md dark:bg-gray-700 dark:text-white text-sm ${
-                                errors.items?.[index]?.unitPrice ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600'
-                              }`}
-                              min="0"
-                              step="0.01"
-                            />
-                          </td>
-                          <td className="px-3 py-2 text-right text-sm text-gray-700 dark:text-gray-300 font-medium">
-                            {formatCurrency((items[index]?.quantity || 0) * (items[index]?.unitPrice || 0))}
-                          </td>
-                          <td className="px-3 py-2">
-                            <button
-                              type="button"
-                              onClick={() => remove(index)}
-                              className="text-red-500 hover:text-red-700 focus:outline-none"
-                              disabled={fields.length === 1}
-                            >
-                              <Trash2 size={16} />
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <td colSpan={4} className="px-3 py-2 text-right font-medium">
-                          Subtotal:
-                        </td>
-                        <td className="px-3 py-2 text-right font-medium">
-                          {formatCurrency(calculateSubtotal())}
-                        </td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td colSpan={3} className="px-3 py-2 text-right font-medium">
-                          Desconto:
-                        </td>
-                        <td className="px-3 py-2">
-                          <input
-                            type="number"
-                            {...register('discount', { valueAsNumber: true })}
-                            className="w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white text-sm"
-                            min="0"
-                            step="0.01"
-                          />
-                        </td>
-                        <td className="px-3 py-2 text-right text-sm text-gray-700 dark:text-gray-300">
-                          -{formatCurrency(discount)}
-                        </td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td colSpan={3} className="px-3 py-2 text-right font-medium">
-                          Taxas/Adicionais:
-                        </td>
-                        <td className="px-3 py-2">
-                          <input
-                            type="number"
-                            {...register('tax', { valueAsNumber: true })}
-                            className="w-full px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white text-sm"
-                            min="0"
-                            step="0.01"
-                          />
-                        </td>
-                        <td className="px-3 py-2 text-right text-sm text-gray-700 dark:text-gray-300">
-                          +{formatCurrency(tax)}
-                        </td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td colSpan={4} className="px-3 py-3 text-right font-bold text-base">
-                          Total:
-                        </td>
-                        <td className="px-3 py-3 text-right font-bold text-base text-accent">
-                          {formatCurrency(calculateTotal())}
-                        </td>
-                        <td></td>
-                      </tr>
-                    </tfoot>
-                  </table>
-                </div>
-              </div>
-            </Card>
-          </div>
-          
-          {/* Sidebar com informações adicionais */}
-          <div className="space-y-6">
-            <Card>
-              <div className="p-6">
-                <h3 className="text-lg font-medium mb-4">Informações Adicionais</h3>
-                <div className="space-y-4">
-                  <div>
-                    <label htmlFor="validUntil" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Válido até
-                    </label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Calendar size={16} className="text-gray-400" />
-                      </div>
-                      <input
-                        id="validUntil"
-                        type="date"
-                        {...register('validUntil')}
-                        className="pl-10 w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="paymentTerms" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Condições de Pagamento
-                    </label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <CreditCard size={16} className="text-gray-400" />
-                      </div>
-                      <textarea
-                        id="paymentTerms"
-                        {...register('paymentTerms')}
-                        rows={3}
-                        className="pl-10 w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="notes" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Observações
-                    </label>
-                    <textarea
-                      id="notes"
-                      {...register('notes')}
-                      rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                      placeholder="Informações adicionais sobre o orçamento"
-                    />
-                  </div>
-                </div>
-              </div>
-            </Card>
-            
-            <div className="flex gap-4">
-              <button
-                type="button"
-                onClick={() => router.back()}
-                className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800"
-              >
-                Cancelar
-              </button>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="flex-1 px-4 py-2 bg-accent hover:bg-accent/90 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                    Salvando...
-                  </>
-                ) : (
-                  <>
-                    <Save className="h-5 w-5" />
-                    Salvar
-                  </>
-                )}
-              </button>
-            </div>
-            
-            <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4">
+          <motion.div className="lg:col-span-2 space-y-6" initial="hidden" animate="visible" variants={fadeIn}>
+            <ClientInfoCard
+              register={register}
+              errors={errors}
+            />
+
+            <EstimateDetailsCard
+              register={register}
+              errors={errors}
+            />
+
+            {estimateType === 'detailed' && (
+              <DetailedItemsTable
+                itemsFieldArray={itemsFieldArray}
+                register={register}
+                errors={errors}
+                items={items}
+                formatCurrency={formatCurrency}
+                calculateSubtotal={calculateSubtotal}
+                discount={discount}
+                tax={tax}
+                calculateTotal={calculateTotal}
+                isMobile={isMobile}
+              />
+            )}
+
+            {estimateType === 'materials' && (
+              <>
+                <MaterialsTable
+                  materialsFieldArray={materialsFieldArray}
+                  register={register}
+                  errors={errors}
+                  materials={materials}
+                  formatCurrency={formatCurrency}
+                  calculateMaterialsSubtotal={calculateMaterialsSubtotal}
+                  isMobile={isMobile}
+                />
+
+                <ServicesTable
+                  servicesFieldArray={servicesFieldArray}
+                  register={register}
+                  errors={errors}
+                  services={services}
+                  formatCurrency={formatCurrency}
+                  calculateServicesSubtotal={calculateServicesSubtotal}
+                  isMobile={isMobile}
+                />
+
+                <TotalsCard
+                  register={register}
+                  calculateMaterialsSubtotal={calculateMaterialsSubtotal}
+                  calculateServicesSubtotal={calculateServicesSubtotal}
+                  calculateSubtotal={calculateSubtotal}
+                  discount={discount}
+                  tax={tax}
+                  calculateTotal={calculateTotal}
+                  formatCurrency={formatCurrency}
+                  isMobile={isMobile}
+                />
+              </>
+            )}
+
+            {estimateType === 'simple' && (
+              <ServicesTable
+                servicesFieldArray={servicesFieldArray}
+                register={register}
+                errors={errors}
+                services={services}
+                formatCurrency={formatCurrency}
+                calculateServicesSubtotal={calculateServicesSubtotal}
+                calculateSubtotal={calculateSubtotal}
+                discount={discount}
+                tax={tax}
+                calculateTotal={calculateTotal}
+                isSimpleEstimate={true}
+                isMobile={isMobile}
+              />
+            )}
+          </motion.div>
+
+          <motion.div className="space-y-6" initial="hidden" animate="visible" variants={fadeIn}>
+            <AdditionalInfoCard
+              register={register}
+            />
+
+            <ActionButtons
+              router={router}
+              isSubmitting={isSubmitting}
+              onSaveClick={manualSubmit} // Use a nova função aqui
+            />
+
+            <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-r-md">
               <div className="flex">
                 <div className="flex-shrink-0">
                   <Calculator className="h-5 w-5 text-blue-500" />
@@ -3398,77 +3040,49 @@ export default function NewEstimatePage() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </form>
-      
-      {/* Modal de orçamento criado com link */}
-      {showLinkModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-md">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4 flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-green-500" />
-                Orçamento Criado com Sucesso
-              </h2>
-              
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                O orçamento foi criado e está pronto para ser compartilhado com o cliente.
-              </p>
-              
-              <div className="mb-6">
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Link do orçamento:
-                </p>
-                <div className="flex">
-                  <input
-                    type="text"
-                    value={generatedLink}
-                    readOnly
-                    className="flex-grow px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-l-md dark:bg-gray-700 dark:text-white text-sm"
-                  />
-                  <button
-                    onClick={copyToClipboard}
-                    className="px-3 py-2 bg-accent hover:bg-accent/90 text-white rounded-r-md flex items-center gap-1"
-                    title="Copiar link"
-                  >
-                    {linkCopied ? "Copiado!" : "Copiar"}
-                  </button>
-                </div>
-              </div>
-              
-              <div className="flex justify-between">
-                <button
-                  onClick={() => router.push('/dashboard/estimates')}
-                  className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800"
-                >
-                  Ver Lista
-                </button>
-                <button
-                  onClick={() => router.push(`/orcamento/${generatedLink.split('/').pop()}`)}
-                  className="px-4 py-2 bg-accent hover:bg-accent/90 text-white rounded-md"
-                >
-                  Visualizar Orçamento
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+
+      <SuccessModal
+        showLinkModal={showLinkModal}
+        generatedLink={generatedLink}
+        linkCopied={linkCopied}
+        copyToClipboard={copyToClipboard}
+        router={router}
+      />
     </div>
   );
 }
 ```
 
-        - 📄 page.tsx
-        
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/estimates/page.tsx`
+
+```typescript
 'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card, Heading } from '@/components/ui/Card';
-import { Plus, Copy, CheckCircle, FileText, Edit, Trash2, Send, Eye, AlertTriangle, Loader2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Plus, 
+  Copy, 
+  CheckCircle, 
+  FileText, 
+  Edit, 
+  Trash2, 
+  Send, 
+  Eye, 
+  AlertTriangle, 
+  Loader2,
+  X,
+  ChevronRight,
+  Calendar,
+  DollarSign
+} from 'lucide-react';
 import axios from '@/lib/axios';
 import toast from 'react-hot-toast';
 
@@ -3476,6 +3090,7 @@ interface Estimate {
   _id: string;
   clientName: string;
   clientPhone: string;
+  clientEmail?: string;
   title: string;
   total: number;
   status: 'draft' | 'sent' | 'accepted' | 'rejected' | 'expired';
@@ -3494,6 +3109,11 @@ export default function EstimatesPage() {
   const [linkCopied, setLinkCopied] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [sendingEmail, setSendingEmail] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortConfig, setSortConfig] = useState<{key: keyof Estimate, direction: 'asc' | 'desc'}>({
+    key: 'createdAt',
+    direction: 'desc'
+  });
 
   useEffect(() => {
     fetchEstimates();
@@ -3561,8 +3181,6 @@ export default function EstimatesPage() {
     
     setSendingEmail(true);
     try {
-      // Esta API ainda não existe, você precisará implementá-la
-      // await axios.post(`/api/estimates/${selectedEstimate._id}/send`);
       await updateStatus(selectedEstimate._id, 'sent');
       toast.success('Orçamento enviado com sucesso');
       setShowShareModal(false);
@@ -3576,15 +3194,36 @@ export default function EstimatesPage() {
 
   const getStatusBadge = (status: Estimate['status']) => {
     const statusConfig = {
-      draft: { label: 'Rascunho', class: 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300' },
-      sent: { label: 'Enviado', class: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400' },
-      accepted: { label: 'Aceito', class: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400' },
-      rejected: { label: 'Recusado', class: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400' },
-      expired: { label: 'Expirado', class: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400' },
+      draft: { 
+        label: 'Rascunho', 
+        class: 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300',
+        icon: <FileText size={14} className="mr-1" />
+      },
+      sent: { 
+        label: 'Enviado', 
+        class: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400',
+        icon: <Send size={14} className="mr-1" />
+      },
+      accepted: { 
+        label: 'Aceito', 
+        class: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400',
+        icon: <CheckCircle size={14} className="mr-1" />
+      },
+      rejected: { 
+        label: 'Recusado', 
+        class: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400',
+        icon: <X size={14} className="mr-1" />
+      },
+      expired: { 
+        label: 'Expirado', 
+        class: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400',
+        icon: <AlertTriangle size={14} className="mr-1" />
+      },
     };
     
     return (
-      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${statusConfig[status].class}`}>
+      <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${statusConfig[status].class}`}>
+        {statusConfig[status].icon}
         {statusConfig[status].label}
       </span>
     );
@@ -3606,277 +3245,596 @@ export default function EstimatesPage() {
     }).format(value);
   };
 
+  // Ordenação de tabela
+  const requestSort = (key: keyof Estimate) => {
+    let direction: 'asc' | 'desc' = 'asc';
+    if (sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const getSortedEstimates = () => {
+    const filteredEstimates = searchTerm
+      ? estimates.filter(
+          est => 
+            est.clientName.toLowerCase().includes(searchTerm.toLowerCase()) || 
+            est.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : estimates;
+
+    return [...filteredEstimates].sort((a, b) => {
+      if (a[sortConfig.key] < b[sortConfig.key]) {
+        return sortConfig.direction === 'asc' ? -1 : 1;
+      }
+      if (a[sortConfig.key] > b[sortConfig.key]) {
+        return sortConfig.direction === 'asc' ? 1 : -1;
+      }
+      return 0;
+    });
+  };
+
+  const sortedEstimates = getSortedEstimates();
+
+  // Animações
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.05 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { type: 'spring', stiffness: 100 } 
+    }
+  };
+
+  const modalVariants = {
+    hidden: { scale: 0.9, opacity: 0 },
+    visible: { 
+      scale: 1, 
+      opacity: 1,
+      transition: { type: 'spring', stiffness: 300, damping: 25 } 
+    },
+    exit: { 
+      scale: 0.9, 
+      opacity: 0,
+      transition: { duration: 0.2 } 
+    }
+  };
+  
+  // Hook para detectar o tamanho da tela
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Verificar inicialmente
+    checkScreenSize();
+    
+    // Adicionar listener para redimensionamento
+    window.addEventListener('resize', checkScreenSize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
         <Heading title="Orçamentos" description="Crie e gerencie orçamentos para clientes" />
-        <button
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           onClick={() => router.push('/dashboard/estimates/new')}
-          className="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md flex items-center gap-2"
+          className="bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white px-4 py-2 rounded-md flex items-center gap-2 self-start md:self-auto"
         >
-          <Plus size={16} />
+          <Plus size={18} />
           Novo Orçamento
-        </button>
+        </motion.button>
       </div>
 
       {loading ? (
-        <div className="flex justify-center py-8">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent"></div>
+        <div className="flex justify-center py-12">
+          <motion.div 
+            animate={{ rotate: 360 }}
+            transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+            className="rounded-full h-12 w-12 border-t-2 border-b-2 border-[var(--color-accent)]"
+          />
         </div>
       ) : estimates.length === 0 ? (
         <Card>
-          <div className="py-8 text-center">
-            <p className="text-gray-500 dark:text-gray-400 mb-4">Nenhum orçamento encontrado</p>
-            <button
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="py-10 text-center"
+          >
+            <div className="flex justify-center mb-4">
+              <div className="p-3 rounded-full bg-[var(--color-neutral)]/20">
+                <FileText size={32} className="text-[var(--color-accent)]" />
+              </div>
+            </div>
+            <p className="text-[var(--color-text)] opacity-70 mb-6">
+              Nenhum orçamento encontrado
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => router.push('/dashboard/estimates/new')}
-              className="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md inline-flex items-center gap-2"
+              className="bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white px-4 py-2 rounded-md inline-flex items-center gap-2"
             >
-              <Plus size={16} />
+              <Plus size={18} />
               Criar Primeiro Orçamento
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </Card>
       ) : (
-        <Card>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                    Cliente
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                    Título
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                    Valor
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                    Data
-                  </th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                    Ações
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                {estimates.map((estimate) => (
-                  <tr key={estimate._id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900 dark:text-white">
-                        {estimate.clientName}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap max-w-xs truncate">
-                      <div className="text-sm text-gray-500 dark:text-gray-400">
-                        {estimate.title}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900 dark:text-white">
-                        {formatCurrency(estimate.total)}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      {getStatusBadge(estimate.status)}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-500 dark:text-gray-400">
-                        {formatDate(estimate.createdAt)}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <div className="flex justify-end items-center space-x-2">
-                        <button
-                          onClick={() => router.push(`/dashboard/estimates/${estimate._id}`)}
-                          className="text-gray-500 hover:text-accent"
-                          title="Ver orçamento"
-                        >
-                          <Eye size={16} />
-                        </button>
-                        {estimate.status === 'draft' && (
-                          <>
-                            <button
-                              onClick={() => router.push(`/dashboard/estimates/${estimate._id}/edit`)}
-                              className="text-gray-500 hover:text-accent"
-                              title="Editar"
-                            >
-                              <Edit size={16} />
-                            </button>
-                            <button
-                              onClick={() => {
-                                setSelectedEstimate(estimate);
-                                setShowDeleteConfirm(true);
-                              }}
-                              className="text-gray-500 hover:text-red-500"
-                              title="Excluir"
-                            >
-                              <Trash2 size={16} />
-                            </button>
-                          </>
-                        )}
-                        {(estimate.status === 'draft' || estimate.status === 'sent') && (
-                          <button
-                            onClick={() => shareEstimate(estimate)}
-                            className="text-gray-500 hover:text-green-500"
-                            title="Compartilhar"
-                          >
-                            <Send size={16} />
-                          </button>
-                        )}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <>
+          <div className="mb-4 flex flex-col sm:flex-row gap-4">
+            <div className="relative flex-grow">
+              <input
+                type="text"
+                className="w-full px-4 py-2 pl-10 rounded-lg border border-[var(--color-neutral)]/30 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/50 bg-[var(--color-card-bg)] text-[var(--color-card-text)]"
+                placeholder="Buscar orçamentos..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[var(--color-secondary)]">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+            </div>
           </div>
-        </Card>
+
+          <Card>
+            {/* Visualização em formato de tabela para telas médias e grandes */}
+            <div className="hidden md:block overflow-x-auto rounded-lg">
+              <table className="w-full">
+                <thead className="bg-[var(--color-neutral)]/10 border-b border-[var(--color-neutral)]/20">
+                  <tr>
+                    <th 
+                      className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-[var(--color-card-text)] opacity-70 cursor-pointer hover:text-[var(--color-accent)]"
+                      onClick={() => requestSort('clientName')}
+                    >
+                      <div className="flex items-center gap-1">
+                        Cliente
+                        {sortConfig.key === 'clientName' && (
+                          <ChevronRight size={14} className={`transform ${sortConfig.direction === 'asc' ? 'rotate-90' : '-rotate-90'}`} />
+                        )}
+                      </div>
+                    </th>
+                    <th 
+                      className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-[var(--color-card-text)] opacity-70 cursor-pointer hover:text-[var(--color-accent)]"
+                      onClick={() => requestSort('title')}
+                    >
+                      <div className="flex items-center gap-1">
+                        Título
+                        {sortConfig.key === 'title' && (
+                          <ChevronRight size={14} className={`transform ${sortConfig.direction === 'asc' ? 'rotate-90' : '-rotate-90'}`} />
+                        )}
+                      </div>
+                    </th>
+                    <th 
+                      className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-[var(--color-card-text)] opacity-70 cursor-pointer hover:text-[var(--color-accent)]"
+                      onClick={() => requestSort('total')}
+                    >
+                      <div className="flex items-center gap-1">
+                        <DollarSign size={14} />
+                        Valor
+                        {sortConfig.key === 'total' && (
+                          <ChevronRight size={14} className={`transform ${sortConfig.direction === 'asc' ? 'rotate-90' : '-rotate-90'}`} />
+                        )}
+                      </div>
+                    </th>
+                    <th 
+                      className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-[var(--color-card-text)] opacity-70 cursor-pointer hover:text-[var(--color-accent)]"
+                      onClick={() => requestSort('status')}
+                    >
+                      <div className="flex items-center gap-1">
+                        Status
+                        {sortConfig.key === 'status' && (
+                          <ChevronRight size={14} className={`transform ${sortConfig.direction === 'asc' ? 'rotate-90' : '-rotate-90'}`} />
+                        )}
+                      </div>
+                    </th>
+                    <th 
+                      className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-[var(--color-card-text)] opacity-70 cursor-pointer hover:text-[var(--color-accent)]"
+                      onClick={() => requestSort('createdAt')}
+                    >
+                      <div className="flex items-center gap-1">
+                        <Calendar size={14} />
+                        Data
+                        {sortConfig.key === 'createdAt' && (
+                          <ChevronRight size={14} className={`transform ${sortConfig.direction === 'asc' ? 'rotate-90' : '-rotate-90'}`} />
+                        )}
+                      </div>
+                    </th>
+                    <th className="px-6 py-3 text-right text-xs font-medium uppercase tracking-wider text-[var(--color-card-text)] opacity-70">
+                      Ações
+                    </th>
+                  </tr>
+                </thead>
+                <motion.tbody 
+                  className="bg-[var(--color-card-bg)] divide-y divide-[var(--color-neutral)]/15"
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {sortedEstimates.map((estimate) => (
+                    <motion.tr 
+                      key={estimate._id} 
+                      className="hover:bg-[var(--color-neutral)]/5 transition-colors"
+                      variants={itemVariants}
+                    >
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm font-medium text-[var(--color-card-text)]">
+                          {estimate.clientName}
+                        </div>
+                        <div className="text-xs text-[var(--color-card-text)] opacity-60">
+                          {estimate.clientPhone}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap max-w-xs truncate">
+                        <div className="text-sm text-[var(--color-card-text)] opacity-80">
+                          {estimate.title}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm font-medium text-[var(--color-card-text)]">
+                          {formatCurrency(estimate.total)}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        {getStatusBadge(estimate.status)}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-[var(--color-card-text)] opacity-70 flex items-center">
+                          {formatDate(estimate.createdAt)}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div className="flex justify-end items-center space-x-1">
+                          <motion.button
+                            whileHover={{ scale: 1.15 }}
+                            onClick={() => router.push(`/dashboard/estimates/${estimate._id}`)}
+                            className="p-1.5 rounded-full text-[var(--color-card-text)] opacity-70 hover:bg-[var(--color-accent)]/10 hover:text-[var(--color-accent)] hover:opacity-100"
+                            title="Ver orçamento"
+                          >
+                            <Eye size={18} />
+                          </motion.button>
+                          {estimate.status === 'draft' && (
+                            <>
+                              <motion.button
+                                whileHover={{ scale: 1.15 }}
+                                onClick={() => router.push(`/dashboard/estimates/${estimate._id}/edit`)}
+                                className="p-1.5 rounded-full text-[var(--color-card-text)] opacity-70 hover:bg-blue-500/10 hover:text-blue-500 hover:opacity-100"
+                                title="Editar"
+                              >
+                                <Edit size={18} />
+                              </motion.button>
+                              <motion.button
+                                whileHover={{ scale: 1.15 }}
+                                onClick={() => {
+                                  setSelectedEstimate(estimate);
+                                  setShowDeleteConfirm(true);
+                                }}
+                                className="p-1.5 rounded-full text-[var(--color-card-text)] opacity-70 hover:bg-red-500/10 hover:text-red-500 hover:opacity-100"
+                                title="Excluir"
+                              >
+                                <Trash2 size={18} />
+                              </motion.button>
+                            </>
+                          )}
+                          {(estimate.status === 'draft' || estimate.status === 'sent') && (
+                            <motion.button
+                              whileHover={{ scale: 1.15 }}
+                              onClick={() => shareEstimate(estimate)}
+                              className="p-1.5 rounded-full text-[var(--color-card-text)] opacity-70 hover:bg-green-500/10 hover:text-green-500 hover:opacity-100"
+                              title="Compartilhar"
+                            >
+                              <Send size={18} />
+                            </motion.button>
+                          )}
+                        </div>
+                      </td>
+                    </motion.tr>
+                  ))}
+                </motion.tbody>
+              </table>
+            </div>
+
+            {/* Visualização em formato de cards para telas pequenas */}
+            <div className="md:hidden">
+              <motion.div 
+                className="grid grid-cols-1 gap-4 p-4"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                {sortedEstimates.map((estimate) => (
+                  <motion.div 
+                    key={estimate._id}
+                    variants={itemVariants}
+                    className="bg-[var(--color-neutral)]/5 rounded-lg overflow-hidden border border-[var(--color-neutral)]/20"
+                  >
+                    <div className="p-4">
+                      <div className="flex justify-between items-start mb-3">
+                        <div>
+                          <h3 className="font-medium text-[var(--color-card-text)]">{estimate.clientName}</h3>
+                          <p className="text-xs text-[var(--color-card-text)] opacity-60 mt-0.5">{estimate.clientPhone}</p>
+                        </div>
+                        <div>
+                          {getStatusBadge(estimate.status)}
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between items-center">
+                          <span className="text-[var(--color-card-text)] opacity-70">Título:</span>
+                          <span className="text-[var(--color-card-text)] font-medium">{estimate.title}</span>
+                        </div>
+                        
+                        <div className="flex justify-between items-center">
+                          <span className="text-[var(--color-card-text)] opacity-70">Valor:</span>
+                          <span className="text-[var(--color-card-text)] font-medium">{formatCurrency(estimate.total)}</span>
+                        </div>
+                        
+                        <div className="flex justify-between items-center">
+                          <span className="text-[var(--color-card-text)] opacity-70">Data:</span>
+                          <span className="text-[var(--color-card-text)]">{formatDate(estimate.createdAt)}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-[var(--color-neutral)]/10 px-4 py-3 flex justify-end gap-2">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => router.push(`/dashboard/estimates/${estimate._id}`)}
+                        className="p-2 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)]"
+                        aria-label="Ver orçamento"
+                      >
+                        <Eye size={18} />
+                      </motion.button>
+                      
+                      {estimate.status === 'draft' && (
+                        <>
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => router.push(`/dashboard/estimates/${estimate._id}/edit`)}
+                            className="p-2 rounded-full bg-blue-500/10 text-blue-500"
+                            aria-label="Editar orçamento"
+                          >
+                            <Edit size={18} />
+                          </motion.button>
+                          
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => {
+                              setSelectedEstimate(estimate);
+                              setShowDeleteConfirm(true);
+                            }}
+                            className="p-2 rounded-full bg-red-500/10 text-red-500"
+                            aria-label="Excluir orçamento"
+                          >
+                            <Trash2 size={18} />
+                          </motion.button>
+                        </>
+                      )}
+                      
+                      {(estimate.status === 'draft' || estimate.status === 'sent') && (
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => shareEstimate(estimate)}
+                          className="p-2 rounded-full bg-green-500/10 text-green-500"
+                          aria-label="Compartilhar orçamento"
+                        >
+                          <Send size={18} />
+                        </motion.button>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </Card>
+        </>
       )}
 
       {/* Modal de confirmação de exclusão */}
-      {showDeleteConfirm && selectedEstimate && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-md">
-            <div className="p-6">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-2 rounded-full bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400">
-                  <AlertTriangle size={24} />
+      <AnimatePresence>
+        {showDeleteConfirm && selectedEstimate && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+            <motion.div 
+              className="bg-[var(--color-card-bg)] rounded-lg shadow-xl w-full max-w-md overflow-hidden"
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <div className="p-1 bg-gradient-to-r from-red-500 to-red-600">
+                <div className="p-5 bg-[var(--color-card-bg)] rounded-t-lg">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-2 rounded-full bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400">
+                      <AlertTriangle size={24} />
+                    </div>
+                    <h2 className="text-xl font-medium text-[var(--color-card-text)]">Confirmar Exclusão</h2>
+                  </div>
+                  
+                  <p className="text-[var(--color-card-text)] opacity-80 mb-8">
+                    Tem certeza que deseja excluir o orçamento <strong>{selectedEstimate.title}</strong> para {selectedEstimate.clientName}? Esta ação não pode ser desfeita.
+                  </p>
+                  
+                  <div className="flex justify-end space-x-3">
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => setShowDeleteConfirm(false)}
+                      className="px-4 py-2 border border-[var(--color-neutral)]/30 text-[var(--color-card-text)] rounded-md hover:bg-[var(--color-neutral)]/10"
+                    >
+                      Cancelar
+                    </motion.button>
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={deleteEstimate}
+                      disabled={deleting}
+                      className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                    >
+                      {deleting ? (
+                        <>
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                          Excluindo...
+                        </>
+                      ) : (
+                        <>
+                          <Trash2 className="h-4 w-4" />
+                          Excluir
+                        </>
+                      )}
+                    </motion.button>
+                  </div>
                 </div>
-                <h2 className="text-xl font-medium">Confirmar Exclusão</h2>
               </div>
-              
-              <p className="text-gray-700 dark:text-gray-300 mb-8">
-                Tem certeza que deseja excluir o orçamento <strong>{selectedEstimate.title}</strong> para {selectedEstimate.clientName}? Esta ação não pode ser desfeita.
-              </p>
-              
-              <div className="flex justify-end space-x-3">
-                <button
-                  onClick={() => setShowDeleteConfirm(false)}
-                  className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800"
-                >
-                  Cancelar
-                </button>
-                <button
-                  onClick={deleteEstimate}
-                  disabled={deleting}
-                  className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-                >
-                  {deleting ? (
-                    <>
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                      Excluindo...
-                    </>
-                  ) : (
-                    <>
-                      <Trash2 className="h-4 w-4" />
-                      Excluir
-                    </>
-                  )}
-                </button>
-              </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
 
       {/* Modal de compartilhamento */}
-      {showShareModal && selectedEstimate && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-md">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Compartilhar Orçamento</h2>
-              
-              <div className="space-y-4 mb-6">
-                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-md">
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                    Link para visualização do orçamento:
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="text"
-                      value={`${window.location.origin}/orcamento/${selectedEstimate.token}`}
-                      readOnly
-                      className="flex-1 p-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
-                    />
-                    <button
-                      onClick={copyToClipboard}
-                      className="p-2 text-accent hover:bg-accent/10 rounded-md"
-                      title="Copiar link"
-                    >
-                      {linkCopied ? <CheckCircle size={20} /> : <Copy size={20} />}
-                    </button>
+      <AnimatePresence>
+        {showShareModal && selectedEstimate && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+            <motion.div 
+              className="bg-[var(--color-card-bg)] rounded-lg shadow-xl w-full max-w-md overflow-hidden"
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <div className="p-1 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)]">
+                <div className="p-5 bg-[var(--color-card-bg)] rounded-t-lg">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="p-2 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
+                      <Send size={20} />
+                    </div>
+                    <h2 className="text-xl font-medium text-[var(--color-card-text)]">Compartilhar Orçamento</h2>
                   </div>
-                </div>
-                
-                {selectedEstimate.status === 'draft' && (
-                  <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4">
-                    <div className="flex">
-                      <div className="flex-shrink-0">
-                        <FileText className="h-5 w-5 text-blue-500" />
-                      </div>
-                      <div className="ml-3">
-                        <p className="text-sm text-blue-700 dark:text-blue-400">
-                          Este orçamento está em rascunho. Deseja alterá-lo para "Enviado" ao compartilhar?
-                        </p>
+                  
+                  <div className="space-y-5 mb-6">
+                    <div className="bg-[var(--color-neutral)]/10 p-4 rounded-md">
+                      <p className="text-sm text-[var(--color-card-text)] opacity-70 mb-3">
+                        Link para visualização do orçamento:
+                      </p>
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="text"
+                          value={`${window.location.origin}/orcamento/${selectedEstimate.token}`}
+                          readOnly
+                          className="flex-1 p-2 text-sm border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)]"
+                        />
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={copyToClipboard}
+                          className={`p-2 rounded-md transition-colors ${
+                            linkCopied 
+                              ? 'bg-green-500/10 text-green-500' 
+                              : 'bg-[var(--color-accent)]/10 text-[var(--color-accent)] hover:bg-[var(--color-accent)]/20'
+                          }`}
+                          title="Copiar link"
+                        >
+                          {linkCopied ? <CheckCircle size={20} /> : <Copy size={20} />}
+                        </motion.button>
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
-              
-              <div className="flex justify-end space-x-3">
-                <button
-                  onClick={() => setShowShareModal(false)}
-                  className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800"
-                >
-                  Fechar
-                </button>
-                {selectedEstimate.status === 'draft' && (
-                  <button
-                    onClick={() => updateStatus(selectedEstimate._id, 'sent')}
-                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md"
-                  >
-                    Marcar como Enviado
-                  </button>
-                )}
-                {selectedEstimate.clientEmail && (
-                  <button
-                    onClick={sendEstimateEmail}
-                    disabled={sendingEmail}
-                    className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-                  >
-                    {sendingEmail ? (
-                      <>
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                        Enviando...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="h-4 w-4" />
-                        Enviar por Email
-                      </>
+                    
+                    {selectedEstimate.status === 'draft' && (
+                      <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-r-md">
+                        <div className="flex">
+                          <div className="flex-shrink-0">
+                            <FileText className="h-5 w-5 text-blue-500" />
+                          </div>
+                          <div className="ml-3">
+                            <p className="text-sm text-blue-700 dark:text-blue-400">
+                              Este orçamento está em rascunho. Deseja alterá-lo para "Enviado" ao compartilhar?
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     )}
-                  </button>
-                )}
+                  </div>
+                  
+                  <div className="flex justify-end space-x-3">
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => setShowShareModal(false)}
+                      className="px-4 py-2 border border-[var(--color-neutral)]/30 text-[var(--color-card-text)] rounded-md hover:bg-[var(--color-neutral)]/10"
+                    >
+                      Fechar
+                    </motion.button>
+                    {selectedEstimate.status === 'draft' && (
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => updateStatus(selectedEstimate._id, 'sent')}
+                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md flex items-center gap-2"
+                      >
+                        <Send className="h-4 w-4" />
+                        Marcar como Enviado
+                      </motion.button>
+                    )}
+                    {selectedEstimate.clientEmail && (
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={sendEstimateEmail}
+                        disabled={sendingEmail}
+                        className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                      >
+                        {sendingEmail ? (
+                          <>
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                            Enviando...
+                          </>
+                        ) : (
+                          <>
+                            <Send className="h-4 w-4" />
+                            Enviar por Email
+                          </>
+                        )}
+                      </motion.button>
+                    )}
+                  </div>
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </div>
   );
 }
 ```
 
-      - 📁 portfolio/
-        - 📁 new/
-          - 📄 page.tsx
-          
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/portfolio/new/page.tsx`
+
+```typescript
 'use client';
 
 import { useState } from 'react';
@@ -4163,9 +4121,11 @@ export default function NewPortfolioPage() {
 }
 ```
 
-        - 📄 page.tsx
-        
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/portfolio/page.tsx`
+
+```typescript
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -4364,13 +4324,13 @@ function formatDate(dateString: string): string {
     return dateString;
   }
 }
-
 ```
 
-      - 📁 quotes/
-        - 📄 page.tsx
-        
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/quotes/page.tsx`
+
+```typescript
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -4733,831 +4693,345 @@ export default function QuotesPage() {
 }
 ```
 
-      - 📁 reviews/
-        - 📄 page.tsx
-        
-```tsx
-'use client';
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Card, Heading } from '@/components/ui/Card';
-import { Star, ThumbsUp, ThumbsDown, Plus, Copy, CheckCircle, Link as LinkIcon } from 'lucide-react';
-import axios from 'axios';
-import toast from 'react-hot-toast';
+---
+### 📄 Arquivo: `src/app/dashboard/reviews/page.tsx`
 
-interface Review {
-  _id: string;
-  name: string;
-  location: string;
-  rating: number;
-  text: string;
-  image?: string;
-  isApproved: boolean;
-  createdAt: string;
-  isTokenUsed: boolean;
-}
-
-export default function ReviewsPage() {
-  const router = useRouter();
-  const [reviews, setReviews] = useState<Review[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [showGenerateModal, setShowGenerateModal] = useState(false);
-  const [newReview, setNewReview] = useState({ name: '', location: '' });
-  const [generatedLink, setGeneratedLink] = useState('');
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [linkCopied, setLinkCopied] = useState(false);
-
-  useEffect(() => {
-    fetchReviews();
-  }, []);
-
-  const fetchReviews = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get('/api/reviews', { withCredentials: true });
-      setReviews(response.data);
-    } catch (error) {
-      console.error('Erro ao buscar avaliações:', error);
-      toast.error('Erro ao carregar avaliações');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const approveReview = async (id: string) => {
-    try {
-      await axios.post(`/api/reviews/${id}/approve`, { approve: true }, { withCredentials: true });
-      toast.success('Avaliação aprovada com sucesso');
-      fetchReviews();
-    } catch (error) {
-      console.error('Erro ao aprovar avaliação:', error);
-      toast.error('Erro ao aprovar avaliação');
-    }
-  };
-
-  const rejectReview = async (id: string) => {
-    try {
-      await axios.post(`/api/reviews/${id}/approve`, { approve: false }, { withCredentials: true });
-      toast.success('Avaliação rejeitada com sucesso');
-      fetchReviews();
-    } catch (error) {
-      console.error('Erro ao rejeitar avaliação:', error);
-      toast.error('Erro ao rejeitar avaliação');
-    }
-  };
-
-  const generateReviewLink = async () => {
-    if (!newReview.name.trim() || !newReview.location.trim()) {
-      toast.error('Nome e localização não podem estar vazios');
-      return;
-    }
-
-    setIsGenerating(true);
-
-    try {
-      const response = await axios.post(
-        '/api/reviews/generate-token',
-        {
-          name: newReview.name.trim(),
-          location: newReview.location.trim(),
-        },
-        { withCredentials: true } // Enviar cookies de autenticação
-      );
-
-      setGeneratedLink(response.data.reviewLink);
-      toast.success('Link gerado com sucesso');
-    } catch (error: any) {
-      console.error('Erro ao gerar link:', error);
-      const errorMessage =
-        error.response?.data?.error || 'Erro ao gerar link de avaliação';
-      const details = error.response?.data?.details
-        ? `: ${JSON.stringify(error.response.data.details)}`
-        : '';
-      toast.error(`${errorMessage}${details}`);
-    } finally {
-      setIsGenerating(false);
-    }
-  };
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(generatedLink);
-    setLinkCopied(true);
-    toast.success('Link copiado para a área de transferência');
-    setTimeout(() => setLinkCopied(false), 3000);
-  };
-
-  const renderStars = (rating: number) => {
-    return Array(5)
-      .fill(0)
-      .map((_, index) => (
-        <Star
-          key={index}
-          size={16}
-          className={index < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}
-        />
-      ));
-  };
-
-  return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <Heading title="Avaliações" description="Gerencie as avaliações de clientes" />
-        <button
-          onClick={() => setShowGenerateModal(true)}
-          className="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md flex items-center gap-2"
-        >
-          <Plus size={16} />
-          Gerar Link
-        </button>
-      </div>
-
-      {loading ? (
-        <div className="flex justify-center py-8">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent"></div>
-        </div>
-      ) : reviews.length === 0 ? (
-        <Card>
-          <div className="py-8 text-center">
-            <p className="text-gray-500 dark:text-gray-400 mb-4">Nenhuma avaliação ainda</p>
-            <button
-              onClick={() => setShowGenerateModal(true)}
-              className="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md inline-flex items-center gap-2"
-            >
-              <Plus size={16} />
-              Gerar Link para Avaliação
-            </button>
-          </div>
-        </Card>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reviews.map((review) => (
-            <Card key={review._id} className={review.isTokenUsed ? '' : 'border-dashed border-amber-500'}>
-              <div className="p-4">
-                {!review.isTokenUsed ? (
-                  <div className="text-center py-4">
-                    <p className="font-medium mb-2">Link enviado para {review.name}</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                      Aguardando cliente completar a avaliação
-                    </p>
-                    <div className="text-amber-500 animate-pulse flex items-center justify-center gap-2">
-                      <LinkIcon size={16} />
-                      <span className="text-sm">Link ativo</span>
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    <div className="flex justify-between">
-                      <div>
-                        <h3 className="font-medium text-lg">{review.name}</h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{review.location}</p>
-                      </div>
-                      <div
-                        className={`text-xs px-2 py-1 rounded-full ${
-                          review.isApproved
-                            ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
-                            : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
-                        }`}
-                      >
-                        {review.isApproved ? 'Aprovada' : 'Pendente'}
-                      </div>
-                    </div>
-                    <div className="flex my-3">{renderStars(review.rating)}</div>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">"{review.text}"</p>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">
-                      {new Date(review.createdAt).toLocaleDateString('pt-BR')}
-                    </div>
-                    {!review.isApproved && (
-                      <div className="mt-4 flex justify-end space-x-2">
-                        <button
-                          onClick={() => rejectReview(review._id)}
-                          className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md"
-                          title="Rejeitar"
-                        >
-                          <ThumbsDown size={16} />
-                        </button>
-                        <button
-                          onClick={() => approveReview(review._id)}
-                          className="p-2 text-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 rounded-md"
-                          title="Aprovar"
-                        >
-                          <ThumbsUp size={16} />
-                        </button>
-                      </div>
-                    )}
-                  </>
-                )}
-              </div>
-            </Card>
-          ))}
-        </div>
-      )}
-
-      {/* Modal para gerar link de avaliação */}
-      {showGenerateModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-full max-w-md">
-            <div className="p-6">
-              <h2 className="text-xl font-medium mb-4">Gerar Link para Avaliação</h2>
-              {generatedLink ? (
-                <div className="space-y-4">
-                  <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-md">
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                      Link gerado com sucesso! Compartilhe com o cliente:
-                    </p>
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="text"
-                        value={generatedLink}
-                        readOnly
-                        className="flex-1 p-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
-                      />
-                      <button
-                        onClick={copyToClipboard}
-                        className="p-2 text-accent hover:bg-accent/10 rounded-md"
-                        title="Copiar link"
-                      >
-                        {linkCopied ? <CheckCircle size={20} /> : <Copy size={20} />}
-                      </button>
-                    </div>
-                  </div>
-                  <div className="flex justify-end">
-                    <button
-                      onClick={() => {
-                        setShowGenerateModal(false);
-                        setGeneratedLink('');
-                        setNewReview({ name: '', location: '' });
-                        fetchReviews();
-                      }}
-                      className="px-4 py-2 bg-accent hover:bg-accent/90 text-white rounded-md"
-                    >
-                      Concluir
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                    >
-                      Nome do Cliente
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      value={newReview.name}
-                      onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                      placeholder="Digite o nome do cliente"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="location"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                    >
-                      Localização
-                    </label>
-                    <input
-                      id="location"
-                      type="text"
-                      value={newReview.location}
-                      onChange={(e) => setNewReview({ ...newReview, location: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                      placeholder="Ex: Jurerê, Florianópolis"
-                    />
-                  </div>
-                  <div className="flex justify-end space-x-3">
-                    <button
-                      onClick={() => {
-                        setShowGenerateModal(false);
-                        setNewReview({ name: '', location: '' });
-                      }}
-                      className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800"
-                    >
-                      Cancelar
-                    </button>
-                    <button
-                      onClick={generateReviewLink}
-                      disabled={isGenerating || !newReview.name.trim() || !newReview.location.trim()}
-                      className="px-4 py-2 bg-accent hover:bg-accent/90 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-                    >
-                      {isGenerating ? (
-                        <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                          Gerando...
-                        </>
-                      ) : (
-                        'Gerar Link'
-                      )}
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-```
-
-      - 📁 settings/
-        - 📄 page.tsx
-        
-```tsx
-// src/app/dashboard/settings/page.tsx
+```typescript
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Card, Heading } from '@/components/ui/Card';
-import { Save, Loader2, CheckCircle, AlertTriangle, Lock, Globe, Moon, Sun, Monitor } from 'lucide-react';
-import axios from '@/lib/axios';
-import { RoleGuard } from '@/components/RoleGuard';
+import { useRouter, useParams } from 'next/navigation';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { Star } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Card } from '@/components/ui/Card';
 
-import { useTheme } from '@/context/ThemeContext';
-import { useFeedback } from '@/context/FeedbackContext';
-
-interface SettingsData {
-  siteName: string;
-  siteDescription: string;
-  contactEmail: string;
-  contactPhone: string;
-  socialMedia: {
-    instagram: string;
-    facebook: string;
-    whatsapp: string;
-  };
-  defaultTheme: 'light' | 'dark' | 'system';
-  analyticsId: string;
-  maintenanceMode: boolean;
-}
-
-export default function SettingsPage() {
-  const { showToast } = useFeedback();
-  const { theme, setTheme } = useTheme();
-
-  const [settings, setSettings] = useState<SettingsData>({
-    siteName: 'FH Resolve',
-    siteDescription: 'Serviços profissionais de manutenção residencial em Florianópolis',
-    contactEmail: 'contato@fhresolve.com.br',
-    contactPhone: '48991919791',
-    socialMedia: {
-      instagram: '',
-      facebook: '',
-      whatsapp: '48991919791',
-    },
-    defaultTheme: 'light',
-    analyticsId: '',
-    maintenanceMode: false,
-  });
-  
-  const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState(false);
-  const [saved, setSaved] = useState(false);
-  const [activeTab, setActiveTab] = useState<'general' | 'appearance' | 'contact' | 'advanced'>('general');
+export default function ReviewPage() {
+  const router = useRouter();
+  const { token } = useParams();
+  const [review, setReview] = useState<{
+    name: string;
+    location: string;
+    isTokenUsed: boolean;
+    isApproved: boolean;
+    rating?: number;
+    text?: string;
+  } | null>(null);
+  const [rating, setRating] = useState<number>(0);
+  const [text, setText] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
+  const [submitting, setSubmitting] = useState<boolean>(false);
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
   useEffect(() => {
-    fetchSettings();
-  }, []);
+    if (token) {
+      fetchReview();
+    }
+  }, [token]);
 
-  const fetchSettings = async () => {
+  useEffect(() => {
+    if (review && review.isTokenUsed && !review.isApproved) {
+      setRating(review.rating || 0);
+      setText(review.text || '');
+    }
+  }, [review]);
+
+  const fetchReview = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('/api/settings');
-      
-      if (response.data) {
-        setSettings({
-          ...settings,
-          ...response.data
-        });
-      }
-    } catch (error) {
-      console.error('Erro ao carregar configurações:', error);
-      showToast('Erro ao carregar configurações', 'error');
+      const response = await axios.get(`/api/reviews/${token}`);
+      setReview(response.data);
+    } catch (error: any) {
+      toast.error(error.response?.data?.error || 'Link inválido ou expirado.');
+      router.push('/');
     } finally {
       setLoading(false);
     }
   };
 
-  const saveSettings = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (rating < 1 || rating > 5) {
+      toast.error('Por favor, selecione uma avaliação entre 1 e 5 estrelas.');
+      return;
+    }
+    if (!text.trim()) {
+      toast.error('Por favor, escreva um comentário.');
+      return;
+    }
+
+    setSubmitting(true);
     try {
-      setSaving(true);
-      const response = await axios.post('/api/settings', settings);
-      
-      if (response.data) {
-        showToast('Configurações salvas com sucesso', 'success');
-        setSaved(true);
-        setTimeout(() => setSaved(false), 3000);
-      }
-    } catch (error) {
-      console.error('Erro ao salvar configurações:', error);
-      showToast('Erro ao salvar configurações', 'error');
+      await axios.put(`/api/reviews/${token}`, { rating, text, isTokenUsed: true });
+      setReview({ ...review!, rating, text, isTokenUsed: true });
+      setSubmitted(true);
+      toast.success(review?.isTokenUsed ? 'Avaliação atualizada com sucesso!' : 'Avaliação enviada com sucesso! Obrigado.');
+    } catch (error: any) {
+      toast.error(error.response?.data?.error || 'Erro ao processar avaliação. Tente novamente.');
     } finally {
-      setSaving(false);
+      setSubmitting(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    
-    if (name.includes('.')) {
-      const [parent, child] = name.split('.');
-      setSettings(prev => ({
-        ...prev,
-        [parent]: {
-          ...prev[parent as keyof typeof prev],
-          [child]: (e.target as HTMLInputElement).type === 'checkbox' 
-            ? (e.target as HTMLInputElement).checked 
-            : value
-        }
-      }));
-    } else {
-      setSettings(prev => ({
-        ...prev,
-        [name]: type === 'checkbox' 
-          ? (e.target as HTMLInputElement).checked 
-          : value
-      }));
-    }
-  };
-
-  const handleSiteModeChange = (checked: boolean) => {
-    setSettings(prev => ({
-      ...prev,
-      maintenanceMode: checked
-    }));
-  };
-
-  // Aplica o tema do dashboard imediatamente ao mudar
-  const handleDashboardThemeChange = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    showToast(`Tema do dashboard alterado para ${newTheme === 'light' ? 'claro' : 'escuro'}`, 'success');
+  const renderStars = (currentRating: number = rating) => {
+    return Array(5)
+      .fill(0)
+      .map((_, index) => (
+        <motion.button
+          key={index}
+          type="button"
+          onClick={review?.isApproved || submitted ? undefined : () => setRating(index + 1)}
+          className={`focus:outline-none ${review?.isApproved || submitted ? 'cursor-default' : ''}`}
+          whileHover={review?.isApproved || submitted ? {} : { scale: 1.2, rotate: 10 }}
+          whileTap={review?.isApproved || submitted ? {} : { scale: 0.9 }}
+          transition={{ type: 'spring', stiffness: 300 }}
+        >
+          <Star
+            size={32}
+            className={`transition-all duration-300 ${
+              index < currentRating
+                ? 'fill-[var(--color-accent)] text-[var(--color-accent)]'
+                : 'text-[var(--color-secondary)] hover:text-[var(--color-accent-dark)]'
+            }`}
+          />
+        </motion.button>
+      ));
   };
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent"></div>
+      <motion.div
+        className="min-h-screen flex items-center justify-center bg-[var(--color-gray)]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.div
+          className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-accent)]"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+        />
+      </motion.div>
+    );
+  }
+
+  if (!review) return null;
+
+  return (
+    <motion.div
+      className="min-h-screen flex items-center justify-center bg-[var(--color-gray)] p-4 relative overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle at center, rgba(var(--color-accent-rgb), 0.1) 0%, transparent 70%)',
+          maskImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.8) 30%, transparent 70%)',
+          WebkitMaskImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.8) 30%, transparent 70%)',
+        }}
+      />
+      <Card className="relative z-10 w-full max-w-md mx-4 sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+        <AnimatePresence mode="wait">
+          {submitted && !review.isApproved ? (
+            <motion.div
+              key="submitted"
+              className="text-center space-y-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1 className="text-lg font-medium text-[var(--color-text)]">
+                Avaliação Enviada
+              </h1>
+              <p className="text-sm text-[var(--color-text)]/70">
+                Obrigado, {review.name}, por sua avaliação! Ela será revisada em breve.
+              </p>
+              <motion.button
+                onClick={() => setSubmitted(false)}
+                className="btn btn-primary px-4 py-2 text-white"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                Editar Avaliação
+              </motion.button>
+            </motion.div>
+          ) : review.isApproved ? (
+            <motion.div
+              key="approved"
+              className="text-center space-y-4"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1 className="text-lg font-medium text-[var(--color-text)]">
+                Avaliação Aprovada
+              </h1>
+              <p className="text-sm text-[var(--color-text)]/70">
+                Obrigado, {review.name}, por avaliar sua experiência em {review.location}!
+              </p>
+              <div className="flex justify-center gap-4">
+                {renderStars(review.rating)}
+              </div>
+              <p className="text-base italic text-[var(--color-text)]">
+                "{review.text}"
+              </p>
+              <motion.a
+                href={typeof window !== 'undefined' ? window.location.origin : '/'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary w-full mt-6 inline-block text-center"
+                whileHover={{ scale: 1.05, backgroundColor: 'var(--color-accent-dark)' }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                Visitar o Site
+              </motion.a>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="form"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 50 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1 className="text-lg font-medium text-center text-[var(--color-text)]">
+                {review.isTokenUsed ? 'Editar Avaliação' : 'Deixe sua Avaliação'}
+              </h1>
+              <p className="text-sm text-center text-[var(--color-text)]/70 mt-2">
+                {review.isTokenUsed
+                  ? `Olá, ${review.name}! Você pode editar sua avaliação de ${review.location} antes da aprovação.`
+                  : `Olá, ${review.name}! Por favor, avalie sua experiência em ${review.location}.`}
+              </p>
+              <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+                <motion.div
+                  className="flex justify-center gap-4"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                >
+                  {renderStars()}
+                </motion.div>
+                <div>
+                  <label
+                    htmlFor="text"
+                    className="block text-sm font-medium text-[var(--color-text)] mb-1"
+                  >
+                    Comentário
+                  </label>
+                  <motion.textarea
+                    id="text"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    className="w-full px-3 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-text)] border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]/50"
+                    rows={4}
+                    placeholder="Escreva seu comentário aqui..."
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  />
+                </div>
+                <motion.button
+                  type="submit"
+                  disabled={submitting}
+                  className="btn btn-primary w-full text-white flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <AnimatePresence mode="wait">
+                    {submitting ? (
+                      <motion.div
+                        key="spinner"
+                        className="flex items-center gap-2"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <motion.div
+                          className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                        />
+                        Enviando...
+                      </motion.div>
+                    ) : (
+                      <motion.span
+                        key="text"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {review.isTokenUsed ? 'Salvar Alterações' : 'Enviar Avaliação'}
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
+              </form>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </Card>
+    </motion.div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/app/dashboard/settings/page.tsx`
+
+```typescript
+// src/app/dashboard/settings/page.tsx
+'use client';
+
+import { useState } from 'react';
+import SettingsSidebar from '@/components/settings/SettingsSidebar';
+import GeneralSettings from '@/components/settings/GeneralSettings';
+import ContactSettings from '@/components/settings/ContactSettings';
+import AdvancedSettings from '@/components/settings/AdvancedSettings';
+import { useSettingsData } from '@/hooks/useSettingsData';
+
+export default function SettingsPage() {
+  const [activeTab, setActiveTab] = useState<'general' | 'contact' | 'advanced'>('general');
+  const { settings, handleChange, loading } = useSettingsData();
+
+  // Adicionar um fallback enquanto os dados estão carregando
+  if (loading || !settings) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[var(--color-gray)] dark:bg-[var(--color-dark)]">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-accent)]" />
       </div>
     );
   }
 
   return (
-    <RoleGuard allowedRoles={['admin']}>
-      <div className="space-y-6">
-        <div className="flex justify-between items-center">
-          <Heading title="Configurações" description="Gerencie as configurações do site" />
-          <button
-            onClick={saveSettings}
-            disabled={saving}
-            className="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {saving ? (
-              <>
-                <Loader2 size={16} className="animate-spin" />
-                Salvando...
-              </>
-            ) : saved ? (
-              <>
-                <CheckCircle size={16} />
-                Salvo!
-              </>
-            ) : (
-              <>
-                <Save size={16} />
-                Salvar Alterações
-              </>
-            )}
-          </button>
-        </div>
-
-        <div className="grid grid-cols-12 gap-6">
-          {/* Sidebar de navegação */}
-          <div className="col-span-12 lg:col-span-3">
-            <Card>
-              <div className="p-2">
-                <button
-                  onClick={() => setActiveTab('general')}
-                  className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
-                    activeTab === 'general'
-                      ? 'bg-accent text-white'
-                      : 'hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  <Globe size={16} className="inline-block mr-2" />
-                  Geral
-                </button>
-
-                <button
-                  onClick={() => setActiveTab('appearance')}
-                  className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
-                    activeTab === 'appearance'
-                      ? 'bg-accent text-white'
-                      : 'hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  <Moon size={16} className="inline-block mr-2" />
-                  Aparência
-                </button>
-
-                <button
-                  onClick={() => setActiveTab('contact')}
-                  className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
-                    activeTab === 'contact'
-                      ? 'bg-accent text-white'
-                      : 'hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  <Globe size={16} className="inline-block mr-2" />
-                  Contato
-                </button>
-
-                <button
-                  onClick={() => setActiveTab('advanced')}
-                  className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
-                    activeTab === 'advanced'
-                      ? 'bg-accent text-white'
-                      : 'hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  <Lock size={16} className="inline-block mr-2" />
-                  Avançado
-                </button>
-              </div>
-            </Card>
-          </div>
-
-          {/* Painéis de configuração */}
-          <div className="col-span-12 lg:col-span-9">
-            {activeTab === 'general' && (
-              <Card>
-                <div className="p-6 space-y-6">
-                  <h3 className="text-lg font-medium border-b border-gray-200 dark:border-gray-700 pb-2">
-                    Configurações Gerais
-                  </h3>
-                  
-                  <div className="space-y-4">
-                    <div>
-                      <label htmlFor="siteName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Nome do Site
-                      </label>
-                      <input
-                        id="siteName"
-                        name="siteName"
-                        type="text"
-                        value={settings.siteName}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="siteDescription" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Descrição do Site
-                      </label>
-                      <textarea
-                        id="siteDescription"
-                        name="siteDescription"
-                        value={settings.siteDescription}
-                        onChange={handleChange}
-                        rows={3}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                      />
-                      <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                        Essa descrição é usada em meta tags para SEO.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            )}
-            
-            {activeTab === 'appearance' && (
-              <Card>
-                <div className="p-6 space-y-6">
-                  <h3 className="text-lg font-medium border-b border-gray-200 dark:border-gray-700 pb-2">
-                    Configurações de Aparência
-                  </h3>
-                  
-                  <div className="space-y-6">
-                    {/* Tema do Dashboard */}
-                    <div className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                      <h4 className="text-md font-medium mb-4">Tema do Dashboard</h4>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                          {theme === 'light' ? <Sun size={20} /> : <Moon size={20} />}
-                          <span className="text-sm">
-                            O dashboard está usando o tema {theme === 'light' ? 'claro' : 'escuro'}
-                          </span>
-                        </div>
-                        <button
-                          onClick={handleDashboardThemeChange}
-                          className="px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
-                        >
-                          Alternar para {theme === 'light' ? 'escuro' : 'claro'}
-                        </button>
-                      </div>
-                    </div>
-                    
-                    {/* Tema Padrão do Site */}
-                    <div>
-                      <label htmlFor="defaultTheme" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Tema Padrão do Site
-                      </label>
-                      <div className="relative">
-                        <select
-                          id="defaultTheme"
-                          name="defaultTheme"
-                          value={settings.defaultTheme}
-                          onChange={handleChange}
-                          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                        >
-                          <option value="light">Claro</option>
-                          <option value="dark">Escuro</option>
-                          <option value="system">Preferência do Sistema</option>
-                        </select>
-                      </div>
-                      <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
-                        {settings.defaultTheme === 'light' && <Sun size={16} className="text-yellow-500" />}
-                        {settings.defaultTheme === 'dark' && <Moon size={16} className="text-blue-500" />}
-                        {settings.defaultTheme === 'system' && <Monitor size={16} className="text-gray-500" />}
-                        {settings.defaultTheme === 'light' && 'O site usará o tema claro por padrão para novos visitantes.'}
-                        {settings.defaultTheme === 'dark' && 'O site usará o tema escuro por padrão para novos visitantes.'}
-                        {settings.defaultTheme === 'system' && 'O site usará a preferência do sistema do visitante.'}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            )}
-            
-            {activeTab === 'contact' && (
-              <Card>
-                <div className="p-6 space-y-6">
-                  <h3 className="text-lg font-medium border-b border-gray-200 dark:border-gray-700 pb-2">
-                    Informações de Contato
-                  </h3>
-                  
-                  <div className="space-y-4">
-                    <div>
-                      <label htmlFor="contactEmail" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Email de Contato
-                      </label>
-                      <input
-                        id="contactEmail"
-                        name="contactEmail"
-                        type="email"
-                        value={settings.contactEmail}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="contactPhone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Telefone de Contato
-                      </label>
-                      <input
-                        id="contactPhone"
-                        name="contactPhone"
-                        type="text"
-                        value={settings.contactPhone}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                      />
-                    </div>
-                    
-                    <fieldset className="border border-gray-300 dark:border-gray-600 rounded-md p-4">
-                      <legend className="text-sm font-medium px-2">Redes Sociais</legend>
-                      
-                      <div className="space-y-4">
-                        <div>
-                          <label htmlFor="socialMedia.instagram" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                            Instagram (URL)
-                          </label>
-                          <input
-                            id="socialMedia.instagram"
-                            name="socialMedia.instagram"
-                            type="url"
-                            value={settings.socialMedia.instagram}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                            placeholder="https://instagram.com/seuusuario"
-                          />
-                        </div>
-                        
-                        <div>
-                          <label htmlFor="socialMedia.facebook" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                            Facebook (URL)
-                          </label>
-                          <input
-                            id="socialMedia.facebook"
-                            name="socialMedia.facebook"
-                            type="url"
-                            value={settings.socialMedia.facebook}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                            placeholder="https://facebook.com/suapagina"
-                          />
-                        </div>
-                        
-                        <div>
-                          <label htmlFor="socialMedia.whatsapp" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                            WhatsApp (número com DDD)
-                          </label>
-                          <input
-                            id="socialMedia.whatsapp"
-                            name="socialMedia.whatsapp"
-                            type="text"
-                            value={settings.socialMedia.whatsapp}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                            placeholder="4899999999"
-                          />
-                        </div>
-                      </div>
-                    </fieldset>
-                  </div>
-                </div>
-              </Card>
-            )}
-            
-            {activeTab === 'advanced' && (
-              <Card>
-                <div className="p-6 space-y-6">
-                  <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 p-4 mb-6">
-                    <div className="flex">
-                      <div className="flex-shrink-0">
-                        <AlertTriangle className="h-5 w-5 text-amber-500" />
-                      </div>
-                      <div className="ml-3">
-                        <p className="text-sm text-amber-700 dark:text-amber-400">
-                          Estas configurações avançadas podem afetar o funcionamento do site. Altere apenas se souber o que está fazendo.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <h3 className="text-lg font-medium border-b border-gray-200 dark:border-gray-700 pb-2">
-                    Configurações Avançadas
-                  </h3>
-                  
-                  <div className="space-y-4">
-                    <div>
-                      <label htmlFor="analyticsId" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        ID do Google Analytics
-                      </label>
-                      <input
-                        id="analyticsId"
-                        name="analyticsId"
-                        type="text"
-                        value={settings.analyticsId}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
-                        placeholder="G-XXXXXXXX ou UA-XXXXXXXX-X"
-                      />
-                      <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                        Para rastrear visitantes no seu site. Deixe em branco para desativar o Analytics.
-                      </p>
-                    </div>
-                    
-                    <div className="flex items-center">
-                      <input
-                        id="maintenanceMode"
-                        name="maintenanceMode"
-                        type="checkbox"
-                        checked={settings.maintenanceMode}
-                        onChange={(e) => handleSiteModeChange(e.target.checked)}
-                        className="h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
-                      />
-                      <label htmlFor="maintenanceMode" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
-                        Modo de Manutenção
-                      </label>
-                    </div>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                      Quando ativado, o site exibirá uma página de "Em Manutenção" para visitantes. Administradores ainda podem acessar o site.
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            )}
-          </div>
-        </div>
+    <div className="flex min-h-screen bg-[var(--color-gray)] dark:bg-[var(--color-dark)]">
+      <SettingsSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <div className="flex-1 p-6">
+        {activeTab === 'general' && <GeneralSettings settings={settings} handleChange={handleChange} />}
+        {activeTab === 'contact' && <ContactSettings settings={settings} handleChange={handleChange} />}
+        {activeTab === 'advanced' && <AdvancedSettings settings={settings} handleChange={handleChange} />}
       </div>
-    </RoleGuard>
+    </div>
   );
 }
 ```
 
-      - 📁 users/
-        - 📄 page.tsx
-        
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/users/page.tsx`
+
+```typescript
 // src/app/dashboard/users/page.tsx
 'use client';
 
@@ -6240,11 +5714,11 @@ export default function UsersPage() {
 }
 ```
 
-      - 📁 videos/
-        - 📁 new/
-          - 📄 page.tsx
-          
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/videos/new/page.tsx`
+
+```typescript
 'use client';
 
 import { useState } from 'react';
@@ -6568,9 +6042,11 @@ export default function NewVideoPage() {
 }
 ```
 
-        - 📄 page.tsx
-        
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/videos/page.tsx`
+
+```typescript
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -6842,40 +6318,24 @@ export default function VideosPage() {
 }
 ```
 
-      - 📄 layout.tsx
-      
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/layout.tsx`
+
+```typescript
 // src/app/dashboard/layout.tsx
 'use client';
 
 import { Sidebar } from '@/components/dashboard/Sidebar';
 import { Topbar } from '@/components/dashboard/Topbar';
 import { SessionProvider } from 'next-auth/react';
-import { ThemeProvider } from '@/context/ThemeContext';
 import { FeedbackProvider } from '@/context/FeedbackContext';
-import { useEffect, useState } from 'react';
-import LoadingScreen from '@/components/LoadingScreen';
+import { AppProvider } from '@/context/AppContext';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const [mounted, setMounted] = useState(false);
-
-  // Garantir que o componente só renderiza completamente após a montagem no lado do cliente
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Renderização condicional para evitar erros de hidratação
-  if (!mounted) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-[var(--color-card-bg)]">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-accent)]"></div>
-      </div>
-    );
-  }
-
   return (
     <SessionProvider>
-      <ThemeProvider isDashboard={true}>
+      <AppProvider isDashboard={true}>
         <FeedbackProvider>
           <div className="min-h-screen flex flex-col md:flex-row">
             <Sidebar />
@@ -6885,17 +6345,19 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </div>
           </div>
         </FeedbackProvider>
-      </ThemeProvider>
+      </AppProvider>
     </SessionProvider>
   );
 }
 ```
 
-      - 📄 page.tsx
-      
-```tsx
+
+---
+### 📄 Arquivo: `src/app/dashboard/page.tsx`
+
+```typescript
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth';
 import dbConnect from '@/lib/mongodb';
 import QuoteModel from '@/models/quote';
 import ReviewModel from '@/models/review';
@@ -7051,10 +6513,11 @@ export default async function Dashboard() {
 }
 ```
 
-    - 📁 login/
-      - 📄 page.tsx
-      
-```tsx
+
+---
+### 📄 Arquivo: `src/app/login/page.tsx`
+
+```typescript
 'use client';
 
 import { useState } from 'react';
@@ -7173,50 +6636,37 @@ export default function LoginPage() {
     </div>
   );
 }
-
 ```
 
-    - 📁 orcamento/
-      - 📁 [token]/
-        - 📄 page.tsx
-        
-```tsx
+
+---
+### 📄 Arquivo: `src/app/orcamento/[token]/page.tsx`
+
+```typescript
+// app/orcamento/[token]/page.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import axios from 'axios';
-import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, XCircle, Calendar, CreditCard, Clock, Download, Share2, Loader2 } from 'lucide-react';
+import { motion, useScroll } from 'framer-motion';
+import { HelpCircle, X } from 'lucide-react';
 
-interface EstimateItem {
-  description: string;
-  quantity: number;
-  unit: string;
-  unitPrice: number;
-}
-
-interface Estimate {
-  _id: string;
-  clientName: string;
-  clientEmail?: string;
-  clientPhone: string;
-  address?: string;
-  title: string;
-  description?: string;
-  items: EstimateItem[];
-  subtotal: number;
-  discount?: number;
-  tax?: number;
-  total: number;
-  notes?: string;
-  paymentTerms?: string;
-  validUntil?: string;
-  status: 'draft' | 'sent' | 'accepted' | 'rejected' | 'expired';
-  token: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import { Estimate } from '@/types/estimate';
+import LoadingState from '@/components/estimate-view/LoadingState';
+import ErrorState from '@/components/estimate-view/ErrorState';
+import Header from '@/components/estimate-view/Header';
+import HistoryPanel from '@/components/estimate-view/HistoryPanel';
+import EstimateHeader from '@/components/estimate-view/EstimateHeader';
+import SummarySection from '@/components/estimate-view/SummarySection';
+import DetailsSection from '@/components/estimate-view/DetailsSection';
+import ItemsSection from '@/components/estimate-view/ItemsSection';
+import NotesSection from '@/components/estimate-view/NotesSection';
+import ContactSection from '@/components/estimate-view/ContactSection';
+import Footer from '@/components/estimate-view/Footer';
+import ConfirmModal from '@/components/estimate-view/ConfirmModal';
+import ShareModal from '@/components/estimate-view/ShareModal';
+import FeedbackModal from '@/components/estimate-view/FeedbackModal';
 
 export default function EstimateView() {
   const { token } = useParams();
@@ -7228,13 +6678,61 @@ export default function EstimateView() {
   const [updating, setUpdating] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [showHistory, setShowHistory] = useState(false);
+  const [historyExpanded, setHistoryExpanded] = useState(false);
+  const [activeSection, setActiveSection] = useState('summary');
+  const [showFeedbackModal, setShowFeedbackModal] = useState(false);
+  const [feedback, setFeedback] = useState<string>('');
+  const [submittingFeedback, setSubmittingFeedback] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [showHelpTooltip, setShowHelpTooltip] = useState(false);
+
+  // Scroll Progress
+  const { scrollYProgress } = useScroll();
+  useEffect(() => {
+    return scrollYProgress.onChange((latest) => {
+      setScrollProgress(latest);
+    });
+  }, [scrollYProgress]);
 
   useEffect(() => {
     const fetchEstimate = async () => {
       try {
         setLoading(true);
         const response = await axios.get(`/api/estimates/${token}`);
-        setEstimate(response.data);
+        const data = response.data;
+        
+        // Verificar se o orçamento foi modificado (diferença maior que 1 minuto)
+        const wasModified = new Date(data.updatedAt).getTime() > new Date(data.createdAt).getTime() + 60000;
+        
+        // Simular histórico para demonstração
+        const sampleHistory = [
+          { date: data.createdAt, action: 'Orçamento criado', by: 'Sistema' },
+        ];
+        
+        if (wasModified) {
+          sampleHistory.push({ 
+            date: data.updatedAt, 
+            action: 'Orçamento atualizado', 
+            by: 'Administrador' 
+          });
+        }
+        
+        if (data.status !== 'draft') {
+          sampleHistory.push({ 
+            date: data.updatedAt, 
+            action: `Status alterado para ${data.status === 'sent' ? 'enviado' : 
+              data.status === 'accepted' ? 'aceito' : 
+              data.status === 'rejected' ? 'recusado' : 'expirado'}`, 
+            by: data.status === 'sent' ? 'Administrador' : 'Cliente' 
+          });
+        }
+        
+        setEstimate({
+          ...data,
+          wasModified,
+          history: sampleHistory
+        });
       } catch (error: any) {
         console.error('Erro ao buscar orçamento:', error);
         setError(error.response?.data?.error || 'Não foi possível carregar o orçamento');
@@ -7255,499 +6753,346 @@ export default function EstimateView() {
     try {
       await axios.put(`/api/estimates/${estimate._id}/status`, {
         status: statusUpdate,
-        token: estimate.token, // Para autorização
+        token: estimate.token,
       });
+      
+      // Adicionar ao histórico
+      const newHistoryEntry = {
+        date: new Date().toISOString(),
+        action: `Status alterado para ${statusUpdate === 'accepted' ? 'aceito' : 'recusado'}`,
+        by: 'Cliente'
+      };
       
       setEstimate({
         ...estimate,
         status: statusUpdate,
+        history: [...(estimate.history || []), newHistoryEntry]
       });
       
       setShowModal(false);
+      setShowFeedbackModal(true);
     } catch (error) {
-        console.error('Erro ao atualizar status:', error);
-        // Aqui você poderia mostrar um toast de erro
-      } finally {
-        setUpdating(false);
-        setStatusUpdate(null);
-      }
-    };
-  
-    const copyToClipboard = () => {
-      navigator.clipboard.writeText(window.location.href);
-      setLinkCopied(true);
-      setTimeout(() => setLinkCopied(false), 3000);
-    };
-  
-    const formatDate = (dateString?: string) => {
-      if (!dateString) return 'N/A';
-      const date = new Date(dateString);
-      return new Intl.DateTimeFormat('pt-BR', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-      }).format(date);
-    };
-  
-    const formatCurrency = (value: number) => {
-      return new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-      }).format(value);
-    };
-  
-    const getStatusBadge = () => {
-      if (!estimate) return null;
+      console.error('Erro ao atualizar status:', error);
+    } finally {
+      setUpdating(false);
+      setStatusUpdate(null);
+    }
+  };
+
+  const submitFeedback = async () => {
+    if (!estimate || !feedback.trim()) return;
+    
+    setSubmittingFeedback(true);
+    try {
+      // Simular envio de feedback
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      const statusConfig = {
-        draft: { label: 'Rascunho', color: 'bg-gray-200 text-gray-800' },
-        sent: { label: 'Enviado', color: 'bg-blue-100 text-blue-800' },
-        accepted: { label: 'Aceito', color: 'bg-green-100 text-green-800' },
-        rejected: { label: 'Recusado', color: 'bg-red-100 text-red-800' },
-        expired: { label: 'Expirado', color: 'bg-yellow-100 text-yellow-800' },
+      // Adicionar ao histórico
+      const newHistoryEntry = {
+        date: new Date().toISOString(),
+        action: `Feedback enviado: "${feedback.substring(0, 30)}${feedback.length > 30 ? '...' : ''}"`,
+        by: 'Cliente'
       };
       
-      return (
-        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${statusConfig[estimate.status].color}`}>
-          {statusConfig[estimate.status].label}
-        </span>
-      );
-    };
-  
-    if (loading) {
-      return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-          <div className="flex flex-col items-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"></div>
-            <p className="text-gray-500">Carregando orçamento...</p>
-          </div>
-        </div>
-      );
+      setEstimate({
+        ...estimate,
+        history: [...(estimate.history || []), newHistoryEntry]
+      });
+      
+      setShowFeedbackModal(false);
+      setFeedback('');
+    } catch (error) {
+      console.error('Erro ao enviar feedback:', error);
+    } finally {
+      setSubmittingFeedback(false);
     }
+  };
   
-    if (error) {
-      return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-          <div className="bg-white p-6 rounded-lg shadow-md max-w-md w-full text-center">
-            <XCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
-            <h2 className="text-xl font-semibold mb-2">Orçamento não encontrado</h2>
-            <p className="text-gray-600 mb-6">{error}</p>
-            <a
-              href="/"
-              className="inline-block px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setLinkCopied(true);
+    setTimeout(() => setLinkCopied(false), 3000);
+  };
+  
+  if (loading) return <LoadingState />;
+  if (error) return <ErrorState error={error} />;
+  if (!estimate) return null;
+  
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 overflow-x-hidden">
+      <Header 
+        wasModified={estimate.wasModified || false}
+        showHistory={showHistory}
+        setShowHistory={setShowHistory}
+        setShowShareModal={setShowShareModal}
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
+        scrollProgress={scrollProgress}
+      />
+      
+      <HistoryPanel 
+        showHistory={showHistory}
+        history={estimate.history}
+        historyExpanded={historyExpanded}
+        setHistoryExpanded={setHistoryExpanded}
+        setShowHistory={setShowHistory}
+      />
+  
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <EstimateHeader 
+          estimate={estimate}
+          statusUpdate={statusUpdate}
+          setStatusUpdate={setStatusUpdate}
+          setShowModal={setShowModal}
+        />
+  
+        {activeSection === 'summary' && (
+          <SummarySection estimate={estimate} setActiveSection={setActiveSection} />
+        )}
+  
+        {activeSection === 'details' && (
+          <DetailsSection estimate={estimate} />
+        )}
+  
+        {activeSection === 'items' && (
+          <ItemsSection estimate={estimate} />
+        )}
+  
+        {activeSection === 'notes' && (
+          <NotesSection estimate={estimate} />
+        )}
+  
+        <ContactSection />
+      </main>
+  
+      <Footer />
+  
+      <ConfirmModal 
+        showModal={showModal}
+        statusUpdate={statusUpdate}
+        updating={updating}
+        setShowModal={setShowModal}
+        updateEstimateStatus={updateEstimateStatus}
+      />
+  
+  <ShareModal 
+        showShareModal={showShareModal}
+        linkCopied={linkCopied}
+        copyToClipboard={copyToClipboard}
+        setShowShareModal={setShowShareModal}
+      />
+  
+      <FeedbackModal 
+        showFeedbackModal={showFeedbackModal}
+        feedback={feedback}
+        setFeedback={setFeedback}
+        submittingFeedback={submittingFeedback}
+        submitFeedback={submitFeedback}
+        setShowFeedbackModal={setShowFeedbackModal}
+        statusUpdate={statusUpdate}
+      />
+      
+      {/* FAB - Botão de Ajuda Flutuante */}
+      <motion.div
+        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-30"
+        initial={{ opacity: 0, scale: 0, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 1, type: "spring" }}
+      >
+        <motion.button
+          className="bg-blue-500 hover:bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
+          whileHover={{ scale: 1.1, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setShowHelpTooltip(!showHelpTooltip)}
+          aria-label="Ajuda"
+        >
+          <HelpCircle size={24} />
+        </motion.button>
+        
+        {showHelpTooltip && (
+          <motion.div 
+            className="absolute bottom-16 right-0 bg-white p-4 rounded-lg shadow-lg w-64"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+          >
+            <h4 className="font-medium text-gray-900 mb-2">Precisa de ajuda?</h4>
+            <p className="text-sm text-gray-600 mb-3">
+              Se precisar de ajuda com seu orçamento ou tiver dúvidas, entre em contato conosco através do WhatsApp ou telefone.
+            </p>
+            <a 
+              href="https://wa.me/5548991919791" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-sm text-blue-600 hover:text-blue-800 font-medium"
             >
-              Voltar para a página inicial
+              Falar com um atendente →
             </a>
-          </div>
-        </div>
-      );
-    }
-  
-    if (!estimate) {
-      return null;
-    }
-  
-    return (
-      <div className="min-h-screen bg-gray-50">
-        {/* Header com logo e botões de ação */}
-        <header className="bg-white shadow-sm py-4">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <div className="flex items-center">
-              <div className="h-10 w-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-                FH
-              </div>
-              <div className="ml-3">
-                <h1 className="text-xl font-semibold">FH Resolve</h1>
-                <p className="text-sm text-gray-500">Orçamento Personalizado</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-3">
-              <button
-                onClick={() => setShowShareModal(true)}
-                className="p-2 text-gray-500 hover:text-blue-500 hover:bg-gray-100 rounded-full"
-                aria-label="Compartilhar"
-              >
-                <Share2 size={18} />
-              </button>
-              <button
-                onClick={() => window.print()}
-                className="p-2 text-gray-500 hover:text-blue-500 hover:bg-gray-100 rounded-full"
-                aria-label="Imprimir/Baixar"
-              >
-                <Download size={18} />
-              </button>
-            </div>
-          </div>
-        </header>
-  
-        <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* Status e ação do orçamento */}
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-              <div>
-                <h2 className="text-xl font-semibold mb-2">{estimate.title}</h2>
-                <div className="flex items-center gap-2">
-                  <p className="text-gray-500">Status:</p>
-                  {getStatusBadge()}
-                </div>
-              </div>
-              {(estimate.status === 'sent' || estimate.status === 'draft') && (
-                <div className="flex gap-2 w-full sm:w-auto">
-                  <button
-                    onClick={() => {
-                      setStatusUpdate('accepted');
-                      setShowModal(true);
-                    }}
-                    className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors flex-1 sm:flex-none flex items-center justify-center gap-1"
-                  >
-                    <CheckCircle size={16} />
-                    Aceitar
-                  </button>
-                  <button
-                    onClick={() => {
-                      setStatusUpdate('rejected');
-                      setShowModal(true);
-                    }}
-                    className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors flex-1 sm:flex-none flex items-center justify-center gap-1"
-                  >
-                    <XCircle size={16} />
-                    Recusar
-                  </button>
-                </div>
-              )}
-              {estimate.status === 'accepted' && (
-                <div className="bg-green-50 border-l-4 border-green-500 p-4 w-full sm:w-auto">
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm text-green-700">
-                        Orçamento aceito! Entraremos em contato em breve.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-              {estimate.status === 'rejected' && (
-                <div className="bg-red-50 border-l-4 border-red-500 p-4 w-full sm:w-auto">
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <XCircle className="h-5 w-5 text-red-500" />
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm text-red-700">
-                        Orçamento recusado.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-  
-          {/* Informações do cliente e do orçamento */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            <div className="bg-white rounded-lg shadow-sm p-6 md:col-span-2">
-              <h3 className="text-lg font-medium mb-4 border-b pb-2">Dados do Cliente</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <p className="text-sm text-gray-500">Nome:</p>
-                  <p className="font-medium">{estimate.clientName}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Telefone:</p>
-                  <p className="font-medium">{estimate.clientPhone}</p>
-                </div>
-                {estimate.clientEmail && (
-                  <div>
-                    <p className="text-sm text-gray-500">Email:</p>
-                    <p className="font-medium">{estimate.clientEmail}</p>
-                  </div>
-                )}
-                {estimate.address && (
-                  <div className="sm:col-span-2">
-                    <p className="text-sm text-gray-500">Endereço:</p>
-                    <p className="font-medium">{estimate.address}</p>
-                  </div>
-                )}
-              </div>
-            </div>
-  
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-lg font-medium mb-4 border-b pb-2">Detalhes</h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <Calendar className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-sm text-gray-500">Data do Orçamento:</p>
-                    <p className="font-medium">{formatDate(estimate.createdAt)}</p>
-                  </div>
-                </div>
-                {estimate.validUntil && (
-                  <div className="flex items-start gap-3">
-                    <Clock className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="text-sm text-gray-500">Válido até:</p>
-                      <p className="font-medium">{formatDate(estimate.validUntil)}</p>
-                    </div>
-                  </div>
-                )}
-                {estimate.paymentTerms && (
-                  <div className="flex items-start gap-3">
-                    <CreditCard className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="text-sm text-gray-500">Condições de Pagamento:</p>
-                      <p className="font-medium">{estimate.paymentTerms}</p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-  
-          {/* Descrição do orçamento */}
-          {estimate.description && (
-            <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-              <h3 className="text-lg font-medium mb-4 border-b pb-2">Descrição</h3>
-              <p className="text-gray-700 whitespace-pre-line">{estimate.description}</p>
-            </div>
-          )}
-  
-          {/* Itens do orçamento */}
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-            <h3 className="text-lg font-medium mb-4 border-b pb-2">Itens do Orçamento</h3>
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead>
-                  <tr>
-                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Descrição
-                    </th>
-                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Qtd
-                    </th>
-                    <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Un
-                    </th>
-                    <th scope="col" className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Preço Unit.
-                    </th>
-                    <th scope="col" className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Total
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {estimate.items.map((item, index) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-4 py-3 text-sm text-gray-900">{item.description}</td>
-                      <td className="px-4 py-3 text-sm text-gray-900">{item.quantity}</td>
-                      <td className="px-4 py-3 text-sm text-gray-900">{item.unit}</td>
-                      <td className="px-4 py-3 text-sm text-gray-900 text-right">{formatCurrency(item.unitPrice)}</td>
-                      <td className="px-4 py-3 text-sm text-gray-900 text-right">{formatCurrency(item.quantity * item.unitPrice)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-                <tfoot>
-                  <tr className="bg-gray-50">
-                    <td colSpan={4} className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
-                      Subtotal:
-                    </td>
-                    <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
-                      {formatCurrency(estimate.subtotal)}
-                    </td>
-                  </tr>
-                  {estimate.discount && estimate.discount > 0 && (
-                    <tr className="bg-gray-50">
-                      <td colSpan={4} className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
-                        Desconto:
-                      </td>
-                      <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
-                        -{formatCurrency(estimate.discount)}
-                      </td>
-                    </tr>
-                  )}
-                  {estimate.tax && estimate.tax > 0 && (
-                    <tr className="bg-gray-50">
-                      <td colSpan={4} className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
-                        Taxas/Adicionais:
-                      </td>
-                      <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
-                        +{formatCurrency(estimate.tax)}
-                      </td>
-                    </tr>
-                  )}
-                  <tr className="bg-blue-50">
-                    <td colSpan={4} className="px-4 py-4 text-base font-bold text-gray-900 text-right">
-                      Total:
-                    </td>
-                    <td className="px-4 py-4 text-base font-bold text-blue-600 text-right">
-                      {formatCurrency(estimate.total)}
-                    </td>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-          </div>
-  
-          {/* Observações */}
-          {estimate.notes && (
-            <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-              <h3 className="text-lg font-medium mb-4 border-b pb-2">Observações</h3>
-              <p className="text-gray-700 whitespace-pre-line">{estimate.notes}</p>
-            </div>
-          )}
-  
-          {/* Contato e informações da empresa */}
-          <div className="bg-blue-50 rounded-lg p-6">
-            <h3 className="text-lg font-medium mb-4 text-blue-800">Entre em contato</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <p className="text-sm text-blue-800">Telefone:</p>
-                <p className="font-medium text-blue-900">(48) 99191-9791</p>
-              </div>
-              <div>
-                <p className="text-sm text-blue-800">Email:</p>
-                <p className="font-medium text-blue-900">contato@fhresolve.com.br</p>
-              </div>
-              <div className="sm:col-span-2">
-                <p className="text-sm text-blue-800">Endereço:</p>
-                <p className="font-medium text-blue-900">Ratones, Florianópolis - SC</p>
-              </div>
-            </div>
-          </div>
-        </main>
-  
-        <footer className="bg-white py-6 mt-8 border-t">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
-            <p>© {new Date().getFullYear()} FH Resolve - Todos os direitos reservados</p>
-            <p className="mt-1">CNPJ: 00.000.000/0000-00</p>
-          </div>
-        </footer>
-  
-        {/* Modal de confirmação */}
-        <AnimatePresence>
-          {showModal && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+            <button
+              className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowHelpTooltip(false);
+              }}
             >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                className="bg-white rounded-lg shadow-xl max-w-md w-full p-6"
-              >
-                <div className="text-center">
-                  {statusUpdate === 'accepted' ? (
-                    <>
-                      <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
-                      <h3 className="text-lg font-medium text-gray-900 mb-2">Aceitar Orçamento</h3>
-                      <p className="text-gray-500 mb-6">
-                        Ao aceitar este orçamento, você concorda com os termos, valores e condições descritos. Deseja prosseguir?
-                      </p>
-                    </>
-                  ) : (
-                    <>
-                      <XCircle className="h-12 w-12 text-red-500 mx-auto mb-4" />
-                      <h3 className="text-lg font-medium text-gray-900 mb-2">Recusar Orçamento</h3>
-                      <p className="text-gray-500 mb-6">
-                        Tem certeza que deseja recusar este orçamento? Esta ação não pode ser desfeita.
-                      </p>
-                    </>
-                  )}
-                  
-                  <div className="flex justify-center gap-4">
-                    <button
-                      onClick={() => setShowModal(false)}
-                      className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
-                    >
-                      Cancelar
-                    </button>
-                    <button
-                      onClick={updateEstimateStatus}
-                      disabled={updating}
-                      className={`px-4 py-2 rounded-md text-white ${
-                        statusUpdate === 'accepted'
-                          ? 'bg-green-600 hover:bg-green-700'
-                          : 'bg-red-600 hover:bg-red-700'
-                      } flex items-center gap-2`}
-                    >
-                      {updating ? (
-                        <>
-                          <Loader2 className="h-4 w-4 animate-spin" />
-                          Processando...
-                        </>
-                      ) : (
-                        <>
-                          {statusUpdate === 'accepted' ? 'Confirmar Aceitação' : 'Confirmar Recusa'}
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-  
-        {/* Modal de compartilhamento */}
-        <AnimatePresence>
-          {showShareModal && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
-            >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                className="bg-white rounded-lg shadow-xl max-w-md w-full p-6"
-              >
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Compartilhar Orçamento</h3>
-                <p className="text-gray-500 mb-4">
-                  Compartilhe este orçamento copiando o link abaixo:
-                </p>
-                
-                <div className="flex mb-6">
-                  <input
-                    type="text"
-                    value={window.location.href}
-                    readOnly
-                    className="flex-grow px-3 py-2 border border-gray-300 rounded-l-md text-gray-900 text-sm"
-                  />
-                  <button
-                    onClick={copyToClipboard}
-                    className="px-4 py-2 bg-blue-500 text-white rounded-r-md hover:bg-blue-600"
-                  >
-                    {linkCopied ? 'Copiado!' : 'Copiar'}
-                  </button>
-                </div>
-                
-                <div className="flex justify-end">
-                  <button
-                    onClick={() => setShowShareModal(false)}
-                    className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
-                  >
-                    Fechar
-                  </button>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    );
-  }
+              <X size={14} />
+            </button>
+          </motion.div>
+        )}
+      </motion.div>
+    </div>
+  );
+}
 ```
 
-    - 📄 globals.css
-    
+
+---
+### 📄 Arquivo: `src/app/portfolio/page.tsx`
+
+```typescript
+'use client';
+
+import { ProjectCard } from '../../components/ProjectCard';
+import { getProjects } from '../../data/projects';
+import Link from 'next/link';
+import { ArrowLeft, Wrench } from 'lucide-react';
+import { useEffect, useState } from 'react';
+
+export default function PortfolioPage() {
+  const projects = getProjects();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <>
+      <header className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled ? 'py-2 bg-white/90 dark:bg-gray-900/90 shadow-sm' : 'py-3 bg-white/80 dark:bg-gray-900/80'
+      } backdrop-blur-md`}>
+        <div className="container mx-auto flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2">
+            <Wrench className="h-6 w-6 text-blue-600" aria-hidden="true" />
+            <span className="text-lg font-bold text-blue-600 dark:text-white">FH Resolve</span>
+          </Link>
+          
+          <Link 
+            href="/" 
+            className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors"
+          >
+            <ArrowLeft size={18} />
+            <span>Voltar para o início</span>
+          </Link>
+        </div>
+      </header>
+
+      <main className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Portfólio de Trabalhos</h1>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Confira alguns dos nossos projetos recentes e veja como podemos ajudar você com soluções de qualidade para sua casa ou negócio.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project) => (
+              <ProjectCard 
+                key={project.id}
+                id={project.id}
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                tags={project.tags}
+              />
+            ))}
+          </div>
+          
+          {projects.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-500 dark:text-gray-400">Nenhum projeto encontrado.</p>
+            </div>
+          )}
+        </div>
+      </main>
+      
+      <footer className="bg-white dark:bg-gray-800 py-8">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-gray-600 dark:text-gray-300">
+            © {new Date().getFullYear()} FH Resolve - Todos os direitos reservados
+          </p>
+        </div>
+      </footer>
+    </>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/app/utils/formatters.ts`
+
+```typescript
+// utils/formatters.ts
+export const formatDate = (dateString?: string) => {
+    if (!dateString) return 'N/A';
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('pt-BR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    }).format(date);
+  };
+  
+  export const formatDateTime = (dateString?: string) => {
+    if (!dateString) return 'N/A';
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('pt-BR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    }).format(date);
+  };
+  
+  export const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(value);
+  };
+```
+
+
+---
+### 📄 Arquivo: `src/app/utils/themeAdapter.ts`
+
+```typescript
+import { useAppContext } from "@/context/AppContext";
+
+// Em src/utils/themeAdapter.ts ou equivalente
+export const useTheme = () => {
+  const context = useAppContext();
+  return { 
+    theme: context.theme, 
+    toggleTheme: context.toggleTheme, 
+    setTheme: context.setTheme, 
+    isDashboard: false 
+  };
+};
+```
+
+
+---
+### 📄 Arquivo: `src/app/globals.css`
+
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 @tailwind base;
@@ -7772,6 +7117,13 @@ export default function EstimateView() {
   
   /* Adição de tom intermediário */
   --color-accent-dark: #247885; /* Versão mais escura do turquesa para hover */
+  --color-accent-light: #4BAAB7; /* Versão mais clara do turquesa para efeitos */
+  
+  /* Cores de ação */
+  --color-success: #22c55e; /* Verde para indicar sucesso */
+  --color-warning: #f59e0b; /* Amarelo para indicar avisos */
+  --color-error: #ef4444; /* Vermelho para indicar erros */
+  --color-info: #3b82f6; /* Azul para informações */
   
   /* RGB para animações e opacidades */
   --color-accent-rgb: 43, 141, 154; /* Azul Turquesa em RGB */
@@ -7792,25 +7144,40 @@ export default function EstimateView() {
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Variáveis para animações */
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+  --transition-slow: 350ms;
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  
+  /* Variáveis para bordas arredondadas */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
 }
 
 [data-theme="dark"] {
-  /* Tema Escuro com a nova paleta */
-  --color-primary: #252525; /* Preto */
-  --color-accent: #2B8D9A; /* Azul Turquesa */
-  --color-secondary: #8D9192; /* Cinza Médio */
-  --color-neutral: #8D9192; /* Cinza Médio para neutro no dark mode */
-  --color-text: #FFFFFF; /* Branco para texto no dark mode */
-  --color-text-light: #FFFFFF; /* Branco para texto sobre fundos escuros */
-  --color-dark: #252525; /* Preto */
-  --color-light: #333333; /* Uma versão um pouco mais clara do preto para o fundo */
-  --color-gray: #3A3A3A; /* Cinza escuro para backgrounds secundários */
-  --color-paralel: #EDEDED; /* Cinza claro */
-  --color-card-bg: #333333; /* Fundo de cards no dark mode */
-  --color-card-text: #FFFFFF; /* Texto branco para cards no dark mode */
+  --color-text: #FFFFFF !important;
+  --color-text-light: #FFFFFF !important;
+  --color-card-bg: #333333 !important;
+  --color-card-text: #FFFFFF !important;
+  --color-light: #1F1F1F !important; /* Escurecido para maior contraste */
+  --color-dark: #252525 !important;
+  --color-primary: #FFFFFF !important;
+  --color-gray: #3A3A3A !important;
+  --color-neutral: #8D9192 !important;
   
-  /* Adição de tom intermediário */
-  --color-accent-dark: #247885; /* Versão mais escura do turquesa para hover */
+  /* Ajustes de sombras para o tema escuro */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 /* Definindo fontes */
@@ -7838,9 +7205,57 @@ html.no-scroll {
 
 /* Transições suaves */
 *, *::before, *::after {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter;
+  transition-timing-function: var(--ease-in-out);
+  transition-duration: var(--transition-fast);
+}
+
+/* Forçar todas as classes text-[var(--color-text)] para terem a cor correta no tema dark */
+[data-theme="dark"] .text-\[var\(--color-text\)\] {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .text-\[var\(--color-text\)\]\/80,
+[data-theme="dark"] .text-\[var\(--color-text\)\]\/70 {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme="dark"] .text-\[var\(--color-card-text\)\] {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .bg-\[var\(--color-card-bg\)\] {
+  background-color: #333333 !important;
+}
+
+[data-theme="dark"] .dark\:text-white {
+  color: #FFFFFF !important;
+}
+
+/* Aplicar cores corretas para texto em elementos card */
+[data-theme="dark"] .card, 
+[data-theme="dark"] .card-text {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .card-text-secondary {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Define variável específica para texto no modo dark */
+[data-theme="dark"] {
+  --color-text-dark: #FFFFFF !important;
+}
+
+/* Cores específicas para o tema dark */
+.dark-theme .card {
+  background-color: #333333;
+  color: #FFFFFF;
+}
+
+.dark-theme .section-title,
+.dark-theme .section-subtitle {
+  color: #FFFFFF;
 }
 
 /* Scrollbar minimalista */
@@ -7865,9 +7280,61 @@ html.no-scroll {
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
-  border-radius: 0.25rem;
+  border-radius: var(--radius-sm);
 }
+
 @layer utilities {
+  /* Utilitários para mascaras e efeitos visuais */
+  .mask-right {
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+  
+  .mask-bottom {
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  }
+  
+  .mask-radial {
+    mask-image: radial-gradient(circle, black 40%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle, black 40%, transparent 70%);
+  }
+  
+  /* Utilitários para backdrops */
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
+  
+  .backdrop-saturate-50 {
+    backdrop-filter: saturate(50%);
+  }
+  
+  /* Efeito de máscara para a barra de progresso */
+  .loading-bar {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .loading-bar-progress {
+    mask-image: linear-gradient(to right, transparent 100%, black 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 100%, black 100%);
+  }
+
+  /* Animações de partículas */
+  .particle-tool {
+    animation: float-tool 5s infinite ease-in-out;
+  }
+
+  @keyframes float-tool {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(10deg);
+    }
+  }
+  
+  /* Utilitários para texto adaptativo */
   .text-adaptive {
     @apply text-[var(--color-text)];
   }
@@ -7878,6 +7345,19 @@ html.no-scroll {
   
   .text-adaptive-muted {
     @apply text-[var(--color-text)] opacity-60;
+  }
+  
+  /* Utilitários para glassmorphism */
+  .glass {
+    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border border-white/20 dark:border-gray-800/20;
+  }
+  
+  .glass-dark {
+    @apply bg-gray-900/70 backdrop-blur-md border border-gray-800/20;
+  }
+  
+  .glass-light {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
   }
 }
 
@@ -7907,6 +7387,22 @@ html.no-scroll {
   }
   .btn-outline:hover {
     background-color: rgba(var(--color-accent-rgb), 0.1);
+  }
+  
+  .btn-success {
+    @apply bg-green-600 text-white hover:bg-green-700;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+  
+  .btn-warning {
+    @apply bg-yellow-500 text-white hover:bg-yellow-600;
+  }
+  
+  .btn-info {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
   }
 
   .section-title {
@@ -7943,7 +7439,99 @@ html.no-scroll {
   }
 
   .badge-primary {
-    @apply bg-accent-20 text-[var(--color-accent)];
+    @apply bg-[var(--color-accent)]/20 text-[var(--color-accent)];
+  }
+  
+  .badge-success {
+    @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400;
+  }
+  
+  .badge-danger {
+    @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+  }
+  
+  .badge-info {
+    @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400;
+  }
+  
+  .badge-neutral {
+    @apply bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300;
+  }
+  
+  /* Componentes de tabela responsiva */
+  .table-container {
+    @apply w-full overflow-x-auto rounded-lg shadow-sm;
+  }
+  
+  .table-responsive {
+    @apply min-w-full divide-y divide-[var(--color-neutral)]/20;
+  }
+  
+  .table-header {
+    @apply bg-[var(--color-neutral)]/10 border-b border-[var(--color-neutral)]/20;
+  }
+  
+  .table-header-cell {
+    @apply px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-[var(--color-card-text)] opacity-70 cursor-pointer hover:text-[var(--color-accent)];
+  }
+  
+  .table-row {
+    @apply hover:bg-[var(--color-neutral)]/5 transition-colors;
+  }
+  
+  .table-cell {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-[var(--color-card-text)];
+  }
+  
+  /* Componentes de botões de ação */
+  .action-icon-button {
+    @apply p-1.5 rounded-full text-[var(--color-card-text)] opacity-70 hover:bg-[var(--color-accent)]/10 hover:text-[var(--color-accent)] hover:opacity-100 transition-all;
+  }
+  
+  /* Componentes de cards para mobile */
+  .mobile-card {
+    @apply bg-[var(--color-neutral)]/5 rounded-lg overflow-hidden border border-[var(--color-neutral)]/20 mb-4;
+  }
+  
+  .mobile-card-header {
+    @apply p-4 flex justify-between items-start;
+  }
+  
+  .mobile-card-content {
+    @apply px-4 py-2 space-y-2 text-sm;
+  }
+  
+  .mobile-card-footer {
+    @apply bg-[var(--color-neutral)]/10 px-4 py-3 flex justify-end gap-2;
+  }
+  
+  /* Componentes de modais */
+  .modal-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm;
+  }
+  
+  .modal-container {
+    @apply bg-[var(--color-card-bg)] rounded-lg shadow-xl w-full max-w-md overflow-hidden;
+  }
+  
+  .modal-accent-border {
+    @apply p-1 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)];
+  }
+  
+  .modal-content {
+    @apply p-5 bg-[var(--color-card-bg)] rounded-t-lg;
+  }
+  
+  .modal-header {
+    @apply flex items-center gap-3 mb-6;
+  }
+  
+  .modal-footer {
+    @apply flex justify-end space-x-3 mt-6;
   }
 }
 
@@ -7978,6 +7566,24 @@ html.no-scroll {
   animation: float 4s ease-in-out infinite;
 }
 
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
 /* Responsividade */
 @media (max-width: 640px) {
   .section-title {
@@ -7993,6 +7599,73 @@ html.no-scroll {
   }
   .container {
     padding-left: 1.5rem;  /* sm:px-6 */
+    padding-right: 1.5rem;
+  }
+  
+  /* Ajustes para visualização em dispositivos móveis */
+  .mobile-card {
+    padding: 1rem !important;
+  }
+
+  .mobile-card-header {
+    margin-bottom: 0.75rem !important;
+  }
+
+  .mobile-card-content {
+    font-size: 0.875rem !important;
+  }
+
+  /* Botões mais adequados para toque */
+  .mobile-action-button {
+    padding: 0.625rem !important;
+    min-height: 2.5rem !important;
+    min-width: 2.5rem !important;
+  }
+
+  /* Melhor visualização de status badges em mobile */
+  .status-badge {
+    padding: 0.25rem 0.75rem !important;
+    font-size: 0.7rem !important;
+  }
+  
+  /* Classes para melhorar a visualização de texto em mobile */
+  .mobile-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  /* Ajuste automático de texto para tamanhos de tela menores */
+  .mobile-break-words {
+    word-break: break-word;
+    hyphens: auto;
+  }
+  
+  /* Melhor visualização de modais em telas pequenas */
+  .mobile-modal {
+    width: 92vw !important;
+    max-width: none !important;
+    margin: 1rem auto !important;
+  }
+  
+  .mobile-modal-content {
+    padding: 1rem !important;
+  }
+  
+  .mobile-modal-actions {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+  
+  .mobile-modal-actions button {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 }
@@ -8021,16 +7694,6 @@ html.no-scroll {
 
 .dark .text-white {
   color: var(--color-text-light);
-}
-
-/* Classe de pulse personalizada */
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.animate-pulse-slow {
-  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* Novas classes utilitárias para espaçamento consistente */
@@ -8075,14 +7738,108 @@ html.no-scroll {
 .shadow-custom-xl {
   box-shadow: var(--shadow-xl);
 }
+
+/* Classes utilitárias para transições */
+.transition-fast {
+  transition-duration: var(--transition-fast);
+}
+
+.transition-normal {
+  transition-duration: var(--transition-normal);
+}
+
+.transition-slow {
+  transition-duration: var(--transition-slow);
+}
+
+/* Utilitários para bordas arredondadas */
+.rounded-custom-sm {
+  border-radius: var(--radius-sm);
+}
+
+.rounded-custom-md {
+  border-radius: var(--radius-md);
+}
+
+.rounded-custom-lg {
+  border-radius: var(--radius-lg);
+}
+
+.rounded-custom-xl {
+  border-radius: var(--radius-xl);
+}
+
+.rounded-custom-2xl {
+  border-radius: var(--radius-2xl);
+}
+
+.rounded-custom-full {
+  border-radius: var(--radius-full);
+}
+
+/* Classe de utilitário para esconder elementos em mobile */
+.hide-on-mobile {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+
+/* Classe de utilitário para mostrar elementos apenas em mobile */
+.show-on-mobile {
+  @media (min-width: 769px) {
+    display: none !important;
+  }
+}
+
+/* Layout de grid adaptativo */
+.mobile-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* Correções para Leaflet popups no modo dark */
+.leaflet-popup-content-wrapper {
+  background-color: white !important;
+  color: #333 !important;
+}
+
+.leaflet-popup-tip {
+  background-color: white !important;
+}
+
+/* Garante que os textos nas listas no modo dark sejam sempre visíveis */
+[data-theme="dark"] .bg-\[var\(--color-card-bg\)\]:not(.bg-\[var\(--color-accent\)\]) li:not(.bg-\[var\(--color-accent\)\]) {
+  color: #FFFFFF;
+}
+
+/* Corrige cor do texto nas tabs móveis que não estão ativas */
+[data-theme="dark"] button:not(.bg-\[var\(--color-accent\)\]) .text-\[var\(--color-text\)\] {
+  color: #FFFFFF !important;
+}
+
+/* Garantir que itens de navegação sejam visíveis no modo dark */
+[data-theme="dark"] .bg-\[var\(--color-gray\)\] {
+  background-color: #3A3A3A !important;
+  color: #FFFFFF;
+}
+
+/* Corrige a cor do texto nos itens de região não selecionados */
+[data-theme="dark"] .bg-\[var\(--color-gray\)\] .text-\[var\(--color-card-text\)\] {
+  color: #FFFFFF !important;
+}
 ```
 
-    - 📄 layout.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/app/layout.tsx`
+
+```typescript
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import { Toaster } from '@/components/ui/Toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -8097,8 +7854,8 @@ export const metadata: Metadata = {
     ],
     shortcut: ['/shortcut-icon.png'],
   },
-  title: 'FH Resolve - Marido de Aluguel em Florianópolis | Reparos Residenciais',
-  description: 'Serviços de marido de aluguel em Florianópolis: reparos elétricos, hidráulicos e gerais em Ratones, Jurerê, Ingleses e região. Orçamento grátis via WhatsApp!',
+  title: 'FH Resolve - Soluções em Manutenção',
+  description: 'Soluções completas em manutenção predial, elétrica, hidráulica e muito mais.',
   keywords: 'marido de aluguel Florianópolis, manutenção residencial Ratones, reparos elétricos Jurerê, serviços hidráulicos Ingleses, FH Resolve',
   openGraph: {
     title: 'FH Resolve - Manutenção Residencial em Florianópolis',
@@ -8130,7 +7887,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -8163,13 +7920,11 @@ export default function RootLayout({
             })
           }}
         />
-        {/* Script para prevenir flash de tema incorreto */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
-                  // Verifica se estamos no dashboard observando a URL
                   const isDashboard = window.location.pathname.startsWith('/dashboard');
                   const themeKey = isDashboard ? 'dashboard-theme' : 'site-theme';
                   
@@ -8180,7 +7935,6 @@ export default function RootLayout({
                   document.documentElement.setAttribute('data-theme', theme);
                 } catch (e) {
                   console.error('Error accessing localStorage', e);
-                  // Em caso de erro, definir tema padrão
                   document.documentElement.setAttribute('data-theme', 'light');
                 }
               })();
@@ -8189,27 +7943,36 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
 }
 ```
 
-    - 📄 page.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/app/page.tsx`
+
+```typescript
 'use client';
 
 import { useEffect, useState, Suspense } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import axios from '@/lib/axios';
 import { Providers } from './providers';
 
 import Hero from '../components/Hero';
-import LoadingScreen from '../components/LoadingScreen';
 import Header from '../components/Header';
 
 // Componentes carregados dinamicamente
@@ -8230,39 +7993,34 @@ const SectionLoader = () => (
 );
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
   const [defaultTheme, setDefaultTheme] = useState<'light' | 'dark' | 'system'>('system');
   const [maintenanceMode, setMaintenanceMode] = useState(false);
 
   useEffect(() => {
-    // Buscar configurações do site
     const fetchSettings = async () => {
       try {
-        setLoading(true);
-        const response = await axios.get('/api/settings');
-        if (response.data.defaultTheme) {
+        const response = await axios.get('/api/settings', {
+          timeout: 5000
+        }).catch(error => {
+          console.error('Erro na requisição de settings:', error);
+          return { data: {} };
+        });
+        
+        if (response.data?.defaultTheme) {
           setDefaultTheme(response.data.defaultTheme);
         }
-        if (response.data.maintenanceMode !== undefined) {
+        
+        if (response.data?.maintenanceMode !== undefined) {
           setMaintenanceMode(response.data.maintenanceMode);
         }
       } catch (error) {
         console.error('Erro ao buscar configurações:', error);
-      } finally {
-        // Configurar timer para simulação de carregamento
-        const timer = setTimeout(() => {
-          setLoading(false);
-        }, 2000);
-        
-        return () => clearTimeout(timer);
       }
     };
-
     fetchSettings();
   }, []);
 
-  // Renderiza a página de manutenção se o modo de manutenção estiver ativo
-  if (maintenanceMode && !loading) {
+  if (maintenanceMode) {
     return (
       <Providers initialTheme={defaultTheme}>
         <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-[var(--color-gray)] dark:bg-[var(--color-primary)]">
@@ -8302,103 +8060,154 @@ export default function Home() {
 
   return (
     <Providers initialTheme={defaultTheme}>
-      <AnimatePresence mode="wait">
-        {loading ? (
-          <LoadingScreen key="loader" />
-        ) : (
-          <motion.div 
-            key="content"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col min-h-screen"
-          >
-            <Header />
-            <main className="flex-grow">
-              <Hero />
-              <Suspense fallback={<SectionLoader />}>
-                <Benefits />
-              </Suspense>
-              <Suspense fallback={<SectionLoader />}>
-                <About />
-              </Suspense>
-              <Suspense fallback={<SectionLoader />}>
-                <Portfolio />
-              </Suspense>
-              <Suspense fallback={<SectionLoader />}>
-                <Testimonials />
-              </Suspense>
-              <Suspense fallback={<SectionLoader />}>
-                <ServiceMap />
-              </Suspense>
-              <Suspense fallback={<SectionLoader />}>
-                <Contact />
-              </Suspense>
-            </main>
-            <Suspense fallback={<div className="h-20" />}>
-              <Footer />
-            </Suspense>
-            <motion.a
-              href="https://wa.me/5548991919791"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="fixed bottom-6 right-6 bg-[var(--color-accent)] text-white p-3 rounded-full shadow-lg z-50 flex items-center justify-center"
-              whileHover={{ scale: 1.1, boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1 }}
-              aria-label="Entre em contato via WhatsApp"
-            >
-              <MessageCircle size={26} />
-            </motion.a>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        key="content"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ 
+          duration: 0.8,
+          ease: "easeInOut" 
+        }}
+        className="flex flex-col min-h-screen"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          <Header />
+        </motion.div>
+        <main className="flex-grow">
+          <Hero />
+          <Suspense fallback={<SectionLoader />}>
+            <Benefits />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <About />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <Portfolio />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <Testimonials />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <ServiceMap />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <Contact />
+          </Suspense>
+        </main>
+        <Suspense fallback={<div className="h-20" />}>
+          <Footer />
+        </Suspense>
+        <motion.a
+          href="https://wa.me/5548991919791"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 bg-[var(--color-accent)] text-white p-3 rounded-full shadow-lg z-50 flex items-center justify-center"
+          whileHover={{ scale: 1.1, boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          aria-label="Entre em contato via WhatsApp"
+        >
+          <MessageCircle size={26} />
+        </motion.a>
+      </motion.div>
     </Providers>
   );
 }
 ```
 
-    - 📄 providers.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/app/providers.tsx`
+
+```typescript
 'use client';
 
-import React from 'react';
-import { ThemeProvider } from '@/context/ThemeContext';
-import { SiteConfigProvider } from '@/context/SiteConfigContext';
+import { SessionProvider } from 'next-auth/react';
 import { FeedbackProvider } from '@/context/FeedbackContext';
+import { AppProvider } from '@/context/AppContext';
+import React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-export function Providers({
-  children,
-  initialTheme = 'light',
-  isDashboard = false
-}: {
+// Criar uma instância do QueryClient
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 60 * 1000, // 1 hora de "stale time" para cache
+      gcTime: 24 * 60 * 60 * 1000, // 24 horas de tempo de limpeza do garbage collector
+    },
+  },
+});
+
+interface ProvidersProps {
   children: React.ReactNode;
   initialTheme?: 'light' | 'dark' | 'system';
-  isDashboard?: boolean;
-}) {
+}
+
+export function Providers({ children, initialTheme = 'system' }: ProvidersProps) {
   return (
-    <SiteConfigProvider>
-      <ThemeProvider initialTheme={initialTheme} isDashboard={isDashboard}>
-        <FeedbackProvider>
-          {children}
-        </FeedbackProvider>
-      </ThemeProvider>
-    </SiteConfigProvider>
+    <SessionProvider>
+      <QueryClientProvider client={queryClient}>
+        <AppProvider isDashboard={false}>
+          <FeedbackProvider>
+            {children}
+          </FeedbackProvider>
+        </AppProvider>
+      </QueryClientProvider>
+    </SessionProvider>
   );
 }
 ```
 
-    - 📄 sitemap.xml
-      [Arquivo binário]
 
-  - 📁 components/
-    - 📁 dashboard/
-      - 📄 Sidebar.tsx
-      
-```tsx
+---
+### 📄 Arquivo: `src/app/sitemap.xml`
+
+```xml
+// src/app/sitemap.ts
+import { MetadataRoute } from 'next';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    {
+      url: 'https://fhresolve.com.br',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: 'https://fhresolve.com.br/#about',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://fhresolve.com.br/#benefits',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://fhresolve.com.br/#contact',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+  ];
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/dashboard/Sidebar.tsx`
+
+```typescript
+// src/components/dashboard/Sidebar.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -8417,7 +8226,7 @@ import {
   LogOut,
   Menu,
   X,
-  Calculator, // Ícone para orçamentos
+  Calculator,
 } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 
@@ -8425,7 +8234,7 @@ const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Portfólio', href: '/dashboard/portfolio', icon: FileImage },
   { name: 'Avaliações', href: '/dashboard/reviews', icon: Star },
-  { name: 'Orçamentos', href: '/dashboard/estimates', icon: Calculator }, // Nova opção de orçamentos
+  { name: 'Orçamentos', href: '/dashboard/estimates', icon: Calculator },
   { name: 'Pedidos', href: '/dashboard/quotes', icon: MessageSquare },
   { name: 'Blog', href: '/dashboard/blog', icon: FileText },
   { name: 'Vídeos', href: '/dashboard/videos', icon: Video },
@@ -8438,33 +8247,83 @@ export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
+  // Função para verificar se é desktop
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 768); // md: breakpoint
+      setIsDesktop(window.innerWidth >= 768);
     };
+    
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Toggle sidebar
   const toggleSidebar = () => setIsOpen(!isOpen);
 
+  // Variantes de animação para diferentes elementos
   const sidebarVariants = {
-    open: { x: 0, transition: { type: 'spring', stiffness: 300, damping: 30 } },
-    closed: { x: '-100%', transition: { type: 'spring', stiffness: 300, damping: 30 } },
+    open: { 
+      x: 0,
+      transition: { 
+        type: 'spring', 
+        stiffness: 400, 
+        damping: 30,
+        staggerChildren: 0.05,
+        delayChildren: 0.1 
+      } 
+    },
+    closed: { 
+      x: '-100%', 
+      transition: { 
+        type: 'spring', 
+        stiffness: 400, 
+        damping: 30,
+        staggerChildren: 0.05,
+        staggerDirection: -1
+      } 
+    },
+  };
+
+  const itemVariants = {
+    open: { 
+      x: 0, 
+      opacity: 1, 
+      transition: { type: 'spring', stiffness: 300, damping: 24 } 
+    },
+    closed: { 
+      x: -20, 
+      opacity: 0, 
+      transition: { type: 'spring', stiffness: 300, damping: 24 } 
+    }
   };
 
   return (
     <>
       {/* Botão de toggle para mobile */}
       <motion.button
-        whileHover={{ scale: 1.1 }}
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={toggleSidebar}
-        className="fixed z-50 bottom-4 right-4 md:hidden p-2 rounded-full bg-[var(--color-accent)] text-[var(--color-text-light)] shadow-[var(--shadow-md)]"
+        className="fixed z-50 bottom-6 right-6 md:hidden p-3 rounded-full
+                  bg-[var(--color-accent)] 
+                  text-[var(--color-text-light)]
+                  border border-[var(--color-neutral)]/10"
         aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={isOpen ? 'close' : 'open'}
+            initial={{ rotate: -90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: 90, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </motion.div>
+        </AnimatePresence>
       </motion.button>
 
       {/* Overlay para mobile */}
@@ -8472,75 +8331,104 @@ export function Sidebar() {
         {isOpen && !isDesktop && (
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-[var(--color-dark)] md:hidden"
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-30 bg-[var(--color-dark)]/50 md:hidden"
             onClick={toggleSidebar}
           />
         )}
       </AnimatePresence>
 
-      {/* Sidebar */}
+      {/* Sidebar principal */}
       <motion.div
         initial={isDesktop ? 'open' : 'closed'}
         animate={isDesktop ? 'open' : isOpen ? 'open' : 'closed'}
         variants={sidebarVariants}
-        className="fixed top-0 left-0 z-40 h-screen w-64 bg-[var(--color-card-bg)] text-[var(--color-card-text)] border-r border-[var(--color-neutral)]/30 shadow-[var(--shadow-lg)] md:sticky md:top-0 md:left-0"
+        className="fixed top-0 left-0 z-40 h-screen w-72 md:w-64
+                  bg-[var(--color-card-bg)]
+                  text-[var(--color-card-text)] 
+                  border-r border-[var(--color-neutral)]/20
+                  md:sticky md:top-0 md:left-0"
       >
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-center h-16 border-b border-[var(--color-neutral)]/30">
-            <Link href="/dashboard" className="flex items-center gap-2">
-              <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
-                <FileImage className="h-6 w-6 text-[var(--color-accent)]" />
+          <motion.div 
+            variants={itemVariants}
+            className="flex items-center justify-center h-20 border-b border-[var(--color-neutral)]/10"
+          >
+            <Link href="/dashboard" className="flex items-center gap-3 px-2">
+              <motion.div 
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center justify-center w-9 h-9 rounded-full bg-[var(--color-accent)]"
+              >
+                <FileImage className="h-5 w-5 text-[var(--color-text-light)]" />
               </motion.div>
-              <span className="text-xl font-semibold">FH Resolve</span>
+              <span className="text-xl font-bold text-adaptive">FH Resolve</span>
             </Link>
-          </div>
+          </motion.div>
 
-          {/* Navegação */}
+          {/* Navegação com estilo de seleção melhorado */}
           <nav className="flex-1 overflow-y-auto py-4 px-3">
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {navigation.map((item) => {
                 const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
+                
                 return (
-                  <li key={item.name}>
+                  <motion.li 
+                    key={item.name}
+                    variants={itemVariants}
+                  >
                     <Link
                       href={item.href}
-                      className={`flex items-center p-2 text-base font-normal rounded-lg transition-all ${
+                      className={`flex items-center p-3 text-base font-medium rounded-lg transition-all ${
                         isActive
                           ? 'bg-[var(--color-accent)] text-[var(--color-text-light)]'
-                          : 'hover:bg-[var(--color-neutral)]/20'
+                          : 'hover:bg-[var(--color-neutral)]/10 text-adaptive'
                       }`}
                       onClick={() => setIsOpen(false)}
                     >
-                      <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                        <item.icon
-                          className={`w-5 h-5 ${
-                            isActive ? 'text-[var(--color-text-light)]' : 'text-[var(--color-accent)]'
-                          }`}
-                        />
-                      </motion.div>
+                      <div className={`flex items-center justify-center w-8 h-8 ${
+                        isActive ? 'text-[var(--color-text-light)]' : 'text-[var(--color-accent)]'
+                      }`}>
+                        <item.icon className="w-5 h-5" />
+                      </div>
                       <span className="ml-3">{item.name}</span>
+                      
+                      {/* Indicador de item ativo */}
+                      {isActive && (
+                        <motion.div 
+                          className="ml-auto w-1.5 h-5 rounded-full bg-[var(--color-text-light)]"
+                          layoutId="activeIndicator"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      )}
                     </Link>
-                  </li>
+                  </motion.li>
                 );
               })}
             </ul>
           </nav>
 
           {/* Botão de Sair */}
-          <div className="p-4 border-t border-[var(--color-neutral)]/30">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+          <motion.div 
+            variants={itemVariants}
+            className="p-4 mt-auto border-t border-[var(--color-neutral)]/10"
+          >
+            <button
               onClick={() => signOut({ callbackUrl: '/login' })}
-              className="flex items-center p-2 w-full text-base font-normal rounded-lg hover:bg-[rgba(255,0,0,0.1)] text-[var(--color-accent)] transition-colors"
+              className="flex items-center p-3 w-full text-base font-medium rounded-lg 
+                        bg-red-500/10 hover:bg-red-500/20 text-red-500 transition-colors"
             >
-              <LogOut className="w-5 h-5" />
+              <div className="flex items-center justify-center w-8 h-8">
+                <LogOut className="w-5 h-5" />
+              </div>
               <span className="ml-3">Sair</span>
-            </motion.button>
-          </div>
+            </button>
+          </motion.div>
         </div>
       </motion.div>
     </>
@@ -8548,9 +8436,11 @@ export function Sidebar() {
 }
 ```
 
-      - 📄 Stats.tsx
-      
-```tsx
+
+---
+### 📄 Arquivo: `src/components/dashboard/Stats.tsx`
+
+```typescript
 'use client';
 
 import { motion } from 'framer-motion';
@@ -8644,338 +8534,11 @@ export function Stats({ stats = {} }: StatsProps) {
 }
 ```
 
-      - 📄 ThemeEditor.tsx
-      
-```tsx
-// src/components/dashboard/ThemeEditor.tsx
-'use client';
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { useSiteConfig } from '@/context/SiteConfigContext';
-import { Card } from '@/components/ui/Card';
-import { Sun, Moon, Undo, Palette, Check, Save, Loader2 } from 'lucide-react';
-import { useTheme } from '@/context/ThemeContext';
-import { useFeedback } from '@/context/FeedbackContext';
+---
+### 📄 Arquivo: `src/components/dashboard/Topbar.tsx`
 
-interface ColorConfig {
-  name: string;
-  key: string;
-  description: string;
-}
-
-const colorConfigs: ColorConfig[] = [
-  { name: 'Cor Principal', key: 'primary', description: 'Cor base para textos principais e fundos escuros' },
-  { name: 'Cor de Destaque', key: 'accent', description: 'Cor principal de destaque usado para botões e links' },
-  { name: 'Cor Secundária', key: 'secondary', description: 'Cor para elementos secundários e textos menos importantes' },
-  { name: 'Cor Neutra', key: 'neutral', description: 'Cor para bordas e elementos de separação' },
-  { name: 'Cor de Texto', key: 'text', description: 'Cor primária para textos' },
-  { name: 'Texto Claro', key: 'textLight', description: 'Cor para textos sobre fundos escuros' },
-  { name: 'Fundo Escuro', key: 'dark', description: 'Cor para fundos escuros' },
-  { name: 'Fundo Claro', key: 'light', description: 'Cor para fundos claros' },
-  { name: 'Fundo Cinza', key: 'gray', description: 'Cor para fundos alternados ou secundários' },
-  { name: 'Fundo de Card', key: 'cardBg', description: 'Cor para o fundo de cards e painéis' },
-  { name: 'Texto de Card', key: 'cardText', description: 'Cor para textos dentro de cards e painéis' },
-  { name: 'Destaque Hover', key: 'accentDark', description: 'Versão mais escura da cor de destaque para efeitos hover' },
-];
-
-const ThemeEditor: React.FC = () => {
-  const { config, updateConfig, loading } = useSiteConfig();
-  const { theme } = useTheme();
-  const { showToast } = useFeedback();
-  
-  const [editingTheme, setEditingTheme] = useState<'light' | 'dark'>('light');
-  const [themeColors, setThemeColors] = useState(config.themes[editingTheme]);
-  const [originalColors, setOriginalColors] = useState(config.themes[editingTheme]);
-  const [saving, setSaving] = useState(false);
-  const [previewMode, setPreviewMode] = useState(false);
-  
-  // Atualiza os estados quando o tema ativo muda
-  useEffect(() => {
-    setThemeColors(config.themes[editingTheme]);
-    setOriginalColors(config.themes[editingTheme]);
-  }, [config.themes, editingTheme]);
-  
-  // Função para trocar entre edição de tema claro e escuro
-  const toggleEditingTheme = () => {
-    // Salva as alterações atuais antes de trocar
-    const newThemes = {
-      ...config.themes,
-      [editingTheme]: themeColors
-    };
-    
-    // Alterna para o outro tema
-    setEditingTheme(editingTheme === 'light' ? 'dark' : 'light');
-  };
-  
-  // Função para restaurar cores originais
-  const resetColors = () => {
-    setThemeColors(originalColors);
-    showToast('Cores restauradas para o último salvamento', 'info');
-  };
-  
-  // Função para atualizar uma cor específica
-  const updateColor = (key: string, value: string) => {
-    setThemeColors(prev => ({
-      ...prev,
-      [key]: value
-    }));
-  };
-  
-  // Função para aplicar as alterações
-  const applyChanges = async () => {
-    setSaving(true);
-    try {
-      // Atualiza apenas o tema que está sendo editado
-      const newThemes = {
-        ...config.themes,
-        [editingTheme]: themeColors
-      };
-      
-      await updateConfig({
-        themes: newThemes
-      });
-      
-      setOriginalColors(themeColors);
-      showToast(`Tema ${editingTheme === 'light' ? 'claro' : 'escuro'} atualizado com sucesso`, 'success');
-    } catch (error) {
-      console.error('Erro ao salvar tema:', error);
-      showToast('Erro ao salvar tema', 'error');
-    } finally {
-      setSaving(false);
-    }
-  };
-  
-  // Componente de seletor de cor individual
-  const ColorPicker = ({ color, colorKey, name, description }: { color: string, colorKey: string, name: string, description: string }) => (
-    <div className="p-4 bg-white/5 rounded-lg border border-[var(--color-neutral)]/20">
-      <div className="flex justify-between items-center mb-2">
-        <label htmlFor={`color-${colorKey}`} className="font-medium text-[var(--color-text)]">
-          {name}
-        </label>
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-[var(--color-text)]/70">{color}</span>
-          <div 
-            className="w-6 h-6 rounded-full border border-[var(--color-neutral)]/40"
-            style={{ backgroundColor: color }}
-          />
-        </div>
-      </div>
-      <p className="text-xs text-[var(--color-text)]/60 mb-2">{description}</p>
-      <input
-        id={`color-${colorKey}`}
-        type="color"
-        value={color}
-        onChange={(e) => updateColor(colorKey, e.target.value)}
-        className="w-full h-8 rounded cursor-pointer"
-      />
-    </div>
-  );
-  
-  return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <div className="space-y-1">
-          <h2 className="text-xl font-semibold">Editor de Tema</h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
-            Personalize as cores do tema {editingTheme === 'light' ? 'claro' : 'escuro'} do site
-          </p>
-        </div>
-        <div className="flex gap-2">
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={toggleEditingTheme}
-            className="p-2 rounded-md bg-[var(--color-neutral)]/10 flex items-center gap-2"
-          >
-            {editingTheme === 'light' ? (
-              <>
-                <Moon size={18} className="text-[var(--color-accent)]" />
-                <span>Editar Tema Escuro</span>
-              </>
-            ) : (
-              <>
-                <Sun size={18} className="text-[var(--color-accent)]" />
-                <span>Editar Tema Claro</span>
-              </>
-            )}
-          </motion.button>
-          
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => setPreviewMode(!previewMode)}
-            className="p-2 rounded-md bg-[var(--color-neutral)]/10 flex items-center gap-2"
-          >
-            <Palette size={18} className="text-[var(--color-accent)]" />
-            <span>{previewMode ? 'Voltar para Edição' : 'Visualizar'}</span>
-          </motion.button>
-        </div>
-      </div>
-      
-      {previewMode ? (
-        <div className="space-y-8">
-          <Card>
-            <div className="p-6">
-              <h3 className="text-lg font-medium mb-4 border-b pb-2">Visualização do Tema</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="font-medium mb-3">Elementos Básicos</h4>
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm mb-1">Texto Principal</label>
-                      <div className="p-2 rounded" style={{ color: themeColors.text, backgroundColor: themeColors.light }}>
-                        Este é um exemplo de texto principal
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm mb-1">Texto Secundário</label>
-                      <div className="p-2 rounded" style={{ color: themeColors.secondary, backgroundColor: themeColors.light }}>
-                        Este é um exemplo de texto secundário
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm mb-1">Botão Primário</label>
-                      <button 
-                        className="px-4 py-2 rounded"
-                        style={{ 
-                          backgroundColor: themeColors.accent, 
-                          color: themeColors.textLight,
-                          transition: 'background-color 0.2s'
-                        }}
-                        onMouseOver={(e) => { e.currentTarget.style.backgroundColor = themeColors.accentDark }}
-                        onMouseOut={(e) => { e.currentTarget.style.backgroundColor = themeColors.accent }}
-                      >
-                        Botão de Destaque
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-medium mb-3">Card</h4>
-                  <div 
-                    className="p-4 rounded-lg"
-                    style={{ 
-                      backgroundColor: themeColors.cardBg,
-                      color: themeColors.cardText,
-                      border: `1px solid ${themeColors.neutral}40`
-                    }}
-                  >
-                    <h5 className="font-medium mb-2" style={{ color: themeColors.cardText }}>
-                      Título do Card
-                    </h5>
-                    <p style={{ color: `${themeColors.cardText}99` }}>
-                      Este é um exemplo de conteúdo dentro de um card com cores personalizadas.
-                    </p>
-                    <div className="mt-4 pt-4" style={{ borderTop: `1px solid ${themeColors.neutral}30` }}>
-                      <button
-                        className="px-3 py-1 rounded text-sm"
-                        style={{ 
-                          backgroundColor: themeColors.accent, 
-                          color: themeColors.textLight 
-                        }}
-                      >
-                        Botão do Card
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Card>
-          
-          <div className="flex justify-end gap-3">
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={resetColors}
-              className="px-4 py-2 bg-[var(--color-neutral)]/10 rounded-md flex items-center gap-2"
-            >
-              <Undo size={18} />
-              <span>Restaurar</span>
-            </motion.button>
-            
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={applyChanges}
-              disabled={saving}
-              className="px-4 py-2 bg-[var(--color-accent)] text-white rounded-md flex items-center gap-2 disabled:opacity-50"
-            >
-              {saving ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Salvando...</span>
-                </>
-              ) : (
-                <>
-                  <Save size={18} />
-                  <span>Salvar Tema</span>
-                </>
-              )}
-            </motion.button>
-          </div>
-        </div>
-      ) : (
-        <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {colorConfigs.map(({ key, name, description }) => (
-              <ColorPicker
-                key={key}
-                colorKey={key}
-                color={themeColors[key]}
-                name={name}
-                description={description}
-              />
-            ))}
-          </div>
-          
-          <div className="flex justify-end gap-3">
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={resetColors}
-              className="px-4 py-2 bg-[var(--color-neutral)]/10 rounded-md flex items-center gap-2"
-            >
-              <Undo size={18} />
-              <span>Restaurar</span>
-            </motion.button>
-            
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={applyChanges}
-              disabled={saving}
-              className="px-4 py-2 bg-[var(--color-accent)] text-white rounded-md flex items-center gap-2 disabled:opacity-50"
-            >
-              {saving ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Salvando...</span>
-                </>
-              ) : (
-                <>
-                  <Save size={18} />
-                  <span>Salvar Tema</span>
-                </>
-              )}
-            </motion.button>
-          </div>
-        </>
-      )}
-    </div>
-  );
-};
-
-export default ThemeEditor;
-```
-
-      - 📄 Topbar.tsx
-      
-```tsx
+```typescript
 // src/components/dashboard/Topbar.tsx
 'use client';
 
@@ -8983,9 +8546,8 @@ import { useState, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Sun, Bell, User, Calculator } from 'lucide-react';
-import { useTheme } from '@/context/ThemeContext';
 import Link from 'next/link';
-import { useFeedback } from '../../context/FeedbackContext';
+import { useFeedback } from '@/context/FeedbackContext';
 
 export function Topbar() {
   const { data: session } = useSession();
@@ -8997,25 +8559,10 @@ export function Topbar() {
   ]);
   const [showNotifications, setShowNotifications] = useState(false);
   const { showToast } = useFeedback();
-  
-  // Só usamos o theme depois do componente montar para evitar erros de hidratação
-  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('light');
-  
+
   useEffect(() => {
     setMounted(true);
   }, []);
-  
-  // Usamos o hook apenas após a montagem
-  useEffect(() => {
-    if (mounted) {
-      try {
-        const { theme, toggleTheme } = useTheme();
-        setCurrentTheme(theme);
-      } catch (error) {
-        console.error("Erro ao acessar o tema:", error);
-      }
-    }
-  }, [mounted]);
 
   const menuVariants = {
     hidden: { opacity: 0, y: -10 },
@@ -9036,15 +8583,14 @@ export function Topbar() {
     setNotifications(notifications.map(n => ({ ...n, read: true })));
     showToast('Todas as notificações marcadas como lidas', 'success');
   };
-  
-  // Se não estiver montado, renderize um placeholder para evitar erros de hidratação
+
+  // Se não estiver montado, renderize um placeholder
   if (!mounted) {
     return (
       <header className="sticky top-0 z-30 bg-[var(--color-card-bg)] text-[var(--color-card-text)] border-b border-[var(--color-neutral)]/30 shadow-md py-3 px-4">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-semibold hidden md:block">Admin Dashboard</h1>
           <div className="flex items-center space-x-4">
-            {/* Placeholders para manter a mesma estrutura */}
             <div className="w-8 h-8"></div>
             <div className="w-8 h-8"></div>
             <div className="w-8 h-8"></div>
@@ -9053,9 +8599,6 @@ export function Topbar() {
       </header>
     );
   }
-  
-  // Use o ThemeProvider externo de forma segura
-  const { theme, toggleTheme } = useTheme();
 
   return (
     <motion.header
@@ -9063,10 +8606,6 @@ export function Topbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="sticky top-0 z-30 bg-[var(--color-card-bg)] text-[var(--color-card-text)] border-b border-[var(--color-neutral)]/30 shadow-md"
-      style={{
-        maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
-        WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
-      }}
     >
       <div className="flex items-center justify-between px-4 py-3">
         <h1 className="text-xl font-semibold hidden md:block">Admin Dashboard</h1>
@@ -9076,7 +8615,6 @@ export function Topbar() {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            onClick={toggleTheme}
             className="p-2 rounded-lg bg-[var(--color-neutral)]/20 hover:bg-[var(--color-accent)]/20 transition-colors"
             aria-label="Alternar tema"
           >
@@ -9179,7 +8717,7 @@ export function Topbar() {
                   </div>
                   <Link
                     href="/dashboard/estimates/new"
-                    className="block px-4 py-2 text-sm hover:bg-[var(--color-neutral)]/20 transition-colors flex items-center gap-1.5"
+                    className="px-4 py-2 text-sm hover:bg-[var(--color-neutral)]/20 transition-colors flex items-center gap-1.5"
                   >
                     <Calculator size={14} className="text-[var(--color-accent)]" />
                     Novo Orçamento
@@ -9214,10 +8752,4006 @@ export function Topbar() {
 }
 ```
 
-    - 📁 ui/
-      - 📄 Card.tsx
+
+---
+### 📄 Arquivo: `src/components/estimate-view/ConfirmModal.tsx`
+
+```typescript
+// components/estimate-view/ConfirmModal.tsx
+'use client';
+
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle, XCircle } from 'lucide-react';
+
+interface ConfirmModalProps {
+  showModal: boolean;
+  statusUpdate: 'accepted' | 'rejected' | null;
+  updating: boolean;
+  setShowModal: (show: boolean) => void;
+  updateEstimateStatus: () => Promise<void>;
+}
+
+export default function ConfirmModal({
+  showModal,
+  statusUpdate,
+  updating,
+  setShowModal,
+  updateEstimateStatus
+}: ConfirmModalProps) {
+  return (
+    <AnimatePresence>
+      {showModal && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            className="bg-white rounded-xl shadow-xl max-w-md w-full p-6 relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-blue-50 pointer-events-none" />
+            <div className="text-center relative z-10">
+              {statusUpdate === 'accepted' ? (
+                <>
+                  <motion.div 
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10, delay: 0.1 }}
+                  >
+                    <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                  </motion.div>
+                  <h3 className="text-xl font-medium text-gray-900 mb-2">Aceitar Orçamento</h3>
+                  <p className="text-gray-500 mb-6">
+                    Ao aceitar este orçamento, você concorda com os termos, valores e condições descritos. Deseja prosseguir?
+                  </p>
+                </>
+              ) : (
+                <>
+                  <motion.div 
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10, delay: 0.1 }}
+                  >
+                    <XCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
+                  </motion.div>
+                  <h3 className="text-xl font-medium text-gray-900 mb-2">Recusar Orçamento</h3>
+                  <p className="text-gray-500 mb-6">
+                    Tem certeza que deseja recusar este orçamento? Esta ação não pode ser desfeita.
+                  </p>
+                </>
+              )}
+              
+              <div className="flex justify-center gap-4">
+                <motion.button
+                  whileHover={{ scale: 1.05, backgroundColor: "#f3f4f6" }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setShowModal(false)}
+                  className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 bg-white shadow-sm hover:shadow"
+                >
+                  Cancelar
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={updateEstimateStatus}
+                  disabled={updating}
+                  className={`px-4 py-2 rounded-md text-white shadow-sm ${
+                    statusUpdate === 'accepted'
+                      ? 'bg-gradient-to-r from-green-500 to-green-600'
+                      : 'bg-gradient-to-r from-red-500 to-red-600'
+                  } flex items-center justify-center gap-2 min-w-[140px]`}
+                >
+                  {updating ? (
+                    <>
+                      <motion.div 
+                        className="h-4 w-4 border-2 border-white border-t-transparent rounded-full"
+                        animate={{ rotate: 360 }}
+                        transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                      />
+                      Processando...
+                    </>
+                  ) : (
+                    <>
+                      {statusUpdate === 'accepted' ? 'Confirmar Aceitação' : 'Confirmar Recusa'}
+                    </>
+                  )}
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/ContactSection.tsx`
+
+```typescript
+// components/estimate-view/ContactSection.tsx
+'use client';
+
+import { motion } from 'framer-motion';
+
+export default function ContactSection() {
+  return (
+    <motion.div 
+      className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 shadow-sm"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3 }}
+    >
+      <h3 className="text-lg font-medium mb-4 text-blue-800 border-b border-blue-200 pb-2">Entre em contato</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <motion.div 
+          className="bg-white/70 backdrop-blur-sm rounded-lg p-4 shadow-sm"
+          whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.1), 0 8px 10px -6px rgba(59, 130, 246, 0.1)" }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
+          <p className="text-sm text-blue-800 font-medium">Telefone:</p>
+          <p className="font-bold text-blue-900">(48) 99191-9791</p>
+        </motion.div>
+        <motion.div 
+          className="bg-white/70 backdrop-blur-sm rounded-lg p-4 shadow-sm"
+          whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.1), 0 8px 10px -6px rgba(59, 130, 246, 0.1)" }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
+          <p className="text-sm text-blue-800 font-medium">Email:</p>
+          <p className="font-bold text-blue-900">contato@fhresolve.com.br</p>
+        </motion.div>
+        <motion.div 
+          className="bg-white/70 backdrop-blur-sm rounded-lg p-4 shadow-sm"
+          whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.1), 0 8px 10px -6px rgba(59, 130, 246, 0.1)" }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
+          <p className="text-sm text-blue-800 font-medium">Endereço:</p>
+          <p className="font-bold text-blue-900">Ratones, Florianópolis - SC</p>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/DetailsSection.tsx`
+
+```typescript
+// components/estimate-view/DetailsSection.tsx
+'use client';
+
+import { motion } from 'framer-motion';
+import { Calendar, Clock, CreditCard } from 'lucide-react';
+import { Estimate } from '@/types/estimate';
+import { formatDate } from '@/app/utils/formatters';
+
+
+interface DetailsSectionProps {
+  estimate: Estimate;
+}
+
+export default function DetailsSection({ estimate }: DetailsSectionProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      {/* Informações do cliente e do orçamento */}
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+      >
+        <div className="bg-white rounded-xl shadow-sm p-6 md:col-span-2">
+          <h3 className="text-lg font-medium mb-4 border-b pb-2 text-gray-800">Dados do Cliente</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <motion.div 
+              className="bg-gray-50 rounded-lg p-4"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <p className="text-sm text-gray-500">Nome:</p>
+              <p className="font-medium text-gray-900">{estimate.clientName}</p>
+            </motion.div>
+            <motion.div 
+              className="bg-gray-50 rounded-lg p-4"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <p className="text-sm text-gray-500">Telefone:</p>
+              <p className="font-medium text-gray-900">{estimate.clientPhone}</p>
+            </motion.div>
+            {estimate.clientEmail && (
+              <motion.div 
+                className="bg-gray-50 rounded-lg p-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                <p className="text-sm text-gray-500">Email:</p>
+                <p className="font-medium text-gray-900">{estimate.clientEmail}</p>
+              </motion.div>
+            )}
+            {estimate.address && (
+              <motion.div 
+                className="bg-gray-50 rounded-lg p-4 sm:col-span-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <p className="text-sm text-gray-500">Endereço:</p>
+                <p className="font-medium text-gray-900">{estimate.address}</p>
+              </motion.div>
+            )}
+          </div>
+        </div>
+
+        <motion.div 
+          className="bg-white rounded-xl shadow-sm p-6"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <h3 className="text-lg font-medium mb-4 border-b pb-2 text-gray-800">Detalhes</h3>
+          <div className="space-y-4">
+            <div className="flex items-start gap-3 bg-gray-50 p-3 rounded-lg">
+              <Calendar className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-sm text-gray-500">Data do Orçamento:</p>
+                <p className="font-medium text-gray-900">{formatDate(estimate.createdAt)}</p>
+              </div>
+            </div>
+            {estimate.validUntil && (
+              <div className="flex items-start gap-3 bg-gray-50 p-3 rounded-lg">
+                <Clock className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-gray-500">Válido até:</p>
+                  <p className="font-medium text-gray-900">{formatDate(estimate.validUntil)}</p>
+                </div>
+              </div>
+            )}
+            {estimate.paymentTerms && (
+              <div className="flex items-start gap-3 bg-gray-50 p-3 rounded-lg">
+                <CreditCard className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-gray-500">Condições de Pagamento:</p>
+                  <p className="font-medium text-gray-900">{estimate.paymentTerms}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </motion.div>
+      </motion.div>
       
-```tsx
+      {/* Descrição do orçamento */}
+      {estimate.description && (
+        <motion.div 
+          className="bg-white rounded-xl shadow-sm p-6 mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+        >
+          <h3 className="text-lg font-medium mb-4 border-b pb-2 text-gray-800">Descrição</h3>
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <p className="text-gray-700 whitespace-pre-line">{estimate.description}</p>
+          </div>
+        </motion.div>
+      )}
+    </motion.div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/ErrorState.tsx`
+
+```typescript
+// components/estimate-view/ErrorState.tsx
+'use client';
+
+import { motion } from 'framer-motion';
+import { XCircle } from 'lucide-react';
+
+interface ErrorStateProps {
+  error: string;
+}
+
+export default function ErrorState({ error }: ErrorStateProps) {
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-indigo-50 px-4"
+    >
+      <motion.div 
+        className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      >
+        <motion.div
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, type: "spring" }}
+        >
+          <XCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
+        </motion.div>
+        <h2 className="text-xl font-semibold mb-2">Orçamento não encontrado</h2>
+        <p className="text-gray-600 mb-6">{error}</p>
+        <motion.a
+          href="/"
+          className="inline-block px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Voltar para a página inicial
+        </motion.a>
+      </motion.div>
+    </motion.div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/EstimateHeader.tsx`
+
+```typescript
+// components/estimate-view/EstimateHeader.tsx
+'use client';
+
+import { motion } from 'framer-motion';
+import { CheckCircle, XCircle } from 'lucide-react';
+import { Estimate } from '@/types/estimate';
+
+interface EstimateHeaderProps {
+  estimate: Estimate;
+  statusUpdate: 'accepted' | 'rejected' | null;
+  setStatusUpdate: (status: 'accepted' | 'rejected' | null) => void;
+  setShowModal: (show: boolean) => void;
+}
+
+export default function EstimateHeader({
+  estimate,
+  statusUpdate,
+  setStatusUpdate,
+  setShowModal
+}: EstimateHeaderProps) {
+  const getStatusBadge = () => {
+    const statusConfig = {
+      draft: { label: 'Rascunho', color: 'bg-gray-200 text-gray-800' },
+      sent: { label: 'Enviado', color: 'bg-blue-100 text-blue-800' },
+      accepted: { label: 'Aceito', color: 'bg-green-100 text-green-800' },
+      rejected: { label: 'Recusado', color: 'bg-red-100 text-red-800' },
+      expired: { label: 'Expirado', color: 'bg-yellow-100 text-yellow-800' },
+    };
+    
+    return (
+      <motion.span 
+        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${statusConfig[estimate.status].color}`}
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      >
+        {statusConfig[estimate.status].label}
+      </motion.span>
+    );
+  };
+
+  return (
+    <motion.div 
+      className="bg-white rounded-xl shadow-sm p-6 mb-6 relative overflow-hidden"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ type: "spring", duration: 0.5 }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-transparent pointer-events-none" />
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative z-10">
+        <div>
+          <motion.h2 
+            className="text-xl font-bold mb-2 text-gray-800"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+          >
+            {estimate.title}
+          </motion.h2>
+          <div className="flex items-center gap-2">
+            <p className="text-gray-500">Status:</p>
+            {getStatusBadge()}
+          </div>
+        </div>
+        {(estimate.status === 'sent' || estimate.status === 'draft') && (
+          <motion.div 
+            className="flex gap-2 w-full sm:w-auto"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                setStatusUpdate('accepted');
+                setShowModal(true);
+              }}
+              className="px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-md shadow hover:from-green-600 hover:to-green-700 transition-all flex-1 sm:flex-none flex items-center justify-center gap-1"
+            >
+              <CheckCircle size={16} />
+              Aceitar
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                setStatusUpdate('rejected');
+                setShowModal(true);
+              }}
+              className="px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-md shadow hover:from-red-600 hover:to-red-700 transition-all flex-1 sm:flex-none flex items-center justify-center gap-1"
+            >
+              <XCircle size={16} />
+              Recusar
+            </motion.button>
+          </motion.div>
+        )}
+        {estimate.status === 'accepted' && (
+          <motion.div 
+            className="bg-green-50 border-l-4 border-green-500 p-4 w-full sm:w-auto rounded-r-md"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, type: "spring" }}
+          >
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <CheckCircle className="h-5 w-5 text-green-500" />
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-green-700">
+                  Orçamento aceito! Entraremos em contato em breve.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+        {estimate.status === 'rejected' && (
+          <motion.div 
+            className="bg-red-50 border-l-4 border-red-500 p-4 w-full sm:w-auto rounded-r-md"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, type: "spring" }}
+          >
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <XCircle className="h-5 w-5 text-red-500" />
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-red-700">
+                  Orçamento recusado.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/FeedbackModal.tsx`
+
+```typescript
+// components/estimate-view/FeedbackModal.tsx
+'use client';
+
+import { motion, AnimatePresence } from 'framer-motion';
+import { MessageSquare } from 'lucide-react';
+
+interface FeedbackModalProps {
+  showFeedbackModal: boolean;
+  feedback: string;
+  setFeedback: (feedback: string) => void;
+  submittingFeedback: boolean;
+  submitFeedback: () => Promise<void>;
+  setShowFeedbackModal: (show: boolean) => void;
+  statusUpdate: 'accepted' | 'rejected' | null;
+}
+
+export default function FeedbackModal({
+  showFeedbackModal,
+  feedback,
+  setFeedback,
+  submittingFeedback,
+  submitFeedback,
+  setShowFeedbackModal,
+  statusUpdate
+}: FeedbackModalProps) {
+  return (
+    <AnimatePresence>
+      {showFeedbackModal && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            className="bg-white rounded-xl shadow-xl max-w-md w-full p-6 relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-blue-50 pointer-events-none" />
+            <div className="relative z-10">
+              <h3 className="text-xl font-medium text-gray-900 mb-2">Seu feedback é importante!</h3>
+              <p className="text-gray-500 mb-4">
+                {statusUpdate === 'accepted' 
+                  ? 'Obrigado por aceitar o orçamento. Gostaria de deixar algum comentário ou observação adicional?'
+                  : 'Gostaríamos de entender melhor por que este orçamento não atendeu às suas expectativas.'}
+              </p>
+              
+              <div className="mb-4">
+                <textarea
+                  value={feedback}
+                  onChange={(e) => setFeedback(e.target.value)}
+                  placeholder="Seu feedback aqui..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 text-sm bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 h-32"
+                />
+              </div>
+              
+              <div className="flex gap-3 justify-end">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setShowFeedbackModal(false)}
+                  className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md shadow-sm hover:bg-gray-50"
+                >
+                  Pular
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={submitFeedback}
+                  disabled={!feedback.trim() || submittingFeedback}
+                  className="px-4 py-2 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 disabled:opacity-50 disabled:hover:bg-blue-500 flex items-center gap-2"
+                >
+                  {submittingFeedback ? (
+                    <>
+                      <motion.div 
+                        className="h-4 w-4 border-2 border-white border-t-transparent rounded-full"
+                        animate={{ rotate: 360 }}
+                        transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                      />
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                                     <MessageSquare size={16} />
+                      Enviar Feedback
+                    </>
+                  )}
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/Footer.tsx`
+
+```typescript
+// components/estimate-view/Footer.tsx
+'use client';
+
+export default function Footer() {
+  return (
+    <footer className="bg-white py-6 mt-8 border-t">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+        <p>© {new Date().getFullYear()} FH Resolve - Todos os direitos reservados</p>
+        <p className="mt-1">CNPJ: 00.000.000/0000-00</p>
+      </div>
+    </footer>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/Header.tsx`
+
+```typescript
+// components/estimate-view/Header.tsx
+'use client';
+
+import { motion } from 'framer-motion';
+import { History, Share2, Download, X } from 'lucide-react';
+
+interface HeaderProps {
+  wasModified: boolean;
+  showHistory: boolean;
+  setShowHistory: (show: boolean) => void;
+  setShowShareModal: (show: boolean) => void;
+  activeSection: string;
+  setActiveSection: (section: string) => void;
+  scrollProgress: number;
+}
+
+export default function Header({
+  wasModified,
+  showHistory,
+  setShowHistory,
+  setShowShareModal,
+  activeSection,
+  setActiveSection,
+  scrollProgress
+}: HeaderProps) {
+  return (
+    <>
+      {/* Progress Bar */}
+      <div className="fixed top-0 left-0 right-0 h-1 bg-gray-200 z-50">
+        <motion.div 
+          className="h-full bg-blue-500"
+          style={{ scaleX: scrollProgress, transformOrigin: "0% 50%" }}
+        />
+      </div>
+      
+      <motion.header 
+        className="sticky top-0 bg-white shadow-md z-40 backdrop-blur-sm"
+        style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      >
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+          <div className="flex items-center">
+            <motion.div 
+              className="h-10 w-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center text-white font-bold"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              FH
+            </motion.div>
+            <div className="ml-3">
+              <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">FH Resolve</h1>
+              <p className="text-sm text-gray-500">Orçamento Personalizado</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-3">
+            {wasModified && (
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setShowHistory(!showHistory)}
+                className={`p-2 rounded-full ${showHistory ? 'bg-blue-100 text-blue-600' : 'text-gray-500 hover:text-blue-500 hover:bg-gray-100'}`}
+                aria-label="Histórico de modificações"
+              >
+                <History size={18} />
+              </motion.button>
+            )}
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setShowShareModal(true)}
+              className="p-2 text-gray-500 hover:text-blue-500 hover:bg-gray-100 rounded-full"
+              aria-label="Compartilhar"
+            >
+              <Share2 size={18} />
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => window.print()}
+              className="p-2 text-gray-500 hover:text-blue-500 hover:bg-gray-100 rounded-full"
+              aria-label="Imprimir/Baixar"
+            >
+              <Download size={18} />
+            </motion.button>
+          </div>
+        </div>
+        
+        {/* Navigation Tabs */}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 border-t">
+          <nav className="flex overflow-x-auto scrollbar-hide">
+            {['summary', 'details', 'items', 'notes'].map((section) => (
+              <motion.button
+                key={section}
+                className={`px-4 py-3 font-medium text-sm whitespace-nowrap transition-colors ${
+                  activeSection === section 
+                    ? 'text-blue-600 border-b-2 border-blue-500' 
+                    : 'text-gray-500 hover:text-gray-700 hover:border-gray-300 hover:border-b-2'
+                }`}
+                onClick={() => setActiveSection(section)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {section === 'summary' && 'Resumo'}
+                {section === 'details' && 'Detalhes do Cliente'}
+                {section === 'items' && 'Itens do Orçamento'}
+                {section === 'notes' && 'Observações'}
+              </motion.button>
+            ))}
+          </nav>
+        </div>
+      </motion.header>
+    </>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/HistoryPanel.tsx`
+
+```typescript
+// components/estimate-view/HistoryPanel.tsx
+'use client';
+
+import { motion, AnimatePresence } from 'framer-motion';
+import { PenTool, ChevronUp, ChevronDown, X } from 'lucide-react';
+import { HistoryEntry } from '@/types/estimate';
+import { formatDateTime } from '@/app/utils/formatters';
+
+
+interface HistoryPanelProps {
+  showHistory: boolean;
+  history?: HistoryEntry[];
+  historyExpanded: boolean;
+  setHistoryExpanded: (expanded: boolean) => void;
+  setShowHistory: (show: boolean) => void;
+}
+
+export default function HistoryPanel({
+  showHistory,
+  history = [],
+  historyExpanded,
+  setHistoryExpanded,
+  setShowHistory
+}: HistoryPanelProps) {
+  return (
+    <AnimatePresence>
+      {showHistory && (
+        <motion.div 
+          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-4"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: 'auto', opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.div 
+            className="bg-blue-50 border-l-4 border-blue-500 rounded-md shadow-sm overflow-hidden"
+            initial={{ y: -20 }}
+            animate={{ y: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30, delay: 0.1 }}
+          >
+            <div className="p-4">
+              <div className="flex justify-between items-start">
+                <div className="flex">
+                  <PenTool className="h-5 w-5 text-blue-500 mt-0.5" />
+                  <div className="ml-3">
+                    <h3 className="text-sm font-medium text-blue-800">Histórico de modificações</h3>
+                    <div className="mt-2 text-sm text-blue-700 space-y-1">
+                      {(historyExpanded ? history : history?.slice(0, 2))?.map((entry, index) => (
+                        <motion.div 
+                          key={index}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="flex items-start"
+                        >
+                          <span className="inline-block w-3 h-3 bg-blue-200 rounded-full mr-2 mt-1.5"></span>
+                          <div>
+                            <p className="text-blue-800">{entry.action}</p>
+                            <p className="text-xs text-blue-600">{formatDateTime(entry.date)} - {entry.by}</p>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                    {history.length > 2 && (
+                      <button 
+                        onClick={() => setHistoryExpanded(!historyExpanded)}
+                        className="mt-2 text-xs font-medium text-blue-600 hover:text-blue-800 flex items-center"
+                      >
+                        {historyExpanded ? (
+                          <>Mostrar menos <ChevronUp size={14} className="ml-1" /></>
+                        ) : (
+                          <>Ver histórico completo <ChevronDown size={14} className="ml-1" /></>
+                        )}
+                      </button>
+                    )}
+                  </div>
+                </div>
+                <button 
+                  onClick={() => setShowHistory(false)}
+                  className="text-blue-500 hover:text-blue-700"
+                >
+                  <X size={16} />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/ItemsSection.tsx`
+
+```typescript
+// components/estimate-view/ItemsSection.tsx
+'use client';
+
+import { motion } from 'framer-motion';
+import { Estimate } from '@/types/estimate';
+import { formatCurrency } from '@/app/utils/formatters';
+
+
+interface ItemsSectionProps {
+  estimate: Estimate;
+}
+
+export default function ItemsSection({ estimate }: ItemsSectionProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      {/* Itens do orçamento */}
+      <motion.div 
+        className="bg-white rounded-xl shadow-sm p-6 mb-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+      >
+        <h3 className="text-lg font-medium mb-4 border-b pb-2 text-gray-800">Itens do Orçamento</h3>
+        
+        {estimate.estimateType === 'detailed' && estimate.items && (
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200 rounded-lg overflow-hidden">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Descrição
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Qtd
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Un
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Preço Unit.
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Total
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {estimate.items.map((item, index) => (
+                  <motion.tr 
+                    key={index} 
+                    className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + index * 0.05 }}
+                  >
+                    <td className="px-4 py-4 text-sm text-gray-900">{item.description}</td>
+                    <td className="px-4 py-4 text-sm text-gray-900">{item.quantity}</td>
+                    <td className="px-4 py-4 text-sm text-gray-900">{item.unit}</td>
+                    <td className="px-4 py-4 text-sm text-gray-900 text-right">{formatCurrency(item.unitPrice)}</td>
+                    <td className="px-4 py-4 text-sm text-gray-900 text-right font-medium">{formatCurrency(item.quantity * item.unitPrice)}</td>
+                  </motion.tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="bg-gray-50">
+                  <td colSpan={4} className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                    Subtotal:
+                  </td>
+                  <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                    {formatCurrency(estimate.subtotal)}
+                  </td>
+                </tr>
+                {estimate.discount && estimate.discount > 0 && (
+                  <tr className="bg-gray-50">
+                    <td colSpan={4} className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                      Desconto:
+                    </td>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                      -{formatCurrency(estimate.discount)}
+                    </td>
+                  </tr>
+                )}
+                {estimate.tax && estimate.tax > 0 && (
+                  <tr className="bg-gray-50">
+                    <td colSpan={4} className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                      Taxas/Adicionais:
+                    </td>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                      +{formatCurrency(estimate.tax)}
+                    </td>
+                  </tr>
+                )}
+                <tr className="bg-blue-50">
+                  <td colSpan={4} className="px-4 py-4 text-base font-bold text-gray-900 text-right">
+                    Total:
+                  </td>
+                  <td className="px-4 py-4 text-base font-bold text-blue-600 text-right">
+                    {formatCurrency(estimate.total)}
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        )}
+        
+        {estimate.estimateType === 'simple' && estimate.services && (
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200 rounded-lg overflow-hidden">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Descrição do Serviço
+                  </th>
+                  <th scope="col" className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-40">
+                    Valor
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {estimate.services.map((service, index) => (
+                  <motion.tr 
+                    key={index} 
+                    className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + index * 0.05 }}
+                  >
+                    <td className="px-4 py-4 text-sm text-gray-900">{service.description}</td>
+                    <td className="px-4 py-4 text-sm text-gray-900 text-right font-medium">{formatCurrency(service.value)}</td>
+                  </motion.tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="bg-gray-50">
+                  <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                    Subtotal:
+                  </td>
+                  <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                    {formatCurrency(estimate.subtotal)}
+                  </td>
+                </tr>
+                {estimate.discount && estimate.discount > 0 && (
+                  <tr className="bg-gray-50">
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                      Desconto:
+                    </td>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                      -{formatCurrency(estimate.discount)}
+                    </td>
+                  </tr>
+                )}
+                {estimate.tax && estimate.tax > 0 && (
+                  <tr className="bg-gray-50">
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                      Taxas/Adicionais:
+                    </td>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                      +{formatCurrency(estimate.tax)}
+                    </td>
+                  </tr>
+                )}
+                <tr className="bg-blue-50">
+                  <td className="px-4 py-4 text-base font-bold text-gray-900 text-right">
+                    Total:
+                  </td>
+                  <td className="px-4 py-4 text-base font-bold text-blue-600 text-right">
+                    {formatCurrency(estimate.total)}
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        )}
+        
+        {estimate.estimateType === 'materials' && (
+          <>
+            <div className="mb-6">
+              <h4 className="text-base font-medium text-gray-800 mb-3 border-b pb-2">Materiais</h4>
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-gray-200 rounded-lg overflow-hidden">
+                  <thead className="bg-gray-100">
+                    <tr>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Descrição
+                      </th>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Qtd
+                      </th>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Un
+                      </th>
+                      <th scope="col" className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Preço Unit.
+                      </th>
+                      <th scope="col" className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Total
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {estimate.materials?.map((item, index) => (
+                      <motion.tr 
+                        key={index} 
+                        className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 + index * 0.05 }}
+                      >
+                        <td className="px-4 py-4 text-sm text-gray-900">{item.description}</td>
+                        <td className="px-4 py-4 text-sm text-gray-900">{item.quantity}</td>
+                        <td className="px-4 py-4 text-sm text-gray-900">{item.unit}</td>
+                        <td className="px-4 py-4 text-sm text-gray-900 text-right">{formatCurrency(item.unitPrice)}</td>
+                        <td className="px-4 py-4 text-sm text-gray-900 text-right font-medium">{formatCurrency(item.quantity * item.unitPrice)}</td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                  <tfoot>
+                    <tr className="bg-gray-50">
+                      <td colSpan={4} className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                        Subtotal de Materiais:
+                      </td>
+                      <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                        {formatCurrency(estimate.materials?.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0) || 0)}
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+            
+            <div className="mb-6">
+              <h4 className="text-base font-medium text-gray-800 mb-3 border-b pb-2">Serviços</h4>
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-gray-200 rounded-lg overflow-hidden">
+                  <thead className="bg-gray-100">
+                    <tr>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Descrição do Serviço
+                      </th>
+                      <th scope="col" className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-40">
+                        Valor
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {estimate.services?.map((service, index) => (
+                      <motion.tr 
+                        key={index} 
+                        className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 + index * 0.05 }}
+                      >
+                        <td className="px-4 py-4 text-sm text-gray-900">{service.description}</td>
+                        <td className="px-4 py-4 text-sm text-gray-900 text-right font-medium">{formatCurrency(service.value)}</td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                  <tfoot>
+                    <tr className="bg-gray-50">
+                      <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                        Subtotal de Serviços:
+                      </td>
+                      <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+                        {formatCurrency(estimate.services?.reduce((sum, service) => sum + service.value, 0) || 0)}
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+            
+            <div className="border-t pt-4">
+              <table className="min-w-full">
+                <tbody>
+                  <tr>
+                    <td className="px-4 py-2 text-sm font-medium text-gray-900 text-right">Subtotal:</td>
+                    <td className="px-4 py-2 text-sm font-medium text-gray-900 text-right w-40">{formatCurrency(estimate.subtotal)}</td>
+                  </tr>
+                  {estimate.discount && estimate.discount > 0 && (
+                    <tr>
+                      <td className="px-4 py-2 text-sm font-medium text-gray-900 text-right">Desconto:</td>
+                      <td className="px-4 py-2 text-sm font-medium text-gray-900 text-right">-{formatCurrency(estimate.discount)}</td>
+                    </tr>
+                  )}
+                  {estimate.tax && estimate.tax > 0 && (
+                    <tr>
+                      <td className="px-4 py-2 text-sm font-medium text-gray-900 text-right">Taxas/Adicionais:</td>
+                      <td className="px-4 py-2 text-sm font-medium text-gray-900 text-right">+{formatCurrency(estimate.tax)}</td>
+                    </tr>
+                  )}
+                  <tr className="bg-blue-50 rounded-lg">
+                    <td className="px-4 py-3 text-base font-bold text-gray-900 text-right rounded-l-lg">Total:</td>
+                    <td className="px-4 py-3 text-base font-bold text-blue-600 text-right rounded-r-lg">{formatCurrency(estimate.total)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+      </motion.div>
+    </motion.div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/LoadingState.tsx`
+
+```typescript
+// components/estimate-view/LoadingState.tsx
+'use client';
+
+import { motion } from 'framer-motion';
+
+export default function LoadingState() {
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-indigo-50"
+    >
+      <div className="flex flex-col items-center">
+        <motion.div 
+          className="h-16 w-16 rounded-full border-4 border-t-blue-500 border-transparent relative"
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+        />
+        <motion.p 
+          className="text-gray-600 mt-4 font-medium"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          Carregando orçamento...
+        </motion.p>
+      </div>
+    </motion.div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/NotesSection.tsx`
+
+```typescript
+// components/estimate-view/NotesSection.tsx
+'use client';
+
+import { motion } from 'framer-motion';
+import { Estimate } from '@/types/estimate';
+
+interface NotesSectionProps {
+  estimate: Estimate;
+}
+
+export default function NotesSection({ estimate }: NotesSectionProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      {/* Observações */}
+      {estimate.notes && (
+        <motion.div 
+          className="bg-white rounded-xl shadow-sm p-6 mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          <h3 className="text-lg font-medium mb-4 border-b pb-2 text-gray-800">Observações</h3>
+          <div className="bg-gray-50 p-4 rounded-lg">
+            <p className="text-gray-700 whitespace-pre-line">{estimate.notes}</p>
+          </div>
+        </motion.div>
+      )}
+      
+      {/* Termos e Condições */}
+      <motion.div 
+        className="bg-white rounded-xl shadow-sm p-6 mb-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        <h3 className="text-lg font-medium mb-4 border-b pb-2 text-gray-800">Termos e Condições</h3>
+        <div className="bg-gray-50 p-4 rounded-lg">
+          <div className="space-y-3 text-gray-700">
+            <p>1. A aceitação deste orçamento implica na concordância com os termos e valores apresentados.</p>
+            <p>2. O prazo de validade deste orçamento está especificado acima. Após este prazo, os valores podem sofrer alterações.</p>
+            <p>3. Valores de materiais podem sofrer alterações conforme disponibilidade e preços de mercado.</p>
+            <p>4. Quaisquer alterações no escopo dos serviços podem implicar em revisão dos valores e prazos.</p>
+            <p>5. As condições de pagamento estão descritas neste orçamento e devem ser seguidas conforme acordo.</p>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/ShareModal.tsx`
+
+```typescript
+// components/estimate-view/ShareModal.tsx
+'use client';
+
+import { motion, AnimatePresence } from 'framer-motion';
+import { Clipboard, CheckCircle } from 'lucide-react';
+
+interface ShareModalProps {
+  showShareModal: boolean;
+  linkCopied: boolean;
+  copyToClipboard: () => void;
+  setShowShareModal: (show: boolean) => void;
+}
+
+export default function ShareModal({
+  showShareModal,
+  linkCopied,
+  copyToClipboard,
+  setShowShareModal
+}: ShareModalProps) {
+  return (
+    <AnimatePresence>
+      {showShareModal && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            className="bg-white rounded-xl shadow-xl max-w-md w-full p-6 relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-blue-50 pointer-events-none" />
+            <div className="relative z-10">
+              <h3 className="text-xl font-medium text-gray-900 mb-4">Compartilhar Orçamento</h3>
+              <p className="text-gray-500 mb-4">
+                Compartilhe este orçamento copiando o link abaixo:
+              </p>
+              
+              <div className="flex mb-6">
+                <input
+                  type="text"
+                  value={window.location.href}
+                  readOnly
+                  className="flex-grow px-3 py-2 border border-gray-300 rounded-l-md text-gray-900 text-sm bg-gray-50"
+                />
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={copyToClipboard}
+                  className={`px-4 py-2 ${linkCopied ? 'bg-green-500' : 'bg-blue-500'} text-white rounded-r-md shadow-sm flex items-center gap-1`}
+                >
+                  {linkCopied ? (
+                    <>
+                      <CheckCircle size={16} />
+                      Copiado!
+                    </>
+                  ) : (
+                    <>
+                      <Clipboard size={16} />
+                      Copiar
+                    </>
+                  )}
+                </motion.button>
+              </div>
+              
+              <div className="flex justify-end">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setShowShareModal(false)}
+                  className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
+                >
+                  Fechar
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/estimate-view/SummarySection.tsx`
+
+```typescript
+// components/estimate-view/SummarySection.tsx
+'use client';
+
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import { Estimate } from '@/types/estimate';
+import { formatCurrency, formatDate } from '@/app/utils/formatters';
+
+
+interface SummarySectionProps {
+  estimate: Estimate;
+  setActiveSection: (section: string) => void;
+}
+
+export default function SummarySection({ estimate, setActiveSection }: SummarySectionProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <motion.div 
+        className="bg-white rounded-xl shadow-sm p-6 mb-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+      >
+        <h3 className="text-lg font-medium mb-4 border-b pb-2 text-gray-800">Resumo do Orçamento</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="bg-blue-50 rounded-lg p-4">
+            <h4 className="text-sm font-medium text-blue-800 mb-2">Total do Orçamento</h4>
+            <p className="text-2xl font-bold text-blue-700">{formatCurrency(estimate.total)}</p>
+            {estimate.discount && estimate.discount > 0 && (
+              <p className="text-xs text-blue-600 mt-1">Inclui desconto de {formatCurrency(estimate.discount)}</p>
+            )}
+          </div>
+          <div className="bg-gray-50 rounded-lg p-4">
+            <h4 className="text-sm font-medium text-gray-700 mb-2">Cliente</h4>
+            <p className="font-medium text-gray-900">{estimate.clientName}</p>
+            <p className="text-sm text-gray-500 mt-1">{estimate.clientPhone}</p>
+          </div>
+          <div className="bg-gray-50 rounded-lg p-4">
+            <h4 className="text-sm font-medium text-gray-700 mb-2">Datas</h4>
+            <div className="flex justify-between">
+              <div>
+                <p className="text-xs text-gray-500">Criado em:</p>
+                <p className="font-medium text-gray-900">{formatDate(estimate.createdAt)}</p>
+              </div>
+              {estimate.validUntil && (
+                <div>
+                  <p className="text-xs text-gray-500">Válido até:</p>
+                  <p className="font-medium text-gray-900">{formatDate(estimate.validUntil)}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="mt-4">
+          {estimate.description && (
+            <div className="mt-4 bg-gray-50 rounded-lg p-4">
+              <h4 className="text-sm font-medium text-gray-700 mb-2">Descrição</h4>
+              <p className="text-gray-700 whitespace-pre-line">{estimate.description}</p>
+            </div>
+          )}
+        </div>
+      </motion.div>
+      
+      {/* Quick Overview of Items - Resumo dependendo do tipo de orçamento */}
+      <motion.div 
+        className="bg-white rounded-xl shadow-sm p-6 mb-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-lg font-medium text-gray-800">Itens do Orçamento</h3>
+          <button 
+            onClick={() => setActiveSection('items')}
+            className="text-sm text-blue-600 hover:text-blue-800 flex items-center"
+          >
+            Ver detalhes <ArrowUpRight size={14} className="ml-1" />
+          </button>
+        </div>
+        
+        {/* Aqui renderiza uma versão condensada dos itens com base no tipo de orçamento */}
+        {/* Implementação depende do tipo de orçamento (detailed, materials, simple) */}
+        
+        <div className="mt-4 border-t pt-4 flex justify-between items-center">
+          <span className="text-sm font-medium text-gray-700">Total:</span>
+          <span className="text-lg font-bold text-blue-600">{formatCurrency(estimate.total)}</span>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/new-estimate/ActionButtons.tsx`
+
+```typescript
+// components/new-estimate/ActionButtons.tsx
+import { motion } from 'framer-motion';
+import { Loader2, Save } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+
+interface ActionButtonsProps {
+  router: AppRouterInstance;
+  isSubmitting: boolean;
+  onSaveClick: () => void; // Nova prop para lidar diretamente com o salvar
+}
+
+export default function ActionButtons({ router, isSubmitting, onSaveClick }: ActionButtonsProps) {
+  console.log("Renderizando ActionButtons, isSubmitting:", isSubmitting);
+  
+  return (
+    <div className="flex flex-col sm:flex-row gap-4">
+      <motion.button
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        type="button"
+        onClick={() => {
+          console.log("Botão Cancelar clicado");
+          router.back();
+        }}
+        className="flex-1 px-4 py-2.5 border border-[var(--color-neutral)]/30 text-[var(--color-card-text)] rounded-md hover:bg-[var(--color-neutral)]/10 transition-colors"
+      >
+        Cancelar
+      </motion.button>
+      <motion.button
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        type="button" // Mudamos para button em vez de submit
+        onClick={() => {
+          console.log("Botão Salvar clicado");
+          onSaveClick(); // Chamamos a função diretamente
+        }}
+        disabled={isSubmitting}
+        className="flex-1 px-4 py-2.5 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
+      >
+        {isSubmitting ? (
+          <>
+            <Loader2 className="h-5 w-5 animate-spin" />
+            Salvando...
+          </>
+        ) : (
+          <>
+            <Save className="h-5 w-5" />
+            Salvar
+          </>
+        )}
+      </motion.button>
+    </div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/new-estimate/AdditionalInfoCard.tsx`
+
+```typescript
+// components/new-estimate/AdditionalInfoCard.tsx
+import { HelpCircle, Calendar, CreditCard } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+import { UseFormRegister } from 'react-hook-form';
+import { EstimateFormValues } from '@/types/estimate';
+
+interface AdditionalInfoCardProps {
+  register: UseFormRegister<EstimateFormValues>;
+}
+
+export default function AdditionalInfoCard({ register }: AdditionalInfoCardProps) {
+  return (
+    <Card>
+      <div className="p-4 sm:p-6">
+        <h3 className="text-lg font-medium mb-4 flex items-center gap-2 text-[var(--color-card-text)]">
+          <HelpCircle size={18} className="text-[var(--color-accent)]" />
+          Informações Adicionais
+        </h3>
+        <div className="space-y-4">
+          <div>
+            <label htmlFor="validUntil" className="block text-sm font-medium text-[var(--color-card-text)] opacity-80 mb-1">
+              Válido até
+            </label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Calendar size={16} className="text-[var(--color-secondary)]" />
+              </div>
+              <input
+                id="validUntil"
+                type="date"
+                {...register('validUntil')}
+                className="pl-10 w-full px-3 py-2 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="paymentTerms" className="block text-sm font-medium text-[var(--color-card-text)] opacity-80 mb-1">
+              Condições de Pagamento
+            </label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <CreditCard size={16} className="text-[var(--color-secondary)]" />
+              </div>
+              <textarea
+                id="paymentTerms"
+                {...register('paymentTerms')}
+                rows={3}
+                className="pl-10 w-full px-3 py-2 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="notes" className="block text-sm font-medium text-[var(--color-card-text)] opacity-80 mb-1">
+              Observações
+            </label>
+            <textarea
+              id="notes"
+              {...register('notes')}
+              rows={4}
+              className="w-full px-3 py-2 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+              placeholder="Informações adicionais sobre o orçamento"
+            />
+          </div>
+        </div>
+      </div>
+    </Card>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/new-estimate/ClientInfoCard.tsx`
+
+```typescript
+// components/new-estimate/ClientInfoCard.tsx
+import { User, Phone, Mail, Home, X } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+
+import { UseFormRegister, FieldErrors } from 'react-hook-form';
+import { EstimateFormValues } from '@/types/estimate';
+
+interface ClientInfoCardProps {
+  register: UseFormRegister<EstimateFormValues>;
+  errors: FieldErrors<EstimateFormValues>;
+}
+
+export default function ClientInfoCard({ register, errors }: ClientInfoCardProps) {
+  return (
+    <Card>
+      <div className="p-4 sm:p-6">
+        <h3 className="text-lg font-medium mb-4 flex items-center gap-2 text-[var(--color-card-text)]">
+          <User size={18} className="text-[var(--color-accent)]" />
+          Dados do Cliente
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="md:col-span-2">
+            <label htmlFor="clientName" className="block text-sm font-medium text-[var(--color-card-text)] opacity-80 mb-1">
+              Nome do Cliente
+            </label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <User size={16} className="text-[var(--color-secondary)]" />
+              </div>
+              <input
+                id="clientName"
+                {...register('clientName')}
+                className={`w-full pl-10 px-3 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] ${
+                  errors.clientName ? 'border-red-500' : 'border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50'
+                }`}
+              />
+            </div>
+            {errors.clientName && (
+              <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
+                <X size={14} /> {errors.clientName.message}
+              </p>
+            )}
+          </div>
+          <div>
+            <label htmlFor="clientPhone" className="block text-sm font-medium text-[var(--color-card-text)] opacity-80 mb-1">
+              Telefone
+            </label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Phone size={16} className="text-[var(--color-secondary)]" />
+              </div>
+              <input
+                id="clientPhone"
+                {...register('clientPhone')}
+                className={`w-full pl-10 px-3 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] ${
+                  errors.clientPhone ? 'border-red-500' : 'border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50'
+                }`}
+              />
+            </div>
+            {errors.clientPhone && (
+              <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
+                <X size={14} /> {errors.clientPhone.message}
+              </p>
+            )}
+          </div>
+          <div>
+            <label htmlFor="clientEmail" className="block text-sm font-medium text-[var(--color-card-text)] opacity-80 mb-1">
+              Email (opcional)
+            </label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Mail size={16} className="text-[var(--color-secondary)]" />
+              </div>
+              <input
+                id="clientEmail"
+                type="email"
+                {...register('clientEmail')}
+                className={`w-full pl-10 px-3 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] ${
+                  errors.clientEmail ? 'border-red-500' : 'border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50'
+                }`}
+              />
+            </div>
+            {errors.clientEmail && (
+              <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
+                <X size={14} /> {errors.clientEmail.message}
+              </p>
+            )}
+          </div>
+          <div className="md:col-span-2">
+            <label htmlFor="address" className="block text-sm font-medium text-[var(--color-card-text)] opacity-80 mb-1">
+              Endereço (opcional)
+            </label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Home size={16} className="text-[var(--color-secondary)]" />
+              </div>
+              <input
+                id="address"
+                {...register('address')}
+                className="w-full pl-10 px-3 py-2 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Card>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/new-estimate/DetailedItemsTable.tsx`
+
+```typescript
+// components/new-estimate/DetailedItemsTable.tsx
+import { motion } from 'framer-motion';
+import { Calculator, Plus, Trash2, X } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+import { UseFormRegister, FieldErrors, UseFieldArrayReturn } from 'react-hook-form';
+import { EstimateFormValues, EstimateItem } from '@/types/estimate';
+
+interface DetailedItemsTableProps {
+  itemsFieldArray: UseFieldArrayReturn<EstimateFormValues, 'items', 'id'>;
+  register: UseFormRegister<EstimateFormValues>;
+  errors: FieldErrors<EstimateFormValues>;
+  items: EstimateItem[];
+  formatCurrency: (value: number) => string;
+  calculateSubtotal: () => number;
+  discount: number;
+  tax: number;
+  calculateTotal: () => number;
+  isMobile: boolean;
+}
+
+export default function DetailedItemsTable({
+  itemsFieldArray,
+  register,
+  errors,
+  items,
+  formatCurrency,
+  calculateSubtotal,
+  discount,
+  tax,
+  calculateTotal,
+  isMobile
+}: DetailedItemsTableProps) {
+  const addItem = () => itemsFieldArray.append({ description: '', quantity: 1, unit: 'un', unitPrice: 0 });
+
+  return (
+    <Card>
+      <div className="p-4 sm:p-6">
+        <div className="flex flex-wrap justify-between items-center mb-4 gap-2">
+          <h3 className="text-lg font-medium flex items-center gap-2 text-[var(--color-card-text)]">
+            <Calculator size={18} className="text-[var(--color-accent)]" />
+            Itens do Orçamento
+          </h3>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            type="button"
+            onClick={addItem}
+            className="px-3 py-1.5 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white rounded-md flex items-center gap-1 text-sm transition-colors"
+          >
+            <Plus size={16} /> Adicionar Item
+          </motion.button>
+        </div>
+        {errors.items?.root && (
+          <div className="mb-4 text-sm text-red-500 bg-red-50 dark:bg-red-900/10 p-2 rounded-md flex items-start gap-2">
+            <span className="mt-0.5"><X size={16} /></span>
+            <p>{errors.items.root.message}</p>
+          </div>
+        )}
+        
+        {isMobile ? (
+          <div className="space-y-4">
+            {itemsFieldArray.fields.map((field, index) => (
+              <div key={field.id} className="border border-[var(--color-neutral)]/30 rounded-lg p-3 bg-[var(--color-neutral)]/5">
+                <div className="flex justify-between items-start mb-3">
+                  <h4 className="text-sm font-medium text-[var(--color-card-text)]">Item {index + 1}</h4>
+                  <button
+                    type="button"
+                    onClick={() => itemsFieldArray.remove(index)}
+                    className="text-red-500 hover:text-red-700 p-1 rounded-full hover:bg-red-50 dark:hover:bg-red-900/20"
+                    disabled={itemsFieldArray.fields.length === 1}
+                    aria-label="Remover item"
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                </div>
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-xs font-medium text-[var(--color-card-text)] opacity-80 mb-1">Descrição</label>
+                    <input
+                      {...register(`items.${index}.description`)}
+                      className={`w-full px-3 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                        errors.items?.[index]?.description ? 'border-red-500' : 'border-[var(--color-neutral)]/30'
+                      }`}
+                      placeholder="Descrição do item"
+                    />
+                    {errors.items?.[index]?.description && (
+                      <p className="mt-1 text-xs text-red-500">{errors.items[index]?.description?.message}</p>
+                    )}
+                  </div>
+                  <div className="grid grid-cols-3 gap-2">
+                    <div>
+                      <label className="block text-xs font-medium text-[var(--color-card-text)] opacity-80 mb-1">Quantidade</label>
+                      <input
+                        type="number"
+                        {...register(`items.${index}.quantity`, { valueAsNumber: true })}
+                        className={`w-full px-2 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                          errors.items?.[index]?.quantity ? 'border-red-500' : 'border-[var(--color-neutral)]/30'
+                        }`}
+                        min="0.01"
+                        step="0.01"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-[var(--color-card-text)] opacity-80 mb-1">Unidade</label>
+                      <input
+                        {...register(`items.${index}.unit`)}
+                        className="w-full px-2 py-2 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm"
+                        placeholder="un"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-[var(--color-card-text)] opacity-80 mb-1">Preço Un.</label>
+                      <input
+                        type="number"
+                        {...register(`items.${index}.unitPrice`, { valueAsNumber: true })}
+                        className={`w-full px-2 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                          errors.items?.[index]?.unitPrice ? 'border-red-500' : 'border-[var(--color-neutral)]/30'
+                        }`}
+                        min="0"
+                        step="0.01"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center pt-2 border-t border-[var(--color-neutral)]/20">
+                    <span className="text-xs font-medium text-[var(--color-card-text)] opacity-80">Total do item:</span>
+                    <span className="text-sm font-semibold text-[var(--color-accent)]">
+                      {formatCurrency((items[index]?.quantity || 0) * (items[index]?.unitPrice || 0))}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+            <div className="bg-[var(--color-neutral)]/10 rounded-lg p-4 space-y-3 mt-4">
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium text-[var(--color-card-text)]">Subtotal:</span>
+                <span className="text-[var(--color-card-text)] font-medium">{formatCurrency(calculateSubtotal())}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <label className="text-sm font-medium text-[var(--color-card-text)]">Desconto:</label>
+                <div className="flex items-center gap-3">
+                  <input
+                    type="number"
+                    {...register('discount', { valueAsNumber: true })}
+                    className="w-24 px-2 py-1 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm"
+                    min="0"
+                    step="0.01"
+                  />
+                  <span className="text-[var(--color-card-text)] opacity-80 text-sm">-{formatCurrency(discount)}</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <label className="text-sm font-medium text-[var(--color-card-text)]">Taxas/Adicionais:</label>
+                <div className="flex items-center gap-3">
+                  <input
+                    type="number"
+                    {...register('tax', { valueAsNumber: true })}
+                    className="w-24 px-2 py-1 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm"
+                    min="0"
+                    step="0.01"
+                  />
+                  <span className="text-[var(--color-card-text)] opacity-80 text-sm">+{formatCurrency(tax)}</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center pt-3 border-t border-[var(--color-neutral)]/30">
+                <span className="text-base font-bold text-[var(--color-card-text)]">Total:</span>
+                <span className="text-lg font-bold text-[var(--color-accent)]">{formatCurrency(calculateTotal())}</span>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-full divide-y divide-[var(--color-neutral)]/20">
+              <thead>
+                <tr className="bg-[var(--color-neutral)]/5">
+                  <th className="px-3 py-3 text-left text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider">Descrição</th>
+                  <th className="px-3 py-3 text-left text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider w-20">Qtd</th>
+                  <th className="px-3 py-3 text-left text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider w-20">Un</th>
+                  <th className="px-3 py-3 text-left text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider w-32">Preço Un</th>
+                  <th className="px-3 py-3 text-right text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider w-32">Total</th>
+                  <th className="px-3 py-3 text-left text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider w-12">
+                    <span className="sr-only">Ações</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--color-neutral)]/20">
+                {itemsFieldArray.fields.map((field, index) => (
+                  <tr key={field.id} className="hover:bg-[var(--color-neutral)]/5">
+                    <td className="px-3 py-2">
+                      <input
+                        {...register(`items.${index}.description`)}
+                        className={`w-full px-2 py-1.5 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                          errors.items?.[index]?.description ? 'border-red-500' : 'border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50'
+                        }`}
+                        placeholder="Descrição do item"
+                      />
+                      {errors.items?.[index]?.description && (
+                        <p className="mt-1 text-xs text-red-500">{errors.items[index]?.description?.message}</p>
+                      )}
+                    </td>
+                    <td className="px-3 py-2">
+                      <input
+                        type="number"
+                        {...register(`items.${index}.quantity`, { valueAsNumber: true })}
+                        className={`w-full px-2 py-1.5 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                          errors.items?.[index]?.quantity ? 'border-red-500' : 'border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50'
+                        }`}
+                        min="0.01"
+                        step="0.01"
+                      />
+                    </td>
+                    <td className="px-3 py-2">
+                      <input
+                        {...register(`items.${index}.unit`)}
+                        className="w-full px-2 py-1.5 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+                        placeholder="un"
+                      />
+                    </td>
+                    <td className="px-3 py-2">
+                      <input
+                        type="number"
+                        {...register(`items.${index}.unitPrice`, { valueAsNumber: true })}
+                        className={`w-full px-2 py-1.5 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                          errors.items?.[index]?.unitPrice ? 'border-red-500' : 'border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50'
+                        }`}
+                        min="0"
+                        step="0.01"
+                      />
+                    </td>
+                    <td className="px-3 py-2 text-right text-sm font-medium text-[var(--color-card-text)]">
+                      {formatCurrency((items[index]?.quantity || 0) * (items[index]?.unitPrice || 0))}
+                    </td>
+                    <td className="px-3 py-2">
+                      <motion.button
+                        whileHover={{ scale: 1.15 }}
+                        whileTap={{ scale: 0.9 }}
+                        type="button"
+                        onClick={() => itemsFieldArray.remove(index)}
+                        className="text-red-500 hover:text-red-700 focus:outline-none p-1 rounded-full hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                        disabled={itemsFieldArray.fields.length === 1}
+                      >
+                        <Trash2 size={16} />
+                      </motion.button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="bg-[var(--color-neutral)]/5">
+                  <td colSpan={4} className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">Subtotal:</td>
+                  <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">{formatCurrency(calculateSubtotal())}</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colSpan={3} className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">Desconto:</td>
+                  <td className="px-3 py-3">
+                    <input
+                      type="number"
+                      {...register('discount', { valueAsNumber: true })}
+                      className="w-full px-2 py-1.5 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+                      min="0"
+                      step="0.01"
+                    />
+                  </td>
+                  <td className="px-3 py-3 text-right text-sm text-[var(--color-card-text)] opacity-80">-{formatCurrency(discount)}</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colSpan={3} className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">Taxas/Adicionais:</td>
+                  <td className="px-3 py-3">
+                    <input
+                      type="number"
+                      {...register('tax', { valueAsNumber: true })}
+                      className="w-full px-2 py-1.5 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+                      min="0"
+                      step="0.01"
+                    />
+                  </td>
+                  <td className="px-3 py-3 text-right text-sm text-[var(--color-card-text)] opacity-80">+{formatCurrency(tax)}</td>
+                  <td></td>
+                </tr>
+                <tr className="bg-[var(--color-neutral)]/10">
+                  <td colSpan={4} className="px-3 py-4 text-right font-bold text-base text-[var(--color-card-text)]">Total:</td>
+                  <td className="px-3 py-4 text-right font-bold text-base text-[var(--color-accent)]">{formatCurrency(calculateTotal())}</td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        )}
+      </div>
+    </Card>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/new-estimate/EstimateDetailsCard.tsx`
+
+```typescript
+// components/new-estimate/EstimateDetailsCard.tsx
+import { FileText, X } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+import { UseFormRegister, FieldErrors } from 'react-hook-form';
+import { EstimateFormValues } from '@/types/estimate';
+
+interface EstimateDetailsCardProps {
+  register: UseFormRegister<EstimateFormValues>;
+  errors: FieldErrors<EstimateFormValues>;
+}
+
+export default function EstimateDetailsCard({ register, errors }: EstimateDetailsCardProps) {
+  return (
+    <Card>
+      <div className="p-4 sm:p-6">
+        <h3 className="text-lg font-medium mb-4 flex items-center gap-2 text-[var(--color-card-text)]">
+          <FileText size={18} className="text-[var(--color-accent)]" />
+          Detalhes do Orçamento
+        </h3>
+        <div className="space-y-4">
+          <div>
+            <label htmlFor="title" className="block text-sm font-medium text-[var(--color-card-text)] opacity-80 mb-1">
+              Título do Orçamento
+            </label>
+            <input
+              id="title"
+              {...register('title')}
+              className={`w-full px-3 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] ${
+                errors.title ? 'border-red-500' : 'border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50'
+              }`}
+              placeholder="Ex: Reforma do Banheiro"
+            />
+            {errors.title && (
+              <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
+                <X size={14} /> {errors.title.message}
+              </p>
+            )}
+          </div>
+          <div>
+            <label htmlFor="description" className="block text-sm font-medium text-[var(--color-card-text)] opacity-80 mb-1">
+              Descrição (opcional)
+            </label>
+            <textarea
+              id="description"
+              {...register('description')}
+              rows={3}
+              className="w-full px-3 py-2 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+              placeholder="Descrição detalhada do serviço a ser realizado"
+            />
+          </div>
+        </div>
+      </div>
+    </Card>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/new-estimate/EstimateTypeSelector.tsx`
+
+```typescript
+// components/new-estimate/EstimateTypeSelector.js
+import { motion } from 'framer-motion';
+import { FileText } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+import { UseFormRegister, UseFormSetValue } from 'react-hook-form';
+
+interface EstimateFormValues {
+  estimateType: string;
+}
+
+export default function EstimateTypeSelector({ 
+  register, 
+  estimateType, 
+  setValue 
+}: { 
+  register: UseFormRegister<EstimateFormValues>;
+  estimateType: string;
+  setValue: UseFormSetValue<EstimateFormValues>;
+}) {
+  const estimateTypes = [
+    {
+      id: 'detailed',
+      title: 'Orçamento Detalhado',
+      description: 'Lista detalhada com todos os itens, quantidades e valores unitários.'
+    },
+    {
+      id: 'materials',
+      title: 'Materiais e Serviços',
+      description: 'Separa os materiais dos serviços com subtotais para cada categoria.'
+    },
+    {
+      id: 'simple',
+      title: 'Orçamento Simplificado',
+      description: 'Lista apenas os serviços e seus valores, sem detalhes de materiais.'
+    }
+  ];
+
+  return (
+    <Card>
+      <div className="p-4 sm:p-6">
+        <h3 className="text-lg font-medium mb-4 flex items-center gap-2 text-[var(--color-card-text)]">
+          <FileText size={18} className="text-[var(--color-accent)]" />
+          Tipo de Orçamento
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {estimateTypes.map((type) => (
+            <motion.div
+              key={type.id}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className={`p-4 border rounded-lg cursor-pointer transition-all ${
+                estimateType === type.id 
+                  ? 'border-[var(--color-accent)] bg-[var(--color-accent)]/5' 
+                  : 'border-[var(--color-neutral)]/30 hover:border-[var(--color-accent)]/50'
+              }`}
+              onClick={() => setValue('estimateType', type.id)}
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <input
+                  type="radio"
+                  id={`type-${type.id}`}
+                  value={type.id}
+                  checked={estimateType === type.id}
+                  {...register('estimateType')}
+                  className="h-4 w-4 text-[var(--color-accent)]"
+                />
+                <label htmlFor={`type-${type.id}`} className="font-medium text-[var(--color-card-text)]">
+                  {type.title}
+                </label>
+              </div>
+              <p className="text-sm text-[var(--color-card-text)] opacity-70">
+                {type.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </Card>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/new-estimate/MaterialsTable.tsx`
+
+```typescript
+// components/new-estimate/MaterialsTable.tsx
+import { motion } from 'framer-motion';
+import { PackageOpen, Plus, Trash2, X } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+import { UseFormRegister, FieldErrors, UseFieldArrayReturn } from 'react-hook-form';
+import { EstimateFormValues, MaterialItem } from '@/types/estimate';
+
+interface MaterialsTableProps {
+  materialsFieldArray: UseFieldArrayReturn<EstimateFormValues, 'materials', 'id'>;
+  register: UseFormRegister<EstimateFormValues>;
+  errors: FieldErrors<EstimateFormValues>;
+  materials: MaterialItem[];
+  formatCurrency: (value: number) => string;
+  calculateMaterialsSubtotal: () => number;
+  isMobile: boolean;
+}
+
+export default function MaterialsTable({
+  materialsFieldArray,
+  register,
+  errors,
+  materials,
+  formatCurrency,
+  calculateMaterialsSubtotal,
+  isMobile
+}: MaterialsTableProps) {
+  const addMaterial = () => materialsFieldArray.append({ description: '', quantity: 1, unit: 'un', unitPrice: 0 });
+
+  return (
+    <Card>
+      <div className="p-4 sm:p-6">
+        <div className="flex flex-wrap justify-between items-center mb-4 gap-2">
+          <h3 className="text-lg font-medium flex items-center gap-2 text-[var(--color-card-text)]">
+            <PackageOpen size={18} className="text-[var(--color-accent)]" />
+            Materiais
+          </h3>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            type="button"
+            onClick={addMaterial}
+            className="px-3 py-1.5 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white rounded-md flex items-center gap-1 text-sm transition-colors"
+          >
+            <Plus size={16} /> Adicionar Material
+          </motion.button>
+        </div>
+        {errors.materials?.root && (
+          <div className="mb-4 text-sm text-red-500 bg-red-50 dark:bg-red-900/10 p-2 rounded-md flex items-start gap-2">
+            <span className="mt-0.5"><X size={16} /></span>
+            <p>{errors.materials.root.message}</p>
+          </div>
+        )}
+        
+        {isMobile ? (
+          <div className="space-y-4">
+            {materialsFieldArray.fields.map((field, index) => (
+              <div key={field.id} className="border border-[var(--color-neutral)]/30 rounded-lg p-3 bg-[var(--color-neutral)]/5">
+                <div className="flex justify-between items-start mb-3">
+                  <h4 className="text-sm font-medium text-[var(--color-card-text)]">Material {index + 1}</h4>
+                  <button
+                    type="button"
+                    onClick={() => materialsFieldArray.remove(index)}
+                    className="text-red-500 hover:text-red-700 p-1 rounded-full hover:bg-red-50 dark:hover:bg-red-900/20"
+                    disabled={materialsFieldArray.fields.length === 1}
+                    aria-label="Remover material"
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                </div>
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-xs font-medium text-[var(--color-card-text)] opacity-80 mb-1">Descrição</label>
+                    <input
+                      {...register(`materials.${index}.description`)}
+                      className={`w-full px-3 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                        errors.materials?.[index]?.description ? 'border-red-500' : 'border-[var(--color-neutral)]/30'
+                      }`}
+                      placeholder="Descrição do material"
+                    />
+                    {errors.materials?.[index]?.description && (
+                      <p className="mt-1 text-xs text-red-500">{errors.materials[index]?.description?.message}</p>
+                    )}
+                  </div>
+                  <div className="grid grid-cols-3 gap-2">
+                    <div>
+                      <label className="block text-xs font-medium text-[var(--color-card-text)] opacity-80 mb-1">Quantidade</label>
+                      <input
+                        type="number"
+                        {...register(`materials.${index}.quantity`, { valueAsNumber: true })}
+                        className={`w-full px-2 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                          errors.materials?.[index]?.quantity ? 'border-red-500' : 'border-[var(--color-neutral)]/30'
+                        }`}
+                        min="0.01"
+                        step="0.01"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-[var(--color-card-text)] opacity-80 mb-1">Unidade</label>
+                      <input
+                        {...register(`materials.${index}.unit`)}
+                        className="w-full px-2 py-2 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm"
+                        placeholder="un"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-[var(--color-card-text)] opacity-80 mb-1">Preço Un.</label>
+                      <input
+                        type="number"
+                        {...register(`materials.${index}.unitPrice`, { valueAsNumber: true })}
+                        className={`w-full px-2 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                          errors.materials?.[index]?.unitPrice ? 'border-red-500' : 'border-[var(--color-neutral)]/30'
+                        }`}
+                        min="0"
+                        step="0.01"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center pt-2 border-t border-[var(--color-neutral)]/20">
+                    <span className="text-xs font-medium text-[var(--color-card-text)] opacity-80">Total do material:</span>
+                    <span className="text-sm font-semibold text-[var(--color-accent)]">
+                      {formatCurrency((materials[index]?.quantity || 0) * (materials[index]?.unitPrice || 0))}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-full divide-y divide-[var(--color-neutral)]/20">
+              <thead>
+                <tr className="bg-[var(--color-neutral)]/5">
+                  <th className="px-3 py-3 text-left text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider">Descrição</th>
+                  <th className="px-3 py-3 text-left text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider w-20">Qtd</th>
+                  <th className="px-3 py-3 text-left text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider w-20">Un</th>
+                  <th className="px-3 py-3 text-left text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider w-32">Preço Un</th>
+                  <th className="px-3 py-3 text-right text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider w-32">Total</th>
+                  <th className="px-3 py-3 text-left text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider w-12">
+                    <span className="sr-only">Ações</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--color-neutral)]/20">
+                {materialsFieldArray.fields.map((field, index) => (
+                  <tr key={field.id} className="hover:bg-[var(--color-neutral)]/5">
+                    <td className="px-3 py-2">
+                      <input
+                        {...register(`materials.${index}.description`)}
+                        className={`w-full px-2 py-1.5 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                          errors.materials?.[index]?.description ? 'border-red-500' : 'border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50'
+                        }`}
+                        placeholder="Descrição do material"
+                      />
+                      {errors.materials?.[index]?.description && (
+                        <p className="mt-1 text-xs text-red-500">{errors.materials[index]?.description?.message}</p>
+                      )}
+                    </td>
+                    <td className="px-3 py-2">
+                      <input
+                        type="number"
+                        {...register(`materials.${index}.quantity`, { valueAsNumber: true })}
+                        className={`w-full px-2 py-1.5 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                          errors.materials?.[index]?.quantity ? 'border-red-500' : 'border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50'
+                        }`}
+                        min="0.01"
+                        step="0.01"
+                      />
+                    </td>
+                    <td className="px-3 py-2">
+                      <input
+                        {...register(`materials.${index}.unit`)}
+                        className="w-full px-2 py-1.5 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+                        placeholder="un"
+                      />
+                    </td>
+                    <td className="px-3 py-2">
+                      <input
+                        type="number"
+                        {...register(`materials.${index}.unitPrice`, { valueAsNumber: true })}
+                        className={`w-full px-2 py-1.5 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                          errors.materials?.[index]?.unitPrice ? 'border-red-500' : 'border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50'
+                        }`}
+                        min="0"
+                        step="0.01"
+                      />
+                    </td>
+                    <td className="px-3 py-2 text-right text-sm font-medium text-[var(--color-card-text)]">
+                      {formatCurrency((materials[index]?.quantity || 0) * (materials[index]?.unitPrice || 0))}
+                    </td>
+                    <td className="px-3 py-2">
+                      <motion.button
+                        whileHover={{ scale: 1.15 }}
+                        whileTap={{ scale: 0.9 }}
+                        type="button"
+                        onClick={() => materialsFieldArray.remove(index)}
+                        className="text-red-500 hover:text-red-700 focus:outline-none p-1 rounded-full hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                        disabled={materialsFieldArray.fields.length === 1}
+                      >
+                        <Trash2 size={16} />
+                      </motion.button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="bg-[var(--color-neutral)]/5">
+                  <td colSpan={4} className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">Subtotal de Materiais:</td>
+                  <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">{formatCurrency(calculateMaterialsSubtotal())}</td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        )}
+      </div>
+    </Card>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/new-estimate/PageHeader.tsx`
+
+```typescript
+// components/new-estimate/PageHeader.tsx
+import { motion } from 'framer-motion';
+import { ArrowLeft } from 'lucide-react';
+import { Heading } from '@/components/ui/Card';
+import { useRouter } from 'next/navigation';
+import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+
+interface PageHeaderProps {
+  router: AppRouterInstance;
+}
+
+export default function PageHeader({ router }: PageHeaderProps) {
+  return (
+    <div className="flex items-center gap-4 mb-6">
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => router.back()}
+        className="p-2 rounded-full bg-[var(--color-neutral)]/10 text-[var(--color-text)] hover:bg-[var(--color-neutral)]/20"
+        aria-label="Voltar"
+      >
+        <ArrowLeft size={20} />
+      </motion.button>
+      <Heading title="Novo Orçamento" description="Crie um orçamento detalhado para seu cliente" />
+    </div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/new-estimate/ServicesTable.tsx`
+
+```typescript
+// components/new-estimate/ServicesTable.tsx
+import { motion } from 'framer-motion';
+import { List, Plus, Trash2, X } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+import { UseFormRegister, FieldErrors, UseFieldArrayReturn } from 'react-hook-form';
+import { EstimateFormValues, ServiceItem } from '@/types/estimate';
+
+interface ServicesTableProps {
+  servicesFieldArray: UseFieldArrayReturn<EstimateFormValues, 'services', 'id'>;
+  register: UseFormRegister<EstimateFormValues>;
+  errors: FieldErrors<EstimateFormValues>;
+  services: ServiceItem[];
+  formatCurrency: (value: number) => string;
+  calculateServicesSubtotal: () => number;
+  isMobile: boolean;
+  isSimpleEstimate?: boolean;
+  calculateSubtotal?: () => number;
+  discount?: number;
+  tax?: number;
+  calculateTotal?: () => number;
+}
+
+export default function ServicesTable({
+  servicesFieldArray,
+  register,
+  errors,
+  services,
+  formatCurrency,
+  calculateServicesSubtotal,
+  isMobile,
+  isSimpleEstimate = false,
+  calculateSubtotal,
+  discount = 0,
+  tax = 0,
+  calculateTotal
+}: ServicesTableProps) {
+  const addService = () => servicesFieldArray.append({ description: '', value: 0 });
+
+  return (
+    <Card>
+      <div className="p-4 sm:p-6">
+        <div className="flex flex-wrap justify-between items-center mb-4 gap-2">
+          <h3 className="text-lg font-medium flex items-center gap-2 text-[var(--color-card-text)]">
+            <List size={18} className="text-[var(--color-accent)]" />
+            Serviços
+          </h3>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            type="button"
+            onClick={addService}
+            className="px-3 py-1.5 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white rounded-md flex items-center gap-1 text-sm transition-colors"
+          >
+            <Plus size={16} /> Adicionar Serviço
+          </motion.button>
+        </div>
+        {errors.services?.root && (
+          <div className="mb-4 text-sm text-red-500 bg-red-50 dark:bg-red-900/10 p-2 rounded-md flex items-start gap-2">
+            <span className="mt-0.5"><X size={16} /></span>
+            <p>{errors.services.root.message}</p>
+          </div>
+        )}
+        
+        {isMobile ? (
+          <div className="space-y-4">
+            {servicesFieldArray.fields.map((field, index) => (
+              <div key={field.id} className="border border-[var(--color-neutral)]/30 rounded-lg p-3 bg-[var(--color-neutral)]/5">
+                <div className="flex justify-between items-start mb-3">
+                  <h4 className="text-sm font-medium text-[var(--color-card-text)]">Serviço {index + 1}</h4>
+                  <button
+                    type="button"
+                    onClick={() => servicesFieldArray.remove(index)}
+                    className="text-red-500 hover:text-red-700 p-1 rounded-full hover:bg-red-50 dark:hover:bg-red-900/20"
+                    disabled={servicesFieldArray.fields.length === 1}
+                    aria-label="Remover serviço"
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                </div>
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-xs font-medium text-[var(--color-card-text)] opacity-80 mb-1">Descrição</label>
+                    <input
+                      {...register(`services.${index}.description`)}
+                      className={`w-full px-3 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                        errors.services?.[index]?.description ? 'border-red-500' : 'border-[var(--color-neutral)]/30'
+                      }`}
+                      placeholder="Descrição do serviço"
+                    />
+                    {errors.services?.[index]?.description && (
+                      <p className="mt-1 text-xs text-red-500">{errors.services[index]?.description?.message}</p>
+                    )}
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-[var(--color-card-text)] opacity-80 mb-1">Valor</label>
+                    <input
+                      type="number"
+                      {...register(`services.${index}.value`, { valueAsNumber: true })}
+                      className={`w-full px-2 py-2 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                        errors.services?.[index]?.value ? 'border-red-500' : 'border-[var(--color-neutral)]/30'
+                      }`}
+                      min="0"
+                      step="0.01"
+                    />
+                    {errors.services?.[index]?.value && (
+                      <p className="mt-1 text-xs text-red-500">{errors.services[index]?.value?.message}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-full divide-y divide-[var(--color-neutral)]/20">
+              <thead>
+                <tr className="bg-[var(--color-neutral)]/5">
+                  <th className="px-3 py-3 text-left text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider">Descrição do Serviço</th>
+                  <th className="px-3 py-3 text-right text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider w-40">Valor</th>
+                  <th className="px-3 py-3 text-left text-xs font-medium text-[var(--color-card-text)] opacity-70 uppercase tracking-wider w-12">
+                    <span className="sr-only">Ações</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--color-neutral)]/20">
+                {servicesFieldArray.fields.map((field, index) => (
+                  <tr key={field.id} className="hover:bg-[var(--color-neutral)]/5">
+                    <td className="px-3 py-2">
+                      <input
+                        {...register(`services.${index}.description`)}
+                        className={`w-full px-2 py-1.5 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                          errors.services?.[index]?.description ? 'border-red-500' : 'border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50'
+                        }`}
+                        placeholder="Descrição do serviço"
+                      />
+                      {errors.services?.[index]?.description && (
+                        <p className="mt-1 text-xs text-red-500">{errors.services[index]?.description?.message}</p>
+                      )}
+                    </td>
+                    <td className="px-3 py-2">
+                      <input
+                        type="number"
+                        {...register(`services.${index}.value`, { valueAsNumber: true })}
+                        className={`w-full px-2 py-1.5 border rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm ${
+                          errors.services?.[index]?.value ? 'border-red-500' : 'border-[var(--color-neutral)]/30 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50'
+                        }`}
+                        min="0"
+                        step="0.01"
+                      />
+                    </td>
+                    <td className="px-3 py-2">
+                      <motion.button
+                        whileHover={{ scale: 1.15 }}
+                        whileTap={{ scale: 0.9 }}
+                        type="button"
+                        onClick={() => servicesFieldArray.remove(index)}
+                        className="text-red-500 hover:text-red-700 focus:outline-none p-1 rounded-full hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                        disabled={servicesFieldArray.fields.length === 1}
+                      >
+                        <Trash2 size={16} />
+                      </motion.button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="bg-[var(--color-neutral)]/5">
+                  <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">
+                    {isSimpleEstimate ? 'Subtotal:' : 'Subtotal de Serviços:'}
+                  </td>
+                  <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">
+                    {formatCurrency(isSimpleEstimate && calculateSubtotal ? calculateSubtotal() : calculateServicesSubtotal())}
+                  </td>
+                  <td></td>
+                </tr>
+
+                {isSimpleEstimate && calculateSubtotal && calculateTotal && (
+                  <>
+                    <tr>
+                      <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">Desconto:</td>
+                      <td className="px-3 py-3">
+                        <div className="flex items-center justify-end gap-3">
+                          <input
+                            type="number"
+                            {...register('discount', { valueAsNumber: true })}
+                            className="w-32 px-2 py-1.5 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+                            min="0"
+                            step="0.01"
+                          />
+                          <span className="text-sm text-[var(--color-card-text)] opacity-80 w-24 text-right">
+                            -{formatCurrency(discount)}
+                          </span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">Taxas/Adicionais:</td>
+                      <td className="px-3 py-3">
+                        <div className="flex items-center justify-end gap-3">
+                          <input
+                            type="number"
+                            {...register('tax', { valueAsNumber: true })}
+                            className="w-32 px-2 py-1.5 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+                            min="0"
+                            step="0.01"
+                          />
+                          <span className="text-sm text-[var(--color-card-text)] opacity-80 w-24 text-right">
+                            +{formatCurrency(tax)}
+                          </span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr className="bg-[var(--color-neutral)]/10">
+                      <td className="px-3 py-4 text-right font-bold text-base text-[var(--color-card-text)]">Total:</td>
+                      <td className="px-3 py-4 text-right font-bold text-base text-[var(--color-accent)]">{formatCurrency(calculateTotal())}</td>
+                      <td></td>
+                    </tr>
+                  </>
+                )}
+              </tfoot>
+            </table>
+          </div>
+        )}
+
+        {isMobile && isSimpleEstimate && calculateSubtotal && calculateTotal && (
+          <div className="bg-[var(--color-neutral)]/10 rounded-lg p-4 space-y-3 mt-4">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-medium text-[var(--color-card-text)]">Subtotal:</span>
+              <span className="text-[var(--color-card-text)] font-medium">{formatCurrency(calculateSubtotal())}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <label className="text-sm font-medium text-[var(--color-card-text)]">Desconto:</label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="number"
+                  {...register('discount', { valueAsNumber: true })}
+                  className="w-24 px-2 py-1 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm"
+                  min="0"
+                  step="0.01"
+                />
+                <span className="text-[var(--color-card-text)] opacity-80 text-sm">-{formatCurrency(discount)}</span>
+              </div>
+            </div>
+            <div className="flex justify-between items-center">
+              <label className="text-sm font-medium text-[var(--color-card-text)]">Taxas/Adicionais:</label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="number"
+                  {...register('tax', { valueAsNumber: true })}
+                  className="w-24 px-2 py-1 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm"
+                  min="0"
+                  step="0.01"
+                />
+                <span className="text-[var(--color-card-text)] opacity-80 text-sm">+{formatCurrency(tax)}</span>
+              </div>
+            </div>
+            <div className="flex justify-between items-center pt-3 border-t border-[var(--color-neutral)]/30">
+              <span className="text-base font-bold text-[var(--color-card-text)]">Total:</span>
+              <span className="text-lg font-bold text-[var(--color-accent)]">{formatCurrency(calculateTotal())}</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </Card>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/new-estimate/SuccessModal.tsx`
+
+```typescript
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle, Clipboard } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+
+interface SuccessModalProps {
+  showLinkModal: boolean;
+  generatedLink: string;
+  linkCopied: boolean;
+  copyToClipboard: () => void;
+  router: AppRouterInstance;
+}
+
+export default function SuccessModal({
+  showLinkModal,
+  generatedLink,
+  linkCopied,
+  copyToClipboard,
+  router
+}: SuccessModalProps) {
+  const modalVariants = {
+    hidden: { scale: 0.9, opacity: 0 },
+    visible: { scale: 1, opacity: 1, transition: { type: 'spring', stiffness: 300, damping: 25 } },
+    exit: { scale: 0.9, opacity: 0, transition: { duration: 0.2 } },
+  };
+
+  return (
+    <AnimatePresence>
+      {showLinkModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+          <motion.div 
+            className="bg-[var(--color-card-bg)] rounded-lg shadow-xl w-full max-w-md overflow-hidden mobile-modal"
+            variants={modalVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <div className="p-1 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)]">
+              <div className="p-5 bg-[var(--color-card-bg)] rounded-t-lg">
+                <h2 className="text-xl font-medium mb-4 flex items-center gap-2 text-[var(--color-card-text)]">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  Orçamento Criado com Sucesso
+                </h2>
+                <p className="text-[var(--color-card-text)] opacity-80 mb-4">
+                  O orçamento foi criado e está pronto para ser compartilhado com o cliente.
+                </p>
+                <div className="mb-6">
+                  <p className="text-sm font-medium text-[var(--color-card-text)] opacity-80 mb-2">
+                    Link do orçamento:
+                  </p>
+                  <div className="flex">
+                    <input
+                      type="text"
+                      value={generatedLink}
+                      readOnly
+                      className="flex-grow px-3 py-2 border border-[var(--color-neutral)]/30 rounded-l-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm"
+                    />
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={copyToClipboard}
+                      className={`px-3 py-2 rounded-r-md flex items-center gap-1 transition-colors ${
+                        linkCopied 
+                          ? 'bg-green-500 text-white' 
+                          : 'bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white'
+                      }`}
+                      title="Copiar link"
+                    >
+                      {linkCopied ? (
+                        <> 
+                          <CheckCircle size={16} />
+                          <span className="hidden sm:inline">Copiado!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Clipboard size={16} />
+                          <span className="hidden sm:inline">Copiar</span>
+                        </>
+                      )}
+                    </motion.button>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row justify-between gap-3 mobile-modal-actions">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => router.push('/dashboard/estimates')}
+                    className="px-4 py-2 border border-[var(--color-neutral)]/30 text-[var(--color-card-text)] rounded-md hover:bg-[var(--color-neutral)]/10 transition-colors"
+                  >
+                    Ver Lista
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => router.push(`/orcamento/${generatedLink.split('/').pop()}`)}
+                    className="px-4 py-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white rounded-md transition-colors"
+                  >
+                    Visualizar Orçamento
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/new-estimate/TotalsCard.tsx`
+
+```typescript
+// components/new-estimate/TotalsCard.tsx
+import { Calculator } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+import { UseFormRegister } from 'react-hook-form';
+import { EstimateFormValues } from '@/types/estimate';
+
+interface TotalsCardProps {
+  register: UseFormRegister<EstimateFormValues>;
+  calculateMaterialsSubtotal: () => number;
+  calculateServicesSubtotal: () => number;
+  calculateSubtotal: () => number;
+  discount: number;
+  tax: number;
+  calculateTotal: () => number;
+  formatCurrency: (value: number) => string;
+  isMobile: boolean;
+}
+
+export default function TotalsCard({
+  register,
+  calculateMaterialsSubtotal,
+  calculateServicesSubtotal,
+  calculateSubtotal,
+  discount,
+  tax,
+  calculateTotal,
+  formatCurrency,
+  isMobile
+}: TotalsCardProps) {
+  return (
+    <Card>
+      <div className="p-4 sm:p-6">
+        <h3 className="text-lg font-medium mb-4 flex items-center gap-2 text-[var(--color-card-text)]">
+          <Calculator size={18} className="text-[var(--color-accent)]" />
+          Totais do Orçamento
+        </h3>
+        
+        {isMobile ? (
+          <div className="space-y-3">
+            <div className="flex justify-between items-center p-3 bg-[var(--color-neutral)]/5 rounded-md">
+              <span className="font-medium text-[var(--color-card-text)]">Subtotal Materiais:</span>
+              <span className="text-[var(--color-card-text)]">{formatCurrency(calculateMaterialsSubtotal())}</span>
+            </div>
+            <div className="flex justify-between items-center p-3 bg-[var(--color-neutral)]/5 rounded-md">
+              <span className="font-medium text-[var(--color-card-text)]">Subtotal Serviços:</span>
+              <span className="text-[var(--color-card-text)]">{formatCurrency(calculateServicesSubtotal())}</span>
+            </div>
+            <div className="flex justify-between items-center p-3 bg-[var(--color-neutral)]/5 rounded-md">
+              <span className="font-medium text-[var(--color-card-text)]">Subtotal Geral:</span>
+              <span className="text-[var(--color-card-text)]">{formatCurrency(calculateSubtotal())}</span>
+            </div>
+            <div className="flex justify-between items-center p-3 rounded-md">
+              <label className="font-medium text-[var(--color-card-text)]">Desconto:</label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="number"
+                  {...register('discount', { valueAsNumber: true })}
+                  className="w-24 px-2 py-1 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm"
+                  min="0"
+                  step="0.01"
+                />
+                <span className="text-[var(--color-card-text)] opacity-80 text-sm">-{formatCurrency(discount)}</span>
+              </div>
+            </div>
+            <div className="flex justify-between items-center p-3 rounded-md">
+              <label className="font-medium text-[var(--color-card-text)]">Taxas/Adicionais:</label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="number"
+                  {...register('tax', { valueAsNumber: true })}
+                  className="w-24 px-2 py-1 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm"
+                  min="0"
+                  step="0.01"
+                />
+                <span className="text-[var(--color-card-text)] opacity-80 text-sm">+{formatCurrency(tax)}</span>
+              </div>
+            </div>
+            <div className="flex justify-between items-center p-3 bg-[var(--color-neutral)]/10 rounded-md border-t border-[var(--color-neutral)]/30">
+              <span className="text-base font-bold text-[var(--color-card-text)]">Total:</span>
+              <span className="text-lg font-bold text-[var(--color-accent)]">{formatCurrency(calculateTotal())}</span>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <table className="w-full min-w-full divide-y divide-[var(--color-neutral)]/20">
+              <tbody>
+                <tr className="bg-[var(--color-neutral)]/5">
+                  <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">Subtotal Materiais:</td>
+                  <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)] w-40">{formatCurrency(calculateMaterialsSubtotal())}</td>
+                </tr>
+                <tr className="bg-[var(--color-neutral)]/5">
+                  <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">Subtotal Serviços:</td>
+                  <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">{formatCurrency(calculateServicesSubtotal())}</td>
+                </tr>
+                <tr className="bg-[var(--color-neutral)]/5">
+                  <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">Subtotal Geral:</td>
+                  <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">{formatCurrency(calculateSubtotal())}</td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">Desconto:</td>
+                  <td className="px-3 py-3">
+                    <div className="flex justify-end items-center gap-3">
+                      <input
+                        type="number"
+                        {...register('discount', { valueAsNumber: true })}
+                        className="w-32 px-2 py-1.5 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+                        min="0"
+                        step="0.01"
+                      />
+                      <span className="text-sm text-[var(--color-card-text)] opacity-80 w-24 text-right">-{formatCurrency(discount)}</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-3 text-right font-medium text-[var(--color-card-text)]">Taxas/Adicionais:</td>
+                  <td className="px-3 py-3">
+                    <div className="flex justify-end items-center gap-3">
+                      <input
+                        type="number"
+                        {...register('tax', { valueAsNumber: true })}
+                        className="w-32 px-2 py-1.5 border border-[var(--color-neutral)]/30 rounded-md bg-[var(--color-card-bg)] text-[var(--color-card-text)] text-sm focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]/50"
+                        min="0"
+                        step="0.01"
+                      />
+                      <span className="text-sm text-[var(--color-card-text)] opacity-80 w-24 text-right">+{formatCurrency(tax)}</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr className="bg-[var(--color-neutral)]/10">
+                  <td className="px-3 py-4 text-right font-bold text-base text-[var(--color-card-text)]">Total:</td>
+                  <td className="px-3 py-4 text-right font-bold text-base text-[var(--color-accent)]">{formatCurrency(calculateTotal())}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </Card>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/settings/AdvancedSettings.tsx`
+
+```typescript
+// src/components/settings/AdvancedSettings.tsx
+'use client';
+
+import React from 'react';
+import { Card } from '@/components/ui/Card';
+import { SettingsData } from '@/types/settings';
+import { motion } from 'framer-motion';
+import { SaveButton } from './SaveButton';
+import { useSettingsData } from '@/hooks/useSettingsData';
+
+interface AdvancedSettingsProps {
+  settings: SettingsData;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+}
+
+export default function AdvancedSettings({ settings, handleChange }: AdvancedSettingsProps) {
+  const { saveSettings, saving, saved } = useSettingsData();
+  const inputVariants = {
+    focus: { scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' },
+  };
+
+  return (
+    <Card>
+      <div className="p-6 space-y-6">
+        <h3 className="text-lg font-medium border-b border-gray-200 dark:border-gray-700 pb-2">
+          Configurações Avançadas
+        </h3>
+        <div className="space-y-5">
+          <div>
+            <label htmlFor="tracking.facebookPixel" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Facebook Pixel
+            </label>
+            <motion.input
+              id="tracking.facebookPixel"
+              name="tracking.facebookPixel"
+              type="text"
+              value={settings.tracking.facebookPixel}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white transition-all duration-200"
+              whileFocus="focus"
+              variants={inputVariants}
+            />
+          </div>
+          <div>
+            <label htmlFor="tracking.tiktokPixel" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              TikTok Pixel
+            </label>
+            <motion.input
+              id="tracking.tiktokPixel"
+              name="tracking.tiktokPixel"
+              type="text"
+              value={settings.tracking.tiktokPixel}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white transition-all duration-200"
+              whileFocus="focus"
+              variants={inputVariants}
+            />
+          </div>
+          <div>
+            <label htmlFor="tracking.googleTagManager" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Google Tag Manager
+            </label>
+            <motion.input
+              id="tracking.googleTagManager"
+              name="tracking.googleTagManager"
+              type="text"
+              value={settings.tracking.googleTagManager}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white transition-all duration-200"
+              whileFocus="focus"
+              variants={inputVariants}
+            />
+          </div>
+        </div>
+        <SaveButton onSave={saveSettings} saving={saving} saved={saved} />
+      </div>
+    </Card>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/settings/AppearanceSettings.tsx`
+
+```typescript
+import React, { useEffect } from 'react';
+import { Card } from '@/components/ui/Card';
+import { Sun, Moon, Monitor } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { SettingsData, Style, IconOption } from '@/types/settings';
+import { ColorPicker } from './ColorPicker';
+import { ThemeSelector } from './ThemeSelector';
+import { ServiceEditor } from './ServiceEditor';
+import { TemplateEditor } from './TemplateEditor';
+
+interface AppearanceSettingsProps {
+  settings: SettingsData;
+  theme: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  handleDashboardThemeChange: () => void;
+  updateThemeField: (theme: 'light' | 'dark', field: string, value: string) => void;
+  updateHeroStyle: (field: 'titleStyles' | 'subtitleStyles', index: number, styleField: keyof Style, value: any) => void;
+  updateCtaStyle: (field: keyof Style, value: any) => void;
+  updateService: (index: number, field: string, value: string) => void;
+  addTemplate: () => void;
+  updateTemplateStyle: (index: number, key: string, value: string) => void;
+  newTemplateName: string;
+  setNewTemplateName: (name: string) => void;
+  newTemplateStyles: { [key: string]: string };
+  setNewTemplateStyles: (styles: { [key: string]: string }) => void;
+  titleParts: string[];
+  subtitleParts: string[];
+  iconOptions: IconOption[];
+}
+
+export const AppearanceSettings: React.FC<AppearanceSettingsProps> = ({
+  settings,
+  theme,
+  handleChange,
+  handleDashboardThemeChange,
+  updateThemeField,
+  updateHeroStyle,
+  updateCtaStyle,
+  updateService,
+  addTemplate,
+  updateTemplateStyle,
+  newTemplateName,
+  setNewTemplateName,
+  newTemplateStyles,
+  setNewTemplateStyles,
+  titleParts,
+  subtitleParts,
+  iconOptions,
+}) => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: 'spring', stiffness: 300, damping: 24 },
+    },
+  };
+
+  // Garantir que titleStyles seja um array, mesmo que vazio
+  const safeTitleStyles = settings.content.hero.titleStyles || [];
+
+  // Função para aplicar as cores ao DOM
+  const applyThemeColors = (themeType: 'light' | 'dark') => {
+    const root = document.documentElement;
+    const themeColors = settings.themes[themeType];
+    Object.entries(themeColors).forEach(([key, value]) => {
+      root.style.setProperty(`--color-${key}`, value);
+    });
+  };
+
+  // Atualizar as cores no DOM quando o tema atual mudar
+  useEffect(() => {
+    applyThemeColors(theme as 'light' | 'dark');
+  }, [settings.themes.light, settings.themes.dark, theme]);
+
+  // Sobrescrever updateThemeField para aplicar as mudanças imediatamente
+  const handleUpdateThemeField = (themeType: 'light' | 'dark', field: string, value: string) => {
+    updateThemeField(themeType, field, value);
+    const root = document.documentElement;
+    root.style.setProperty(`--color-${field}`, value);
+  };
+
+  return (
+    <Card>
+      <div className="p-6 space-y-6">
+        <h3 className="text-lg font-medium border-b border-gray-200 dark:border-gray-700 pb-2">
+          Configurações de Aparência
+        </h3>
+        <motion.div 
+          className="space-y-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div 
+            className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg"
+            variants={itemVariants}
+          >
+            <h4 className="text-md font-medium mb-4">Tema do Dashboard</h4>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                {theme === 'light' ? <Sun size={20} className="text-yellow-500" /> : <Moon size={20} className="text-blue-500" />}
+                <span className="text-sm">
+                  O dashboard está usando o tema {theme === 'light' ? 'claro' : 'escuro'}
+                </span>
+              </div>
+              <motion.button
+                onClick={handleDashboardThemeChange}
+                className="px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Alternar para {theme === 'light' ? 'escuro' : 'claro'}
+              </motion.button>
+            </div>
+          </motion.div>
+
+          <ThemeSelector
+            defaultTheme={settings.defaultTheme}
+            handleChange={handleChange}
+            variants={itemVariants}
+          />
+
+          <motion.div variants={itemVariants}>
+            <h4 className="text-md font-medium mb-4">Estilos do Tema Claro</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {Object.entries(settings.themes.light).map(([key, value], index) => (
+                <ColorPicker
+                  key={key}
+                  label={key}
+                  value={value}
+                  onChange={(newValue) => handleUpdateThemeField('light', key, newValue)}
+                  delay={index * 0.05}
+                />
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <h4 className="text-md font-medium mb-4">Estilos do Tema Escuro</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {Object.entries(settings.themes.dark).map(([key, value], index) => (
+                <ColorPicker
+                  key={key}
+                  label={key}
+                  value={value}
+                  onChange={(newValue) => handleUpdateThemeField('dark', key, newValue)}
+                  delay={index * 0.05}
+                />
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <h4 className="text-md font-medium mb-4">Estilos do Hero - Título</h4>
+            <div className="space-y-4">
+              {titleParts.map((part, index) => (
+                <motion.div 
+                  key={index} 
+                  className="p-3 border border-gray-200 dark:border-gray-700 rounded-lg"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + index * 0.1 }}
+                >
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Estilo para "{part}":
+                  </label>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <input
+                      type="color"
+                      value={safeTitleStyles[index]?.color || '#000000'}
+                      onChange={(e) => updateHeroStyle('titleStyles', index, 'color', e.target.value)}
+                      className="w-10 h-10 rounded-md cursor-pointer"
+                    />
+                    <label className="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        checked={safeTitleStyles[index]?.bold || false}
+                        onChange={(e) => updateHeroStyle('titleStyles', index, 'bold', e.target.checked)}
+                        className="rounded border-gray-300 text-accent focus:ring-accent"
+                      />
+                      <span className="ml-2 font-bold">Negrito</span>
+                    </label>
+                    <label className="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        checked={safeTitleStyles[index]?.italic || false}
+                        onChange={(e) => updateHeroStyle('titleStyles', index, 'italic', e.target.checked)}
+                        className="rounded border-gray-300 text-accent focus:ring-accent"
+                      />
+                      <span className="ml-2 italic">Itálico</span>
+                    </label>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <h4 className="text-md font-medium mb-4">Estilos do Hero - Subtítulo</h4>
+            <div className="space-y-2">
+              {subtitleParts.slice(0, 3).map((part, index) => (
+                <motion.div 
+                  key={index} 
+                  className="p-3 border border-gray-200 dark:border-gray-700 rounded-lg"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + index * 0.1 }}
+                >
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Estilo para "{part + (index < 2 ? '...' : '')}":
+                  </label>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <input
+                      type="color"
+                      value={settings.content.hero.subtitleStyles[index]?.color || '#000000'}
+                      onChange={(e) => updateHeroStyle('subtitleStyles', index, 'color', e.target.value)}
+                      className="w-10 h-10 rounded-md cursor-pointer"
+                    />
+                    <label className="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        checked={settings.content.hero.subtitleStyles[index]?.bold || false}
+                        onChange={(e) => updateHeroStyle('subtitleStyles', index, 'bold', e.target.checked)}
+                        className="rounded border-gray-300 text-accent focus:ring-accent"
+                      />
+                      <span className="ml-2 font-bold">Negrito</span>
+                    </label>
+                    <label className="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        checked={settings.content.hero.subtitleStyles[index]?.italic || false}
+                        onChange={(e) => updateHeroStyle('subtitleStyles', index, 'italic', e.target.checked)}
+                        className="rounded border-gray-300 text-accent focus:ring-accent"
+                      />
+                      <span className="ml-2 italic">Itálico</span>
+                    </label>
+                  </div>
+                </motion.div>
+              ))}
+              {subtitleParts.length > 3 && (
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  + {subtitleParts.length - 3} palavras adicionais (configure as primeiras para definir o estilo geral)
+                </p>
+              )}
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <h4 className="text-md font-medium mb-4">Estilos do Hero - CTA</h4>
+            <div className="p-3 border border-gray-200 dark:border-gray-700 rounded-lg">
+              <div className="flex flex-wrap items-center gap-3">
+                <input
+                  type="color"
+                  value={settings.content.hero.ctaStyles?.color || '#FFFFFF'}
+                  onChange={(e) => updateCtaStyle('color', e.target.value)}
+                  className="w-10 h-10 rounded-md cursor-pointer"
+                />
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={settings.content.hero.ctaStyles?.bold || false}
+                    onChange={(e) => updateCtaStyle('bold', e.target.checked)}
+                    className="rounded border-gray-300 text-accent focus:ring-accent"
+                  />
+                  <span className="ml-2 font-bold">Negrito</span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={settings.content.hero.ctaStyles?.italic || false}
+                    onChange={(e) => updateCtaStyle('italic', e.target.checked)}
+                    className="rounded border-gray-300 text-accent focus:ring-accent"
+                  />
+                  <span className="ml-2 italic">Itálico</span>
+                </label>
+              </div>
+              <div className="mt-3 p-2 bg-accent rounded-md inline-block">
+                <span style={{ 
+                  color: settings.content.hero.ctaStyles?.color || '#FFFFFF',
+                  fontWeight: settings.content.hero.ctaStyles?.bold ? 'bold' : 'normal',
+                  fontStyle: settings.content.hero.ctaStyles?.italic ? 'italic' : 'normal'
+                }}>
+                  {settings.content.hero.ctaText}
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+          <ServiceEditor
+            services={settings.content.services}
+            updateService={updateService}
+            iconOptions={iconOptions}
+            variants={itemVariants}
+          />
+
+          <TemplateEditor
+            activeTemplate={settings.activeTemplate}
+            templates={settings.templates}
+            newTemplateName={newTemplateName}
+            newTemplateStyles={newTemplateStyles}
+            handleChange={handleChange}
+            setNewTemplateName={setNewTemplateName}
+            setNewTemplateStyles={setNewTemplateStyles}
+            addTemplate={addTemplate}
+            updateTemplateStyle={updateTemplateStyle}
+            variants={itemVariants}
+          />
+        </motion.div>
+      </div>
+    </Card>
+  );
+};
+```
+
+
+---
+### 📄 Arquivo: `src/components/settings/ColorPicker.tsx`
+
+```typescript
+import React from 'react';
+import { motion } from 'framer-motion';
+
+interface ColorPickerProps {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  delay?: number;
+}
+
+export const ColorPicker: React.FC<ColorPickerProps> = ({ label, value, onChange, delay = 0 }) => {
+  return (
+    <motion.div 
+      className="flex items-center space-x-2 mb-2"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay }}
+    >
+      <label className="text-sm font-medium text-gray-700 dark:text-gray-300 min-w-[80px]">{label}:</label>
+      <div className="flex items-center space-x-2">
+        <motion.div
+          className="relative w-10 h-10 rounded-md overflow-hidden border border-gray-300 dark:border-gray-600"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <input
+            type="color"
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            className="absolute inset-0 w-full h-full cursor-pointer opacity-0"
+          />
+          <div 
+            className="w-full h-full" 
+            style={{ backgroundColor: value }}
+          />
+        </motion.div>
+        <motion.input
+          type="text"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className="w-24 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white text-sm"
+          whileFocus={{ scale: 1.03, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
+        />
+      </div>
+    </motion.div>
+  );
+};
+```
+
+
+---
+### 📄 Arquivo: `src/components/settings/ContactSettings.tsx`
+
+```typescript
+// src/components/settings/ContactSettings.tsx
+'use client';
+
+import React from 'react';
+import { Card } from '@/components/ui/Card';
+import { SettingsData } from '@/types/settings';
+import { motion } from 'framer-motion';
+
+interface ContactSettingsProps {
+  settings: SettingsData;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+}
+
+export default function ContactSettings({ settings, handleChange }: ContactSettingsProps) {
+  const inputVariants = {
+    focus: { scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' },
+  };
+
+  return (
+    <Card>
+      <div className="p-6 space-y-6">
+        <h3 className="text-lg font-medium border-b border-gray-200 dark:border-gray-700 pb-2">
+          Configurações de Contato
+        </h3>
+        <div className="space-y-5">
+          <div>
+            <label htmlFor="contactInfo.email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Email
+            </label>
+            <motion.input
+              id="contactInfo.email"
+              name="contactInfo.email"
+              type="email"
+              value={settings.contactInfo.email}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white transition-all duration-200"
+              whileFocus="focus"
+              variants={inputVariants}
+            />
+          </div>
+          <div>
+            <label htmlFor="contactInfo.phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Telefone
+            </label>
+            <motion.input
+              id="contactInfo.phone"
+              name="contactInfo.phone"
+              type="text"
+              value={settings.contactInfo.phone}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white transition-all duration-200"
+              whileFocus="focus"
+              variants={inputVariants}
+            />
+          </div>
+          <div>
+            <label htmlFor="contactInfo.address" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Endereço
+            </label>
+            <motion.input
+              id="contactInfo.address"
+              name="contactInfo.address"
+              type="text"
+              value={settings.contactInfo.address}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white transition-all duration-200"
+              whileFocus="focus"
+              variants={inputVariants}
+            />
+          </div>
+        </div>
+      </div>
+    </Card>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/settings/GeneralSettings.tsx`
+
+```typescript
+// src/components/settings/GeneralSettings.tsx
+'use client';
+
+import React from 'react';
+import { Card } from '@/components/ui/Card';
+import { SettingsData } from '@/types/settings';
+import { motion } from 'framer-motion';
+
+interface GeneralSettingsProps {
+  settings: SettingsData;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+}
+
+export default function GeneralSettings({ settings, handleChange }: GeneralSettingsProps) {
+  const inputVariants = {
+    focus: { scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' },
+  };
+
+  return (
+    <Card>
+      <div className="p-6 space-y-6">
+        <h3 className="text-lg font-medium border-b border-gray-200 dark:border-gray-700 pb-2">
+          Configurações Gerais
+        </h3>
+        <div className="space-y-5">
+          <div>
+            <label htmlFor="siteName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Nome do Site
+            </label>
+            <motion.input
+              id="siteName"
+              name="siteName"
+              type="text"
+              value={settings.siteName}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white transition-all duration-200"
+              whileFocus="focus"
+              variants={inputVariants}
+            />
+          </div>
+          <div>
+            <label htmlFor="siteDescription" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Descrição do Site
+            </label>
+            <motion.textarea
+              id="siteDescription"
+              name="siteDescription"
+              value={settings.siteDescription}
+              onChange={handleChange}
+              rows={3}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white transition-all duration-200"
+              whileFocus="focus"
+              variants={inputVariants}
+            />
+            <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+              Essa descrição é usada em meta tags para SEO.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Card>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/settings/SaveButton.tsx`
+
+```typescript
+import React from 'react';
+import { Save, Loader2, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+interface SaveButtonProps {
+  onClick: () => Promise<void>;
+  disabled: boolean;
+  saving: boolean;
+  saved: boolean;
+}
+
+export const SaveButton: React.FC<SaveButtonProps> = ({ onClick, disabled, saving, saved }) => {
+  return (
+    <motion.button
+      onClick={onClick}
+      disabled={disabled}
+      className="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-md flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+    >
+      {saving ? (
+        <>
+          <Loader2 size={16} className="animate-spin" />
+          <span>Salvando...</span>
+        </>
+      ) : saved ? (
+        <>
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.2 }}
+          >
+            <CheckCircle size={16} />
+          </motion.div>
+          <span>Salvo!</span>
+        </>
+      ) : (
+        <>
+          <Save size={16} />
+          <span>Salvar Alterações</span>
+        </>
+      )}
+    </motion.button>
+  );
+};
+```
+
+
+---
+### 📄 Arquivo: `src/components/settings/ServiceEditor.tsx`
+
+```typescript
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Service, IconOption } from '@/types/settings';
+
+interface ServiceEditorProps {
+  services: Service[];
+  updateService: (index: number, field: string, value: string) => void;
+  iconOptions: IconOption[];
+  variants?: any;
+}
+
+export const ServiceEditor: React.FC<ServiceEditorProps> = ({ 
+  services, 
+  updateService, 
+  iconOptions,
+  variants
+}) => {
+  return (
+    <motion.div variants={variants}>
+      <h4 className="text-md font-medium mb-4">Serviços</h4>
+      <div className="space-y-6">
+        {services.map((service, index) => (
+          <motion.div 
+            key={index} 
+            className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 + index * 0.1 }}
+            whileHover={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' }}
+          >
+            <div className="flex items-center mb-3">
+              <div className="w-8 h-8 flex items-center justify-center mr-2 bg-accent/10 text-accent rounded-full">
+                {iconOptions.find(opt => opt.name === service.icon)?.icon}
+              </div>
+              <h5 className="font-medium">Serviço {index + 1}</h5>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Título
+                </label>
+                <motion.input
+                  type="text"
+                  value={service.title}
+                  onChange={(e) => updateService(index, 'title', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
+                  whileFocus={{ scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Ícone
+                </label>
+                <motion.select
+                  value={service.icon}
+                  onChange={(e) => updateService(index, 'icon', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
+                  whileFocus={{ scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
+                >
+                  {iconOptions.map(opt => (
+                    <option key={opt.name} value={opt.name}>{opt.name}</option>
+                  ))}
+                </motion.select>
+              </div>
+            </div>
+            
+            <div className="mt-3">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Descrição
+              </label>
+              <motion.input
+                type="text"
+                value={service.desc}
+                onChange={(e) => updateService(index, 'desc', e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
+                whileFocus={{ scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
+              />
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+```
+
+
+---
+### 📄 Arquivo: `src/components/settings/SettingsSidebar.tsx`
+
+```typescript
+// src/components/settings/SettingsSidebar.tsx
+'use client';
+
+import { useState } from 'react';
+import { Settings, Mail, Shield } from 'lucide-react';
+
+export default function SettingsSidebar({ activeTab, setActiveTab }) {
+  const tabs = [
+    { id: 'general', label: 'Geral', icon: <Settings size={20} /> },
+    { id: 'contact', label: 'Contato', icon: <Mail size={20} /> },
+    { id: 'advanced', label: 'Avançado', icon: <Shield size={20} /> },
+  ];
+
+  return (
+    <div className="w-64 bg-[var(--color-card-bg)] p-4 border-r border-[var(--color-gray)]">
+      <ul className="space-y-2">
+        {tabs.map((tab) => (
+          <li key={tab.id}>
+            <button
+              onClick={() => setActiveTab(tab.id)}
+              className={`w-full flex items-center p-2 rounded-lg text-[var(--color-card-text)] ${
+                activeTab === tab.id ? 'bg-[var(--color-accent)] text-white' : 'hover:bg-[var(--color-paralel)]'
+              }`}
+            >
+              {tab.icon}
+              <span className="ml-2">{tab.label}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/settings/TemplateEditor.tsx`
+
+```typescript
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Template } from '@/types/settings';
+import { PlusCircle } from 'lucide-react';
+
+interface TemplateEditorProps {
+  activeTemplate: string;
+  templates: Template[];
+  newTemplateName: string;
+  newTemplateStyles: { [key: string]: string };
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  setNewTemplateName: (name: string) => void;
+  setNewTemplateStyles: (styles: { [key: string]: string }) => void;
+  addTemplate: () => void;
+  updateTemplateStyle: (index: number, key: string, value: string) => void;
+  variants?: any;
+}
+
+export const TemplateEditor: React.FC<TemplateEditorProps> = ({
+  activeTemplate,
+  templates,
+  newTemplateName,
+  newTemplateStyles,
+  handleChange,
+  setNewTemplateName,
+  setNewTemplateStyles,
+  addTemplate,
+  updateTemplateStyle,
+  variants
+}) => {
+  return (
+    <motion.div variants={variants}>
+      <h4 className="text-md font-medium mb-4">Templates</h4>
+      
+      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        Template Ativo:
+      </label>
+      <motion.select
+        name="activeTemplate"
+        value={activeTemplate}
+        onChange={handleChange}
+        className="mb-6 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
+        whileFocus={{ scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
+      >
+        {templates.map(template => (
+          <option key={template.name} value={template.name}>{template.name}</option>
+        ))}
+      </motion.select>
+
+      <div className="mb-8">
+        <h5 className="text-sm font-medium mb-3">Templates Existentes</h5>
+        <div className="space-y-4">
+          {templates.map((template, index) => (
+            <motion.div 
+              key={template.name}
+              className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 + index * 0.1 }}
+              whileHover={{ 
+                boxShadow: template.name === activeTemplate ? 
+                  '0 0 0 2px rgba(43, 141, 154, 0.6)' : 
+                  '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' 
+              }}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <h6 className="font-medium flex items-center">
+                  {template.name === activeTemplate && (
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                  )}
+                  {template.name}
+                </h6>
+                {template.name === activeTemplate && (
+                  <span className="text-xs text-green-500 font-medium">Ativo</span>
+                )}
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {Object.entries(template.styles).map(([key, value]) => (
+                  <div key={key} className="space-y-1">
+                    <label className="block text-xs font-medium text-gray-600 dark:text-gray-400">
+                      {key}:
+                    </label>
+                    <motion.input
+                      type="text"
+                      value={value}
+                      onChange={(e) => updateTemplateStyle(index, key, e.target.value)}
+                      className="w-full px-2 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
+                      whileFocus={{ scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <motion.div 
+        className="p-4 border border-dashed border-gray-300 dark:border-gray-600 rounded-lg"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
+        <h5 className="text-sm font-medium mb-3 flex items-center">
+          <PlusCircle size={16} className="mr-2 text-accent" />
+          Adicionar Novo Template
+        </h5>
+        
+        <div className="space-y-3">
+          <motion.input
+            type="text"
+            value={newTemplateName}
+            onChange={(e) => setNewTemplateName(e.target.value)}
+            placeholder="Nome do Template"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
+            whileFocus={{ scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div>
+              <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                Hero Background:
+              </label>
+              <motion.input
+                type="text"
+                value={newTemplateStyles['hero-bg']}
+                onChange={(e) => setNewTemplateStyles({ ...newTemplateStyles, 'hero-bg': e.target.value })}
+                placeholder="Ex.: bg-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
+                whileFocus={{ scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
+              />
+            </div>
+            
+            <div>
+              <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                Tamanho do Texto:
+              </label>
+              <motion.input
+                type="text"
+                value={newTemplateStyles['text-size']}
+                onChange={(e) => setNewTemplateStyles({ ...newTemplateStyles, 'text-size': e.target.value })}
+                placeholder="Ex.: text-4xl"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
+                whileFocus={{ scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
+              />
+            </div>
+          </div>
+          
+          <motion.button
+            type="button"
+            onClick={addTemplate}
+            disabled={!newTemplateName}
+            className="mt-3 px-4 py-2 bg-accent text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Adicionar Template
+          </motion.button>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+```
+
+
+---
+### 📄 Arquivo: `src/components/ui/Button.tsx`
+
+```typescript
+import React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
+
+const buttonVariants = cva(
+  'inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  {
+    variants: {
+      variant: {
+        primary: 'bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)]',
+        secondary: 'bg-[var(--color-secondary)] text-white hover:bg-[var(--color-secondary)]/90',
+        outline: 'border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)]/10',
+        danger: 'bg-[var(--color-error)] text-white hover:bg-[var(--color-error)]/90',
+        success: 'bg-[var(--color-success)] text-white hover:bg-[var(--color-success)]/90',
+      },
+      size: {
+        sm: 'h-8 px-3 text-sm',
+        md: 'h-10 px-4 text-base',
+        lg: 'h-12 px-6 text-lg',
+      },
+    },
+    defaultVariants: {
+      variant: 'primary',
+      size: 'md',
+    },
+  }
+);
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  isLoading?: boolean;
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, isLoading, children, disabled, ...props }, ref) => {
+    return (
+      <button
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        disabled={disabled || isLoading}
+        {...props}
+      >
+        {isLoading ? (
+          <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+        ) : null}
+        {children}
+      </button>
+    );
+  }
+);
+
+Button.displayName = 'Button';
+
+export { Button, buttonVariants };
+```
+
+
+---
+### 📄 Arquivo: `src/components/ui/Card.tsx`
+
+```typescript
 import { ReactNode } from 'react';
 
 interface CardProps {
@@ -9259,9 +12793,11 @@ export function Heading({ title, description }: HeadingProps) {
 }
 ```
 
-      - 📄 Heading.tsx
-      
-```tsx
+
+---
+### 📄 Arquivo: `src/components/ui/Heading.tsx`
+
+```typescript
 export function Heading({ title, description }: { title: string; description: string }) {
     return (
       <div>
@@ -9276,9 +12812,84 @@ export function Heading({ title, description }: { title: string; description: st
   }
 ```
 
-      - 📄 LoadingSpinner.tsx
-      
-```tsx
+
+---
+### 📄 Arquivo: `src/components/ui/Input.tsx`
+
+```typescript
+import React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
+
+const inputVariants = cva(
+  'w-full rounded-lg border border-[var(--color-neutral)]/30 bg-white px-4 py-2 text-[var(--color-text)] shadow-sm transition-colors placeholder:text-[var(--color-text)]/50 focus:border-[var(--color-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20 disabled:cursor-not-allowed disabled:opacity-50',
+  {
+    variants: {
+      size: {
+        sm: 'h-8 text-sm',
+        md: 'h-10 text-base',
+        lg: 'h-12 text-lg',
+      },
+      error: {
+        true: 'border-[var(--color-error)] focus:border-[var(--color-error)] focus:ring-[var(--color-error)]/20',
+      },
+    },
+    defaultVariants: {
+      size: 'md',
+    },
+  }
+);
+
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement>,
+    VariantProps<typeof inputVariants> {
+  error?: boolean;
+  errorMessage?: string;
+  label?: string;
+  helperText?: string;
+}
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, size, error, errorMessage, label, helperText, ...props }, ref) => {
+    return (
+      <div className="w-full space-y-2">
+        {label && (
+          <label className="block text-sm font-medium text-[var(--color-text)]">
+            {label}
+          </label>
+        )}
+        <input
+          className={cn(inputVariants({ size, error, className }))}
+          ref={ref}
+          {...props}
+        />
+        {(error && errorMessage) || helperText ? (
+          <p
+            className={cn(
+              'text-sm',
+              error
+                ? 'text-[var(--color-error)]'
+                : 'text-[var(--color-text)]/70'
+            )}
+          >
+            {error ? errorMessage : helperText}
+          </p>
+        ) : null}
+      </div>
+    );
+  }
+);
+
+Input.displayName = 'Input';
+
+export { Input, inputVariants };
+```
+
+
+---
+### 📄 Arquivo: `src/components/ui/LoadingSpinner.tsx`
+
+```typescript
 export function LoadingSpinner() {
     return (
       <div className="flex items-center justify-center h-64">
@@ -9286,12 +12897,168 @@ export function LoadingSpinner() {
       </div>
     );
   }
-  
 ```
 
-    - 📄 About.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/components/ui/Modal.tsx`
+
+```typescript
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { cn } from '@/lib/utils';
+import { modalVariants } from '@/lib/motion-variants';
+
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title?: string;
+  children: React.ReactNode;
+  className?: string;
+  showCloseButton?: boolean;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+}
+
+const sizeClasses = {
+  sm: 'max-w-sm',
+  md: 'max-w-md',
+  lg: 'max-w-lg',
+  xl: 'max-w-xl',
+};
+
+const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  title,
+  children,
+  className,
+  showCloseButton = true,
+  size = 'md',
+}) => {
+  React.useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, onClose]);
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={modalVariants.backdrop}
+            className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+            onClick={onClose}
+          />
+
+          {/* Modal */}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={modalVariants.modal}
+            className={cn(
+              'fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2',
+              sizeClasses[size],
+              'w-full p-4 sm:p-6'
+            )}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div
+              className={cn(
+                'relative rounded-2xl bg-white p-6 shadow-xl',
+                className
+              )}
+            >
+              {/* Header */}
+              {(title || showCloseButton) && (
+                <div className="mb-4 flex items-center justify-between">
+                  {title && (
+                    <h2 className="text-xl font-semibold text-[var(--color-text)]">
+                      {title}
+                    </h2>
+                  )}
+                  {showCloseButton && (
+                    <button
+                      onClick={onClose}
+                      className="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-full text-[var(--color-text)]/70 hover:bg-[var(--color-neutral)]/10 hover:text-[var(--color-text)]"
+                      aria-label="Fechar"
+                    >
+                      <svg
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+              )}
+
+              {/* Content */}
+              <div className="relative">{children}</div>
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default Modal;
+```
+
+
+---
+### 📄 Arquivo: `src/components/ui/Toaster.tsx`
+
+```typescript
+'use client';
+
+import { Toaster as Sonner } from 'sonner';
+
+export function Toaster() {
+  return (
+    <Sonner
+      position="top-right"
+      toastOptions={{
+        style: {
+          background: 'var(--color-card-bg)',
+          color: 'var(--color-card-text)',
+          border: '1px solid var(--color-neutral)',
+        },
+      }}
+    />
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/About.tsx`
+
+```typescript
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Clock, MapPin, CheckCircle2, ShieldCheck } from 'lucide-react';
@@ -9319,7 +13086,7 @@ const About: React.FC = () => {
     <section
       id="about"
       ref={sectionRef}
-      className="py-16 sm:py-20 bg-[var(--color-gray)] dark:bg-[var(--color-primary)] relative"
+      className="py-16 sm:py-20 bg-[var(--color-light)] dark:bg-[var(--color-dark)] relative"
     >
       <div className="absolute right-0 w-64 h-64 bg-[var(--color-accent)]/5 rounded-full blur-3xl -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-[var(--color-secondary)]/5 rounded-full blur-3xl translate-y-1/3"></div>
@@ -9346,7 +13113,7 @@ const About: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[var(--color-text)] tracking-tight"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[var(--color-text)] dark:text-[var(--color-text-dark)] tracking-tight"
             >
               Soluções de Confiança para sua Casa
             </motion.h2>
@@ -9355,7 +13122,7 @@ const About: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg mb-6 text-[var(--color-text)] leading-relaxed"
+              className="text-lg mb-6 text-[var(--color-text)] dark:text-[var(--color-text-dark)] leading-relaxed"
             >
               <span className="font-medium text-[var(--color-accent)]">FH Resolve</span> oferece serviços
               profissionais de manutenção residencial em Florianópolis. Atendemos
@@ -9366,7 +13133,7 @@ const About: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg mb-8 text-[var(--color-text)] leading-relaxed"
+              className="text-lg mb-8 text-[var(--color-text)] dark:text-[var(--color-text-dark)] leading-relaxed"
             >
               Especializado em resolver problemas do dia a dia com rapidez e eficiência para manter
               sua casa em perfeito estado.
@@ -9376,12 +13143,12 @@ const About: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex items-start gap-4 mb-8 p-4 bg-[var(--color-light)] dark:bg-[var(--color-neutral)]/20 rounded-lg"
+              className="flex items-start gap-4 mb-8 p-4 bg-white dark:bg-[var(--color-neutral)]/10 rounded-lg shadow-sm dark:shadow-none"
             >
               <ShieldCheck className="h-10 w-10 text-[var(--color-accent)] flex-shrink-0" />
               <div>
-                <h3 className="font-medium text-lg text-[var(--color-text)]">Compromisso com Qualidade</h3>
-                <p className="text-[var(--color-text)]/80">
+                <h3 className="font-medium text-lg text-[var(--color-text)] dark:text-[var(--color-text-dark)]">Compromisso com Qualidade</h3>
+                <p className="text-[var(--color-text)]/80 dark:text-[var(--color-text-dark)]/80">
                   Cada serviço é realizado com excelência e garantia de satisfação
                 </p>
               </div>
@@ -9393,7 +13160,7 @@ const About: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="mb-8"
             >
-              <h3 className="font-medium text-lg mb-4 text-[var(--color-text)]">
+              <h3 className="font-medium text-lg mb-4 text-[var(--color-text)] dark:text-[var(--color-text-dark)]">
                 Por que nos escolher?
               </h3>
               <ul className="space-y-3">
@@ -9406,7 +13173,7 @@ const About: React.FC = () => {
                     className="flex items-center gap-3"
                   >
                     <CheckCircle2 size={18} className="text-[var(--color-accent)]" />
-                    <span className="text-[var(--color-text)]">
+                    <span className="text-[var(--color-text)] dark:text-[var(--color-text-dark)]">
                       {benefit}
                     </span>
                   </motion.li>
@@ -9422,14 +13189,14 @@ const About: React.FC = () => {
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
                   transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
                   whileHover={{ y: -5 }}
-                  className="p-4 rounded-lg bg-[var(--color-card-bg)] shadow-sm border border-[var(--color-neutral)]/30 dark:border-[var(--color-neutral)]/20"
+                  className="p-4 rounded-lg bg-white dark:bg-[var(--color-neutral)]/10 shadow-sm border border-[var(--color-neutral)]/10 dark:border-[var(--color-neutral)]/20"
                 >
                   <div className="flex flex-col items-center text-center">
                     <div className="p-2 rounded-full bg-[var(--color-accent)]/10 mb-2">
                       <div className="text-[var(--color-accent)]">{item.icon}</div>
                     </div>
-                    <h3 className="font-medium text-[var(--color-card-text)]">{item.title}</h3>
-                    <p className="text-sm text-[var(--color-card-text)]/80">{item.desc}</p>
+                    <h3 className="font-medium text-[var(--color-text)] dark:text-[var(--color-text-dark)]">{item.title}</h3>
+                    <p className="text-sm text-[var(--color-text)]/80 dark:text-[var(--color-text-dark)]/80">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -9444,7 +13211,7 @@ const About: React.FC = () => {
             className="relative order-1 md:order-2"
           >
             <div className="relative">
-              <div className="aspect-video sm:aspect-square rounded-lg overflow-hidden shadow-lg border border-[var(--color-neutral)]/20 dark:border-[var(--color-neutral)]/10">
+              <div className="aspect-video sm:aspect-square rounded-lg overflow-hidden shadow-lg border border-[var(--color-neutral)]/10 dark:border-[var(--color-neutral)]/20">
                 <div className="absolute inset-0 bg-[var(--color-accent)]/5 dark:bg-[var(--color-accent)]/10 z-10"></div>
                 <Image
                   src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -9452,7 +13219,7 @@ const About: React.FC = () => {
                   width={800}
                   height={600}
                   className="w-full h-full object-cover transition-transform duration-700"
-                  loading="lazy" // Alterado de priority para lazy, pois não é a primeira seção
+                  loading="lazy"
                 />
               </div>
 
@@ -9462,7 +13229,7 @@ const About: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 z-10"
               >
-                <div className="relative bg-[var(--color-accent)] text-[var(--color-text-light)] p-3 sm:p-4 rounded-lg shadow-lg">
+                <div className="relative bg-[var(--color-accent)] text-white p-3 sm:p-4 rounded-lg shadow-lg">
                   <div className="text-center">
                     <p className="font-bold text-lg sm:text-xl">+15</p>
                     <p className="text-xs sm:text-sm">anos de experiência</p>
@@ -9479,7 +13246,7 @@ const About: React.FC = () => {
             >
               <a
                 href="#contact"
-                className="block w-full text-center py-3 px-4 bg-[var(--color-accent)] text-[var(--color-text-light)] rounded-md font-medium hover:bg-[var(--color-accent)]/90 transition-colors shadow-sm"
+                className="block w-full text-center py-3 px-4 bg-[var(--color-accent)] text-white rounded-md font-medium hover:bg-[var(--color-accent)]/90 transition-colors shadow-sm"
               >
                 Solicitar orçamento
               </a>
@@ -9494,9 +13261,11 @@ const About: React.FC = () => {
 export default About;
 ```
 
-    - 📄 Benefits.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/components/Benefits.tsx`
+
+```typescript
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, Clock, Zap, Droplet, Wrench, CreditCard, ArrowRight, X, ChevronRight, MapPin, Navigation, AlertTriangle } from 'lucide-react';
@@ -9518,32 +13287,39 @@ interface ServiceDetailsProps {
 
 // Coordenadas de Ratones, Florianópolis
 const RATONES_COORDS = {
-  lat: -27.5132, 
+  lat: -27.5132,
   lng: -48.4618
 };
 
 // Raio de cobertura sem taxa adicional (em km)
-const COVERAGE_RADIUS = 20;
+const COVERAGE_RADIUS = 15;
+// Taxa adicional por km
+const ADDITIONAL_PRICE_PER_KM = 10;
+
+// Valor mínimo para serviços em Ratones
+const MINIMUM_PRICE = 150;
+// Componentes de detalhes do serviço
 
 const Benefits: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { once: true, amount: 0.2 });
   const [selectedService, setSelectedService] = useState<ServiceDetailsProps | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [userLocation, setUserLocation] = useState<{lat: number, lng: number} | null>(null);
+  const [userLocation, setUserLocation] = useState<{ lat: number, lng: number } | null>(null);
   const [distance, setDistance] = useState<number | null>(null);
   const [locationError, setLocationError] = useState<string | null>(null);
   const [isCheckingLocation, setIsCheckingLocation] = useState(false);
+  const isDarkMode = false;
 
   // Detectar dispositivo móvel
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 640);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => {
       window.removeEventListener('resize', checkMobile);
     };
@@ -9554,11 +13330,11 @@ const Benefits: React.FC = () => {
     const R = 6371; // Raio da Terra em km
     const dLat = (lat2 - lat1) * Math.PI / 180;
     const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = 
-      Math.sin(dLat/2) * Math.sin(dLat/2) +
-      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
-      Math.sin(dLon/2) * Math.sin(dLon/2); 
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distance = R * c; // Distância em km
     return Math.round(distance * 10) / 10; // Arredondar para uma casa decimal
   };
@@ -9567,7 +13343,7 @@ const Benefits: React.FC = () => {
   const getUserLocation = () => {
     setIsCheckingLocation(true);
     setLocationError(null);
-    
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -9576,13 +13352,13 @@ const Benefits: React.FC = () => {
             lng: position.coords.longitude
           };
           setUserLocation(userCoords);
-          
+
           // Calcular distância até Ratones
           const dist = calculateDistance(
             userCoords.lat, userCoords.lng,
             RATONES_COORDS.lat, RATONES_COORDS.lng
           );
-          
+
           setDistance(dist);
           setIsCheckingLocation(false);
         },
@@ -9591,7 +13367,7 @@ const Benefits: React.FC = () => {
           setLocationError("Não foi possível obter sua localização. Verifique as permissões do navegador.");
           setIsCheckingLocation(false);
         },
-        { 
+        {
           enableHighAccuracy: true,
           timeout: 10000,
           maximumAge: 0
@@ -9605,78 +13381,135 @@ const Benefits: React.FC = () => {
 
   // Dados expandidos para cada serviço com valores corrigidos
   const benefitsData = [
-    { 
-      icon: <ShieldCheck className="h-7 w-7" />, 
-      title: 'Confiabilidade', 
+    {
+      icon: <ShieldCheck className="h-7 w-7" />,
+      title: 'Confiabilidade',
       description: 'Serviços com garantia.',
       details: {
-        features: ['Garantia em todos os serviços executados', 'Profissionais qualificados e experientes', 'Atendimento ético e transparente'],
-        benefits: ['Tranquilidade na contratação', 'Garantia de até 90 dias para serviços realizados', 'Compromisso com a qualidade'],
+        features: ['Garantia em todos os serviços executados', 'Profissional qualificado e experiente', 'Atendimento ético e transparente', 'Uso de materiais de qualidade', 'Orçamento sem compromisso'],
+        benefits: ['Tranquilidade na contratação', 'Garantia de até 90 dias para serviços realizados', 'Compromisso com a qualidade', 'Satisfação garantida'],
         pricing: {
           basePrice: 'R$ 150,00',
-          additionalInfo: 'Valor mínimo para áreas até 20km de Ratones'
+          additionalInfo: 'Valor mínimo para áreas até 10km'
         }
       }
     },
-    { 
-      icon: <Clock className="h-7 w-7" />, 
-      title: 'Rapidez', 
+    {
+      icon: <Clock className="h-7 w-7" />,
+      title: 'Rapidez',
       description: 'Atendimento ágil.',
       details: {
-        features: ['Resposta rápida em até 1 hora', 'Agendamento flexível', 'Atendimento de emergência disponível'],
-        benefits: ['Solução rápida para seus problemas', 'Economia de tempo', 'Redução do tempo de espera'],
+        features: [ 'Agendamento flexível', 'Atendimento de emergência disponível', 'Horários estendidos incluindo finais de semana', 'Equipe sempre disponível'],
+        benefits: ['Solução rápida para seus problemas', 'Economia de tempo', 'Redução do tempo de espera', 'Menos transtornos no seu dia a dia'],
         pricing: {
           basePrice: 'R$ 150,00',
           additionalInfo: 'Taxa adicional para atendimentos emergenciais'
         }
       }
     },
-    { 
-      icon: <Zap className="h-7 w-7" />, 
-      title: 'Serviços Elétricos', 
+    {
+      icon: <Zap className="h-7 w-7" />,
+      title: 'Serviços Elétricos',
       description: 'Soluções completas.',
       details: {
-        features: ['Instalação de tomadas e interruptores', 'Montagem de lustres e luminárias', 'Instalação de chuveiros elétricos', 'Reparos em curtos-circuitos'],
-        benefits: ['Segurança para sua residência', 'Economia de energia', 'Prevenção de acidentes'],
+        features: [
+          'Instalação de tomadas e interruptores',
+          'Montagem de lustres e luminárias',
+          'Instalação de chuveiros elétricos',
+          'Reparos em curtos-circuitos',
+          'Instalação de ventiladores de teto',
+          'Manutenção de disjuntores e quadros elétricos',
+          'Substituição de fios e cabos danificados',
+          'Instalação de sensores de presença',
+          // 'Instalação de ar-condicionado',
+          'Identificação e solução de falhas elétricas',
+          // 'Adequação e atualização de redes elétricas',
+          'Instalação de equipamentos eletrônicos',
+          'Instalação de iluminação externa e jardim',
+          'Reparo em sistemas de segurança'
+        ],
+        benefits: ['Segurança para sua residência', 'Economia de energia', 'Prevenção de acidentes', 'Instalações dentro das normas técnicas'],
         pricing: {
           basePrice: 'A partir de R$ 150,00',
           additionalInfo: 'Valor pode variar conforme complexidade'
         }
       }
     },
-    { 
-      icon: <Droplet className="h-7 w-7" />, 
-      title: 'Serviços Hidráulicos', 
+    {
+      icon: <Droplet className="h-7 w-7" />,
+      title: 'Serviços Hidráulicos',
       description: 'Reparos e instalações.',
       details: {
-        features: ['Reparo de vazamentos', 'Desentupimento de pias e ralos', 'Instalação de torneiras e chuveiros', 'Troca de registros e válvulas'],
-        benefits: ['Economia na conta de água', 'Prevenção de infiltrações', 'Aumento da vida útil das instalações'],
+        features: [
+          'Reparo de vazamentos',
+          'Desentupimento de pias e ralos',
+          'Instalação de torneiras e chuveiros',
+          'Troca de registros e válvulas',
+          'Conserto de caixas acopladas',
+          'Manutenção de bombas d\'água',
+          'Instalação de filtros e purificadores',
+          'Troca de tubulações',
+          'Impermeabilização de áreas úmidas',
+          'Instalação de pias e cubas',
+          'Manutenção de caixas d\'água',
+          // 'Instalação de aquecedores a gás',
+          // 'Detecção de vazamentos ocultos',
+          'Desentupimento de tubulações externas',
+          'Instalação de sistemas de irrigação',
+          'Reparo em calhas e rufos'
+        ],
+        benefits: ['Economia na conta de água', 'Prevenção de infiltrações', 'Aumento da vida útil das instalações', 'Solução definitiva para problemas recorrentes'],
         pricing: {
           basePrice: 'A partir de R$ 150,00',
           additionalInfo: 'Valor pode variar conforme complexidade'
         }
       }
     },
-    { 
-      icon: <Wrench className="h-7 w-7" />, 
-      title: 'Serviços Gerais', 
+    {
+      icon: <Wrench className="h-7 w-7" />,
+      title: 'Serviços Gerais',
       description: 'Montagem e reparos.',
       details: {
-        features: ['Montagem de móveis', 'Fixação de prateleiras e quadros', 'Pequenos reparos em alvenaria', 'Instalação de persianas e cortinas'],
-        benefits: ['Otimização dos espaços', 'Acabamento de qualidade', 'Praticidade no dia a dia'],
+        features: [
+          'Montagem de móveis',
+          'Fixação de prateleiras e quadros',
+          'Pequenos reparos em alvenaria',
+          'Instalação de persianas e cortinas',
+          'Limpezas externas e internas',
+          'Manutenção de telhados e calhas',
+          'Reparos em pinturas',
+          'Tratamento de umidade',
+          'Limpeza de pisos e telhas',
+          'Instalação de portas e fechaduras',
+          'Montagem e instalação de armários',
+          'Conserto de gavetas e dobradiças',
+          'Reparos em pisos e revestimentos',
+          'Instalação de box e espelhos',
+          'Vedação de janelas e portas',
+          'Instalação de antenas',
+          // 'Reparo em portões e cercas',
+          'Instalação de corrimãos e guarda-corpos',
+          'Manutenção preventiva residencial',
+          'Limpeza de calhas e rufos',
+          'Reparo de rachaduras em paredes',
+          'Aplicação de silicone e vedantes',
+          'Troca de vidros e esquadrias',
+          'Limpeza de caixas d\'água'
+        ],
+        benefits: ['Otimização dos espaços', 'Acabamento de qualidade', 'Praticidade no dia a dia', 'Valorização do imóvel'],
         pricing: {
           basePrice: 'A partir de R$ 150,00',
           additionalInfo: 'Valor pode variar conforme complexidade do serviço'
         }
       }
     },
-    { 
-      icon: <CreditCard className="h-7 w-7" />, 
-      title: 'Parcelamento', 
+    {
+      icon: <CreditCard className="h-7 w-7" />,
+      title: 'Parcelamento',
       description: 'Até 12x sem juros.',
       details: {
-        features: ['Parcelamento em até 12x sem juros', 'Aceitamos todos os cartões', 'Desconto para pagamento à vista', 'Transferência via PIX'],
-        benefits: ['Flexibilidade de pagamento', 'Planejamento financeiro', 'Solução imediata sem comprometer o orçamento'],
+        features: ['Parcelamento em até 12x sem juros', 'Aceitamos todos os cartões', 'Desconto para pagamento à vista', 'Transferência via PIX', 'Opções de pagamento via boleto'],
+        benefits: ['Flexibilidade de pagamento', 'Planejamento financeiro', 'Solução imediata sem comprometer o orçamento', 'Facilidade e segurança nas transações'],
         pricing: {
           basePrice: 'R$ 150,00',
           additionalInfo: 'Valor mínimo para parcelamento'
@@ -9687,12 +13520,12 @@ const Benefits: React.FC = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1, 
-      transition: { 
+    visible: {
+      opacity: 1,
+      transition: {
         staggerChildren: 0.1,
         delayChildren: 0.2
-      } 
+      }
     },
   };
 
@@ -9708,7 +13541,7 @@ const Benefits: React.FC = () => {
     } else {
       document.body.style.overflow = '';
     }
-    
+
     return () => {
       document.body.style.overflow = '';
     };
@@ -9716,24 +13549,24 @@ const Benefits: React.FC = () => {
 
   // Modal de detalhes do serviço com melhor responsividade
   const ServiceDetailsModal: React.FC<{ service: ServiceDetailsProps, onClose: () => void }> = ({ service, onClose }) => (
-    <motion.div 
+    <motion.div
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
       {/* Backdrop com efeito de blur */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
       />
-      
+
       {/* Conteúdo do modal */}
-      <motion.div 
-        className="bg-[var(--color-card-bg)] rounded-lg shadow-xl w-full max-w-lg relative z-10 max-h-[90vh] overflow-y-auto"
+      <motion.div
+        className={`${isDarkMode ? 'bg-[#333333]' : 'bg-white'} rounded-lg shadow-xl w-full max-w-lg relative z-10 max-h-[90vh] overflow-y-auto`}
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
@@ -9743,36 +13576,36 @@ const Benefits: React.FC = () => {
         }}
       >
         {/* Cabeçalho estilizado */}
-        <div className="sticky top-0 bg-[var(--color-card-bg)] z-10 border-b border-[var(--color-neutral)]/20">
+        <div className={`sticky top-0 ${isDarkMode ? 'bg-[#333333]' : 'bg-white'} z-10 border-b border-[var(--color-neutral)]/20`}>
           <div className="relative px-4 py-5 sm:p-6">
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-[var(--color-accent)]/10 rounded-full" />
             <div className="absolute top-0 right-0 w-20 h-20 bg-[var(--color-accent)]/20 rounded-full" />
-            
-            <button 
-              onClick={onClose} 
+
+            <button
+              onClick={onClose}
               className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full bg-[var(--color-neutral)]/10 hover:bg-[var(--color-neutral)]/20 transition-colors z-20"
               aria-label="Fechar"
             >
               <X size={18} className="text-[var(--color-text)]" />
             </button>
-            
+
             <div className="flex items-center gap-3 sm:gap-4 relative">
               <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] flex-shrink-0">
                 {service.icon}
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold card-text">{service.title}</h3>
-                <p className="text-[var(--color-card-text)]/80 text-sm sm:text-base">{service.description}</p>
+                <h3 className={`text-xl sm:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-[#252525]'}`}>{service.title}</h3>
+                <p className={`${isDarkMode ? 'text-white/80' : 'text-[#252525]/80'} text-sm sm:text-base`}>{service.description}</p>
               </div>
             </div>
           </div>
         </div>
-        
+
         {/* Corpo do modal com detalhes */}
         <div className="px-4 py-3 sm:px-6 sm:pb-6">
           {/* Recursos */}
           <div className="mb-5">
-            <h4 className="text-base sm:text-lg font-medium card-text flex items-center gap-2 mb-3">
+            <h4 className={`text-base sm:text-lg font-medium ${isDarkMode ? 'text-white' : 'text-[#252525]'} flex items-center gap-2 mb-3`}>
               <span className="w-5 h-5 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center text-[var(--color-accent)]">
                 <ChevronRight size={14} />
               </span>
@@ -9780,8 +13613,8 @@ const Benefits: React.FC = () => {
             </h4>
             <ul className="space-y-2">
               {service.details.features.map((feature, idx) => (
-                <motion.li 
-                  key={idx} 
+                <motion.li
+                  key={idx}
                   className="flex items-start gap-2"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -9792,15 +13625,15 @@ const Benefits: React.FC = () => {
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                   </span>
-                  <span className="card-text-secondary text-sm sm:text-base">{feature}</span>
+                  <span className={`${isDarkMode ? 'text-white/80' : 'text-[#252525]/80'} text-sm sm:text-base`}>{feature}</span>
                 </motion.li>
               ))}
             </ul>
           </div>
-          
+
           {/* Benefícios */}
           <div className="mb-5">
-            <h4 className="text-base sm:text-lg font-medium card-text flex items-center gap-2 mb-3">
+            <h4 className={`text-base sm:text-lg font-medium ${isDarkMode ? 'text-white' : 'text-[#252525]'} flex items-center gap-2 mb-3`}>
               <span className="w-5 h-5 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center text-[var(--color-accent)]">
                 <ChevronRight size={14} />
               </span>
@@ -9808,8 +13641,8 @@ const Benefits: React.FC = () => {
             </h4>
             <ul className="space-y-2">
               {service.details.benefits.map((benefit, idx) => (
-                <motion.li 
-                  key={idx} 
+                <motion.li
+                  key={idx}
                   className="flex items-start gap-2"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -9822,15 +13655,15 @@ const Benefits: React.FC = () => {
                       <path d="M2 12l10 5 10-5"></path>
                     </svg>
                   </span>
-                  <span className="card-text-secondary text-sm sm:text-base">{benefit}</span>
+                  <span className={`${isDarkMode ? 'text-white/80' : 'text-[#252525]/80'} text-sm sm:text-base`}>{benefit}</span>
                 </motion.li>
               ))}
             </ul>
           </div>
-          
+
           {/* Área de cobertura com verificação de localização */}
-          <motion.div 
-            className="p-3 sm:p-4 bg-[var(--color-neutral)]/10 rounded-lg mb-5"
+          <motion.div
+            className={`p-3 sm:p-4 ${isDarkMode ? 'bg-[var(--color-neutral)]/20' : 'bg-[var(--color-neutral)]/10'} rounded-lg mb-5`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -9839,9 +13672,9 @@ const Benefits: React.FC = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-[var(--color-accent)]" />
-                  <span className="font-medium card-text text-sm sm:text-base">Área de Cobertura</span>
+                  <span className={`font-medium ${isDarkMode ? 'text-white' : 'text-[#252525]'} text-sm sm:text-base`}>Área de Cobertura</span>
                 </div>
-                <button 
+                <button
                   onClick={getUserLocation}
                   disabled={isCheckingLocation}
                   className="text-xs sm:text-sm px-2 py-1 bg-[var(--color-accent)]/10 text-[var(--color-accent)] rounded hover:bg-[var(--color-accent)]/20 transition-colors flex items-center gap-1"
@@ -9850,26 +13683,26 @@ const Benefits: React.FC = () => {
                   <Navigation className="h-3 w-3" />
                 </button>
               </div>
-              
+
               <div className="text-sm">
-                <p className="card-text-secondary">Até 20km de Ratones, Florianópolis</p>
+                <p className={`${isDarkMode ? 'text-white/80' : 'text-[#252525]/80'}`}>Até 10km de Ratones, Florianópolis</p>
                 
+
                 {locationError && (
-                  <div className="mt-2 text-red-500 bg-red-50 dark:bg-red-900/20 p-2 rounded-md flex items-start gap-2">
+                  <div className={`mt-2 ${isDarkMode ? 'bg-red-900/20 text-red-400' : 'bg-red-50 text-red-500'} p-2 rounded-md flex items-start gap-2`}>
                     <AlertTriangle className="h-4 w-4 mt-0.5 flex-shrink-0" />
                     <span className="text-xs">{locationError}</span>
                   </div>
                 )}
-                
+
                 {distance !== null && (
-                  <div className={`mt-2 p-2 rounded-md flex items-start gap-2 ${
-                    distance <= COVERAGE_RADIUS 
-                      ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400' 
-                      : 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400'
-                  }`}>
+                  <div className={`mt-2 p-2 rounded-md flex items-start gap-2 ${distance <= COVERAGE_RADIUS
+                      ? isDarkMode ? 'bg-green-900/20 text-green-400' : 'bg-green-50 text-green-600'
+                      : isDarkMode ? 'bg-amber-900/20 text-amber-400' : 'bg-amber-50 text-amber-600'
+                    }`}>
                     <span className="text-xs flex items-center gap-1">
                       <span className="font-medium">Sua localização:</span> {distance} km de Ratones
-                      {distance <= COVERAGE_RADIUS 
+                      {distance <= COVERAGE_RADIUS
                         ? ' (dentro da área de cobertura)'
                         : ` (${(distance - COVERAGE_RADIUS).toFixed(1)}km além da área de cobertura padrão)`
                       }
@@ -9879,23 +13712,23 @@ const Benefits: React.FC = () => {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Preços */}
-          <motion.div 
-            className="p-3 sm:p-4 bg-[var(--color-accent)]/5 rounded-lg mb-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between"
+          <motion.div
+            className={`p-3 sm:p-4 ${isDarkMode ? 'bg-[var(--color-accent)]/10' : 'bg-[var(--color-accent)]/5'} rounded-lg mb-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:justify-between`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
             <div className="flex items-center gap-2 sm:gap-3">
               <CreditCard className="h-5 w-5 text-[var(--color-accent)]" />
-              <span className="font-medium card-text text-sm sm:text-base">Valor</span>
+              <span className={`font-medium ${isDarkMode ? 'text-white' : 'text-[#252525]'} text-sm sm:text-base`}>Valor</span>
             </div>
-            <div className="card-text-secondary text-sm sm:text-base text-right">
+            <div className={`${isDarkMode ? 'text-white/80' : 'text-[#252525]/80'} text-sm sm:text-base text-right`}>
               <div className="font-medium">
                 {service.details.pricing.basePrice}
                 {distance !== null && distance > COVERAGE_RADIUS && (
-                  <span className="text-amber-500 dark:text-amber-400">
+                  <span className={`${isDarkMode ? 'text-amber-400' : 'text-amber-500'}`}>
                     {' + taxa adicional por distância'}
                   </span>
                 )}
@@ -9905,7 +13738,7 @@ const Benefits: React.FC = () => {
               )}
             </div>
           </motion.div>
-          
+
           {/* Botões */}
           <div className="flex flex-col sm:flex-row gap-3">
             <motion.a
@@ -9918,10 +13751,10 @@ const Benefits: React.FC = () => {
             >
               Solicitar Orçamento
             </motion.a>
-            
+
             <motion.button
               onClick={onClose}
-              className="flex-1 py-3 px-4 border border-[var(--color-neutral)]/30 rounded-md font-medium hover:bg-[var(--color-neutral)]/10 transition-colors card-text"
+              className={`flex-1 py-3 px-4 border border-[var(--color-neutral)]/30 rounded-md font-medium hover:bg-[var(--color-neutral)]/10 transition-colors ${isDarkMode ? 'text-white' : 'text-[#252525]'}`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
@@ -9935,13 +13768,13 @@ const Benefits: React.FC = () => {
   );
 
   return (
-    <section 
-      id="benefits" 
-      ref={sectionRef} 
-      className="py-16 sm:py-20 bg-[var(--color-gray)] dark:bg-[var(--color-gray)]"
+    <section
+      id="benefits"
+      ref={sectionRef}
+      className={`py-16 sm:py-20 ${isDarkMode ? 'bg-[#3A3A3A]' : 'bg-[#EDEDED]'}`}
     >
       <div className="container">
-        <motion.div 
+        <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -9950,11 +13783,11 @@ const Benefits: React.FC = () => {
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-medium mb-4">
             Nossos Serviços
           </span>
-          <h2 className="section-title mb-4">Soluções Completas</h2>
-          <p className="section-subtitle">O que podemos fazer por você</p>
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-[var(--color-text)]'}`}>Soluções Completas</h2>
+          <p className={`text-base md:text-lg ${isDarkMode ? 'text-white/80' : 'text-[var(--color-text)]/80'} max-w-2xl mx-auto`}>O que podemos fazer por você</p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -9967,8 +13800,8 @@ const Benefits: React.FC = () => {
               variants={itemVariants}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
-              <div className="card h-full flex flex-col dark:bg-[var(--color-card-bg)] transition-all duration-500 
-                            border-2 border-transparent group-hover:border-[var(--color-accent)]/20">
+              <div className={`card h-full flex flex-col ${isDarkMode ? 'bg-[var(--color-card-bg)]' : 'bg-white'} transition-all duration-500 
+                            border-2 border-transparent group-hover:border-[var(--color-accent)]/20`}>
                 <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--color-accent)]/5 rounded-bl-full -z-10 
                               group-hover:w-full group-hover:h-full group-hover:rounded-none transition-all duration-500"></div>
                 <div className="flex flex-col items-center text-center h-full">
@@ -9977,8 +13810,8 @@ const Benefits: React.FC = () => {
                                 group-hover:bg-[var(--color-accent)]/20 transition-all duration-300">
                     {benefit.icon}
                   </div>
-                  <h3 className="text-xl font-medium mb-3 card-text">{benefit.title}</h3>
-                  <p className="text-[var(--color-secondary)] mb-5">{benefit.description}</p>
+                  <h3 className={`text-xl font-medium mb-3 ${isDarkMode ? 'text-white' : 'text-[var(--color-card-text)]'}`}>{benefit.title}</h3>
+                  <p className={`${isDarkMode ? 'text-white/80' : 'text-[var(--color-secondary)]'} mb-5`}>{benefit.description}</p>
                   <div className="mt-auto pt-4">
                     <motion.button
                       onClick={() => setSelectedService(benefit)}
@@ -9995,7 +13828,7 @@ const Benefits: React.FC = () => {
           ))}
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="mt-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -10016,9 +13849,9 @@ const Benefits: React.FC = () => {
       {/* Modal de detalhes */}
       <AnimatePresence>
         {selectedService && (
-          <ServiceDetailsModal 
-            service={selectedService} 
-            onClose={() => setSelectedService(null)} 
+          <ServiceDetailsModal
+            service={selectedService}
+            onClose={() => setSelectedService(null)}
           />
         )}
       </AnimatePresence>
@@ -10029,9 +13862,11 @@ const Benefits: React.FC = () => {
 export default Benefits;
 ```
 
-    - 📄 Blog.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/components/Blog.tsx`
+
+```typescript
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, ArrowRight } from 'lucide-react';
@@ -10095,9 +13930,11 @@ const Blog: React.FC = () => {
 export default Blog;
 ```
 
-    - 📄 Contact.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/components/Contact.tsx`
+
+```typescript
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Phone, Mail, MapPin, Send, CheckCircle, X, CreditCard, Clock } from 'lucide-react';
@@ -10195,7 +14032,7 @@ const Contact: React.FC = () => {
     border focus:outline-none focus:ring-2 bg-[var(--color-card-bg)] text-[var(--color-card-text)] transition-all`;
 
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-[var(--color-light)] dark:bg-[var(--color-primary)]">
+    <section id="contact" className="py-16 sm:py-20 bg-[var(--color-light)]">
       <div className="container">
         <div className="text-center mb-12">
           <motion.span 
@@ -10437,9 +14274,11 @@ const Contact: React.FC = () => {
 export default Contact;
 ```
 
-    - 📄 FeedbackToast.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/components/FeedbackToast.tsx`
+
+```typescript
 'use client';
 
 import React from 'react';
@@ -10472,160 +14311,61 @@ const FeedbackToast: React.FC<FeedbackToastProps> = ({ message, type, isVisible,
 export default FeedbackToast; // Exportação padrão
 ```
 
-    - 📄 Footer.tsx
-    
-```tsx
-import React from 'react';
+
+---
+### 📄 Arquivo: `src/components/Footer.tsx`
+
+```typescript
+'use client';
+
 import { motion } from 'framer-motion';
-import { Wrench, MessageCircle, Phone, Mail, MapPin, ArrowUp, Instagram, Facebook, Linkedin } from 'lucide-react';
 
 const Footer: React.FC = () => {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-  const currentYear = new Date().getFullYear();
-
-  const linkVariants = {
-    hover: { x: 5, transition: { duration: 0.2 } },
-  };
-
   return (
-    <footer className="bg-[var(--color-primary)] text-[var(--color-text)] relative">
-      <div className="absolute inset-0 opacity-10 pointer-events-none bg-gradient-to-br from-[var(--color-accent)]/20 via-transparent to-transparent" />
-      
-      <div className="container py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <motion.div 
+    <footer className="py-12 bg-[var(--color-dark)] text-[var(--color-text-light)] relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-accent)]/10 to-transparent pointer-events-none" />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-2 mb-4">
-              <Wrench className="h-6 w-6 text-[var(--color-accent)]" />
-              <h3 className="text-xl font-bold text-white">FH Resolve</h3>
-            </div>
-            <p className="text-white/70 mb-6 text-sm">
-              Serviços profissionais de manutenção residencial em Florianópolis.
+            <h3 className="text-xl md:text-2xl font-semibold mb-4">FH Resolve</h3>
+            <p className="text-sm md:text-base opacity-80">
+              Sua solução confiável para manutenção residencial em Florianópolis.
             </p>
-            <div className="flex gap-3">
-              {[
-                { icon: <Instagram size={18} />, href: '#' },
-                { icon: <Facebook size={18} />, href: '#' },
-                { icon: <Linkedin size={18} />, href: '#' }
-              ].map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
-                  className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center text-white/80 hover:text-white transition-colors border border-white/10"
-                  aria-label={`Link para ${social.icon.type.name}`}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-            </div>
           </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <h3 className="text-base font-medium mb-5 text-white">Links Rápidos</h3>
-            <ul className="space-y-3">
-              {[
-                { name: 'Início', href: '#hero' },
-                { name: 'Sobre', href: '#about' },
-                { name: 'Serviços', href: '#benefits' },
-                { name: 'Portfólio', href: '#portfolio' },
-                { name: 'Contato', href: '#contact' }
-              ].map((item) => (
-                <motion.li key={item.name} whileHover="hover">
-                  <a 
-                    href={item.href} 
-                    className="flex items-center text-white/70 hover:text-white transition-colors text-sm"
-                  >
-                    <motion.span variants={linkVariants} className="flex items-center">
-                      <span className="h-1 w-1 bg-[var(--color-accent)] rounded-full mr-2"></span>
-                      {item.name}
-                    </motion.span>
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-base font-medium mb-5 text-white">Serviços</h3>
-            <ul className="space-y-3">
-              {[
-                'Reparos Elétricos',
-                'Serviços Hidráulicos',
-                'Montagem de Móveis',
-                'Pinturas e Acabamentos',
-                'Reparos Gerais'
-              ].map((service) => (
-                <motion.li key={service} whileHover="hover">
-                  <a 
-                    href="#benefits" 
-                    className="flex items-center text-white/70 hover:text-white transition-colors text-sm"
-                  >
-                    <motion.span variants={linkVariants} className="flex items-center">
-                      <span className="h-1 w-1 bg-[var(--color-accent)] rounded-full mr-2"></span>
-                      {service}
-                    </motion.span>
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
+            <h3 className="text-xl md:text-2xl font-semibold mb-4">Contato</h3>
+            <p className="text-sm md:text-base opacity-80">contato@fhresolve.com.br</p>
+            <p className="text-sm md:text-base opacity-80">+55 (48) 99191-9791</p>
           </motion.div>
-
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h3 className="text-base font-medium mb-5 text-white">Contato</h3>
-            <ul className="space-y-4">
-              {[
-                { icon: <Phone size={16} />, value: '+55 48 99191-9791', href: 'tel:+5548991919791' },
-                { icon: <MessageCircle size={16} />, value: 'WhatsApp', href: 'https://wa.me/5548991919791' },
-                { icon: <Mail size={16} />, value: 'contato@fhresolve.com.br', href: 'mailto:contato@fhresolve.com.br' },
-                { icon: <MapPin size={16} />, value: 'Ratones, Florianópolis' },
-              ].map((item, index) => (
-                <motion.li key={index} whileHover="hover">
-                  <a 
-                    href={item.href} 
-                    className="flex items-center gap-3 text-white/70 hover:text-white transition-colors text-sm"
-                  >
-                    <motion.span variants={linkVariants} className="flex items-center gap-3">
-                      <span className="text-[var(--color-accent)]">{item.icon}</span>
-                      {item.value}
-                    </motion.span>
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
+            <h3 className="text-xl md:text-2xl font-semibold mb-4">Pronto para Começar?</h3>
+            <motion.a
+              href="#contact"
+              className="inline-block px-6 py-3 rounded-full bg-[var(--color-accent)] text-[var(--color-text-light)] font-semibold hover:bg-[var(--color-accent-dark)] transition-all"
+              whileHover={{ scale: 1.1, boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Solicite um Orçamento
+            </motion.a>
           </motion.div>
         </div>
-
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-white/50">© {currentYear} FH Resolve. Todos os direitos reservados.</p>
-          
-          <motion.button
-            onClick={scrollToTop}
-            whileHover={{ scale: 1.1, y: -3 }}
-            className="h-10 w-10 rounded-full bg-[var(--color-accent)] text-white flex items-center justify-center shadow-md"
-            aria-label="Voltar ao topo"
-          >
-            <ArrowUp className="h-5 w-5" />
-          </motion.button>
+        <div className="mt-8 text-center text-sm opacity-60">
+          © {new Date().getFullYear()} FH Resolve. Todos os direitos reservados.
         </div>
       </div>
     </footer>
@@ -10635,17 +14375,23 @@ const Footer: React.FC = () => {
 export default Footer;
 ```
 
-    - 📄 Header.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/components/Header.tsx`
+
+```typescript
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon, Wrench, MessageCircle } from 'lucide-react';
-import { useTheme } from '@/context/ThemeContext';
+import { motion, AnimatePresence, useSpring } from 'framer-motion';
+import { Menu, X, Wrench, MessageCircle } from 'lucide-react';
 import { useFeedback } from '../context/FeedbackContext';
+import { useSiteConfig } from '@/context/SiteConfigContext';
 
+interface CommonContextType {
+  theme?: 'light' | 'dark';
+  toggleTheme?: () => void;
+}
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10654,7 +14400,6 @@ const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   
-  const { theme, toggleTheme } = useTheme();
   const { showToast } = useFeedback();
 
   const navLinks = [
@@ -10662,6 +14407,7 @@ const Header = () => {
     { name: 'Serviços', href: '#benefits' },
     { name: 'Sobre', href: '#about' },
     { name: 'Trabalhos', href: '#portfolio' },
+   
     { name: 'Contato', href: '#contact' },
   ];
 
@@ -10675,7 +14421,7 @@ const Header = () => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
+          if (rect.top <= 120 && rect.bottom >= 0) {
             setActiveSection(section);
             break;
           }
@@ -10684,65 +14430,108 @@ const Header = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, [navLinks]);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.classList.add('menu-open');
+    } else {
+      const timer = setTimeout(() => {
+        document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+    
     return () => {
       document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
     };
   }, [isOpen]);
 
-  const handleThemeChange = () => {
-    toggleTheme();
-    // Forçar atualização dos componentes com um pequeno atraso
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
-    }, 100);
-    showToast(`Tema alterado para ${theme === 'light' ? 'escuro' : 'claro'}`, 'success');
-  };
-
   const handleLinkClick = (href: string) => {
-    setIsOpen(false);
+    if (isOpen) {
+      setTimeout(() => {
+        setIsOpen(false);
+      }, 100);
+    }
+    
+    if (href.startsWith('/')) {
+      window.location.href = href;
+      return;
+    }
+    
     const element = document.querySelector(href);
     if (element) {
       const headerHeight = headerRef.current?.offsetHeight || 0;
-      window.scrollTo({
-        top: element.getBoundingClientRect().top + window.scrollY - headerHeight,
-        behavior: 'smooth',
+      
+      requestAnimationFrame(() => {
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - headerHeight - 20;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
       });
     }
   };
 
   const getHeaderBackground = () => {
+    const baseBg = 'bg-[var(--color-light)]';
     if (isOpen) {
-      return theme === 'light'
-        ? 'bg-white/95 backdrop-blur-md'
-        : 'bg-[var(--color-primary)]/95 backdrop-blur-md';
+      return `${baseBg}/95 backdrop-blur-md`;
     }
-
     if (scrolled) {
-      return theme === 'light'
-        ? 'bg-white/90 backdrop-blur-md shadow-sm'
-        : 'bg-[var(--color-primary)]/90 backdrop-blur-md shadow-sm';
+      return `${baseBg}/90 backdrop-blur-md shadow-sm`;
     }
-
-    return theme === 'light'
-      ? 'bg-white/80 backdrop-blur-sm'
-      : 'bg-[var(--color-primary)]/80 backdrop-blur-sm';
+    return `${baseBg}/80 backdrop-blur-sm`;
   };
 
   const getLinkClass = (isActive: boolean) => {
-    const baseClass = "relative font-medium py-2 px-1 transition-colors";
+    const baseClass = "relative font-medium py-2 px-1 transition-all";
     
     if (isActive) {
       return `${baseClass} text-[var(--color-accent)]`;
     }
     
-    return theme === 'light' 
-      ? `${baseClass} text-[var(--color-primary)]/80 hover:text-[var(--color-accent)]` 
-      : `${baseClass} text-[var(--color-text)]/80 hover:text-[var(--color-accent)]`;
+    return `${baseClass} text-[var(--color-primary)]/80 hover:text-[var(--color-accent)]`;
+  };
+
+  const mobileMenuVariants = {
+    closed: { 
+      x: "-100%",
+      opacity: 0,
+      transition: { 
+        type: "spring", 
+        stiffness: 400, 
+        damping: 40,
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+        when: "afterChildren"
+      }
+    },
+    open: { 
+      x: 0, 
+      opacity: 1,
+      transition: { 
+        type: "spring", 
+        stiffness: 300, 
+        damping: 30,
+        staggerChildren: 0.07,
+        delayChildren: 0.1,
+        when: "beforeChildren"
+      }
+    }
+  };
+
+  const mobileNavItemVariants = {
+    closed: { x: -20, opacity: 0 },
+    open: { x: 0, opacity: 1 }
   };
 
   return (
@@ -10767,7 +14556,7 @@ const Header = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.02, x: 3 }}
           whileTap={{ scale: 0.98 }}
         >
           <Wrench className="h-6 w-6 text-[var(--color-accent)]" aria-hidden="true" />
@@ -10794,7 +14583,11 @@ const Header = () => {
                   <motion.div
                     className="absolute -bottom-1 left-0 w-full h-0.5 bg-[var(--color-accent)] rounded-full"
                     layoutId="activeNavIndicator"
-                    transition={{ duration: 0.3 }}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 500, 
+                      damping: 30 
+                    }}
                   />
                 )}
               </motion.a>
@@ -10804,29 +14597,6 @@ const Header = () => {
 
         <div className="flex items-center gap-3">
           <motion.button
-            onClick={handleThemeChange}
-            className="p-2 rounded-full bg-[var(--color-neutral)]/5 hover:bg-[var(--color-accent)]/10 transition-colors z-50"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label={`Alternar para tema ${theme === 'light' ? 'escuro' : 'claro'}`}
-          >
-            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-          </motion.button>
-
-          <motion.a
-            href="https://wa.me/5548991919791"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-[var(--color-accent)] text-white rounded-md hover:bg-[var(--color-accent-dark)] transition-all shadow-sm z-50"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            aria-label="Contato via WhatsApp"
-          >
-            <MessageCircle size={16} aria-hidden="true" />
-            <span className="text-sm font-medium">Orçamento Grátis</span>
-          </motion.a>
-
-          <motion.button
             className="md:hidden z-50 p-2 rounded-md bg-[var(--color-accent)] text-white"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
@@ -10835,7 +14605,29 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
+            <AnimatePresence initial={false} mode="wait">
+              {isOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -45, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 45, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X size={20} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 45, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -45, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu size={20} />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.button>
         </div>
 
@@ -10845,12 +14637,12 @@ const Header = () => {
               id="mobile-menu"
               ref={navRef}
               className="fixed inset-0 w-full min-h-screen md:hidden z-40 overflow-y-auto"
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.3 }}
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={mobileMenuVariants}
               style={{
-                backgroundColor: theme === 'light' ? 'rgba(255, 255, 255, 0.98)' : 'rgba(17, 24, 39, 0.98)',
+                backgroundColor: 'rgba(255, 255, 255, 0.98)',
                 backdropFilter: 'blur(10px)',
               }}
             >
@@ -10866,13 +14658,14 @@ const Header = () => {
                           e.preventDefault();
                           handleLinkClick(link.href);
                         }}
-                        className={`block py-3 px-4 text-base font-medium rounded-lg transition-colors ${
+                        className={`block py-3 px-4 text-base font-medium rounded-lg transition-all ${
                           isActive
                             ? `bg-[var(--color-accent)]/10 text-[var(--color-accent)] font-medium border-l-2 border-[var(--color-accent)]`
                             : `text-[var(--color-text)]/80 dark:text-[var(--color-text)]/80 hover:bg-[var(--color-neutral)]/10`
                         }`}
-                        whileHover={{ x: 3 }}
-                        whileTap={{ x: 0 }}
+                        variants={mobileNavItemVariants}
+                        whileHover={{ x: 5, backgroundColor: isActive ? undefined : 'rgba(var(--color-accent-rgb), 0.05)' }}
+                        whileTap={{ x: 0, scale: 0.98 }}
                       >
                         {link.name}
                       </motion.a>
@@ -10880,17 +14673,22 @@ const Header = () => {
                   })}
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[var(--color-neutral)]/20">
-                  <a
+                <motion.div 
+                  className="mt-6 pt-4 border-t border-[var(--color-neutral)]/20"
+                  variants={mobileNavItemVariants}
+                >
+                  <motion.a
                     href="https://wa.me/5548991919791"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 bg-[var(--color-accent)] text-white py-3 px-4 rounded-lg font-medium"
+                    className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-[var(--color-accent)] text-white rounded-lg font-medium shadow-md"
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    whileTap={{ scale: 0.97, y: 0 }}
                   >
-                    <MessageCircle size={18} />
-                    Fale pelo WhatsApp
-                  </a>
-                </div>
+                    <MessageCircle className="h-5 w-5" />
+                    <span>Fale Conosco via WhatsApp</span>
+                  </motion.a>
+                </motion.div>
               </div>
             </motion.div>
           )}
@@ -10903,14 +14701,27 @@ const Header = () => {
 export default Header;
 ```
 
-    - 📄 Hero.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/components/Hero.tsx`
+
+```typescript
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion } from 'framer-motion';
-import { MessageCircle, CreditCard, ArrowDown, Wrench, Droplet, ShieldCheck } from 'lucide-react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { MessageCircle, CreditCard, ArrowDown, Wrench, Droplet, ShieldCheck, ChevronRight, Star } from 'lucide-react';
+import { 
+  buttonVariants, 
+  cardVariants, 
+  containerVariants, 
+  entranceVariants, 
+  iconButtonVariants, 
+  spring,
+  usePrefersReducedMotion,
+  applyVariant,
+  getReducedMotionVariants
+} from '@/lib/motion-variants';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10919,58 +14730,87 @@ interface ServiceCardProps {
   title: string;
   desc: string;
   index: number;
+  prefersReducedMotion: boolean;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, desc, index }) => (
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, desc, index, prefersReducedMotion }) => (
   <motion.div
-    className="service-card relative overflow-hidden p-5 rounded-lg 
+    className="service-card relative overflow-hidden p-4 sm:p-5 rounded-lg 
                bg-white/10 dark:bg-white/5 border border-[var(--color-neutral)]/20 
-               dark:border-white/10 transition-all duration-300"
+               dark:border-white/10 transition-all duration-300 flex flex-col"
     style={{
       backdropFilter: "blur(8px)",
-      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)"
+      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
     }}
-    initial={{ opacity: 0, y: 20 }}
+    initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 30 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.1 * index, duration: 0.5 }}
-    whileHover={{ 
-      y: -5, 
-      boxShadow: "0 8px 20px rgba(0, 0, 0, 0.08)",
-      borderColor: "rgba(var(--color-accent-rgb), 0.3)"
+    transition={{ 
+      delay: prefersReducedMotion ? 0 : 0.15 * index, 
+      duration: prefersReducedMotion ? 0.2 : 0.6, 
+      ease: "easeOut" 
     }}
+    whileHover={applyVariant(prefersReducedMotion, cardVariants.hover)}
+    whileTap={applyVariant(prefersReducedMotion, cardVariants.tap)}
   >
-    <div className="flex items-start gap-4">
-      <div className="h-12 w-12 flex items-center justify-center rounded-lg 
+    <div className="absolute top-0 right-0 w-24 sm:w-28 h-24 sm:h-28 bg-gradient-radial from-[var(--color-accent)]/10 to-transparent opacity-40 rounded-full blur-xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+    
+    <div className="flex items-center gap-3 relative z-10 mb-2">
+      <div className="h-11 w-11 sm:h-12 sm:w-12 flex items-center justify-center rounded-xl 
                     bg-[var(--color-accent)]/10 text-[var(--color-accent)] 
                     flex-shrink-0 shadow-sm">
-        {icon}
+        {prefersReducedMotion ? (
+          <div className="text-[var(--color-accent)]">{icon}</div>
+        ) : (
+          <motion.div
+            initial={{ rotate: 0 }}
+            animate={{ rotate: [0, 5, 0, -5, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="text-[var(--color-accent)]"
+          >
+            {icon}
+          </motion.div>
+        )}
       </div>
-      <div>
-        <h3 className="text-lg font-medium mb-1 text-[var(--color-text)]">{title}</h3>
-        <p className="text-sm text-[var(--color-text)]/80">{desc}</p>
-      </div>
+      <h3 className="text-base sm:text-lg font-semibold text-[var(--color-text)]">{title}</h3>
     </div>
+    
+    <p className="text-sm leading-relaxed text-[var(--color-text)]/80 pl-14 sm:pl-16">{desc}</p>
+    
+    {!prefersReducedMotion && (
+      <motion.div 
+        className="absolute bottom-2 right-2 text-[var(--color-accent)]/40"
+        animate={{ scale: [1, 1.05, 1] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <ChevronRight size={16} />
+      </motion.div>
+    )}
   </motion.div>
 );
 
 const Hero: React.FC = () => {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const heroRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 30]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, prefersReducedMotion ? 1 : 0.5]);
 
   const services = [
-    { icon: <Wrench size={22} />, title: 'Reparos Elétricos', desc: 'Instalações e consertos profissionais com garantia.' },
-    { icon: <Droplet size={22} />, title: 'Serviços Hidráulicos', desc: 'Soluções para vazamentos e instalações de qualidade.' },
-    { icon: <ShieldCheck size={22} />, title: 'Qualidade Garantida', desc: 'Atendimento rápido e serviço de excelência.' },
+    { icon: <Wrench size={22} />, title: 'Reparos Elétricos', desc: 'Instalações, consertos e manutenção profissional realizada com segurança e garantia.' },
+    { icon: <Droplet size={22} />, title: 'Serviços Hidráulicos', desc: 'Soluções completas para vazamentos, entupimentos e instalação de sistemas hidráulicos.' },
+    { icon: <ShieldCheck size={22} />, title: 'Qualidade Garantida', desc: 'Atendimento rápido, materiais de primeira linha e garantia nos serviços realizados.' },
   ];
-
-  //força troca da cor do thema 
-  
 
   // Verificar se é dispositivo móvel
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024);
+      setIsMobile(window.innerWidth < 768);
     };
     
     handleResize(); // Verificar no carregamento inicial
@@ -10982,6 +14822,9 @@ const Hero: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    // Se o usuário prefere movimento reduzido, não aplicamos as animações GSAP
+    if (prefersReducedMotion) return;
+    
     const heroElement = heroRef.current;
     if (!heroElement) return;
     
@@ -10999,25 +14842,23 @@ const Hero: React.FC = () => {
       }
     });
 
-    // Apenas aplicar esta animação se não estiver em modo móvel
-    if (!isMobile) {
-      gsap.from('.service-card', {
-        y: 20,
-        opacity: 0.8,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: 'top center',
-          end: 'center center',
-          scrub: 1
-        }
-      });
-    }
+    // Animação otimizada para dispositivos móveis e desktop
+    gsap.from('.service-card', {
+      y: isMobile ? 10 : 20,
+      opacity: 0.8,
+      stagger: isMobile ? 0.1 : 0.2,
+      scrollTrigger: {
+        trigger: contentRef.current,
+        start: 'top center',
+        end: 'center center',
+        scrub: isMobile ? 0.5 : 1
+      }
+    });
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, [isMobile]); // Adicionar isMobile como dependência
+  }, [isMobile, prefersReducedMotion]); 
 
   const scrollToNextSection = () => {
     const aboutSection = document.getElementById('benefits');
@@ -11026,89 +14867,176 @@ const Hero: React.FC = () => {
     }
   };
 
+  // Determina quais variantes usar com base na preferência do usuário
+  const fadeInVariants = prefersReducedMotion 
+    ? getReducedMotionVariants(true) 
+    : entranceVariants.fadeIn;
+
+  const slideUpVariants = prefersReducedMotion 
+    ? getReducedMotionVariants(true) 
+    : entranceVariants.slideUp;
+
+  const containerAnimVariants = prefersReducedMotion 
+    ? getReducedMotionVariants(true) 
+    : containerVariants;
+
   return (
     <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-28 sm:pt-20 md:pt-0"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-20 sm:pt-20 md:pt-0"
     >
-      <div
+      <motion.div
         className="hero-bg absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1574873934798-d7ef3dc98c86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
+          y: backgroundY
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-primary)]/90 via-[var(--color-primary)]/80 to-[var(--color-primary)]/70"></div>
-      </div>
+        {/* Overlay gradiente aprimorado */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-primary)]/90 via-[var(--color-primary)]/75 to-[var(--color-primary)]/60"></div>
+        
+        {/* Efeito de partículas sutis - Apenas exibir quando não há preferência por movimento reduzido */}
+        {!prefersReducedMotion && (
+          <div className="absolute inset-0 opacity-20">
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full bg-[var(--color-light)]/30 blur-xl"
+                initial={{ 
+                  x: Math.random() * 100, 
+                  y: Math.random() * 100,
+                  opacity: 0.2
+                }}
+                animate={{
+                  x: Math.random() * 100,
+                  y: Math.random() * 100,
+                  opacity: [0.2, 0.5, 0.2]
+                }}
+                transition={{
+                  duration: Math.random() * 5 + 5,
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+                style={{
+                  width: `${Math.random() * 300 + 100}px`,
+                  height: `${Math.random() * 300 + 100}px`,
+                  top: `${Math.random() * 90}%`,
+                  left: `${Math.random() * 90}%`,
+                }}
+              />
+            ))}
+          </div>
+        )}
+      </motion.div>
 
-      <div ref={contentRef} className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-0">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
+      <motion.div 
+        ref={contentRef} 
+        className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-0"
+        style={{ opacity: contentOpacity }}
+      >
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16">
           <div className="w-full lg:w-1/2 max-w-xl">
             <motion.div 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              transition={{ duration: 0.8 }}
-              className="mb-4 inline-flex items-center px-3 py-1 rounded-full bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20"
+              initial="hidden"
+              animate="visible"
+              variants={fadeInVariants}
+              className="mb-6 inline-flex items-center px-3 py-1.5 rounded-full bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20"
             >
-              <span className="text-sm font-medium text-[var(--color-accent)]">Serviços Profissionais</span>
+              <span className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--color-accent)]">
+                <Star size={14} className="fill-[var(--color-accent)]" /> 
+                <span>Serviços residenciais de confiança</span>
+              </span>
             </motion.div>
 
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-text)] mb-4 leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-text)] mb-4 md:mb-6 leading-tight tracking-tight"
+              variants={slideUpVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: prefersReducedMotion ? 0 : 0.2 }}
             >
-              <span className="block">Solução Completa</span>
-              <span className="text-[var(--color-accent)]">para sua Casa</span>
+              <span className="block mb-2">Solução Completa</span>
+              <span className="bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] text-transparent bg-clip-text">para sua Casa</span>
             </motion.h1>
 
             <motion.p 
-              className="text-lg text-[var(--color-text)]/80 mb-8 max-w-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-lg sm:text-xl leading-relaxed text-[var(--color-text)]/80 mb-6 md:mb-8 max-w-lg"
+              variants={slideUpVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: prefersReducedMotion ? 0.1 : 0.4 }}
             >
-              Reparos elétricos, hidráulicos e serviços gerais em Florianópolis com rapidez, qualidade e preço justo.
+              Reparos elétricos, hidráulicos e serviços gerais em 
+              <span className="mx-1 font-medium">Florianópolis</span> 
+              com rapidez, qualidade e preço justo.
             </motion.p>
 
             <motion.div 
-              className="flex flex-wrap gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
+              className="flex flex-wrap gap-3 sm:gap-4"
+              variants={slideUpVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: prefersReducedMotion ? 0.2 : 0.6 }}
             >
+              {/* CTA Principal Otimizado */}
               <motion.a
                 href="https://wa.me/5548991919791"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[var(--color-accent)] text-[var(--color-text-light)] rounded-md font-medium hover:bg-[var(--color-accent-dark)] transition-all shadow-md"
-                whileHover={{ scale: 1.03, boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)" }}
-                whileTap={{ scale: 0.97 }}
+                className="relative overflow-hidden inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-4 bg-[var(--color-accent)] text-white rounded-md font-medium transition-all shadow-lg shadow-[var(--color-accent)]/20 group"
+                whileHover={applyVariant(prefersReducedMotion, buttonVariants.hover)}
+                whileTap={applyVariant(prefersReducedMotion, buttonVariants.tap)}
               >
-                <MessageCircle size={18} />
-                <span>Orçamento em 1 Hora</span>
+                {/* Efeito de brilho no botão - Só exibe se não preferir movimento reduzido */}
+                {!prefersReducedMotion && (
+                  <motion.span 
+                    className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    initial={{ x: '-100%' }}
+                    animate={{ x: '100%' }}
+                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                  />
+                )}
+                
+                <MessageCircle size={18} className="text-white" />
+                <span className="font-semibold text-sm sm:text-base">Orçamento em 1 Hora</span>
+                {!prefersReducedMotion && (
+                  <motion.span 
+                    className="absolute -right-4 -top-4 bg-white/20 rounded-full text-[10px] font-bold px-2 py-1 rotate-12"
+                    animate={{ scale: [1, 1.1, 1], rotate: [12, 8, 12] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  >
+                    GRÁTIS
+                  </motion.span>
+                )}
               </motion.a>
               
               <motion.div 
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-md border border-[var(--color-neutral)]/20 bg-white/5 backdrop-blur-sm text-[var(--color-text)]"
-                whileHover={{ 
+                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-md border border-[var(--color-neutral)]/30 bg-white/5 backdrop-blur-sm text-[var(--color-text)]"
+                whileHover={applyVariant(prefersReducedMotion, { 
                   backgroundColor: 'rgba(var(--color-neutral-rgb), 0.05)',
-                  borderColor: 'rgba(var(--color-accent-rgb), 0.2)'
-                }}
+                  borderColor: 'rgba(var(--color-accent-rgb), 0.3)',
+                  y: -2
+                })}
+                whileTap={applyVariant(prefersReducedMotion, { y: 0 })}
               >
-                <CreditCard size={18} className="text-[var(--color-accent)]" />
-                <span className="text-sm">
-                  Até <strong>12x</strong> sem juros
+                <CreditCard size={16} className="text-[var(--color-accent)]" />
+                <span className="text-xs sm:text-sm">
+                  Até <span className="font-bold text-[var(--color-accent)]">12x</span> sem juros
                 </span>
               </motion.div>
             </motion.div>
           </div>
 
-          {/* Contentor dos cards com maior visibilidade no mobile */}
-          <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
-            <div className={`grid gap-4 ${isMobile ? 'grid-cols-1' : 'space-y-4'}`}>
+          {/* Container dos cards com maior visibilidade e mais adequado para mobile */}
+          <motion.div 
+            className="w-full lg:w-1/2 mt-8 lg:mt-0"
+            variants={containerAnimVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <div className="grid gap-3 sm:gap-4">
               {services.map((service, index) => (
                 <ServiceCard 
                   key={index}
@@ -11116,12 +15044,13 @@ const Hero: React.FC = () => {
                   title={service.title}
                   desc={service.desc}
                   index={index}
+                  prefersReducedMotion={prefersReducedMotion}
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Separador Visual */}
       <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[var(--color-gray)] to-transparent dark:from-[var(--color-primary)] z-5" />
@@ -11130,19 +15059,23 @@ const Hero: React.FC = () => {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
+        transition={{ delay: prefersReducedMotion ? 0.2 : 1.2, duration: prefersReducedMotion ? 0.2 : 0.8 }}
         aria-label="Rolar para a seção Sobre"
         onClick={scrollToNextSection}
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
+          animate={prefersReducedMotion ? undefined : { y: [0, 8, 0] }}
+          transition={prefersReducedMotion ? undefined : { repeat: Infinity, duration: 2 }}
           className="flex flex-col items-center"
         >
-          <span className="text-[var(--color-text)]/60 text-sm mb-2">Saiba Mais</span>
-          <div className="h-10 w-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm">
-            <ArrowDown className="text-[var(--color-accent)] h-5 w-5" />
-          </div>
+          <span className="text-[var(--color-text)]/60 text-xs sm:text-sm mb-2">Saiba Mais</span>
+          <motion.div 
+            className="h-8 w-8 sm:h-10 sm:w-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm"
+            whileHover={applyVariant(prefersReducedMotion, iconButtonVariants.hover)}
+            whileTap={applyVariant(prefersReducedMotion, iconButtonVariants.tap)}
+          >
+            <ArrowDown className="text-[var(--color-accent)] h-4 w-4 sm:h-5 sm:w-5" />
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>
@@ -11152,21 +15085,37 @@ const Hero: React.FC = () => {
 export default Hero;
 ```
 
-    - 📄 LoadingScreen.tsx
-    
-```tsx
-import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+
+---
+### 📄 Arquivo: `src/components/LoadingScreen.tsx`
+
+```typescript
+import { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { Wrench } from 'lucide-react';
+import 'animate.css';
 
 const LoadingScreen: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
   
   useEffect(() => {
     // Impedir scroll durante a animação
     document.documentElement.classList.add('no-scroll');
+    
+    // Simulação de progresso de carregamento
+    const progressInterval = setInterval(() => {
+      setLoadingProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(progressInterval);
+          return 100;
+        }
+        return prev + Math.random() * 10;
+      });
+    }, 200);
     
     // Referências aos elementos DOM
     const container = containerRef.current;
@@ -11179,36 +15128,22 @@ const LoadingScreen: React.FC = () => {
       // Timeline principal para a animação de loading
       const tl = gsap.timeline({
         onComplete: () => {
-          // Timeline para remover a tela de loading
-          const exitTl = gsap.timeline({
-            onComplete: () => {
-              document.documentElement.classList.remove('no-scroll');
-            }
-          });
-          
-          // Anima a saída da tela de loading
-          exitTl
-            .to('.loading-container', { 
-              opacity: 0,
-              duration: 0.8,
-              ease: 'power2.inOut'
-            })
-            .to('.loading-content', {
-              y: -40,
-              duration: 0.6,
-              ease: 'power3.in'
-            }, '<');
+          // Quando a animação inicial terminar, permitir que o AnimatePresence faça a transição
+          if (loadingProgress >= 100) {
+            setTimeout(() => {
+              setIsAnimationComplete(true);
+            }, 500);
+          }
         }
       });
       
       // Configuração inicial da animação
       gsap.set('.logo-icon', { scale: 0, opacity: 0 });
       gsap.set('.logo-text', { y: 30, opacity: 0 });
-      gsap.set('.loading-bar-progress', { scaleX: 0, transformOrigin: 'left' });
       gsap.set('.loading-message', { opacity: 0, y: 20 });
       gsap.set('.loading-particles', { opacity: 0 });
       
-      // Anima o logo e a barra de progresso
+      // Anima o logo e os elementos
       tl.to('.logo-icon', {
         scale: 1,
         opacity: 1,
@@ -11232,72 +15167,121 @@ const LoadingScreen: React.FC = () => {
         duration: 0.6,
         stagger: 0.1
       }, '-=0.3')
-      .to('.loading-bar-progress', {
-        scaleX: 1,
-        duration: 1.8,
-        ease: 'power1.inOut'
-      }, '-=0.3')
       .to('.tool-icon', {
         rotation: 360,
         duration: 1.5,
-        ease: 'power1.inOut'
-      }, '-=1.8');
+        ease: 'power1.inOut',
+        repeat: -1
+      }, '-=0.8');
     }, container);
     
     // Cleanup
     return () => {
       ctx.revert();
+      clearInterval(progressInterval);
       document.documentElement.classList.remove('no-scroll');
     };
   }, []);
+  
+  useEffect(() => {
+    if (loadingProgress >= 100) {
+      const timer = setTimeout(() => {
+        setIsAnimationComplete(true);
+      }, 800);
+      return () => clearTimeout(timer);
+    }
+  }, [loadingProgress]);
+  
+  const getAnimationClass = (index: number) => {
+    const animations = [
+      'animate__bounce',
+      'animate__pulse',
+      'animate__rubberBand',
+      'animate__flip',
+      'animate__swing',
+      'animate__tada',
+      'animate__jello'
+    ];
+    return animations[index % animations.length];
+  };
   
   return (
     <motion.div
       ref={containerRef}
       className="loading-container fixed inset-0 bg-gradient-to-b from-[var(--color-primary)] to-[var(--color-primary)]/95 flex items-center justify-center z-50 overflow-hidden"
+      initial={{ opacity: 1 }}
+      exit={{ 
+        opacity: 0,
+        transition: { 
+          duration: 0.8,
+          ease: "easeInOut"
+        }
+      }}
     >
       <div 
         ref={logoRef} 
-        className="loading-content relative z-10 flex flex-col items-center"
+        className="loading-content relative z-10 flex flex-col items-center animate__animated animate__zoomIn"
       >
-        <div className="mb-8 flex flex-col items-center">
-          <div className="logo-icon relative bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10 mb-6 overflow-hidden">
-            {/* Efeito de pulsação atrás do ícone */}
-            <div className="absolute inset-0 bg-[var(--color-accent)]/20 rounded-xl animate-pulse"></div>
+        <motion.div 
+          className="mb-8 flex flex-col items-center"
+          exit={{ 
+            scale: 1.2, 
+            opacity: 0,
+            transition: { duration: 0.5 } 
+          }}
+        >
+          <div className="logo-icon relative bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10 mb-6 overflow-hidden animate__animated animate__rubberBand animate__delay-1s">
+            {/* Efeito 3D no ícone */}
+            <div className="absolute inset-0 bg-[var(--color-accent)]/20 rounded-xl animate__animated animate__pulse animate__infinite"></div>
             <Wrench className="h-12 w-12 text-[var(--color-accent)] tool-icon relative z-10" />
           </div>
           
           <div className="logo-text flex flex-col items-center">
-            <h1 className="text-3xl md:text-4xl font-bold text-white">
-              FH<span className="text-[var(--color-accent)]">Resolve</span>
+            <h1 className="text-3xl md:text-4xl font-bold text-white animate__animated animate__fadeInUp">
+              FH<span className="text-[var(--color-accent)] animate__animated animate__flash animate__delay-2s">Resolve</span>
             </h1>
-            <p className="text-white/60 text-sm mt-1">Manutenção Residencial</p>
+            <p className="text-white/60 text-sm mt-1 animate__animated animate__fadeIn animate__delay-1s">Manutenção Residencial</p>
           </div>
-        </div>
+        </motion.div>
         
-        <div className="loading-message text-white/80 text-sm font-medium mb-8 flex items-center gap-2">
-          <span className="inline-block h-2 w-2 bg-[var(--color-accent)] rounded-full animate-pulse"></span>
+        <div className="loading-message text-white/80 text-sm font-medium mb-8 flex items-center gap-2 animate__animated animate__fadeIn animate__delay-1s">
+          <span className="inline-block h-2 w-2 bg-[var(--color-accent)] rounded-full animate__animated animate__pulse animate__infinite"></span>
           <span>Carregando soluções para sua casa...</span>
         </div>
         
-        <div className="loading-bar w-64 h-1.5 bg-white/10 rounded-full overflow-hidden">
-          <div className="loading-bar-progress h-full bg-gradient-to-r from-[var(--color-accent)]/80 to-[var(--color-accent)]"></div>
-        </div>
+        <motion.div
+          className="w-64"
+          exit={{ 
+            width: 0,
+            opacity: 0,
+            transition: { duration: 0.3 } 
+          }}
+        >
+          <div className="loading-bar w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+            <div 
+              className="loading-bar-progress h-full bg-gradient-to-r from-[var(--color-accent)]/80 to-[var(--color-accent)] animate__animated animate__fadeIn"
+              style={{ width: `${Math.min(loadingProgress, 100)}%`, transition: 'width 0.3s ease-out' }}
+            ></div>
+          </div>
+        </motion.div>
         
         {/* Mensagem de dica abaixo da barra de progresso */}
-        <p className="text-white/40 text-xs mt-4 max-w-xs text-center">
+        <p className="text-white/40 text-xs mt-4 max-w-xs text-center animate__animated animate__fadeIn animate__delay-2s">
           Oferecemos serviços profissionais de manutenção residencial em Florianópolis e região
         </p>
+        
+        {/* Contador de progresso */}
+        <div className="mt-2 text-white/70 text-sm animate__animated animate__fadeIn">
+          {Math.min(Math.floor(loadingProgress), 100)}%
+        </div>
       </div>
 
-      {/* Elementos decorativos - partículas flutuantes */}
+      {/* Elementos decorativos - partículas flutuantes com Animate.css */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(15)].map((_, i) => (
           <motion.div 
             key={i}
-            className={`loading-particles absolute rounded-full bg-[var(--color-accent)]/5 ${
-              i % 3 === 0 ? 'animate-float' : i % 3 === 1 ? 'animate-pulse-slow' : 'animate-bounce'
-            }`}
+            className={`loading-particles absolute rounded-full bg-[var(--color-accent)]/5 animate__animated ${getAnimationClass(i)} animate__infinite animate__slower`}
             initial={{ 
               x: Math.random() * 100 - 50, 
               y: Math.random() * 100 - 50,
@@ -11307,6 +15291,11 @@ const LoadingScreen: React.FC = () => {
               x: Math.random() * 100 - 50,
               y: Math.random() * 100 - 50,
               opacity: 0.5
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0,
+              transition: { duration: 0.5 }
             }}
             transition={{
               duration: Math.random() * 3 + 2,
@@ -11324,22 +15313,57 @@ const LoadingScreen: React.FC = () => {
           />
         ))}
         
-        {/* Elementos de ferramentas estilizados no fundo */}
-        <div className="absolute -bottom-20 -right-20 w-64 h-64 opacity-10">
+        {/* Elementos de ferramentas estilizados no fundo com animações */}
+        <motion.div 
+          className="absolute -bottom-20 -right-20 w-64 h-64 opacity-10 animate__animated animate__rotateIn animate__slower animate__infinite"
+          exit={{ 
+            opacity: 0, 
+            rotate: 90,
+            transition: { duration: 0.5 }
+          }}
+        >
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="white">
             <path d="M35.7,3.7 C34.4,4.9 33.7,6.6 33.7,8.3 L33.7,15.5 C33.7,19.1 36.6,22 40.2,22 C43.8,22 46.7,19.1 46.7,15.5 L46.7,8.3 C46.7,6.6 46,4.9 44.7,3.7 C42.2,1.2 38.2,1.2 35.7,3.7 L35.7,3.7 Z M40.2,18 C38.8,18 37.7,16.9 37.7,15.5 L37.7,8.3 C37.7,7.8 37.9,7.3 38.3,6.9 C39.1,6.1 40.4,6.1 41.2,6.9 C41.6,7.3 41.8,7.8 41.8,8.3 L41.8,15.5 C41.7,16.9 41.1,18 40.2,18 Z" />
             <path d="M85.4,70.8 L79.3,64.7 C77,62.4 73.1,62.4 70.8,64.7 L66.1,69.4 L30.9,34.2 L35.6,29.5 C37.9,27.2 37.9,23.3 35.6,21 L29.5,14.9 C27.2,12.6 23.3,12.6 21,14.9 L2.6,33.3 C0.3,35.6 0.3,39.5 2.6,41.8 L8.7,47.9 C9.8,49 11.3,49.6 12.9,49.6 C14.5,49.6 16,49 17.1,47.9 L21.8,43.2 L57,78.4 L52.3,83.1 C50,85.4 50,89.3 52.3,91.6 L58.4,97.7 C59.5,98.8 61,99.4 62.6,99.4 C64.2,99.4 65.7,98.8 66.8,97.7 L85.2,79.3 C87.7,77.1 87.7,73.2 85.4,70.8 L85.4,70.8 Z M14.1,44.9 C13.9,45.1 13.4,45.1 13.2,44.9 L7.1,38.8 C6.9,36.6 6.9,36.1 7.1,35.9 L25.5,17.5 C25.7,17.3 26.2,17.3 26.4,17.5 L32.5,23.6 C32.7,23.8 32.7,24.3 32.5,24.5 L14.1,44.9 Z M82.4,76.3 L64,94.7 C63.8,94.9 63.3,94.9 63.1,94.7 L57,88.6 C56.8,88.4 56.8,87.9 57,87.7 L77.3,67.4 C77.5,67.2 78,67.2 78.2,67.4 L84.3,73.5 C84.5,73.7 84.5,74.2 84.3,74.4 L82.4,76.3 Z" />
           </svg>
-        </div>
+        </motion.div>
         
-        <div className="absolute -top-10 -left-10 w-48 h-48 opacity-10 rotate-45">
+        <motion.div 
+          className="absolute -top-10 -left-10 w-48 h-48 opacity-10 animate__animated animate__swing animate__infinite animate__slower"
+          exit={{
+            opacity: 0,
+            x: -50,
+            transition: { duration: 0.5 }
+          }}
+        >
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="white">
             <path d="M97.5,43.8 L92.5,43.8 L92.5,33.9 C92.5,32.3 91.2,31 89.6,31 L68.9,31 C67.3,31 66,32.3 66,33.9 L66,43.8 L61.1,43.8 L61.1,24 C61.1,22.4 59.8,21.1 58.2,21.1 L37.5,21.1 C35.9,21.1 34.6,22.4 34.6,24 L34.6,43.8 L29.6,43.8 L29.6,48.8 C29.6,50.4 30.9,51.7 32.5,51.7 L97.5,51.7 C99.1,51.7 100.4,50.4 100.4,48.8 L100.4,46.7 C100.4,45.1 99.1,43.8 97.5,43.8 Z" />
             <path d="M28.6,56.7 L28.6,76 C28.6,77.6 27.3,78.9 25.7,78.9 L5,78.9 C3.4,78.9 2.1,77.6 2.1,76 L2.1,56.7 C2.1,55.1 3.4,53.8 5,53.8 L25.7,53.8 C27.3,53.8 28.6,55.1 28.6,56.7 Z M25.7,73.9 L25.7,58.8 L5,58.8 L5,73.9 L25.7,73.9 Z" />
             <path d="M89.6,83.9 L68.9,83.9 C67.3,83.9 66,82.6 66,81 L66,61.7 C66,60.1 67.3,58.8 68.9,58.8 L89.6,58.8 C91.2,58.8 92.5,60.1 92.5,61.7 L92.5,81 C92.5,82.6 91.2,83.9 89.6,83.9 Z M68.9,63.8 L68.9,78.9 L89.6,78.9 L89.6,63.8 L68.9,63.8 Z" />
             <path d="M58.2,64.2 L37.5,64.2 C35.9,64.2 34.6,62.9 34.6,61.3 L34.6,56.3 L29.6,56.3 C28,56.3 26.7,55 26.7,53.4 C26.7,51.8 28,50.5 29.6,50.5 L34.6,50.5 L34.6,48.3 C34.6,46.7 35.9,45.4 37.5,45.4 L58.2,45.4 C59.8,45.4 61.1,46.7 61.1,48.3 L61.1,50.5 L66,50.5 C67.6,50.5 68.9,51.8 68.9,53.4 C68.9,55 67.6,56.3 66,56.3 L61.1,56.3 L61.1,61.3 C61.1,62.9 59.7,64.2 58.2,64.2 Z" />
           </svg>
-        </div>
+        </motion.div>
+        
+        {/* Novo elemento de bolhas flutuantes */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`bubble-${i}`}
+            className="absolute rounded-full bg-white/5 backdrop-blur-sm animate__animated animate__fadeInUp animate__infinite"
+            style={{
+              width: `${Math.random() * 40 + 15}px`,
+              height: `${Math.random() * 40 + 15}px`,
+              bottom: `-50px`,
+              left: `${Math.random() * 100}%`,
+              animationDuration: `${Math.random() * 10 + 5}s`,
+              animationDelay: `${Math.random() * 5}s`
+            }}
+            exit={{
+              opacity: 0,
+              y: -100,
+              transition: { duration: 0.5 }
+            }}
+          />
+        ))}
       </div>
     </motion.div>
   );
@@ -11348,36 +15372,43 @@ const LoadingScreen: React.FC = () => {
 export default LoadingScreen;
 ```
 
-    - 📄 MapContent.tsx
-    
-```tsx
-// src/components/MapContent.tsx
+
+---
+### 📄 Arquivo: `src/components/MapContent.tsx`
+
+```typescript
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet';
-import { Icon } from 'leaflet';
+import { MapContainer, TileLayer, useMap, Marker, Circle, Popup } from 'react-leaflet';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useEffect } from 'react';
+import { useEffect, ReactNode } from 'react';
+import dynamic from 'next/dynamic';
 
-// Componente para centralizar o mapa em uma localização
-function SetViewOnLocation({ location }: { location: [number, number] }) {
+// Importação dinâmica para evitar problemas de SSR com react-leaflet
+const DynamicMarker = dynamic(() => import('react-leaflet').then((mod) => mod.Marker), { ssr: false });
+const DynamicCircle = dynamic(() => import('react-leaflet').then((mod) => mod.Circle), { ssr: false });
+const DynamicPopup = dynamic(() => import('react-leaflet').then((mod) => mod.Popup), { ssr: false });
+
+// Componente para centralizar o mapa
+const SetViewOnLocation: React.FC<{ coords: L.LatLngExpression }> = ({ coords }) => {
   const map = useMap();
   useEffect(() => {
-    map.setView(location, 13);
-  }, [location, map]);
+    map.setView(coords, 13);
+  }, [coords, map]);
   return null;
-}
+};
 
-// Ícones personalizados para marcadores do mapa
-const markerIcon = new Icon({
+// Ícones personalizados para o mapa
+const markerIcon = new L.Icon({
   iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
 });
 
-const activeMarkerIcon = new Icon({
+const activeMarkerIcon = new L.Icon({
   iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
   iconSize: [30, 45],
   iconAnchor: [15, 45],
@@ -11385,14 +15416,44 @@ const activeMarkerIcon = new Icon({
   className: 'active-marker',
 });
 
+const userLocationIcon = new L.Icon({
+  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  className: 'user-location-marker',
+});
+
 interface MapContentProps {
-  currentView: [number, number];
-  locations: Array<{ name: string; position: [number, number]; primary?: boolean }>;
+  currentView: L.LatLngExpression;
+  locations: Array<{ name: string; position: L.LatLngExpression; primary?: boolean }>;
   selectedLocation: string | null;
   isUsingGeolocation: boolean;
   setSelectedLocation: (value: string) => void;
   setIsUsingGeolocation: (value: boolean) => void;
 }
+
+// Componentes personalizados para resolver problemas de tipagem
+interface CustomMarkerProps {
+  position: L.LatLngExpression;
+  icon?: L.Icon;
+  eventHandlers?: { click?: () => void; [key: string]: any };
+  children?: ReactNode;
+}
+
+const CustomMarker: React.FC<CustomMarkerProps> = (props) => {
+  return <DynamicMarker {...props} />;
+};
+
+interface CustomCircleProps {
+  center: L.LatLngExpression;
+  radius: number;
+  pathOptions?: L.PathOptions;
+  children?: ReactNode;
+}
+
+const CustomCircle: React.FC<CustomCircleProps> = (props) => {
+  return <DynamicCircle {...props} />;
+};
 
 const MapContent: React.FC<MapContentProps> = ({
   currentView,
@@ -11400,67 +15461,63 @@ const MapContent: React.FC<MapContentProps> = ({
   selectedLocation,
   isUsingGeolocation,
   setSelectedLocation,
-  setIsUsingGeolocation
+  setIsUsingGeolocation,
 }) => {
   const markerVariants = {
     hidden: { opacity: 0, scale: 0 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
   };
 
+  // Configuração inicial do mapa
+  const defaultCenter: [number, number] = [-27.5132, -48.4618];
+  const defaultZoom = 12;
+
+  // Opções de estilo para o mapa
+  const mapStyle = { height: '100%', width: '100%', borderRadius: '0.5rem' };
+  const attribution = '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+
   return (
-    <MapContainer
-      center={[-27.5132, -48.4618]}
-      zoom={12}
-      style={{ height: '100%', width: '100%', borderRadius: '0.5rem' }}
+    <MapContainer 
+      center={defaultCenter}
+      zoom={defaultZoom}
+      style={mapStyle}
       className="z-10"
     >
       <TileLayer
+        attribution={attribution}
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      <SetViewOnLocation location={currentView} />
+      <SetViewOnLocation coords={currentView} />
 
-      {/* Marcador de localização do usuário */}
       {isUsingGeolocation && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Marker
-            position={currentView}
-            icon={new Icon({
-              iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-              iconSize: [25, 41],
-              iconAnchor: [12, 41],
-              className: 'user-location-marker',
-            })}
+        <motion.div initial="hidden" animate="visible" variants={markerVariants}>
+          <CustomMarker 
+            position={currentView} 
+            icon={userLocationIcon}
           >
-            <Popup className="card">Sua localização atual</Popup>
-          </Marker>
-          <Circle
+            <DynamicPopup>
+              <div className="text-center p-1">
+                <p className="text-black">Sua localização atual</p>
+              </div>
+            </DynamicPopup>
+          </CustomMarker>
+          <CustomCircle
             center={currentView}
             radius={300}
             pathOptions={{
               color: 'var(--color-accent)',
               fillColor: 'var(--color-accent)',
               fillOpacity: 0.2,
-              weight: 2,
+              weight: 2
             }}
           />
         </motion.div>
       )}
 
-      {/* Marcadores das regiões */}
       {locations.map((location) => (
-        <motion.div
-          key={location.name}
-          variants={markerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <Marker
-            position={location.position as [number, number]}
+        <motion.div key={location.name} variants={markerVariants} initial="hidden" animate="visible">
+          <CustomMarker
+            position={location.position}
             icon={location.name === selectedLocation ? activeMarkerIcon : markerIcon}
             eventHandlers={{
               click: () => {
@@ -11469,29 +15526,25 @@ const MapContent: React.FC<MapContentProps> = ({
               },
             }}
           >
-            <Popup className="card">
+            <DynamicPopup>
               <div className="text-center p-1">
-                <h3 className="font-bold text-base mb-1 card-text">{location.name}</h3>
-                <p className="text-sm card-text-secondary">Área atendida</p>
+                <h3 className="font-bold text-base mb-1 text-black">{location.name}</h3>
+                <p className="text-sm text-gray-600">Área atendida</p>
                 {location.primary && (
-                  <span className="badge badge-primary mt-1">Sede Principal</span>
+                  <span className="inline-block px-2 py-1 mt-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
+                    Sede Principal
+                  </span>
                 )}
               </div>
-            </Popup>
-          </Marker>
-          <Circle
-            center={location.position as [number, number]}
+            </DynamicPopup>
+          </CustomMarker>
+          <CustomCircle
+            center={location.position}
             radius={2000}
             pathOptions={{
-              color:
-                location.name === selectedLocation
-                  ? 'var(--color-accent)'
-                  : 'var(--color-secondary)',
-              fillColor:
-                location.name === selectedLocation
-                  ? 'var(--color-accent)'
-                  : 'var(--color-secondary)',
-              fillOpacity: location.name === selectedLocation ? 0.2 : 0.1,
+              color: location.name === selectedLocation ? 'var(--color-accent)' : 'var(--color-secondary)',
+              fillColor: location.name === selectedLocation ? 'var(--color-accent)' : 'var(--color-secondary)',
+              fillOpacity: location.name === selectedLocation ? 0.2 : 0.1
             }}
           />
         </motion.div>
@@ -11503,23 +15556,20 @@ const MapContent: React.FC<MapContentProps> = ({
 export default MapContent;
 ```
 
-    - 📄 Portfolio.tsx
-    
-```tsx
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
-import { Filter, X, ChevronLeft, ChevronRight, ExternalLink, MapPin, Tag, Calendar } from 'lucide-react';
+
+---
+### 📄 Arquivo: `src/components/Portfolio.tsx`
+
+```typescript
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
-// Interface para os itens do portfólio
 interface PortfolioItem {
   id: number;
   title: string;
   description: string;
   image: string;
   category: string;
-  location?: string;
-  date?: string;
   details?: string;
 }
 
@@ -11530,8 +15580,6 @@ const portfolioItems: PortfolioItem[] = [
     description: 'Tomadas e interruptores em Jurerê.', 
     image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 
     category: 'elétrica',
-    location: 'Jurerê',
-    date: 'Março 2025',
     details: 'Instalação completa de rede elétrica residencial, incluindo tomadas, interruptores e pontos de iluminação.'
   },
   { 
@@ -11540,11 +15588,8 @@ const portfolioItems: PortfolioItem[] = [
     description: 'Conserto de vazamento em Ratones.', 
     image: 'https://images.unsplash.com/photo-1585704032915-c3400305e979?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 
     category: 'hidráulica',
-    location: 'Ratones',
-    date: 'Fevereiro 2025',
     details: 'Identificação e correção de vazamento em tubulação embutida.'
-  },
-  // ... outros itens permanecem iguais
+  }
 ];
 
 const Portfolio: React.FC = () => {
@@ -11552,11 +15597,7 @@ const Portfolio: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
   const [expandedItem, setExpandedItem] = useState<number | null>(null);
   const [filter, setFilter] = useState('todos');
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
-
-  const filterButtonRef = useRef<HTMLButtonElement>(null);
-  const filterDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -11569,34 +15610,8 @@ const Portfolio: React.FC = () => {
     return () => { document.body.style.overflow = 'auto'; };
   }, [selectedImage]);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        isFilterOpen &&
-        filterDropdownRef.current &&
-        filterButtonRef.current &&
-        !filterDropdownRef.current.contains(event.target as Node) &&
-        !filterButtonRef.current.contains(event.target as Node)
-      ) {
-        setIsFilterOpen(false);
-      }
-    };
-    if (isFilterOpen) document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isFilterOpen]);
-
   const filteredItems = filter === 'todos' ? portfolioItems : portfolioItems.filter((item) => item.category === filter);
   const categories = ['todos', 'elétrica', 'hidráulica', 'montagem', 'pintura'];
-
-  const navigateGallery = (direction: 'next' | 'prev') => {
-    if (!selectedItem) return;
-    const currentIndex = filteredItems.findIndex(item => item.id === selectedItem.id);
-    const newIndex = direction === 'next'
-      ? (currentIndex + 1) % filteredItems.length
-      : (currentIndex - 1 + filteredItems.length) % filteredItems.length;
-    setSelectedItem(filteredItems[newIndex]);
-    setSelectedImage(filteredItems[newIndex].image);
-  };
 
   const getGridCols = () => {
     if (windowWidth < 640) return 'grid-cols-1';
@@ -11608,193 +15623,140 @@ const Portfolio: React.FC = () => {
     setExpandedItem(expandedItem === id ? null : id);
   };
 
-  const handleCategorySelect = (category: string) => {
-    setFilter(category);
-    setIsFilterOpen(false);
-    setExpandedItem(null);
-  };
-
   return (
-    <section id="portfolio" className="py-16 sm:py-20 bg-[var(--color-gray)] dark:bg-[var(--color-primary)]">
+    <section id="portfolio" className="py-16 sm:py-20 bg-[#EDEDED]">
       <div className="container">
         <div className="text-center mb-12">
-          <motion.span className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-medium mb-4" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-medium mb-4">
             Trabalhos Realizados
-          </motion.span>
-          <motion.h2 className="section-title mb-4 text-[var(--color-text)]" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
-            Nosso Portfólio
-          </motion.h2>
-          <motion.p className="section-subtitle text-[var(--color-text)]/80" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-            Conheça alguns dos nossos trabalhos recentes
-          </motion.p>
+          </span>
+          <h2 className="section-title mb-4 text-[var(--color-text)]">Nosso Portfólio</h2>
+          <p className="section-subtitle text-[var(--color-text)]/80">Conheça alguns dos nossos trabalhos recentes</p>
+        </div>
 
-          {/* Filtro */}
-          <motion.div className="relative mb-10 z-30" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}>
-            <div className="md:hidden">
-              <motion.button ref={filterButtonRef} onClick={() => setIsFilterOpen(!isFilterOpen)} className="flex items-center justify-center gap-2 mx-auto px-5 py-2.5 rounded-full bg-[var(--color-accent)] text-white font-medium shadow-lg shadow-[var(--color-accent)]/20" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                <Filter className="h-4 w-4" />
-                <span>Filtrar: {filter.charAt(0).toUpperCase() + filter.slice(1)}</span>
-              </motion.button>
-              {isFilterOpen && <div className="fixed inset-0 bg-transparent z-20" onClick={() => setIsFilterOpen(false)} />}
-              <AnimatePresence>
-                {isFilterOpen && (
-                  <motion.div ref={filterDropdownRef} className="absolute z-30 mt-3 p-3 w-64 left-1/2 transform -translate-x-1/2 bg-[var(--color-card-bg)] rounded-2xl shadow-xl border border-[var(--color-neutral)]/30 dark:border-[var(--color-neutral)]/20 backdrop-blur-sm" initial={{ opacity: 0, y: -10, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -10, scale: 0.95 }} transition={{ duration: 0.2 }}>
-                    <div className="space-y-1">
-                      {categories.map((category) => (
-                        <motion.button key={category} onClick={() => handleCategorySelect(category)} className={`block w-full text-left px-4 py-3 rounded-xl text-sm ${filter === category ? 'bg-[var(--color-accent)] text-white font-medium shadow-md shadow-[var(--color-accent)]/20' : 'hover:bg-[var(--color-accent)]/10 card-text transition-colors'}`} whileHover={{ x: 3 }}>
-                          {category.charAt(0).toUpperCase() + category.slice(1)}
-                        </motion.button>
-                      ))}
+        {/* Filtros */}
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
+          {categories.map((category) => (
+            <button 
+              key={category} 
+              onClick={() => setFilter(category)} 
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${filter === category ? 'bg-[var(--color-accent)] text-white shadow-lg shadow-[var(--color-accent)]/20' : 'bg-white text-[var(--color-text)] hover:bg-[var(--color-neutral)]/10 border border-[var(--color-neutral)]/30'}`}
+            >
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid do portfólio */}
+        <div className={`grid ${getGridCols()} gap-6 sm:gap-8 md:gap-10`}>
+          {filteredItems.length === 0 ? (
+            <div className="col-span-full py-16 text-center bg-white rounded-2xl shadow-lg border border-[var(--color-neutral)]/20">
+              <p className="text-[var(--color-text)]/70">Nenhum item encontrado na categoria selecionada.</p>
+            </div>
+          ) : (
+            filteredItems.map((item) => (
+              <div 
+                key={item.id} 
+                className={`bg-white rounded-2xl overflow-hidden shadow-lg border border-[var(--color-neutral)]/20 cursor-pointer transition-all duration-500 ${expandedItem === item.id ? 'col-span-full md:col-span-2 md:row-span-2' : ''}`}
+              >
+                <div 
+                  className={`relative overflow-hidden ${expandedItem === item.id ? 'aspect-auto' : 'aspect-[4/3]'}`}
+                  onClick={() => {
+                    if (windowWidth < 768) {
+                      setSelectedItem(item);
+                      setSelectedImage(item.image);
+                    } else {
+                      toggleExpandItem(item.id);
+                    }
+                  }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark)]/80 via-[var(--color-dark)]/20 to-transparent opacity-60 transition-opacity duration-300 z-10"></div>
+                  <Image 
+                    src={item.image} 
+                    alt={item.title} 
+                    width={800}
+                    height={600}
+                    className={`w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${expandedItem === item.id ? 'max-h-80 object-cover object-top' : ''}`}
+                  />
+                  <div className="absolute inset-0 bg-[var(--color-accent)]/10 opacity-0 hover:opacity-100 transition-opacity duration-300 z-5"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-1 drop-shadow-md">{item.title}</h3>
+                    <p className="text-white/90 mb-3 drop-shadow-md">{item.description}</p>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[var(--color-accent)]/90 text-white text-xs font-medium rounded-full backdrop-blur-sm">
+                      {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
+                    </span>
+                    {expandedItem === item.id ? (
+                      <button className="ml-2 inline-flex items-center gap-1 px-3 py-1.5 bg-white text-[var(--color-accent)] rounded-full text-sm font-medium transition-colors hover:bg-[var(--color-accent)]/10" onClick={(e) => { e.stopPropagation(); toggleExpandItem(item.id); }}>
+                        Fechar
+                      </button>
+                    ) : (
+                      <button className="ml-2 inline-flex items-center gap-1 px-3 py-1.5 bg-white/20 text-white rounded-full text-sm font-medium backdrop-blur-sm hover:bg-white/30 transition-colors">
+                        Ver detalhes
+                      </button>
+                    )}
+                  </div>
+                </div>
+                {expandedItem === item.id && (
+                  <div className="p-6 border-t border-[var(--color-neutral)]/20">
+                    <h4 className="text-lg font-semibold mb-3 text-[var(--color-text)]">Detalhes do Projeto</h4>
+                    <p className="text-[var(--color-text)]/80 mb-6">{item.details}</p>
+                    <div className="flex flex-wrap gap-3">
+                      <a href="#contact" className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-accent)] text-white rounded-full font-medium hover:bg-[var(--color-accent-dark)] transition-colors shadow-md hover:scale-105 active:scale-95">
+                        Solicitar orçamento similar
+                      </a>
+                      <button onClick={() => { setSelectedItem(item); setSelectedImage(item.image); }} className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-neutral)]/10 text-[var(--color-text)] rounded-full font-medium hover:bg-[var(--color-neutral)]/20 transition-colors hover:scale-105 active:scale-95">
+                        Ampliar imagem
+                      </button>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
-            </div>
-            <div className="hidden md:flex flex-wrap justify-center gap-3">
-              {categories.map((category, index) => (
-                <motion.button key={category} onClick={() => handleCategorySelect(category)} className={`relative px-5 py-2.5 rounded-full text-sm font-medium transition-all ${filter === category ? 'bg-[var(--color-accent)] text-white shadow-lg shadow-[var(--color-accent)]/20' : 'bg-[var(--color-card-bg)] text-[var(--color-text)] hover:bg-[var(--color-neutral)]/10 border border-[var(--color-neutral)]/30 dark:border-[var(--color-neutral)]/10'}`} whileHover={{ y: -2, scale: 1.03 }} whileTap={{ scale: 0.97 }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}>
-                  {category.charAt(0).toUpperCase() + category.slice(1)}
-                  {filter === category && <motion.span className="absolute inset-0 rounded-full bg-[var(--color-accent)]" layoutId="activeCategory" style={{ zIndex: -1 }} />}
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Grid de portfólio */}
-          <LayoutGroup>
-            <motion.div className={`grid ${getGridCols()} gap-6 sm:gap-8 md:gap-10`} layout>
-              <AnimatePresence mode="popLayout">
-                {filteredItems.length === 0 ? (
-                  <motion.div className="col-span-full py-16 text-center bg-[var(--color-card-bg)] rounded-2xl shadow-lg border border-[var(--color-neutral)]/20" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                    <p className="text-[var(--color-text)]/70">Nenhum item encontrado na categoria selecionada.</p>
-                  </motion.div>
-                ) : (
-                  filteredItems.map((item) => (
-                    <motion.div key={item.id} layout initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9, y: 20 }} transition={{ duration: 0.4 }} className={`bg-[var(--color-card-bg)] rounded-2xl overflow-hidden shadow-lg border border-[var(--color-neutral)]/20 dark:border-[var(--color-neutral)]/10 cursor-pointer transition-all duration-500 ${expandedItem === item.id ? 'col-span-full md:col-span-2 md:row-span-2' : ''}`}>
-                      <div className={`relative overflow-hidden ${expandedItem === item.id ? 'aspect-auto' : 'aspect-[4/3]'}`} onClick={() => {
-                        if (!isFilterOpen) {
-                          if (windowWidth < 768) {
-                            setSelectedItem(item);
-                            setSelectedImage(item.image);
-                          } else {
-                            toggleExpandItem(item.id);
-                          }
-                        }
-                      }}>
-                        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark)]/80 via-[var(--color-dark)]/20 to-transparent opacity-60 transition-opacity duration-300 z-10"></div>
-                        <Image 
-                          src={item.image} 
-                          alt={item.title} 
-                          width={800}  // Adicionado
-                          height={600} // Adicionado
-                          className={`w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${expandedItem === item.id ? 'max-h-80 object-cover object-top' : ''}`}
-                          loading="lazy" 
-                        />
-                        <div className="absolute inset-0 bg-[var(--color-accent)]/10 opacity-0 hover:opacity-100 transition-opacity duration-300 z-5"></div>
-                        <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                          <h3 className="text-xl md:text-2xl font-bold text-white mb-1 drop-shadow-md">{item.title}</h3>
-                          <p className="text-white/90 mb-3 drop-shadow-md">{item.description}</p>
-                          <div className="flex flex-wrap items-center gap-2 mb-3">
-                            <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[var(--color-accent)]/90 text-white text-xs font-medium rounded-full backdrop-blur-sm">
-                              <Tag size={12} /> {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
-                            </span>
-                            {item.location && <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-white/20 text-white text-xs font-medium rounded-full backdrop-blur-sm"><MapPin size={12} /> {item.location}</span>}
-                            {item.date && <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-white/20 text-white text-xs font-medium rounded-full backdrop-blur-sm"><Calendar size={12} /> {item.date}</span>}
-                          </div>
-                          {expandedItem === item.id ? (
-                            <motion.button className="inline-flex items-center gap-1 px-3 py-1.5 bg-white text-[var(--color-accent)] rounded-full text-sm font-medium transition-colors hover:bg-[var(--color-accent)]/10" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} onClick={(e) => { e.stopPropagation(); toggleExpandItem(item.id); }}>
-                              <X size={14} /> Fechar
-                            </motion.button>
-                          ) : (
-                            <motion.button className="inline-flex items-center gap-1 px-3 py-1.5 bg-white/20 text-white rounded-full text-sm font-medium backdrop-blur-sm hover:bg-white/30 transition-colors" whileHover={{ scale: 1.05, x: 3 }} whileTap={{ scale: 0.95 }}>
-                              Ver detalhes <ExternalLink size={14} />
-                            </motion.button>
-                          )}
-                        </div>
-                      </div>
-                      <AnimatePresence>
-                        {expandedItem === item.id && (
-                          <motion.div className="p-6 border-t border-[var(--color-neutral)]/20" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3 }}>
-                            <h4 className="text-lg font-semibold mb-3 text-[var(--color-text)]">Detalhes do Projeto</h4>
-                            <p className="text-[var(--color-text)]/80 mb-6">{item.details}</p>
-                            <div className="flex flex-wrap gap-3">
-                              <motion.a href="#contact" className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-accent)] text-white rounded-full font-medium hover:bg-[var(--color-accent-dark)] transition-colors shadow-md" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                                Solicitar orçamento similar
-                              </motion.a>
-                              <motion.button onClick={() => { setSelectedItem(item); setSelectedImage(item.image); }} className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-neutral)]/10 text-[var(--color-text)] rounded-full font-medium hover:bg-[var(--color-neutral)]/20 transition-colors" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                                Ampliar imagem
-                              </motion.button>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </motion.div>
-                  ))
-                )}
-              </AnimatePresence>
-            </motion.div>
-          </LayoutGroup>
-
-          {filteredItems.length > 0 && (
-            <motion.div className="mt-16" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}>
-              <motion.a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-white rounded-full font-medium hover:bg-[var(--color-accent-dark)] transition-colors shadow-lg shadow-[var(--color-accent)]/20" whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(var(--color-accent-rgb), 0.4)" }} whileTap={{ scale: 0.97 }}>
-                Solicitar orçamento personalizado
-              </motion.a>
-            </motion.div>
+              </div>
+            ))
           )}
         </div>
 
         {/* Modal de visualização */}
-        <AnimatePresence>
-          {selectedImage && selectedItem && (
-            <motion.div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-lg p-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => { setSelectedImage(null); setSelectedItem(null); }}>
-              <motion.button className="absolute top-4 right-4 p-3 bg-white/10 rounded-full text-white backdrop-blur-md z-50 border border-white/20" whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 0.2)' }} whileTap={{ scale: 0.9 }} onClick={() => { setSelectedImage(null); setSelectedItem(null); }} aria-label="Fechar">
-                <X className="h-5 w-5" />
-              </motion.button>
-              {filteredItems.length > 1 && (
-                <>
-                  <motion.button className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 text-white backdrop-blur-md z-40 hidden sm:flex border border-white/20" whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 0.2)' }} whileTap={{ scale: 0.9 }} onClick={(e) => { e.stopPropagation(); navigateGallery('prev'); }} aria-label="Imagem anterior">
-                    <ChevronLeft className="h-5 w-5" />
-                  </motion.button>
-                  <motion.button className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 text-white backdrop-blur-md z-40 hidden sm:flex border border-white/20" whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 0.2)' }} whileTap={{ scale: 0.9 }} onClick={(e) => { e.stopPropagation(); navigateGallery('next'); }} aria-label="Próxima imagem">
-                    <ChevronRight className="h-5 w-5" />
-                  </motion.button>
-                </>
-              )}
-              <motion.div className="relative max-w-5xl w-full flex flex-col items-center rounded-3xl overflow-hidden" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ type: 'spring', stiffness: 300, damping: 30 }}>
-                <Image
-                  src={selectedImage}
-                  alt={selectedItem.title}
-                  width={1200} // Ajustado para modal
-                  height={800} // Ajustado para modal
-                  className="w-full max-h-[70vh] object-contain"
-                  onClick={(e) => e.stopPropagation()}
-                />
-                <motion.div className="w-full bg-white/10 backdrop-blur-lg p-6 border-t border-white/20" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-                  <h3 className="text-2xl font-bold text-white mb-2">{selectedItem.title}</h3>
-                  <p className="text-white/90 mb-4">{selectedItem.description}</p>
-                  <div className="flex flex-wrap items-center gap-3 mb-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[var(--color-accent)]/80 text-white text-sm font-medium rounded-full"><Tag size={14} /> {selectedItem.category.charAt(0).toUpperCase() + selectedItem.category.slice(1)}</span>
-                    {selectedItem.location && <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/20 text-white text-sm font-medium rounded-full"><MapPin size={14} /> {selectedItem.location}</span>}
-                    {selectedItem.date && <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/20 text-white text-sm font-medium rounded-full"><Calendar size={14} /> {selectedItem.date}</span>}
-                  </div>
-                  {selectedItem.details && <p className="text-white/80 max-w-3xl">{selectedItem.details}</p>}
-                  <motion.a href="#contact" className="inline-flex items-center gap-2 px-4 py-2 mt-4 bg-[var(--color-accent)] text-white rounded-full font-medium hover:bg-[var(--color-accent-dark)] transition-colors" whileHover={{ scale: 1.05, x: 3 }} whileTap={{ scale: 0.95 }} onClick={(e) => e.stopPropagation()}>
-                    Solicitar orçamento similar
-                  </motion.a>
-                </motion.div>
-                <div className="absolute inset-x-0 bottom-20 flex justify-between w-full h-24 sm:hidden">
-                  <div className="w-1/3 h-full" onClick={(e) => { e.stopPropagation(); navigateGallery('prev'); }}></div>
-                  <div className="w-1/3 h-full" onClick={(e) => e.stopPropagation()}></div>
-                  <div className="w-1/3 h-full" onClick={(e) => { e.stopPropagation(); navigateGallery('next'); }}></div>
-                </div>
-                <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 flex gap-3 sm:hidden">
-                  {filteredItems.length > 1 && <span className="text-white/70 text-xs backdrop-blur-md bg-black/20 px-2 py-1 rounded-full">Deslize para navegar</span>}
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {selectedImage && selectedItem && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-lg p-4" onClick={() => { setSelectedImage(null); setSelectedItem(null); }}>
+            <button className="absolute top-4 right-4 p-3 bg-white/10 rounded-full text-white backdrop-blur-md z-50 border border-white/20 hover:bg-white/20 active:scale-95 transition-all" onClick={() => { setSelectedImage(null); setSelectedItem(null); }} aria-label="Fechar">
+              Fechar
+            </button>
+            <div className="relative max-w-5xl w-full flex flex-col items-center rounded-3xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
+              <Image
+                src={selectedImage}
+                alt={selectedItem.title}
+                width={1200}
+                height={800}
+                className="w-full max-h-[70vh] object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+              <div className="w-full bg-white/10 backdrop-blur-lg p-6 border-t border-white/20">
+                <h3 className="text-2xl font-bold text-white mb-2">{selectedItem.title}</h3>
+                <p className="text-white/90 mb-4">{selectedItem.description}</p>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[var(--color-accent)]/80 text-white text-sm font-medium rounded-full">
+                  {selectedItem.category.charAt(0).toUpperCase() + selectedItem.category.slice(1)}
+                </span>
+                {selectedItem.details && <p className="text-white/80 max-w-3xl">{selectedItem.details}</p>}
+                <a href="#contact" className="inline-flex items-center gap-2 px-4 py-2 mt-4 bg-[var(--color-accent)] text-white rounded-full font-medium hover:bg-[var(--color-accent-dark)] transition-colors hover:scale-105 active:scale-95" onClick={(e) => e.stopPropagation()}>
+                  Solicitar orçamento similar
+                </a>
+              </div>
+              <div className="absolute inset-x-0 bottom-20 flex justify-between w-full h-24 sm:hidden">
+                <div className="w-1/3 h-full" onClick={(e) => e.stopPropagation()}></div>
+                <div className="w-1/3 h-full" onClick={(e) => e.stopPropagation()}></div>
+                <div className="w-1/3 h-full" onClick={(e) => e.stopPropagation()}></div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {filteredItems.length > 0 && (
+          <div className="mt-16 text-center">
+            <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-white rounded-full font-medium hover:bg-[var(--color-accent-dark)] transition-colors shadow-lg shadow-[var(--color-accent)]/20 hover:scale-105 hover:shadow-xl active:scale-95">
+              Solicitar orçamento personalizado
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -11803,9 +15765,69 @@ const Portfolio: React.FC = () => {
 export default Portfolio;
 ```
 
-    - 📄 Projects.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/components/ProjectCard.tsx`
+
+```typescript
+import { motion } from 'framer-motion';
+
+interface ProjectCardProps {
+  id: string;
+  title: string;
+  description: string;
+  image?: string;
+  tags: string[];
+}
+
+export function ProjectCard({ id, title, description, image, tags }: ProjectCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+      className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
+    >
+      {image ? (
+        <div className="h-52 overflow-hidden">
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          />
+        </div>
+      ) : (
+        <div className="h-52 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 flex items-center justify-center">
+          <span className="text-blue-500 dark:text-blue-300 font-medium">Sem imagem</span>
+        </div>
+      )}
+      
+      <div className="p-5">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{title}</h2>
+        <p className="text-gray-600 dark:text-gray-300 mb-5 line-clamp-3">{description}</p>
+        
+        <div className="flex flex-wrap gap-2 mt-auto">
+          {tags.map((tag: string) => (
+            <span 
+              key={tag} 
+              className="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 px-3 py-1 rounded-full text-xs font-medium"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/Projects.tsx`
+
+```typescript
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FolderOpen, ArrowRight } from 'lucide-react';
@@ -11863,9 +15885,11 @@ const Projects: React.FC = () => {
 export default Projects;
 ```
 
-    - 📄 Reviews.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/components/Reviews.tsx`
+
+```typescript
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -12192,9 +16216,11 @@ export default function ReviewsPage() {
 }
 ```
 
-    - 📄 RoleGuard.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/components/RoleGuard.tsx`
+
+```typescript
 // src/components/RoleGuard.tsx
 'use client';
 
@@ -12209,10 +16235,10 @@ interface RoleGuardProps {
   fallbackUrl?: string;
 }
 
-export const RoleGuard: React.FC<RoleGuardProps> = ({ 
-  children, 
-  allowedRoles, 
-  fallbackUrl = '/dashboard' 
+export const RoleGuard: React.FC<RoleGuardProps> = ({
+  children,
+  allowedRoles,
+  fallbackUrl = '/dashboard',
 }) => {
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -12220,9 +16246,9 @@ export const RoleGuard: React.FC<RoleGuardProps> = ({
 
   useEffect(() => {
     if (status === 'authenticated') {
-      const hasRequiredRole = session?.user?.role && allowedRoles.includes(session.user.role);
+      const hasRequiredRole = session?.user?.role ? allowedRoles.includes(session.user.role) : false;
       setIsAuthorized(hasRequiredRole);
-      
+
       if (!hasRequiredRole) {
         router.push(fallbackUrl);
       }
@@ -12250,15 +16276,55 @@ export const RoleGuard: React.FC<RoleGuardProps> = ({
 };
 ```
 
-    - 📄 ServiceMap.tsx
-    
-```tsx
-import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet';
+
+---
+### 📄 Arquivo: `src/components/ServiceMap.tsx`
+
+```typescript
+'use client';
+
+import { useEffect, useState, ReactNode, useMemo } from 'react';
+import dynamic from 'next/dynamic';
+import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Map as MapIcon, List, Navigation } from 'lucide-react';
+import { MapPin, Map as MapIcon, List, Navigation, Star, CheckCircle, AlertCircle, X } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
+
+// Importação dinâmica para evitar problemas de SSR com react-leaflet
+const Marker = dynamic(() => import('react-leaflet').then((mod) => mod.Marker), { ssr: false });
+const Circle = dynamic(() => import('react-leaflet').then((mod) => mod.Circle), { ssr: false });
+const Popup = dynamic(() => import('react-leaflet').then((mod) => mod.Popup), { ssr: false });
+
+// Componentes personalizados para resolver problemas de tipagem
+interface CustomMarkerProps {
+  position: [number, number];
+  icon?: Icon;
+  eventHandlers?: { click?: () => void; [key: string]: any };
+  children?: ReactNode;
+}
+
+const CustomMarker: React.FC<CustomMarkerProps> = (props) => {
+  // @ts-ignore - Ignorando erros de tipo para o Marker
+  return <Marker {...props} />;
+};
+
+interface CustomCircleProps {
+  center: [number, number];
+  radius: number;
+  pathOptions?: {
+    color?: string;
+    fillColor?: string;
+    fillOpacity?: number;
+    weight?: number;
+  };
+  children?: ReactNode;
+}
+
+const CustomCircle: React.FC<CustomCircleProps> = (props) => {
+  // @ts-ignore - Ignorando erros de tipo para o Circle
+  return <Circle {...props} />;
+};
 
 // Componente para centralizar o mapa em uma localização
 function SetViewOnLocation({ location }: { location: [number, number] }) {
@@ -12298,6 +16364,8 @@ const locations = [
 ];
 
 const ServiceMap: React.FC = () => {
+  const isDarkMode = true;
+  
   const [isMounted, setIsMounted] = useState(false);
   const [activeTab, setActiveTab] = useState<'map' | 'list'>('map');
   const [selectedLocation, setSelectedLocation] = useState<string | null>('Ratones');
@@ -12363,7 +16431,7 @@ const ServiceMap: React.FC = () => {
   };
 
   return (
-    <section id="map" className="py-20 bg-[var(--color-gray)] dark:bg-[var(--color-primary)]">
+    <section id="map" className="py-20 bg-[var(--color-light)]">
       <div className="container">
         <div className="text-center mb-16">
           <motion.span
@@ -12376,7 +16444,7 @@ const ServiceMap: React.FC = () => {
             Localização
           </motion.span>
           <motion.h2
-            className="section-title mb-4"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[var(--color-text)] tracking-tight"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -12385,7 +16453,7 @@ const ServiceMap: React.FC = () => {
             Áreas Atendidas
           </motion.h2>
           <motion.p
-            className="section-subtitle text-contrast-80"
+            className="text-base md:text-lg text-[var(--color-text)] opacity-80 leading-relaxed max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -12403,8 +16471,10 @@ const ServiceMap: React.FC = () => {
               onClick={() => setActiveTab('map')}
               className={`flex-1 py-3 flex items-center justify-center gap-2 transition-colors ${
                 activeTab === 'map'
-                  ? 'bg-[var(--color-accent)] text-[var(--color-text-light)] font-medium'
-                  : 'bg-[var(--color-card-bg)] text-[var(--color-card-text)] hover:bg-[var(--color-accent)]/10'
+                  ? 'bg-[var(--color-accent)] text-white font-medium'
+                  : isDarkMode 
+                    ? 'bg-[#333333] text-white hover:bg-[var(--color-accent)]/10' 
+                    : 'bg-white text-[var(--color-text)] hover:bg-[var(--color-accent)]/10'
               }`}
               aria-label="Ver mapa"
             >
@@ -12416,8 +16486,10 @@ const ServiceMap: React.FC = () => {
               onClick={() => setActiveTab('list')}
               className={`flex-1 py-3 flex items-center justify-center gap-2 transition-colors ${
                 activeTab === 'list'
-                  ? 'bg-[var(--color-accent)] text-[var(--color-text-light)] font-medium'
-                  : 'bg-[var(--color-card-bg)] text-[var(--color-card-text)] hover:bg-[var(--color-accent)]/10'
+                  ? 'bg-[var(--color-accent)] text-white font-medium'
+                  : isDarkMode 
+                    ? 'bg-[#333333] text-white hover:bg-[var(--color-accent)]/10' 
+                    : 'bg-white text-[var(--color-text)] hover:bg-[var(--color-accent)]/10'
               }`}
               aria-label="Ver lista de regiões"
             >
@@ -12439,8 +16511,10 @@ const ServiceMap: React.FC = () => {
                 exit="hidden"
                 variants={isMobile ? tabVariants : {}}
               >
-                <div className="card">
-                  <h3 className="text-lg font-medium mb-6 flex items-center card-text">
+                <div className={`p-6 rounded-lg transition-all duration-300 border border-[var(--color-neutral)]/30 shadow-custom-sm ${
+                  isDarkMode ? 'bg-[#333333]' : 'bg-white'
+                }`}>
+                  <h3 className={`text-lg font-medium mb-6 flex items-center ${isDarkMode ? 'text-white' : 'text-[var(--color-text)]'}`}>
                     <MapPin className="h-5 w-5 text-[var(--color-accent)] mr-2" />
                     Regiões Atendidas
                   </h3>
@@ -12450,8 +16524,10 @@ const ServiceMap: React.FC = () => {
                         key={location.name}
                         className={`p-3 rounded-lg cursor-pointer transition-all duration-200 ${
                           location.name === selectedLocation
-                            ? 'bg-[var(--color-accent)] text-[var(--color-text-light)]'
-                            : 'bg-[var(--color-gray)] dark:bg-[var(--color-neutral)]/10 hover:bg-[var(--color-neutral)]/20'
+                            ? 'bg-[var(--color-accent)] text-white'
+                            : isDarkMode
+                              ? 'bg-[#3A3A3A] text-white hover:bg-[var(--color-neutral)]/20'
+                              : 'bg-[#EDEDED] text-[var(--color-text)] hover:bg-[var(--color-neutral)]/20'
                         }`}
                         whileHover={{ scale: 1.02, x: 2 }}
                         whileTap={{ scale: 0.98 }}
@@ -12461,21 +16537,23 @@ const ServiceMap: React.FC = () => {
                           <span
                             className={`flex-shrink-0 h-6 w-6 rounded-full flex items-center justify-center ${
                               location.name === selectedLocation
-                                ? 'bg-[var(--color-text-light)]/20'
+                                ? 'bg-white/20'
                                 : 'bg-[var(--color-accent)]/10'
                             }`}
                           >
                             <MapPin
                               className={`h-4 w-4 ${
                                 location.name === selectedLocation
-                                  ? 'text-[var(--color-text-light)]'
+                                  ? 'text-white'
                                   : 'text-[var(--color-accent)]'
                               }`}
                             />
                           </span>
-                          <span className="font-medium">{location.name}</span>
+                          <span className="font-medium">
+                            {location.name}
+                          </span>
                           {location.primary && location.name === selectedLocation && (
-                            <span className="text-xs ml-auto bg-[var(--color-text-light)]/20 px-2 py-0.5 rounded-full">
+                            <span className="text-xs ml-auto bg-white/20 px-2 py-0.5 rounded-full">
                               Principal
                             </span>
                           )}
@@ -12485,14 +16563,14 @@ const ServiceMap: React.FC = () => {
                   </ul>
 
                   <div className="mt-6 pt-4 border-t border-[var(--color-neutral)]/20">
-                    <p className="text-sm card-text-secondary mb-4">
+                    <p className="text-sm text-[var(--color-text)] opacity-80 mb-4">
                       Atendemos estas regiões e arredores. Consulte disponibilidade.
                     </p>
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={handleGetUserLocation}
-                      className="btn btn-outline w-full flex items-center justify-center gap-2"
+                      className="w-full flex items-center justify-center gap-2 px-6 py-3 font-medium rounded-md border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)]/10 transition-all duration-300"
                     >
                       <Navigation size={16} className="text-[var(--color-accent)]" />
                       <span>Minha localização</span>
@@ -12514,7 +16592,9 @@ const ServiceMap: React.FC = () => {
                 exit="hidden"
                 variants={isMobile ? tabVariants : {}}
               >
-                <div className="card h-[450px] md:h-[500px] relative overflow-hidden p-2">
+                <div className={`h-[450px] md:h-[500px] relative overflow-hidden p-2 rounded-lg border border-[var(--color-neutral)]/30 shadow-custom-sm ${
+                  isDarkMode ? 'bg-[#333333]' : 'bg-white'
+                }`}>
                   {isMounted && (
                     <MapContainer
                       center={[-27.5132, -48.4618]}
@@ -12535,7 +16615,7 @@ const ServiceMap: React.FC = () => {
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.5 }}
                         >
-                          <Marker
+                          <CustomMarker
                             position={currentView}
                             icon={new Icon({
                               iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
@@ -12544,9 +16624,13 @@ const ServiceMap: React.FC = () => {
                               className: 'user-location-marker',
                             })}
                           >
-                            <Popup className="card">Sua localização atual</Popup>
-                          </Marker>
-                          <Circle
+                            <Popup>
+                              <div className="text-[#333]">
+                                Sua localização atual
+                              </div>
+                            </Popup>
+                          </CustomMarker>
+                          <CustomCircle
                             center={currentView}
                             radius={300}
                             pathOptions={{
@@ -12567,7 +16651,7 @@ const ServiceMap: React.FC = () => {
                           initial="hidden"
                           animate="visible"
                         >
-                          <Marker
+                          <CustomMarker
                             position={location.position as [number, number]}
                             icon={location.name === selectedLocation ? activeMarkerIcon : markerIcon}
                             eventHandlers={{
@@ -12577,28 +16661,24 @@ const ServiceMap: React.FC = () => {
                               },
                             }}
                           >
-                            <Popup className="card">
-                              <div className="text-center p-1">
-                                <h3 className="font-bold text-base mb-1 card-text">{location.name}</h3>
-                                <p className="text-sm card-text-secondary">Área atendida</p>
+                            <Popup>
+                              <div className="text-center p-1 text-[#333]">
+                                <h3 className="font-bold text-base mb-1">{location.name}</h3>
+                                <p className="text-sm opacity-80">Área atendida</p>
                                 {location.primary && (
-                                  <span className="badge badge-primary mt-1">Sede Principal</span>
+                                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-accent)]/20 text-[var(--color-accent)] mt-1">
+                                    Sede Principal
+                                  </span>
                                 )}
                               </div>
                             </Popup>
-                          </Marker>
-                          <Circle
+                          </CustomMarker>
+                          <CustomCircle
                             center={location.position as [number, number]}
                             radius={2000}
                             pathOptions={{
-                              color:
-                                location.name === selectedLocation
-                                  ? 'var(--color-accent)'
-                                  : 'var(--color-secondary)',
-                              fillColor:
-                                location.name === selectedLocation
-                                  ? 'var(--color-accent)'
-                                  : 'var(--color-secondary)',
+                              color: location.name === selectedLocation ? 'var(--color-accent)' : 'var(--color-secondary)',
+                              fillColor: location.name === selectedLocation ? 'var(--color-accent)' : 'var(--color-secondary)',
                               fillOpacity: location.name === selectedLocation ? 0.2 : 0.1,
                             }}
                           />
@@ -12609,7 +16689,9 @@ const ServiceMap: React.FC = () => {
 
                   {/* Botão de localização */}
                   <motion.button
-                    className="absolute bottom-4 right-4 btn btn-outline p-3 rounded-full z-[1000]"
+                    className={`absolute bottom-4 right-4 p-3 rounded-full border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)]/10 transition-all duration-300 z-[1000] ${
+                      isDarkMode ? 'bg-[#333333]' : 'bg-white'
+                    }`}
                     onClick={handleGetUserLocation}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -12623,10 +16705,12 @@ const ServiceMap: React.FC = () => {
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="absolute top-4 left-0 right-0 mx-auto w-max card px-3 py-1.5 z-[1000] flex items-center gap-2"
+                      className={`absolute top-4 left-0 right-0 mx-auto w-max px-3 py-1.5 z-[1000] flex items-center gap-2 rounded-lg border border-[var(--color-neutral)]/30 shadow-custom-sm ${
+                        isDarkMode ? 'bg-[#333333] text-white' : 'bg-white text-[var(--color-text)]'
+                      }`}
                     >
                       <MapPin size={14} className="text-[var(--color-accent)]" />
-                      <span className="font-medium text-sm card-text">{selectedLocation}</span>
+                      <span className="font-medium text-sm">{selectedLocation}</span>
                     </motion.div>
                   )}
                 </div>
@@ -12636,7 +16720,7 @@ const ServiceMap: React.FC = () => {
         </div>
 
         <div className="mt-6 text-center">
-          <p className="text-sm text-contrast-60 italic">
+          <p className="text-sm text-[var(--color-text)] opacity-60 italic">
             Verifique disponibilidade para sua região
           </p>
         </div>
@@ -12648,46 +16732,51 @@ const ServiceMap: React.FC = () => {
 export default ServiceMap;
 ```
 
-    - 📄 Testimonials.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/components/Testimonials.tsx`
+
+```typescript
+'use client';
+
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import Image from 'next/image';
 
+// Dados dos depoimentos
 const testimonials = [
-  { 
-    id: 1, 
-    name: 'Ana Silva', 
-    location: 'Jurerê', 
-    rating: 5, 
-    text: 'Serviço rápido e confiável! O Fernando resolveu um problema elétrico que outros não conseguiram identificar. Super recomendo!', 
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80' 
+  {
+    id: 1,
+    name: 'Ana Silva',
+    location: 'Jurerê',
+    rating: 5,
+    text: 'Serviço rápido e confiável! O Fernando resolveu um problema elétrico que outros não conseguiram identificar. Super recomendo!',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
   },
-  { 
-    id: 2, 
-    name: 'Carlos Mendes', 
-    location: 'Ratones', 
-    rating: 5, 
-    text: 'Excelente profissional! Pontual, organizado e resolveu o vazamento no banheiro com muita eficiência. Meu contato fixo para reparos!', 
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80' 
+  {
+    id: 2,
+    name: 'Carlos Mendes',
+    location: 'Ratones',
+    rating: 5,
+    text: 'Excelente profissional! Pontual, organizado e resolveu o vazamento no banheiro com muita eficiência. Meu contato fixo para reparos!',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
   },
-  { 
-    id: 3, 
-    name: 'Mariana Costa', 
-    location: 'Canasvieiras', 
-    rating: 5, 
-    text: 'Contratei para montar os móveis do meu apartamento novo e fiquei muito satisfeita. Trabalho impecável e preço justo!', 
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80' 
+  {
+    id: 3,
+    name: 'Mariana Costa',
+    location: 'Canasvieiras',
+    rating: 5,
+    text: 'Contratei para montar os móveis do meu apartamento novo e fiquei muito satisfeita. Trabalho impecável e preço justo!',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
   },
-  { 
-    id: 4, 
-    name: 'Roberto Almeida', 
-    location: 'Ingleses', 
-    rating: 5, 
-    text: 'Reparo urgente na pia da cozinha resolvido em menos de uma hora. Atendimento super rápido. Recomendo!', 
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80' 
+  {
+    id: 4,
+    name: 'Roberto Almeida',
+    location: 'Ingleses',
+    rating: 5,
+    text: 'Reparo urgente na pia da cozinha resolvido em menos de uma hora. Atendimento super rápido. Recomendo!',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
   },
 ];
 
@@ -12705,43 +16794,50 @@ const Testimonials: React.FC = () => {
   }, [current, autoplay]);
 
   return (
-    <section id="testimonials" className="py-20 bg-[var(--color-gray)] dark:bg-[var(--color-primary)]">
-      <div className="container">
-        <div className="text-center mb-10">
-          <motion.span 
+    <section
+      id="testimonials"
+      className="relative py-12 md:py-20 bg-[var(--color-gray)] overflow-hidden"
+    >
+      {/* Fundo com máscara radial */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(var(--color-accent-rgb),0.15),transparent_70%)] mask-radial" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Título */}
+        <div className="text-center mb-8 md:mb-12">
+          <motion.span
             className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-medium mb-4"
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
           >
             Depoimentos
           </motion.span>
-          <motion.h2 
-            className="section-title mb-4"
-            initial={{ opacity: 0, y: 10 }}
+          <motion.h2
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             O Que Nossos Clientes Dizem
           </motion.h2>
-          <motion.p 
-            className="section-subtitle text-[var(--color-text)]/80"
-            initial={{ opacity: 0, y: 10 }}
+          <motion.p
+            className="text-base md:text-lg text-[var(--color-text)]/80 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
             A satisfação dos nossos clientes é o nosso maior orgulho
           </motion.p>
         </div>
-        
-        {/* Métricas de satisfação */}
-        <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+
+        {/* Métricas de Satisfação */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-10 md:mb-16"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -12750,103 +16846,139 @@ const Testimonials: React.FC = () => {
             { value: '200+', label: 'Clientes' },
             { value: '500+', label: 'Projetos concluídos' },
           ].map((stat, index) => (
-            <div 
-              key={index} 
-              className="text-center p-6 rounded-lg bg-white/10 backdrop-blur-sm border border-[var(--color-neutral)]/20"
+            <motion.div
+              key={index}
+              className="p-4 sm:p-6 rounded-lg bg-[var(--color-card-bg)]/10 backdrop-blur-sm border border-[var(--color-neutral)]/20"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: 'spring', stiffness: 300 }}
             >
-              <h3 className="text-3xl font-bold text-[var(--color-accent)] mb-1">{stat.value}</h3>
-              <p className="text-sm text-[var(--color-text)]/70">{stat.label}</p>
-            </div>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[var(--color-accent)] mb-1">
+                {stat.value}
+              </h3>
+              <p className="text-xs sm:text-sm text-[var(--color-text)]/70">{stat.label}</p>
+            </motion.div>
           ))}
         </motion.div>
 
+        {/* Carrossel de Depoimentos */}
         <div
-          className="relative max-w-4xl mx-auto"
+          className="relative max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto"
           onMouseEnter={() => setAutoplay(false)}
           onMouseLeave={() => setAutoplay(true)}
         >
-          <motion.div 
-            className="overflow-hidden relative rounded-xl bg-white dark:bg-[var(--color-neutral)]/5 p-8 md:p-10 shadow-sm border border-[var(--color-neutral)]/30 dark:border-[var(--color-neutral)]/20"
-            initial={{ opacity: 0, y: 20 }}
+          <motion.div
+            className={`relative rounded-2xl transition-all duration-300 border border-[var(--color-neutral)]/30 shadow-custom-sm ${
+              'bg-[var(--color-light)]'
+            } p-6 sm:p-8 md:p-10`}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            {/* Aspas decorativas */}
-            <svg 
-              className="absolute top-8 left-8 w-10 h-10 text-[var(--color-accent)]/10" 
-              fill="currentColor" 
+            {/* Gradiente de fundo sutil */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)]/5 to-transparent pointer-events-none" />
+
+            {/* Aspas Decorativas */}
+            <motion.svg
+              className="absolute top-6 left-6 w-10 h-10 md:w-12 md:h-12 text-[var(--color-accent)]/20"
+              fill="currentColor"
               viewBox="0 0 32 32"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <path d="M9.352 27.12c-2.56 0-4.64-.832-6.24-2.496C1.52 22.967.72 20.8.72 18.137c0-2.24.544-4.48 1.632-6.72 1.088-2.24 2.4-4.16 3.936-5.76C7.824 4.065 9.584 2.72 11.568 1.632L13.872 4.8c-1.92 1.088-3.456 2.4-4.608 3.936-1.152 1.536-1.728 3.184-1.728 4.944 0 .768.16 1.376.48 1.824a39.77 39.77 0 0 0 1.44-1.44c.512-.576 1.136-1.056 1.872-1.44.736-.384 1.6-.576 2.592-.576 1.856 0 3.36.672 4.512 2.016 1.152 1.344 1.728 3.08 1.728 5.208 0 1.856-.544 3.456-1.632 4.8-1.088 1.344-2.8 2.016-5.136 2.016zm16.128 0c-2.56 0-4.64-.832-6.24-2.496-1.6-1.664-2.4-3.824-2.4-6.48 0-2.24.544-4.48 1.632-6.72 1.088-2.24 2.4-4.16 3.936-5.76 1.536-1.6 3.288-2.944 5.28-4.032L30 4.8c-1.92 1.088-3.456 2.4-4.608 3.936a10.824 10.824 0 0 0-1.728 4.944c0 .768.16 1.376.48 1.824.448-.448.896-.928 1.344-1.44.512-.576 1.136-1.056 1.872-1.44.736-.384 1.6-.576 2.592-.576 1.856 0 3.36.672 4.512 2.016 1.152 1.344 1.728 3.08 1.728 5.208 0 1.856-.544 3.456-1.632 4.8-1.088 1.344-2.8 2.016-5.136 2.016z"></path>
-            </svg>
-            
+              <path d="M9.352 27.12c-2.56 0-4.64-.832-6.24-2.496C1.52 22.967.72 20.8.72 18.137c0-2.24.544-4.48 1.632-6.72 1.088-2.24 2.4-4.16 3.936-5.76C7.824 4.065 9.584 2.72 11.568 1.632L13.872 4.8c-1.92 1.088-3.456 2.4-4.608 3.936-1.152 1.536-1.728 3.184-1.728 4.944 0 .768.16 1.376.48 1.824a39.77 39.77 0 0 0 1.44-1.44c.512-.576 1.136-1.056 1.872-1.44.736-.384 1.6-.576 2.592-.576 1.856 0 3.36.672 4.512 2.016 1.152 1.344 1.728 3.08 1.728 5.208 0 1.856-.544 3.456-1.632 4.8-1.088 1.344-2.8 2.016-5.136 2.016zm16.128 0c-2.56 0-4.64-.832-6.24-2.496-1.6-1.664-2.4-3.824-2.4-6.48 0-2.24.544-4.48 1.632-6.72 1.088-2.24 2.4-4.16 3.936-5.76 1.536-1.6 3.288-2.944 5.28-4.032L30 4.8c-1.92 1.088-3.456 2.4-4.608 3.936a10.824 10.824 0 0 0-1.728 4.944c0 .768.16 1.376.48 1.824.448-.448.896-.928 1.344-1.44.512-.576 1.136-1.056 1.872-1.44.736-.384 1.6-.576 2.592-.576 1.856 0 3.36.672 4.512 2.016 1.152 1.344 1.728 3.08 1.728 5.208 0 1.856-.544 3.456-1.632 4.8-1.088 1.344-2.8 2.016-5.136 2.016z" />
+            </motion.svg>
+
+            {/* Conteúdo do Depoimento */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: 'easeOut' }}
-                className="flex flex-col md:flex-row items-center gap-8 relative z-10"
+                className="flex flex-col sm:flex-row items-start gap-6 md:gap-8 relative z-10"
               >
-                <div className="flex-shrink-0">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[var(--color-accent)]/20 shadow-sm">
+                <motion.div
+                  className="flex-shrink-0"
+                  whileHover={{ scale: 1.05, rotate: 3 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                >
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-[var(--color-accent)]/30 shadow-lg">
                     <Image
                       src={testimonials[current].image}
-                      alt={`Cliente ${testimonials[current].name}`}
-                      width={150}  // Adicionado
-                      height={150} // Adicionado
-                      className="w-full h-full object-cover"
-                      loading="lazy" // Adicionado para desempenho
+                      alt={`Foto de ${testimonials[current].name}`}
+                      width={96}
+                      height={96}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                      loading="lazy"
                     />
                   </div>
-                </div>
-                <div className="flex-grow text-center md:text-left">
-                  <div className="flex justify-center md:justify-start mb-3">
+                </motion.div>
+                <div className="flex-grow">
+                  <div className="flex items-center justify-start mb-3 gap-1">
                     {[...Array(testimonials[current].rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-[var(--color-accent)] text-[var(--color-accent)]" />
+                      <motion.div
+                        key={i}
+                        initial={{ scale: 0, rotate: -180 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        transition={{ delay: i * 0.1, type: 'spring', stiffness: 600 }}
+                      >
+                        <Star className="h-5 w-5 md:h-6 md:w-6 fill-[var(--color-accent)] text-[var(--color-accent)]" />
+                      </motion.div>
                     ))}
                   </div>
-                  <p className="text-lg mb-4 text-[var(--color-dark)] dark:text-[var(--color-text)] leading-relaxed">"{testimonials[current].text}"</p>
+                  <blockquote className="text-base sm:text-lg md:text-xl text-[var(--color-card-text)] leading-relaxed mb-4 italic font-light">
+                    "{testimonials[current].text}"
+                  </blockquote>
                   <div>
-                    <h4 className="font-medium text-xl text-[var(--color-dark)] dark:text-[var(--color-text)]">{testimonials[current].name}</h4>
-                    <p className="text-[var(--color-accent)]">{testimonials[current].location}</p>
+                    <h4 className="font-semibold text-lg sm:text-xl md:text-2xl text-[var(--color-card-text)]">
+                      {testimonials[current].name}
+                    </h4>
+                    <p className="text-sm md:text-base text-[var(--color-accent)] font-medium">
+                      {testimonials[current].location}
+                    </p>
                   </div>
                 </div>
               </motion.div>
             </AnimatePresence>
-            <div className="flex justify-between items-center mt-10">
+
+            {/* Navegação */}
+            <div className="flex justify-between items-center mt-8 md:mt-10">
               <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.2, rotate: -15 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={prev}
-                className="p-2 rounded-full bg-[var(--color-neutral)]/10 hover:bg-[var(--color-accent)]/10 transition-colors"
+                className="p-3 rounded-full bg-[var(--color-neutral)]/10 hover:bg-[var(--color-accent)]/20 transition-colors"
                 aria-label="Depoimento anterior"
               >
-                <ChevronLeft className="h-5 w-5 text-[var(--color-accent)]" />
+                <ChevronLeft className="h-6 w-6 md:h-7 md:w-7 text-[var(--color-accent)]" />
               </motion.button>
               <div className="flex gap-2">
                 {testimonials.map((_, index) => (
                   <motion.button
                     key={index}
                     onClick={() => setCurrent(index)}
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 0.9 }}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      current === index ? 'bg-[var(--color-accent)] w-6' : 'bg-[var(--color-accent)]/30'
+                      current === index
+                        ? 'bg-[var(--color-accent)] w-6'
+                        : 'bg-[var(--color-neutral)]/30 hover:bg-[var(--color-accent)]/50'
                     }`}
                     aria-label={`Ir para depoimento ${index + 1}`}
                   />
                 ))}
               </div>
               <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.2, rotate: 15 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={next}
-                className="p-2 rounded-full bg-[var(--color-neutral)]/10 hover:bg-[var(--color-accent)]/10 transition-colors"
+                className="p-3 rounded-full bg-[var(--color-neutral)]/10 hover:bg-[var(--color-accent)]/20 transition-colors"
                 aria-label="Próximo depoimento"
               >
-                <ChevronRight className="h-5 w-5 text-[var(--color-accent)]" />
+                <ChevronRight className="h-6 w-6 md:h-7 md:w-7 text-[var(--color-accent)]" />
               </motion.button>
             </div>
           </motion.div>
@@ -12859,10 +16991,257 @@ const Testimonials: React.FC = () => {
 export default Testimonials;
 ```
 
-  - 📁 context/
-    - 📄 FeedbackContext.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/components/ThemeProvider.tsx`
+
+```typescript
+'use client';
+
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { type ThemeProviderProps } from 'next-themes/dist/types';
+
+export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+}
+```
+
+
+---
+### 📄 Arquivo: `src/components/Tracking.tsx`
+
+```typescript
+// src/components/Tracking.tsx
+'use client';
+
+import { useQuery } from '@tanstack/react-query';
+import Script from 'next/script';
+
+export default function Tracking() {
+  const { data: config, isLoading } = useQuery({
+    queryKey: ['site-config'],
+    queryFn: () => fetch('/api/site-config').then(res => res.json()),
+  });
+
+  if (isLoading || !config) return null;
+
+  const { tracking } = config;
+
+  return (
+    <>
+      {/* Facebook Pixel */}
+      {tracking.facebookPixel && (
+        <>
+          <Script id="facebook-pixel" strategy="afterInteractive">
+            {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];(t=b.createElement(e)).async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '${tracking.facebookPixel}');
+              fbq('track', 'PageView');
+            `}
+          </Script>
+          <noscript>
+            <img
+              height="1"
+              width="1"
+              style={{ display: 'none' }}
+              src={`https://www.facebook.com/tr?id=${tracking.facebookPixel}&ev=PageView&noscript=1`}
+            />
+          </noscript>
+        </>
+      )}
+
+      {/* TikTok Pixel */}
+      {tracking.tiktokPixel && (
+        <Script id="tiktok-pixel" strategy="afterInteractive">
+          {`
+            !function (w, d, t) {
+              w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+              ttq.load('${tracking.tiktokPixel}');
+              ttq.page();
+            }(window, document, 'ttq');
+          `}
+        </Script>
+      )}
+
+      {/* Google Tag Manager */}
+      {tracking.googleTagManager && (
+        <>
+          <Script id="gtm" strategy="afterInteractive">
+            {`
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${tracking.googleTagManager}');
+            `}
+          </Script>
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${tracking.googleTagManager}`}
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+        </>
+      )}
+    </>
+  );
+}
+```
+
+
+---
+### 📄 Arquivo: `src/context/AppContext.tsx`
+
+```typescript
+// src/context/AppContext.tsx
+'use client';
+
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from '@/lib/axios';
+
+interface ThemeColors {
+  primary: string;
+  accent: string;
+  secondary: string;
+  neutral: string;
+  text: string;
+  textLight: string;
+  dark: string;
+  light: string;
+  gray: string;
+  cardBg: string;
+  cardText: string;
+  paralel: string;
+  accentDark: string;
+}
+
+interface SiteConfig {
+  siteName: string;
+  siteDescription: string;
+  contactInfo: {
+    email: string;
+    phone: string;
+    address: string;
+  };
+  socialMedia: {
+    instagram: string;
+    facebook: string;
+    whatsapp: string;
+  };
+  themes: {
+    light: ThemeColors;
+  };
+  defaultTheme: 'light';
+  activeTemplate: string;
+  maintenanceMode: boolean;
+  logoUrl: string;
+  faviconUrl: string;
+}
+
+interface AppContextType {
+  config: SiteConfig;
+  updateConfig: (newConfig: Partial<SiteConfig>) => Promise<void>;
+  loading: boolean;
+}
+
+const defaultConfig: SiteConfig = {
+  siteName: 'FH Resolve',
+  siteDescription: 'Serviços profissionais de manutenção residencial em Florianópolis',
+  contactInfo: { email: 'contato@fhresolve.com.br', phone: '48991919791', address: 'Ratones, Florianópolis - SC' },
+  socialMedia: { instagram: '', facebook: '', whatsapp: '48991919791' },
+  themes: {
+    light: { 
+      primary: '#252525', 
+      accent: '#2B8D9A', 
+      secondary: '#8D9192', 
+      neutral: '#EDEDED', 
+      text: '#252525', 
+      textLight: '#FFFFFF', 
+      dark: '#252525', 
+      light: '#FFFFFF', 
+      gray: '#EDEDED', 
+      cardBg: '#FFFFFF', 
+      cardText: '#252525', 
+      paralel: '#F5F5F5', 
+      accentDark: '#247885' 
+    }
+  },
+  defaultTheme: 'light',
+  activeTemplate: 'default',
+  maintenanceMode: false,
+  logoUrl: '/logo.svg',
+  faviconUrl: '/favicon.ico',
+};
+
+const AppContext = createContext<AppContextType | undefined>(undefined);
+
+export const AppProvider: React.FC<{ children: React.ReactNode; isDashboard?: boolean }> = ({ children, isDashboard = false }) => {
+  const [config, setConfig] = useState<SiteConfig>(defaultConfig);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchConfig = async () => {
+      try {
+        const { data } = await axios.get('/api/site-config');
+        setConfig(data);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchConfig();
+  }, []);
+
+  const applyTheme = () => {
+    const root = document.documentElement;
+    const colors = config.themes.light;
+    Object.entries(colors).forEach(([key, value]) => root.style.setProperty(`--color-${key}`, value));
+  };
+
+  useEffect(() => {
+    if (!loading) applyTheme();
+  }, [config.themes, loading]);
+
+  const updateConfig = async (newConfig: Partial<SiteConfig>) => {
+    setLoading(true);
+    try {
+      const updatedConfig = { ...config, ...newConfig };
+      await axios.post('/api/site-config', updatedConfig);
+      setConfig(updatedConfig);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <AppContext.Provider value={{ config, updateConfig, loading }}>
+      {children}
+    </AppContext.Provider>
+  );
+};
+
+export const useApp = () => {
+  const context = useContext(AppContext);
+  if (context === undefined) {
+    throw new Error('useApp must be used within an AppProvider');
+  }
+  return context;
+};
+```
+
+
+---
+### 📄 Arquivo: `src/context/FeedbackContext.tsx`
+
+```typescript
 'use client';
 
 import FeedbackToast from '@/components/FeedbackToast';
@@ -12909,46 +17288,24 @@ export const useFeedback = () => {
 };
 ```
 
-    - 📄 SiteConfigContext.tsx
-    
-```tsx
+
+---
+### 📄 Arquivo: `src/context/SiteConfigContext.tsx`
+
+```typescript
+// src/context/SiteConfigContext.tsx
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from '@/lib/axios';
 
-export interface SiteThemes {
-  light: ThemeColors;
-  dark: ThemeColors;
-}
-
-export interface ThemeColors {
-  primary: string;
-  accent: string;
-  secondary: string;
-  neutral: string;
-  text: string;
-  textLight: string;
-  dark: string;
-  light: string;
-  gray: string;
-  cardBg: string;
-  cardText: string;
-  paralel: string;
-  accentDark: string;
-}
-
-export interface SiteConfig {
+interface SiteConfig {
   siteName: string;
   siteDescription: string;
   contactInfo: { email: string; phone: string; address: string };
-  socialMedia: { instagram: string; facebook: string; whatsapp: string };
-  themes: SiteThemes;
-  activeTemplate: string;
-  activeTheme: 'light' | 'dark' | 'system';
-  maintenanceMode: boolean;
-  logoUrl: string;
-  faviconUrl: string;
+  socialMedia: { instagram?: string; facebook?: string; whatsapp?: string };
+  tracking: { facebookPixel: string; tiktokPixel: string; googleTagManager: string };
+  updatedAt: Date;
 }
 
 interface SiteConfigContextType {
@@ -12958,75 +17315,25 @@ interface SiteConfigContextType {
   error: string | null;
 }
 
-const defaultThemeColors: ThemeColors = {
-  primary: '#252525',
-  accent: '#2B8D9A',
-  secondary: '#8D9192',
-  neutral: '#EDEDED',
-  text: '#252525',
-  textLight: '#FFFFFF',
-  dark: '#252525',
-  light: '#FFFFFF',
-  gray: '#EDEDED',
-  cardBg: '#FFFFFF',
-  cardText: '#252525',
-  paralel: '#F5F5F5',
-  accentDark: '#247885',
-};
-
-const defaultConfig: SiteConfig = {
-  siteName: 'FH Resolve',
-  siteDescription: 'Serviços profissionais de manutenção residencial em Florianópolis',
-  contactInfo: {
-    email: 'contato@fhresolve.com.br',
-    phone: '48991919791',
-    address: 'Ratones, Florianópolis - SC',
-  },
-  socialMedia: { instagram: '', facebook: '', whatsapp: '48991919791' },
-  themes: {
-    light: defaultThemeColors,
-    dark: {
-      ...defaultThemeColors,
-      text: '#FFFFFF',
-      dark: '#252525',
-      light: '#333333',
-      cardBg: '#333333',
-      cardText: '#FFFFFF',
-      gray: '#3A3A3A',
-      neutral: '#8D9192',
-    },
-  },
-  activeTemplate: 'default',
-  activeTheme: 'light',
-  maintenanceMode: false,
-  logoUrl: '/logo.svg',
-  faviconUrl: '/favicon.ico',
-};
-
 const SiteConfigContext = createContext<SiteConfigContextType | undefined>(undefined);
 
 export const SiteConfigProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [config, setConfig] = useState<SiteConfig>(defaultConfig);
+  const [config, setConfig] = useState<SiteConfig>({
+    siteName: 'FH Resolve',
+    siteDescription: 'Serviços profissionais de manutenção residencial em Florianópolis',
+    contactInfo: { email: 'contato@fhresolve.com.br', phone: '48991919791', address: 'Ratones, Florianópolis - SC' },
+    socialMedia: { instagram: '', facebook: '', whatsapp: '48991919791' },
+    tracking: { facebookPixel: '', tiktokPixel: '', googleTagManager: '' },
+    updatedAt: new Date(),
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const fetchConfig = async () => {
       try {
-        setLoading(true);
         const response = await axios.get('/api/site-config');
-        if (response.data) {
-          setConfig((current) => ({
-            ...current,
-            ...response.data,
-            themes: {
-              light: { ...current.themes.light, ...(response.data.themes?.light || {}) },
-              dark: { ...current.themes.dark, ...(response.data.themes?.dark || {}) },
-            },
-          }));
-        }
+        setConfig(response.data);
         setError(null);
       } catch (err) {
         console.error('Erro ao carregar configurações:', err);
@@ -13038,54 +17345,10 @@ export const SiteConfigProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     fetchConfig();
   }, []);
 
-  useEffect(() => {
-    if (mounted && !loading) {
-      const root = document.documentElement;
-      const isDark = config.activeTheme === 'dark' || (config.activeTheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      const theme = isDark ? config.themes.dark : config.themes.light;
-  
-      // Aplicar todas as variáveis imediatamente
-      Object.entries(theme).forEach(([key, value]) => {
-        root.style.setProperty(`--color-${key}`, value);
-        if (key === 'accent' || key === 'secondary' || key === 'neutral') {
-          const rgb = hexToRgb(value);
-          if (rgb) {
-            root.style.setProperty(`--color-${key}-rgb`, `${rgb.r}, ${rgb.g}, ${rgb.b}`);
-          }
-        }
-      });
-      
-      // Adicionar um evento de mudança de tema para forçar repintura de elementos
-      document.dispatchEvent(new CustomEvent('themechange', { 
-        detail: { theme: isDark ? 'dark' : 'light' } 
-      }));
-    }
-  }, [config, loading, mounted]);
-
-  const hexToRgb = (hex: string) => {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result
-      ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16),
-        }
-      : null;
-  };
-
   const updateConfig = async (newConfig: Partial<SiteConfig>) => {
     try {
       setLoading(true);
-      const updatedConfig = {
-        ...config,
-        ...newConfig,
-        themes: newConfig.themes
-          ? {
-              light: { ...config.themes.light, ...(newConfig.themes.light || {}) },
-              dark: { ...config.themes.dark, ...(newConfig.themes.dark || {}) },
-            }
-          : config.themes,
-      };
+      const updatedConfig = { ...config, ...newConfig };
       await axios.post('/api/site-config', updatedConfig);
       setConfig(updatedConfig);
       setError(null);
@@ -13098,14 +17361,6 @@ export const SiteConfigProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     }
   };
 
-  if (!mounted) {
-    return (
-      <SiteConfigContext.Provider value={{ config: defaultConfig, updateConfig, loading: true, error: null }}>
-        {children}
-      </SiteConfigContext.Provider>
-    );
-  }
-
   return (
     <SiteConfigContext.Provider value={{ config, updateConfig, loading, error }}>
       {children}
@@ -13115,158 +17370,635 @@ export const SiteConfigProvider: React.FC<{ children: React.ReactNode }> = ({ ch
 
 export const useSiteConfig = () => {
   const context = useContext(SiteConfigContext);
-  if (!context) {
-    throw new Error('useSiteConfig must be used within a SiteConfigProvider');
-  }
+  if (!context) throw new Error('useSiteConfig must be used within a SiteConfigProvider');
   return context;
 };
 ```
 
-    - 📄 ThemeContext.tsx
-    
-```tsx
-// src/context/ThemeContext.tsx
-'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+---
+### 📄 Arquivo: `src/data/projects.ts`
 
-interface ThemeContextType {
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
-  setTheme: (theme: 'light' | 'dark') => void;
-  isDashboard: boolean;
+```typescript
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image?: string;
+  tags: string[];
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-export const ThemeProvider: React.FC<{
-  children: React.ReactNode;
-  isDashboard?: boolean;
-  initialTheme?: 'light' | 'dark' | 'system';
-}> = ({ children, isDashboard = false, initialTheme = 'system' }) => {
-  const [theme, setThemeState] = useState<'light' | 'dark'>(
-    initialTheme === 'dark' ? 'dark' : 'light'
-  );
-  const [mounted, setMounted] = useState(false);
-
-  // Função para aplicar o tema no documento
-  const applyTheme = (newTheme: 'light' | 'dark') => {
-    document.documentElement.setAttribute('data-theme', newTheme);
-    
-    // Forçar repintagem de todas as variáveis CSS
-    const root = document.documentElement;
-    
-    if (newTheme === 'dark') {
-      // Aplicar variáveis do tema escuro
-      root.style.setProperty('--color-text', '#FFFFFF');
-      root.style.setProperty('--color-dark', '#252525');
-      root.style.setProperty('--color-light', '#333333');
-      root.style.setProperty('--color-gray', '#3A3A3A');
-      root.style.setProperty('--color-card-bg', '#333333');
-      root.style.setProperty('--color-card-text', '#FFFFFF');
-      root.style.setProperty('--color-neutral', '#8D9192');
-    } else {
-      // Aplicar variáveis do tema claro
-      root.style.setProperty('--color-text', '#252525');
-      root.style.setProperty('--color-dark', '#252525');
-      root.style.setProperty('--color-light', '#FFFFFF');
-      root.style.setProperty('--color-gray', '#EDEDED');
-      root.style.setProperty('--color-card-bg', '#FFFFFF');
-      root.style.setProperty('--color-card-text', '#252525');
-      root.style.setProperty('--color-neutral', '#EDEDED');
-    }
-    
-    // Outras variáveis que permanecem constantes em ambos os temas
-    root.style.setProperty('--color-primary', '#252525');
-    root.style.setProperty('--color-accent', '#2B8D9A');
-    root.style.setProperty('--color-secondary', '#8D9192');
-    root.style.setProperty('--color-text-light', '#FFFFFF');
-    root.style.setProperty('--color-paralel', newTheme === 'dark' ? '#EDEDED' : '#F5F5F5');
-    root.style.setProperty('--color-accent-dark', '#247885');
-    
-    // Definir valores RGB para cores que precisam de transparência
-    const accentRgb = '43, 141, 154'; // #2B8D9A
-    const secondaryRgb = '141, 145, 146'; // #8D9192
-    const neutralRgb = newTheme === 'dark' ? '141, 145, 146' : '237, 237, 237'; // #8D9192 ou #EDEDED
-    
-    root.style.setProperty('--color-accent-rgb', accentRgb);
-    root.style.setProperty('--color-secondary-rgb', secondaryRgb);
-    root.style.setProperty('--color-neutral-rgb', neutralRgb);
+// Dados de exemplo - você pode substituir isso por uma chamada à API ou banco de dados
+export const projects: Project[] = [
+  {
+    id: '1',
+    title: 'Reforma de Banheiro',
+    description: 'Reforma completa de um banheiro em Ratones, incluindo troca de revestimentos, instalação de box de vidro temperado, nova pia e vaso sanitário, além de instalações elétricas e hidráulicas.',
+    image: '/images/project1.jpg',
+    tags: ['Reforma', 'Hidráulica', 'Elétrica', 'Revestimentos'],
+    createdAt: new Date('2023-10-15'),
+    updatedAt: new Date('2023-10-15')
+  },
+  {
+    id: '2',
+    title: 'Instalação Elétrica Residencial',
+    description: 'Revisão completa da instalação elétrica de uma residência em Jurerê, com troca do quadro de disjuntores, aterramento e instalação de novos pontos de tomada e iluminação.',
+    image: '/images/project2.jpg',
+    tags: ['Elétrica', 'Instalação', 'Segurança'],
+    createdAt: new Date('2023-11-22'),
+    updatedAt: new Date('2023-11-22')
+  },
+  {
+    id: '3',
+    title: 'Montagem de Móveis',
+    description: 'Montagem e instalação de todos os móveis de um apartamento recém-adquirido nos Ingleses, incluindo armários de cozinha, guarda-roupas e prateleiras personalizadas.',
+    image: '/images/project3.jpg',
+    tags: ['Montagem', 'Móveis', 'Instalação'],
+    createdAt: new Date('2024-01-10'),
+    updatedAt: new Date('2024-01-10')
+  },
+  {
+    id: '4',
+    title: 'Reparo de Infiltração',
+    description: 'Identificação e correção de infiltrações em uma casa em Canasvieiras, incluindo impermeabilização de laje, substituição de telhas e pintura das áreas afetadas.',
+    image: '/images/project4.jpg',
+    tags: ['Infiltração', 'Impermeabilização', 'Pintura'],
+    createdAt: new Date('2024-02-05'),
+    updatedAt: new Date('2024-02-05')
+  },
+  {
+    id: '5',
+    title: 'Construção de Deck de Madeira',
+    description: 'Projeto e construção de um deck de madeira tratada para área externa em residência em Santo Antônio de Lisboa, incluindo escada e guarda-corpo.',
+    image: '/images/project5.jpg',
+    tags: ['Carpintaria', 'Área Externa', 'Madeira'],
+    createdAt: new Date('2024-03-18'),
+    updatedAt: new Date('2024-03-18')
+  },
+  {
+    id: '6',
+    title: 'Automação Residencial',
+    description: 'Instalação de sistema de automação residencial em Jurerê Internacional, incluindo iluminação inteligente, cortinas motorizadas e integração com assistentes de voz.',
+    image: '/images/project6.jpg',
+    tags: ['Automação', 'Smart Home', 'Elétrica'],
+    createdAt: new Date('2024-04-22'),
+    updatedAt: new Date('2024-04-22')
   }
+];
 
-  useEffect(() => {
-    setMounted(true);
-    const storageKey = isDashboard ? 'dashboard-theme' : 'site-theme';
-    const savedTheme = localStorage.getItem(storageKey) as 'light' | 'dark' | null;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-    let resolvedTheme: 'light' | 'dark';
-    if (initialTheme === 'system') {
-      resolvedTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-    } else {
-      resolvedTheme = (initialTheme as 'light' | 'dark') || (savedTheme ?? 'light');
-    }
-  
-    setThemeState(resolvedTheme);
-    // Aplicar o tema no momento do carregamento
-    applyTheme(resolvedTheme);
-    
-    // Adicionar listener para mudanças de preferência do sistema
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e: MediaQueryListEvent) => {
-      if (initialTheme === 'system' && !savedTheme) {
-        const newTheme = e.matches ? 'dark' : 'light';
-        setThemeState(newTheme);
-        applyTheme(newTheme);
+export function getProjects(): Project[] {
+  // Aqui você pode implementar a lógica para buscar os projetos do seu banco de dados
+  // Por enquanto, estamos retornando os dados de exemplo
+  return projects;
+}
+```
+
+
+---
+### 📄 Arquivo: `src/hooks/useCalculations.ts`
+
+```typescript
+// hooks/useCalculations.ts
+import { useMemo } from 'react';
+
+import { EstimateItem, MaterialItem, ServiceItem } from '@/types/estimate';
+
+// Definição do tipo EstimateType
+type EstimateType = 'detailed' | 'materials' | 'simple';
+
+export const useCalculations = (
+  items: EstimateItem[], 
+  materials: MaterialItem[], 
+  services: ServiceItem[], 
+  discount: number, 
+  tax: number, 
+  estimateType: EstimateType
+) => {
+  const calculateSubtotal = useMemo(() => {
+    return () => {
+      if (estimateType === 'detailed') {
+        return items.reduce((sum, item) => sum + (item.quantity || 0) * (item.unitPrice || 0), 0);
+      } else if (estimateType === 'materials') {
+        const materialTotal = materials.reduce((sum, item) => sum + (item.quantity || 0) * (item.unitPrice || 0), 0);
+        const serviceTotal = services.reduce((sum, service) => sum + (service.value || 0), 0);
+        return materialTotal + serviceTotal;
+      } else {
+        return services.reduce((sum, service) => sum + (service.value || 0), 0);
       }
     };
-    
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, [isDashboard, initialTheme]);
+  }, [items, materials, services, estimateType]);
 
-  const setTheme = (newTheme: 'light' | 'dark') => {
-    setThemeState(newTheme);
-    applyTheme(newTheme);
-    if (typeof window !== 'undefined') {
-      const storageKey = isDashboard ? 'dashboard-theme' : 'site-theme';
-      localStorage.setItem(storageKey, newTheme);
-    }
+  const calculateMaterialsSubtotal = useMemo(() => {
+    return () => {
+      return materials.reduce((sum, item) => sum + (item.quantity || 0) * (item.unitPrice || 0), 0);
+    };
+  }, [materials]);
+
+  const calculateServicesSubtotal = useMemo(() => {
+    return () => {
+      return services.reduce((sum, service) => sum + (service.value || 0), 0);
+    };
+  }, [services]);
+
+  /**
+   * Calcula o valor total do orçamento considerando o subtotal, descontos e impostos.
+   * 
+   * @returns {number} O valor total calculado do orçamento em reais.
+   * 
+   * @remarks
+   * Esta função utiliza os seguintes parâmetros implícitos do hook:
+   * - calculateSubtotal(): Função que calcula o subtotal dos itens baseado no tipo de orçamento.
+   * - discount: Valor do desconto aplicado ao orçamento (em reais).
+   * - tax: Valor de impostos ou taxas adicionais aplicados ao orçamento (em reais).
+   * 
+   * O cálculo é realizado da seguinte forma:
+   * 1. Obtém o subtotal através da função calculateSubtotal()
+   * 2. Subtrai o valor do desconto (se existir)
+   * 3. Adiciona o valor de impostos/taxas (se existir)
+   * 
+   * @example
+   * ```tsx
+   * const { calculateTotal } = useCalculations(items, materials, services, 50, 10, 'detailed');
+   * const total = calculateTotal(); // Retorna o valor total considerando R$50 de desconto e R$10 de impostos
+   * ```
+   */
+  const calculateTotal = useMemo(() => {
+    return () => {
+      const subtotal = calculateSubtotal();
+      let total = subtotal;
+      if (discount) total -= discount;
+      if (tax) total += tax;
+      return total;
+    };
+  }, [calculateSubtotal, discount, tax]);
+
+  const formatCurrency = (value: number): string => {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
   };
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
+  return {
+    calculateSubtotal,
+    calculateTotal,
+    calculateMaterialsSubtotal,
+    calculateServicesSubtotal,
+    formatCurrency
   };
-
-  if (!mounted) {
-    // Durante SSR, retorna um tema padrão para evitar diferenças
-    return (
-      <ThemeContext.Provider
-        value={{ theme: initialTheme === 'dark' ? 'dark' : 'light', toggleTheme, setTheme, isDashboard }}
-      >
-        {children}
-      </ThemeContext.Provider>
-    );
-  }
-
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme, isDashboard }}>
-      {children}
-    </ThemeContext.Provider>
-  );
-};
-
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) throw new Error('useTheme must be used within a ThemeProvider');
-  return context;
 };
 ```
 
-  - 📁 lib/
-    - 📄 axios.ts
-    
+
+---
+### 📄 Arquivo: `src/hooks/useEstimateSchema.ts`
+
+```typescript
+// hooks/useEstimateSchema.ts
+import { z } from 'zod';
+
+export const useEstimateSchema = () => {
+  const estimateItemSchema = z.object({
+    description: z.string().min(1, 'Descrição é obrigatória'),
+    quantity: z.number().positive('Quantidade deve ser maior que zero'),
+    unit: z.string().default('un'),
+    unitPrice: z.number().min(0, 'Preço não pode ser negativo'),
+  });
+
+  const materialItemSchema = z.object({
+    description: z.string().min(1, 'Descrição é obrigatória'),
+    quantity: z.number().positive('Quantidade deve ser maior que zero'),
+    unit: z.string().default('un'),
+    unitPrice: z.number().min(0, 'Preço não pode ser negativo'),
+  });
+
+  const serviceItemSchema = z.object({
+    description: z.string().min(1, 'Descrição é obrigatória'),
+    value: z.number().min(0, 'Valor não pode ser negativo'),
+  });
+
+  const estimateSchema = z.object({
+    estimateType: z.enum(['detailed', 'materials', 'simple']),
+    clientName: z.string().min(1, 'Nome do cliente é obrigatório'),
+    clientEmail: z.string().email('Email inválido').optional().or(z.literal('')),
+    clientPhone: z.string().min(1, 'Telefone do cliente é obrigatório'),
+    address: z.string().optional().or(z.literal('')),
+    title: z.string().min(1, 'Título do orçamento é obrigatório'),
+    description: z.string().optional().or(z.literal('')),
+    items: z.array(estimateItemSchema).optional(),
+    materials: z.array(materialItemSchema).optional(),
+    services: z.array(serviceItemSchema).optional(),
+    subtotal: z.number().optional(),
+    discount: z.number().min(0, 'Desconto não pode ser negativo').optional(),
+    tax: z.number().min(0, 'Taxas não podem ser negativas').optional(),
+    total: z.number().optional(),
+    notes: z.string().optional().or(z.literal('')),
+    paymentTerms: z.string().optional().or(z.literal('')),
+    validUntil: z.string().optional().or(z.literal('')),
+  }).refine((data) => {
+    if (data.estimateType === 'detailed') return data.items && data.items.length > 0;
+    if (data.estimateType === 'materials') return (data.materials && data.materials.length > 0) && (data.services && data.services.length > 0);
+    if (data.estimateType === 'simple') return data.services && data.services.length > 0;
+    return true;
+  }, {
+    message: 'Adicione pelo menos um item ao orçamento conforme o tipo selecionado',
+    path: ['items'],
+  });
+
+  return { estimateSchema };
+};
+```
+
+
+---
+### 📄 Arquivo: `src/hooks/useReview.ts`
+
+```typescript
+'use client';
+
+import { useState, useEffect } from 'react';
+import { useRouter, useParams } from 'next/navigation';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+
+interface Review {
+  name: string;
+  location: string;
+  isTokenUsed: boolean;
+  isApproved: boolean;
+  rating?: number;
+  text?: string;
+}
+
+export const useReview = () => {
+  const router = useRouter();
+  const { token } = useParams();
+  const [review, setReview] = useState<Review | null>(null);
+  const [rating, setRating] = useState<number>(0);
+  const [text, setText] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
+  const [submitting, setSubmitting] = useState<boolean>(false);
+  const [submitted, setSubmitted] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (token) {
+      fetchReview();
+    }
+  }, [token]);
+
+  useEffect(() => {
+    if (review && review.isTokenUsed && !review.isApproved) {
+      setRating(review.rating || 0);
+      setText(review.text || '');
+    }
+  }, [review]);
+
+  const fetchReview = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(`/api/reviews/${token}`);
+      setReview(response.data);
+    } catch (error: any) {
+      toast.error(error.response?.data?.error || 'Link inválido ou expirado.');
+      router.push('/');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (rating < 1 || rating > 5) {
+      toast.error('Por favor, selecione uma avaliação entre 1 e 5 estrelas.');
+      return;
+    }
+    if (!text.trim()) {
+      toast.error('Por favor, escreva um comentário.');
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      await axios.put(`/api/reviews/${token}`, { rating, text, isTokenUsed: true });
+      setReview({ ...review!, rating, text, isTokenUsed: true });
+      setSubmitted(true);
+      toast.success(review?.isTokenUsed ? 'Avaliação atualizada com sucesso!' : 'Avaliação enviada com sucesso! Obrigado.');
+    } catch (error: any) {
+      toast.error(error.response?.data?.error || 'Erro ao processar avaliação. Tente novamente.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return {
+    review,
+    rating,
+    setRating,
+    text,
+    setText,
+    loading,
+    submitting,
+    submitted,
+    setSubmitted,
+    handleSubmit,
+  };
+};
+```
+
+
+---
+### 📄 Arquivo: `src/hooks/useSettingsData.ts`
+
+```typescript
+// src/hooks/useSettingsData.ts
+import { useState, useEffect } from 'react';
+import axios from '@/lib/axios';
+import { isAxiosError } from 'axios';
+import { useFeedback } from '@/context/FeedbackContext';
+
+export interface SettingsData {
+  siteName: string;
+  siteDescription: string;
+  contactInfo: {
+    email: string;
+    phone: string;
+    address: string;
+  };
+  socialMedia: {
+    instagram: string;
+    facebook: string;
+    whatsapp: string;
+  };
+  tracking: {
+    facebookPixel: string;
+    tiktokPixel: string;
+    googleTagManager: string;
+  };
+  maintenanceMode: boolean;
+}
+
+export const useSettingsData = () => {
+  const { showToast } = useFeedback();
+
+  const [settings, setSettings] = useState<SettingsData>({
+    siteName: 'FH Resolve',
+    siteDescription: 'Serviços profissionais de manutenção residencial em Florianópolis',
+    contactInfo: {
+      email: 'contato@fhresolve.com.br',
+      phone: '48991919791',
+      address: 'Ratones, Florianópolis - SC',
+    },
+    socialMedia: {
+      instagram: '',
+      facebook: '',
+      whatsapp: '48991919791',
+    },
+    tracking: {
+      facebookPixel: '',
+      tiktokPixel: '',
+      googleTagManager: '',
+    },
+    maintenanceMode: false,
+  });
+
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => {
+    fetchSettings();
+  }, []);
+
+  const fetchSettings = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get('/api/site-config');
+      if (response.data) {
+        setSettings(response.data);
+      }
+    } catch (error: any) {
+      console.error('Erro ao carregar configurações:', error);
+      
+      // Tratamento de erro mais detalhado
+      if (isAxiosError(error)) {
+        const statusCode = error.response?.status;
+        const errorMessage = error.response?.data?.message || error.message;
+        
+        if (statusCode === 401 || statusCode === 403) {
+          showToast('Sem permissão para acessar as configurações do site. Faça login novamente.', 'error');
+        } else if (statusCode === 404) {
+          showToast('Configurações não encontradas. Usando valores padrão.', 'info');
+        } else if (statusCode === 500) {
+          showToast(`Erro interno do servidor: ${errorMessage}`, 'error');
+        } else if (error.code === 'ECONNABORTED') {
+          showToast('Tempo de conexão esgotado. Verifique sua internet e tente novamente.', 'error');
+        } else if (!navigator.onLine) {
+          showToast('Você está offline. Verifique sua conexão com a internet.', 'error');
+        } else {
+          showToast(`Erro ao carregar configurações: ${errorMessage}`, 'error');
+        }
+      } else {
+        showToast(`Erro inesperado: ${error.message || 'Erro desconhecido'}`, 'error');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const saveSettings = async () => {
+    try {
+      setSaving(true);
+      
+      // Validações básicas antes de enviar
+      if (!settings.siteName.trim()) {
+        showToast('O nome do site não pode estar vazio', 'error');
+        return;
+      }
+      
+      if (!settings.contactInfo.email.includes('@')) {
+        showToast('Informe um email válido', 'error');
+        return;
+      }
+      
+      const response = await axios.post('/api/site-config', settings);
+      if (response.data) {
+        showToast('Configurações salvas com sucesso', 'success');
+        setSaved(true);
+        setTimeout(() => setSaved(false), 3000);
+      }
+    } catch (error: any) {
+      console.error('Erro ao salvar configurações:', error);
+      
+      // Tratamento de erro mais detalhado
+      if (isAxiosError(error)) {
+        const statusCode = error.response?.status;
+        const errorMessage = error.response?.data?.message || error.message;
+        
+        if (statusCode === 400) {
+          showToast(`Dados inválidos: ${errorMessage}`, 'error');
+        } else if (statusCode === 401 || statusCode === 403) {
+          showToast('Sem permissão para salvar as configurações. Faça login novamente.', 'error');
+        } else if (statusCode === 413) {
+          showToast('Os dados enviados são muito grandes. Reduza o tamanho dos valores.', 'error');
+        } else if (statusCode === 429) {
+          showToast('Muitas requisições. Aguarde alguns instantes e tente novamente.', 'error');
+        } else if (statusCode === 500) {
+          showToast(`Erro no servidor: ${errorMessage}`, 'error');
+        } else if (error.code === 'ECONNABORTED') {
+          showToast('Tempo de conexão esgotado. Verifique sua internet e tente novamente.', 'error');
+        } else if (!navigator.onLine) {
+          showToast('Você está offline. Verifique sua conexão com a internet.', 'error');
+        } else {
+          showToast(`Erro ao salvar configurações: ${errorMessage}`, 'error');
+        }
+      } else {
+        showToast(`Erro inesperado: ${error.message || 'Erro desconhecido'}`, 'error');
+      }
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    if (name.includes('.')) {
+      const [parent, child] = name.split('.');
+      setSettings(prev => ({
+        ...prev,
+        [parent]: {
+          ...(prev[parent as keyof SettingsData] as Record<string, unknown>),
+          [child]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
+        },
+      }));
+    } else {
+      setSettings(prev => ({
+        ...prev,
+        [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
+      }));
+    }
+  };
+
+  const handleSiteModeChange = (checked: boolean) => {
+    setSettings(prev => ({ ...prev, maintenanceMode: checked }));
+  };
+
+  return {
+    settings,
+    loading,
+    saving,
+    saved,
+    setSaving,
+    setSaved,
+    setSettings,
+    fetchSettings,
+    saveSettings,
+    handleChange,
+    handleSiteModeChange,
+  };
+};
+```
+
+
+---
+### 📄 Arquivo: `src/hooks/useSiteConfig.ts`
+
+```typescript
+'use client';
+
+import { useAppContext } from '@/context/AppContext';
+
+export const useSiteConfig = () => {
+  const context = useAppContext();
+  if (!context) {
+    throw new Error('useSiteConfig deve ser usado dentro de um AppProvider');
+  }
+  return {
+    config: context.config,
+    updateConfig: context.updateConfig,
+    loading: context.loading,
+    theme: context.theme,
+    setTheme: context.setTheme,
+    toggleTheme: context.toggleTheme
+  };
+};
+```
+
+
+---
+### 📄 Arquivo: `src/lib/auth.ts`
+
+```typescript
+import NextAuth, { NextAuthOptions, User } from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import bcrypt from 'bcryptjs';
+import dbConnect from '@/lib/mongodb';
+import UserModel from '@/models/user';
+import sanitizeHtml from 'sanitize-html';
+
+// Alinhar CustomUser com o tipo User do NextAuth
+export interface CustomUser extends User {
+  _id?: string; // Opcional para compatibilidade com MongoDB
+  name: string;
+  email: string;
+  role: 'admin' | 'editor' | 'viewer';
+  password?: string; // Opcional, já que User não exige
+}
+
+export const authOptions: NextAuthOptions = {
+  providers: [
+    CredentialsProvider({
+      name: 'Credentials',
+      credentials: {
+        email: { label: 'Email', type: 'email' },
+        password: { label: 'Senha', type: 'password' },
+      },
+      async authorize(credentials): Promise<User | null> {
+        if (!credentials?.email || !credentials?.password) {
+          throw new Error('Email e senha são obrigatórios');
+        }
+
+        const sanitizedEmail = sanitizeHtml(credentials.email.trim().toLowerCase());
+        await dbConnect();
+        const dbUser = await UserModel.findOne({ email: sanitizedEmail }).lean() as unknown as CustomUser;
+
+        if (!dbUser) {
+          console.error('Usuário não encontrado:', sanitizedEmail);
+          throw new Error('Usuário não encontrado');
+        }
+
+        const isPasswordValid = await bcrypt.compare(credentials.password, dbUser.password || '');
+        if (!isPasswordValid) {
+          console.error('Senha inválida para:', sanitizedEmail);
+          throw new Error('Senha inválida');
+        }
+
+        return { id: dbUser._id!.toString(), name: dbUser.name, email: dbUser.email, role: dbUser.role };
+      },
+    }),
+  ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.role = (user as CustomUser).role;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      session.user.id = token.id as string;
+      session.user.role = token.role as 'admin' | 'editor' | 'viewer';
+      return session;
+    },
+  },
+  pages: { signIn: '/login' },
+  session: { strategy: 'jwt' },
+  secret: process.env.NEXTAUTH_SECRET,
+};
+```
+
+
+---
+### 📄 Arquivo: `src/lib/axios.ts`
+
 ```typescript
 import axios from 'axios';
 
@@ -13281,8 +18013,10 @@ const api = axios.create({
 export default api;
 ```
 
-    - 📄 drive-service.ts
-    
+
+---
+### 📄 Arquivo: `src/lib/drive-service.ts`
+
 ```typescript
 import axios from 'axios';
 
@@ -13363,8 +18097,10 @@ export class GoogleDriveService {
 export default new GoogleDriveService();
 ```
 
-    - 📄 mongodb.ts
-    
+
+---
+### 📄 Arquivo: `src/lib/mongodb.ts`
+
 ```typescript
 import mongoose from 'mongoose';
 
@@ -13393,7 +18129,7 @@ if (!global.mongoose) {
   global.mongoose = cached;
 }
 
-async function dbConnect() {
+async function connectDB() {
   if (cached.conn) {
     return cached.conn;
   }
@@ -13403,7 +18139,9 @@ async function dbConnect() {
       bufferCommands: false,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI);
+    cached.promise = mongoose.connect(MONGODB_URI!, opts).then((mongoose) => {
+      return mongoose;
+    });
   }
 
   try {
@@ -13416,12 +18154,544 @@ async function dbConnect() {
   return cached.conn;
 }
 
-export default dbConnect;
+export default connectDB;
 ```
 
-  - 📁 models/
-    - 📄 blog.ts
+
+---
+### 📄 Arquivo: `src/lib/motion-variants.ts`
+
+```typescript
+/**
+ * src/lib/motion-variants.ts
+ * 
+ * Este arquivo contém configurações de animação padronizadas para criar 
+ * uma experiência de usuário consistente em toda a aplicação.
+ */
+
+import { useEffect, useState } from 'react';
+
+// Hook para verificar se o usuário prefere movimento reduzido
+export const usePrefersReducedMotion = () => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  
+  useEffect(() => {
+    // Verificar a preferência do usuário
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
     
+    // Listener para atualizar se a preferência mudar
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+    
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    } else {
+      // Fallback para navegadores mais antigos
+      mediaQuery.addListener(handleChange);
+      return () => mediaQuery.removeListener(handleChange);
+    }
+  }, []);
+  
+  return prefersReducedMotion;
+};
+
+// Utilitário para desativar animações para usuários que preferem movimento reduzido
+export const getReducedMotionVariants = (prefersReducedMotion: boolean) => {
+  if (prefersReducedMotion) {
+    return {
+      hidden: { opacity: 0 },
+      visible: { opacity: 1, transition: { duration: 0.2 } },
+      exit: { opacity: 0, transition: { duration: 0.2 } }
+    };
+  }
+  return undefined;
+};
+
+// Wrapper seguro para variantes que respeita prefers-reduced-motion
+export const applyVariant = (prefersReducedMotion: boolean, variant: any) => {
+  return prefersReducedMotion
+    ? { transition: { duration: 0.2 } }
+    : variant;
+};
+
+// Transições comuns
+export const spring = {
+  soft: {
+    type: "spring",
+    stiffness: 200,
+    damping: 25,
+    mass: 1
+  },
+  medium: {
+    type: "spring",
+    stiffness: 300,
+    damping: 30,
+    mass: 1
+  },
+  stiff: {
+    type: "spring",
+    stiffness: 400,
+    damping: 35,
+    mass: 1
+  }
+};
+
+export const ease = {
+  smooth: [0.43, 0.13, 0.23, 0.96], // Custom bezier curve
+  default: [0.25, 0.1, 0.25, 1], 
+  easeIn: [0.4, 0, 1, 1],
+  easeOut: [0, 0, 0.2, 1],
+  easeInOut: [0.4, 0, 0.2, 1]
+};
+
+// ===== ANIMAÇÕES PARA BOTÕES =====
+
+// Botão padrão
+export const buttonVariants = {
+  hover: {
+    scale: 1.03,
+    y: -1,
+    transition: {
+      ...spring.soft,
+      duration: 0.3
+    }
+  },
+  tap: {
+    scale: 0.98,
+    y: 0,
+    transition: {
+      ...spring.stiff,
+      duration: 0.2
+    }
+  },
+  // Variante para botões com animação de brilho
+  shimmer: (baseColor: string = 'rgba(255, 255, 255, 0.2)') => ({
+    before: {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      background: `linear-gradient(90deg, transparent, ${baseColor}, transparent)`,
+      transform: 'translateX(-100%)'
+    },
+    animate: {
+      transform: 'translateX(100%)',
+      transition: {
+        duration: 1.5,
+        repeat: Infinity,
+        ease: 'linear',
+        repeatDelay: 1
+      }
+    }
+  })
+};
+
+// Botão de ícone (para botões circulares ou quadrados apenas com ícone)
+export const iconButtonVariants = {
+  hover: {
+    scale: 1.1,
+    rotate: 5,
+    transition: spring.soft
+  },
+  tap: {
+    scale: 0.9,
+    rotate: -5,
+    transition: spring.stiff
+  }
+};
+
+// Botão Flutuante/FAB 
+export const fabVariants = {
+  hover: {
+    scale: 1.1,
+    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.2)",
+    transition: spring.soft
+  },
+  tap: {
+    scale: 0.95,
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+    transition: spring.stiff
+  }
+};
+
+// ===== ANIMAÇÕES PARA CARTÕES E ELEMENTOS DE CONTEÚDO =====
+
+// Card padrão
+export const cardVariants = {
+  hover: {
+    y: -6, 
+    boxShadow: "0 12px 24px rgba(0, 0, 0, 0.1)",
+    transition: {
+      ...spring.soft,
+      duration: 0.3
+    }
+  },
+  tap: {
+    y: -3,
+    scale: 0.99,
+    transition: {
+      ...spring.stiff,
+      duration: 0.2
+    }
+  },
+  // Para cards como parte de uma lista ou grid
+  list: {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        ...spring.medium
+      }
+    }
+  }
+};
+
+// Animações de entrada
+export const entranceVariants = {
+  fadeIn: {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { 
+        duration: 0.6,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
+  },
+  slideUp: {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.7,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
+  },
+  slideIn: {
+    hidden: { opacity: 0, x: -30 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { 
+        duration: 0.7,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
+  },
+  scaleUp: {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      transition: { 
+        duration: 0.6,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
+  }
+};
+
+// Para listas com staggering animation
+export const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+      when: "beforeChildren"
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+      when: "afterChildren"
+    }
+  }
+};
+
+// Para navegação
+export const navVariants = {
+  // Mobile menu
+  mobileMenu: {
+    closed: { 
+      x: "-100%",
+      opacity: 0,
+      transition: { 
+        ...spring.stiff,
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+        when: "afterChildren"
+      }
+    },
+    open: { 
+      x: 0, 
+      opacity: 1,
+      transition: { 
+        ...spring.soft,
+        staggerChildren: 0.07,
+        delayChildren: 0.1,
+        when: "beforeChildren"
+      }
+    }
+  },
+  
+  // Item no menu mobile
+  menuItem: {
+    closed: { x: -20, opacity: 0 },
+    open: { x: 0, opacity: 1 }
+  },
+  
+  // Indicador de navegação ativa
+  activeIndicator: {
+    layoutTransition: spring.stiff
+  }
+};
+
+// Para modais e dialogs
+export const modalVariants = {
+  backdrop: {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  },
+  modal: {
+    hidden: { 
+      opacity: 0,
+      scale: 0.95,
+      y: -20,
+    },
+    visible: { 
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        duration: 0.5,
+        bounce: 0.2,
+      },
+    },
+  },
+};
+
+// Para items em carrosséis ou galerias
+export const carouselItemVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 300 : -300,
+    opacity: 0
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      ...spring.medium
+    }
+  },
+  exit: (direction: number) => ({
+    x: direction < 0 ? 300 : -300,
+    opacity: 0,
+    transition: {
+      ...spring.medium
+    }
+  })
+};
+
+// Animações de loading
+export const loadingVariants = {
+  pulse: {
+    scale: [1, 1.05, 1],
+    opacity: [0.7, 1, 0.7],
+    transition: {
+      duration: 1.5,
+      repeat: Infinity,
+      ease: ease.easeInOut
+    }
+  },
+  rotate: {
+    rotate: [0, 360],
+    transition: {
+      duration: 1.5,
+      repeat: Infinity,
+      ease: "linear"
+    }
+  },
+  bounce: {
+    y: [0, -10, 0],
+    transition: {
+      duration: 1,
+      repeat: Infinity,
+      ease: ease.easeInOut
+    }
+  }
+};
+
+// Variantes para animações de scroll
+export const scrollAnimationVariants = {
+  // Para uso com useInView do Framer Motion
+  fadeInScroll: {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.4, 0, 0.2, 1],
+        type: "spring",
+        stiffness: 100,
+        damping: 20
+      }
+    }
+  },
+  // Com staggering para listas
+  staggerScroll: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+        when: "beforeChildren"
+      }
+    }
+  },
+  // Item individual em uma lista com staggering
+  staggerItem: {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.4, 0, 0.2, 1],
+        type: "spring",
+        stiffness: 100,
+        damping: 20
+      }
+    }
+  }
+};
+
+// Variantes para hover e tap em formulários
+export const formControlVariants = {
+  // Para inputs e selects
+  input: {
+    focus: {
+      scale: 1.01,
+      transition: spring.soft
+    }
+  },
+  // Para submit buttons
+  submit: {
+    hover: {
+      scale: 1.03,
+      transition: spring.soft
+    },
+    tap: {
+      scale: 0.97,
+      transition: spring.stiff
+    }
+  }
+};
+
+// Variantes para tooltips e popovers
+export const tooltipVariants = {
+  hidden: { 
+    opacity: 0, 
+    scale: 0.8, 
+    y: 10 
+  },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    y: 0,
+    transition: {
+      ...spring.stiff,
+      delay: 0.1
+    }
+  }
+};
+
+// Funções utilitárias para criar transições personalizadas
+export const createStaggerTransition = (delayChildren: number = 0.1, staggerTime: number = 0.05) => ({
+  staggerChildren: staggerTime,
+  delayChildren: delayChildren,
+  when: "beforeChildren" 
+});
+
+export const createHoverTransition = (scale: number = 1.05, yOffset: number = -2) => ({
+  scale: scale,
+  y: yOffset,
+  transition: spring.soft
+});
+
+export const createTapTransition = (scale: number = 0.97) => ({
+  scale: scale,
+  transition: spring.stiff
+});
+```
+
+
+---
+### 📄 Arquivo: `src/lib/projects.ts`
+
+```typescript
+import { Project } from '../types/project';
+
+// Dados de exemplo - você pode substituir isso por uma chamada à API ou banco de dados
+const projects: Project[] = [
+  {
+    id: '1',
+    title: 'Projeto 1',
+    description: 'Descrição do projeto 1',
+    image: '/images/project1.jpg',
+    tags: ['React', 'TypeScript', 'Next.js'],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+  {
+    id: '2',
+    title: 'Projeto 2',
+    description: 'Descrição do projeto 2',
+    image: '/images/project2.jpg',
+    tags: ['Node.js', 'Express', 'MongoDB'],
+    createdAt: new Date('2024-01-02'),
+    updatedAt: new Date('2024-01-02')
+  }
+];
+
+export async function getProjects(): Promise<Project[]> {
+  // Aqui você pode implementar a lógica para buscar os projetos do seu banco de dados
+  // Por enquanto, estamos retornando os dados de exemplo
+  return projects;
+}
+```
+
+
+---
+### 📄 Arquivo: `src/lib/utils.ts`
+
+```typescript
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
+
+---
+### 📄 Arquivo: `src/models/blog.ts`
+
 ```typescript
 import mongoose from 'mongoose';
 
@@ -13482,21 +18752,29 @@ const BlogModel = models.Blog || mongoose.model('Blog', blogSchema);
 export default BlogModel;
 ```
 
-    - 📄 estimate.ts
-    
+
+---
+### 📄 Arquivo: `src/models/estimate.ts`
+
 ```typescript
 import mongoose from 'mongoose';
 
 const { Schema, models } = mongoose;
 
+// Schema para itens de orçamento detalhado
 const estimateItemSchema = new Schema({
   description: {
     type: String,
-    required: [true, 'Descrição do item é obrigatória'],
+    required: function() {
+      // Somente requer descrição se o tipo de orçamento for "detailed"
+      return this.parent().estimateType === 'detailed';
+    },
   },
   quantity: {
     type: Number,
-    required: [true, 'Quantidade é obrigatória'],
+    required: function() {
+      return this.parent().estimateType === 'detailed';
+    },
     min: [0.01, 'Quantidade deve ser maior que 0'],
   },
   unit: {
@@ -13505,12 +18783,65 @@ const estimateItemSchema = new Schema({
   },
   unitPrice: {
     type: Number,
-    required: [true, 'Preço unitário é obrigatório'],
+    required: function() {
+      return this.parent().estimateType === 'detailed';
+    },
     min: [0, 'Preço unitário não pode ser negativo'],
   },
 });
 
+// Schema para materiais
+const materialItemSchema = new Schema({
+  description: {
+    type: String,
+    required: function() {
+      return this.parent().estimateType === 'materials';
+    },
+  },
+  quantity: {
+    type: Number,
+    required: function() {
+      return this.parent().estimateType === 'materials';
+    },
+    min: [0.01, 'Quantidade deve ser maior que 0'],
+  },
+  unit: {
+    type: String,
+    default: 'un',
+  },
+  unitPrice: {
+    type: Number,
+    required: function() {
+      return this.parent().estimateType === 'materials';
+    },
+    min: [0, 'Preço unitário não pode ser negativo'],
+  },
+});
+
+// Schema para serviços
+const serviceItemSchema = new Schema({
+  description: {
+    type: String,
+    required: function() {
+      return this.parent().estimateType === 'simple' || this.parent().estimateType === 'materials';
+    },
+  },
+  value: {
+    type: Number,
+    required: function() {
+      return this.parent().estimateType === 'simple' || this.parent().estimateType === 'materials';
+    },
+    min: [0, 'Valor não pode ser negativo'],
+  },
+});
+
 const estimateSchema = new Schema({
+  estimateType: {
+    type: String,
+    enum: ['detailed', 'materials', 'simple'],
+    default: 'detailed',
+    required: [true, 'Tipo de orçamento é obrigatório'],
+  },
   clientName: {
     type: String,
     required: [true, 'Nome do cliente é obrigatório'],
@@ -13532,7 +18863,54 @@ const estimateSchema = new Schema({
   description: {
     type: String,
   },
-  items: [estimateItemSchema],
+  items: {
+    type: [estimateItemSchema],
+    validate: [
+      {
+        validator: function(items) {
+          // Somente valida se o tipo for "detailed"
+          if (this.estimateType === 'detailed') {
+            return items && items.length > 0;
+          }
+          return true;
+        },
+        message: 'Orçamento detalhado requer pelo menos um item'
+      }
+    ],
+    default: undefined
+  },
+  materials: {
+    type: [materialItemSchema],
+    validate: [
+      {
+        validator: function(materials) {
+          // Somente valida se o tipo for "materials"
+          if (this.estimateType === 'materials') {
+            return materials && materials.length > 0;
+          }
+          return true;
+        },
+        message: 'Orçamento de materiais requer pelo menos um material'
+      }
+    ],
+    default: undefined
+  },
+  services: {
+    type: [serviceItemSchema],
+    validate: [
+      {
+        validator: function(services) {
+          // Valida se o tipo for "simple" ou "materials"
+          if (this.estimateType === 'simple' || this.estimateType === 'materials') {
+            return services && services.length > 0;
+          }
+          return true;
+        },
+        message: 'Orçamento requer pelo menos um serviço'
+      }
+    ],
+    default: undefined
+  },
   subtotal: {
     type: Number,
     default: 0,
@@ -13540,10 +18918,12 @@ const estimateSchema = new Schema({
   discount: {
     type: Number,
     default: 0,
+    min: [0, 'Desconto não pode ser negativo'],
   },
   tax: {
     type: Number,
     default: 0,
+    min: [0, 'Taxa não pode ser negativa'],
   },
   total: {
     type: Number,
@@ -13581,29 +18961,31 @@ const estimateSchema = new Schema({
   },
 });
 
-// Pré-save para calcular os valores
-estimateSchema.pre('save', function(next) {
-  // Calcular subtotal
-  this.subtotal = this.items.reduce((sum, item) => {
-    return sum + (item.quantity * item.unitPrice);
-  }, 0);
-  
-  // Calcular total com desconto e taxas
+// Pré-save para calcular valores com base no tipo de orçamento
+estimateSchema.pre('save', function (next) {
+  let subtotal = 0;
+
+  if (this.estimateType === 'detailed' && this.items && this.items.length > 0) {
+    subtotal = this.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0);
+  } else if (this.estimateType === 'materials') {
+    const materialTotal = this.materials && this.materials.length > 0 
+      ? this.materials.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0)
+      : 0;
+    const serviceTotal = this.services && this.services.length > 0
+      ? this.services.reduce((sum, service) => sum + service.value, 0)
+      : 0;
+    subtotal = materialTotal + serviceTotal;
+  } else if (this.estimateType === 'simple' && this.services && this.services.length > 0) {
+    subtotal = this.services.reduce((sum, service) => sum + service.value, 0);
+  }
+
+  this.subtotal = subtotal;
   let total = this.subtotal;
-  
-  if (this.discount) {
-    total -= this.discount;
-  }
-  
-  if (this.tax) {
-    total += this.tax;
-  }
-  
+  if (this.discount) total -= this.discount;
+  if (this.tax) total += this.tax;
   this.total = total;
-  
-  // Atualiza a data de modificação
+
   this.updatedAt = new Date();
-  
   next();
 });
 
@@ -13612,8 +18994,10 @@ const EstimateModel = models.Estimate || mongoose.model('Estimate', estimateSche
 export default EstimateModel;
 ```
 
-    - 📄 portfolio.ts
-    
+
+---
+### 📄 Arquivo: `src/models/portfolio.ts`
+
 ```typescript
 import mongoose from 'mongoose';
 
@@ -13670,11 +19054,12 @@ const portfolioSchema = new Schema({
 const PortfolioModel = models.Portfolio || mongoose.model('Portfolio', portfolioSchema);
 
 export default PortfolioModel;
-
 ```
 
-    - 📄 quote.ts
-    
+
+---
+### 📄 Arquivo: `src/models/quote.ts`
+
 ```typescript
 import mongoose from 'mongoose';
 
@@ -13716,191 +19101,145 @@ const QuoteModel = models.Quote || mongoose.model('Quote', quoteSchema);
 export default QuoteModel;
 ```
 
-    - 📄 review.ts
-    
+
+---
+### 📄 Arquivo: `src/models/review.ts`
+
 ```typescript
-import mongoose from 'mongoose';
+// src/models/review.ts
+import mongoose, { Schema, models } from 'mongoose';
 
-const { Schema, models } = mongoose;
+interface IReview extends mongoose.Document {
+  name: string;
+  location: string;
+  rating?: number;
+  text?: string;
+  image?: string;
+  isApproved: boolean;
+  token: string;
+  isTokenUsed: boolean;
+  createdAt: Date;
+}
 
-const reviewSchema = new Schema({
-  name: {
-    type: String,
-    required: [true, 'Nome é obrigatório'],
+const reviewSchema = new Schema<IReview>(
+  {
+    name: {
+      type: String,
+      required: [true, 'Nome é obrigatório'],
+      trim: true,
+      maxlength: [100, 'Nome não pode exceder 100 caracteres'],
+    },
+    location: {
+      type: String,
+      required: [true, 'Localização é obrigatória'],
+      trim: true,
+      maxlength: [200, 'Localização não pode exceder 200 caracteres'],
+    },
+    rating: {
+      type: Number,
+      min: [1, 'A avaliação deve ser no mínimo 1'],
+      max: [5, 'A avaliação deve ser no máximo 5'],
+      required: [
+        function (this: IReview) {
+          return this.isTokenUsed === true;
+        },
+        'Avaliação é obrigatória quando o token é usado',
+      ],
+    },
+    text: {
+      type: String,
+      required: [
+        function (this: IReview) {
+          return this.isTokenUsed === true;
+        },
+        'Texto da avaliação é obrigatório quando o token é usado',
+      ],
+      trim: true,
+      maxlength: [1000, 'Texto não pode exceder 1000 caracteres'],
+    },
+    image: {
+      type: String,
+      trim: true,
+    },
+    isApproved: {
+      type: Boolean,
+      default: false,
+    },
+    token: {
+      type: String,
+      required: true,
+      unique: true,
+      index: { expires: '7d' }, // Token expira em 7 dias
+    },
+    isTokenUsed: {
+      type: Boolean,
+      default: false,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      index: true, // Índice para consultas por data
+    },
   },
-  location: {
-    type: String,
-    required: [true, 'Localização é obrigatória'],
-  },
-  rating: {
-    type: Number,
-    min: [1, 'A avaliação deve ser no mínimo 1'],
-    max: [5, 'A avaliação deve ser no máximo 5'],
-    required: [
-      function () {
-        return this.isTokenUsed === true;
-      },
-      'Avaliação é obrigatória quando o token é usado',
-    ],
-  },
-  text: {
-    type: String,
-    required: [
-      function () {
-        return this.isTokenUsed === true;
-      },
-      'Texto da avaliação é obrigatório quando o token é usado',
-    ],
-  },
-  image: {
-    type: String,
-  },
-  isApproved: {
-    type: Boolean,
-    default: false,
-  },
-  token: {
-    type: String,
-    unique: true,
-  },
-  isTokenUsed: {
-    type: Boolean,
-    default: false,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+  {
+    timestamps: { updatedAt: 'updatedAt' }, // Adiciona updatedAt automaticamente
+  }
+);
 
-// Limpar cache do modelo, caso já exista
-delete mongoose.models.Review;
-
-const ReviewModel = mongoose.model('Review', reviewSchema);
+const ReviewModel = models.Review || mongoose.model<IReview>('Review', reviewSchema);
 
 export default ReviewModel;
 ```
 
-    - 📄 settings.ts
-    
+
+---
+### 📄 Arquivo: `src/models/settings.ts`
+
 ```typescript
 // src/models/settings.ts
 import mongoose from 'mongoose';
 
-const { Schema, models } = mongoose;
+const { Schema } = mongoose;
 
-// Definição para cores do tema
-const themeColorsSchema = new Schema({
-  primary: { type: String, default: '#252525' },
-  accent: { type: String, default: '#2B8D9A' },
-  secondary: { type: String, default: '#8D9192' },
-  neutral: { type: String, default: '#EDEDED' },
-  text: { type: String, default: '#252525' },
-  textLight: { type: String, default: '#FFFFFF' },
-  dark: { type: String, default: '#252525' },
-  light: { type: String, default: '#FFFFFF' },
-  gray: { type: String, default: '#EDEDED' },
-  cardBg: { type: String, default: '#FFFFFF' },
-  cardText: { type: String, default: '#252525' },
-  paralel: { type: String, default: '#F5F5F5' },
-  accentDark: { type: String, default: '#247885' }
-}, { _id: false });
-
-// Definição para temas (claro e escuro)
-const themesSchema = new Schema({
-  light: { type: themeColorsSchema, default: () => ({}) },
-  dark: { type: themeColorsSchema, default: () => ({}) }
-}, { _id: false });
-
-// Definição para informações de contato
 const contactInfoSchema = new Schema({
-  email: { type: String, default: 'contato@fhresolve.com.br' },
-  phone: { type: String, default: '48991919791' },
-  address: { type: String, default: 'Ratones, Florianópolis - SC' }
+  email: { type: String, required: true, match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, default: 'contato@fhresolve.com.br' },
+  phone: { type: String, required: true, minlength: 10, default: '48991919791' },
+  address: { type: String, required: true, minlength: 5, default: 'Ratones, Florianópolis - SC' },
 }, { _id: false });
 
-// Schema principal para as configurações do site
+const socialMediaSchema = new Schema({
+  instagram: { type: String, default: '' },
+  facebook: { type: String, default: '' },
+  whatsapp: { type: String, minlength: 10, default: '48991919791' },
+}, { _id: false });
+
+const trackingSchema = new Schema({
+  facebookPixel: { type: String, default: '' },
+  tiktokPixel: { type: String, default: '' },
+  googleTagManager: { type: String, default: '' },
+}, { _id: false });
+
 const settingsSchema = new Schema({
-  // Informações básicas do site
-  siteName: {
-    type: String,
-    default: 'FH Resolve',
-  },
-  siteDescription: {
-    type: String,
-    default: 'Serviços profissionais de manutenção residencial em Florianópolis',
-  },
-  
-  // Informações de contato
-  contactInfo: {
-    type: contactInfoSchema,
-    default: () => ({})
-  },
-  
-  // Redes sociais
-  socialMedia: {
-    instagram: String,
-    facebook: String,
-    whatsapp: String,
-  },
-  
-  // Configurações de tema
-  themes: {
-    type: themesSchema,
-    default: () => ({})
-  },
-  
-  // Configurações de template e tema ativo
-  activeTemplate: {
-    type: String,
-    default: 'default'
-  },
-  
-  defaultTheme: {
-    type: String,
-    enum: ['light', 'dark', 'system'],
-    default: 'light',
-  },
-  
-  // Modo de manutenção
-  maintenanceMode: {
-    type: Boolean,
-    default: false,
-  },
-  
-  // URLs de recursos
-  logoUrl: {
-    type: String,
-    default: '/logo.svg'
-  },
-  
-  faviconUrl: {
-    type: String,
-    default: '/favicon.ico'
-  },
-  
-  // Metadados
-  updatedBy: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-  },
-  
-  updatedAt: {
-    type: Date,
-    default: Date.now,
-  },
+  siteName: { type: String, required: true, default: 'FH Resolve' },
+  siteDescription: { type: String, required: true, default: 'Serviços profissionais de manutenção residencial em Florianópolis' },
+  contactInfo: { type: contactInfoSchema, required: true, default: () => ({}) },
+  socialMedia: { type: socialMediaSchema, default: () => ({}) },
+  tracking: { type: trackingSchema, default: () => ({}) },
+  updatedBy: { type: Schema.Types.ObjectId, ref: 'User' },
+  updatedAt: { type: Date, default: Date.now },
+}, {
+  timestamps: true,
 });
 
-// Limpar modelo anterior se existir
-mongoose.models = {};
-
-const SettingsModel = mongoose.model('Settings', settingsSchema);
+const SettingsModel = mongoose.models.Settings || mongoose.model('Settings', settingsSchema);
 
 export default SettingsModel;
 ```
 
-    - 📄 user.ts
-    
+
+---
+### 📄 Arquivo: `src/models/user.ts`
+
 ```typescript
 import mongoose from 'mongoose';
 
@@ -13936,8 +19275,10 @@ const UserModel = models.User || mongoose.model('User', userSchema);
 export default UserModel;
 ```
 
-    - 📄 video.ts
-    
+
+---
+### 📄 Arquivo: `src/models/video.ts`
+
 ```typescript
 import mongoose from 'mongoose';
 
@@ -13995,9 +19336,10 @@ const VideoModel = models.Video || mongoose.model('Video', videoSchema);
 export default VideoModel;
 ```
 
-  - 📁 scripts/
-    - 📄 create-admin.ts
-    
+
+---
+### 📄 Arquivo: `src/scripts/create-admin.ts`
+
 ```typescript
 // Este script pode ser executado uma vez para criar o usuário admin inicial
 import 'dotenv/config';
@@ -14054,9 +19396,154 @@ async function createAdminUser() {
 createAdminUser();
 ```
 
-  - 📁 types/
-    - 📄 next-auth.d.ts
-    
+
+---
+### 📄 Arquivo: `src/types/estimate.ts`
+
+```typescript
+// types/estimate.ts
+export interface EstimateItem {
+    description: string;
+    quantity: number;
+    unit: string;
+    unitPrice: number;
+  }
+  
+  export interface MaterialItem {
+    description: string;
+    quantity: number;
+    unit: string;
+    unitPrice: number;
+  }
+  
+  export interface ServiceItem {
+    description: string;
+    value: number;
+  }
+  
+  export interface HistoryEntry {
+    date: string;
+    action: string;
+    by: string;
+  }
+  
+  export interface Estimate {
+    _id: string;
+    estimateType: 'detailed' | 'materials' | 'simple';
+    clientName: string;
+    clientEmail?: string;
+    clientPhone: string;
+    address?: string;
+    title: string;
+    description?: string;
+    items?: EstimateItem[];
+    materials?: MaterialItem[];
+    services?: ServiceItem[];
+    subtotal: number;
+    discount?: number;
+    tax?: number;
+    total: number;
+    notes?: string;
+    paymentTerms?: string;
+    validUntil?: string;
+    status: 'draft' | 'sent' | 'accepted' | 'rejected' | 'expired';
+    token: string;
+    createdAt: string;
+    updatedAt: string;
+    history?: HistoryEntry[];
+    wasModified?: boolean;
+  }
+```
+
+
+---
+### 📄 Arquivo: `src/types/leaflet.d.ts`
+
+```typescript
+// Definições de tipos para leaflet e react-leaflet
+declare module 'leaflet' {
+    export interface LatLngExpression {
+      lat: number;
+      lng: number;
+    }
+  
+    export type LatLngTuple = [number, number];
+  
+    export class Icon {
+      constructor(options: {
+        iconUrl: string;
+        iconSize?: [number, number];
+        iconAnchor?: [number, number];
+        popupAnchor?: [number, number];
+        className?: string;
+      });
+    }
+  
+    export interface PathOptions {
+      color?: string;
+      fillColor?: string;
+      fillOpacity?: number;
+      weight?: number;
+      opacity?: number;
+      lineCap?: string;
+      lineJoin?: string;
+      dashArray?: string;
+      dashOffset?: string;
+      className?: string;
+    }
+  }
+  
+  declare module 'react-leaflet' {
+    import { ReactNode, ComponentType } from 'react';
+    import * as L from 'leaflet';
+  
+    export interface MapContainerProps {
+      center: L.LatLngExpression;
+      zoom: number;
+      style?: React.CSSProperties;
+      className?: string;
+      children?: ReactNode;
+    }
+  
+    export interface TileLayerProps {
+      attribution: string;
+      url: string;
+    }
+  
+    export interface MarkerProps {
+      position: L.LatLngExpression;
+      icon?: L.Icon;
+      eventHandlers?: {
+        click?: () => void;
+        [key: string]: any;
+      };
+      children?: ReactNode;
+    }
+  
+    export interface CircleProps {
+      center: L.LatLngExpression;
+      radius: number;
+      pathOptions?: L.PathOptions;
+      children?: ReactNode;
+    }
+  
+    export interface PopupProps {
+      children?: ReactNode;
+    }
+  
+    export const MapContainer: ComponentType<MapContainerProps>;
+    export const TileLayer: ComponentType<TileLayerProps>;
+    export const Marker: ComponentType<MarkerProps>;
+    export const Circle: ComponentType<CircleProps>;
+    export const Popup: ComponentType<PopupProps>;
+    export function useMap(): L.Map;
+  }
+```
+
+
+---
+### 📄 Arquivo: `src/types/next-auth.d.ts`
+
 ```typescript
 import 'next-auth';
 
@@ -14081,39 +19568,210 @@ declare module 'next-auth/jwt' {
 }
 ```
 
-  - 📄 middleware.ts
-  
+
+---
+### 📄 Arquivo: `src/types/project.ts`
+
+```typescript
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image?: string;
+  tags: string[];
+  createdAt: Date;
+  updatedAt: Date;
+}
+```
+
+
+---
+### 📄 Arquivo: `src/types/settings.ts`
+
+```typescript
+// src/types/settings.ts
+export interface Style {
+  color?: string;
+  backgroundColor?: string;
+  fontSize?: string;
+  fontWeight?: string;
+  fontFamily?: string;
+  textAlign?: string;
+  padding?: string;
+  margin?: string;
+  borderRadius?: string;
+  border?: string;
+  boxShadow?: string;
+  opacity?: string;
+  transform?: string;
+  transition?: string;
+}
+
+export interface IconOption {
+  value: string;
+  label: string;
+}
+
+export interface Service {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  price?: string;
+  duration?: string;
+}
+
+export interface Template {
+  id: string;
+  name: string;
+  styles: { [key: string]: string };
+}
+
+export interface SettingsData {
+  siteName: string;
+  siteDescription: string;
+  contactInfo: {
+    email: string;
+    phone: string;
+    address: string;
+  };
+  socialMedia: {
+    instagram: string;
+    facebook: string;
+    whatsapp: string;
+  };
+  services: Service[];
+  templates: Template[];
+  activeTemplate: string;
+  maintenanceMode: boolean;
+  logoUrl: string;
+  faviconUrl: string;
+}
+```
+
+
+---
+### 📄 Arquivo: `src/middleware.ts`
+
 ```typescript
 import { NextRequest, NextResponse } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 
 export async function middleware(req: NextRequest) {
-  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
+  const secret = process.env.NEXTAUTH_SECRET;
+  // Obtém o token e as informações do usuário (incluindo a role)
+  const token = await getToken({ req, secret });
   const isAuthenticated = !!token;
-  
-  const isAuthPage = req.nextUrl.pathname === '/login';
-  const isDashboardPage = req.nextUrl.pathname.startsWith('/dashboard');
-  
-  if (isAuthenticated && isAuthPage) {
-    return NextResponse.redirect(new URL('/dashboard', req.url));
+  const userRole = token?.role as string | undefined; // Obtém a role do token
+
+  const pathname = req.nextUrl.pathname;
+
+  // --- Proteção do Dashboard ---
+  if (pathname.startsWith('/dashboard')) {
+    if (!isAuthenticated) {
+      // 1. Se NÃO está autenticado, redireciona para login
+      const loginUrl = new URL('/login', req.url);
+      // Opcional: Adiciona a URL de callback para redirecionar de volta após login
+      loginUrl.searchParams.set('callbackUrl', pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+
+    // 2. Se ESTÁ autenticado, verifica a role
+    if (userRole !== 'admin') {
+      // 3. Se NÃO é admin, redireciona para a página pública inicial
+      return NextResponse.redirect(new URL('/', req.url));
+    }
+
+    // 4. Se é admin autenticado, permite o acesso ao dashboard
+    return NextResponse.next();
   }
-  
-  if (!isAuthenticated && isDashboardPage) {
-    return NextResponse.redirect(new URL('/login', req.url));
+
+  // --- Tratamento da Página de Login ---
+  if (pathname === '/login') {
+    if (isAuthenticated) {
+      // 5. Se já está autenticado, redireciona para o dashboard (evita ver login novamente)
+      return NextResponse.redirect(new URL('/dashboard', req.url));
+    }
+    // Se não está autenticado, permite acessar a página de login
+    return NextResponse.next();
   }
-  
+
+  // --- Outras Páginas (Públicas) ---
+  // Se a rota não for /dashboard/* nem /login, permite o acesso (incluindo a '/')
+  // Esta linha só será alcançada para rotas DENTRO do matcher que não foram tratadas acima.
+  // Como o matcher SÓ inclui /login e /dashboard/*, rotas públicas como '/' NUNCA
+  // deveriam acionar este middleware.
   return NextResponse.next();
 }
 
 export const config = {
+  // O matcher continua o mesmo, pois ele define *quais* rotas acionam o middleware.
+  // A lógica DENTRO do middleware é que decide o que fazer com essas rotas.
+  // Rotas públicas como '/' ou '/portfolio' NÃO estão no matcher e não passam por aqui.
   matcher: ['/login', '/dashboard/:path*'],
 };
 ```
 
-- 📄 eslint.config.mjs
-  [Arquivo binário]
 
-- 📄 next-env.d.ts
+---
+### 📄 Arquivo: `eslint.config.mjs`
+
+```mjs
+import js from '@eslint/js';
+import globals from 'globals';
+import reactPlugin from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import nextPlugin from '@next/eslint-plugin-next';
+
+export default [
+  js.configs.recommended,
+  {
+    plugins: {
+      react: reactPlugin,
+      'react-hooks': reactHooks,
+      '@next/next': nextPlugin,
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    rules: {
+      // Suas regras aqui
+    },
+  },
+];
+```
+
+
+---
+### 📄 Arquivo: `jsconfig.json`
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
+```
+
+
+---
+### 📄 Arquivo: `next-env.d.ts`
 
 ```typescript
 /// <reference types="next" />
@@ -14121,82 +19779,391 @@ export const config = {
 
 // NOTE: This file should not be edited
 // see https://nextjs.org/docs/app/api-reference/config/typescript for more information.
-
 ```
 
-- 📄 next.config.ts
+
+---
+### 📄 Arquivo: `next.config.ts`
 
 ```typescript
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['images.unsplash.com'], // Adicione o domínio aqui
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
 module.exports = nextConfig;
 ```
 
-- 📄 package.json
 
-```json
-{
-  "name": "fhresolve-admin",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "create-admin": "node --loader @esbuild-kit/esm-loader src/scripts/create-admin.ts"
-  },
-  "dependencies": {
-    "@hookform/resolvers": "^3.3.4",
-    "axios": "^1.8.2",
-    "bcryptjs": "^2.4.3",
-    "date-fns": "^3.6.0",
-    "dotenv": "^16.4.7",
-    "framer-motion": "^12.4.10",
-    "gsap": "^3.12.7",
-    "lucide-react": "^0.479.0",
-    "mongoose": "^8.2.2",
-    "next": "15.2.1",
-    "next-auth": "^4.24.11",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-hook-form": "^7.51.1",
-    "react-hot-toast": "^2.4.1",
-    "react-icons": "^5.0.1",
-    "react-leaflet": "^5.0.0",
-    "recharts": "^2.12.3",
-    "zod": "^3.22.4"
-  },
-  "devDependencies": {
-    "@esbuild-kit/esm-loader": "^2.6.5",
-    "@types/bcryptjs": "^2.4.6",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9",
-    "eslint-config-next": "15.2.1",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14",
-    "ts-node": "^10.9.2",
-    "typescript": "^5"
-  }
-}
+---
+### 📄 Arquivo: `postcss.config.mjs`
 
+```mjs
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
 ```
 
-- 📄 postcss.config.mjs
-  [Arquivo binário]
 
-- 📄 README.md
+---
+### 📄 Arquivo: `README-animacoes.md`
 
-```md
+```markdown
+# Documentação de Animações e Microinterações - FH Resolve
+
+Este documento descreve as melhorias implementadas nas animações e microinterações da interface do FH Resolve, visando criar uma experiência de usuário mais consistente, fluida e profissional.
+
+## Índice
+
+1. [Sistema de Variantes de Animação](#sistema-de-variantes-de-animação)
+2. [Melhoria na Navegação (Header)](#melhoria-na-navegação-header)
+3. [Refinamento de Microinterações](#refinamento-de-microinterações)
+4. [Suporte a Prefers-Reduced-Motion](#suporte-a-prefers-reduced-motion)
+5. [Como Usar](#como-usar)
+6. [Boas Práticas](#boas-práticas)
+
+---
+
+## Sistema de Variantes de Animação
+
+Foi criado um sistema centralizado de animações no arquivo `src/lib/motion-variants.ts`, contendo variantes padronizadas para todos os componentes interativos da aplicação. Isso garante:
+
+- **Consistência**: Todas as animações seguem o mesmo padrão visual
+- **Reutilização**: Redução de código duplicado
+- **Manutenção**: Facilidade para ajustar animações globalmente
+
+As principais categorias de variantes incluem:
+
+- **Botões**: `buttonVariants`, `iconButtonVariants`, `fabVariants`
+- **Cartões/Cards**: `cardVariants`
+- **Entrada/Saída**: `entranceVariants`
+- **Contêineres/Listas**: `containerVariants`
+- **Navegação**: `navVariants`
+- **Modais**: `modalVariants`
+- **Carrosséis**: `carouselItemVariants`
+- **Loading**: `loadingVariants`
+- **Scroll**: `scrollAnimationVariants`
+- **Formulários**: `formControlVariants`
+- **Tooltips**: `tooltipVariants`
+
+Além de transições e curvas de easing padronizadas:
+
+```typescript
+// Transições spring
+export const spring = {
+  soft: { type: "spring", stiffness: 300, damping: 30 },
+  medium: { type: "spring", stiffness: 400, damping: 35 },
+  stiff: { type: "spring", stiffness: 500, damping: 40 }
+};
+
+// Curvas de easing personalizadas
+export const ease = {
+  smooth: [0.43, 0.13, 0.23, 0.96],
+  default: [0.25, 0.1, 0.25, 1],
+  // etc.
+};
+```
+
+## Melhoria na Navegação (Header)
+
+### 1. Animação de Menu Mobile
+
+- Substituição da animação simples por uma transição spring mais natural
+- Adição de efeito staggered para itens do menu (entram/saem em sequência)
+- Transição suave do ícone do menu (hambúrguer ↔ X)
+- Prevenção de "pulos" de layout durante transições
+
+```typescript
+// Exemplo das variantes do menu mobile
+const mobileMenuVariants = {
+  closed: { 
+    x: "-100%",
+    opacity: 0,
+    transition: { 
+      type: "spring", 
+      staggerChildren: 0.05,
+      staggerDirection: -1
+      // ...
+    }
+  },
+  open: { 
+    x: 0, 
+    opacity: 1,
+    transition: { 
+      type: "spring", 
+      staggerChildren: 0.07,
+      // ...
+    }
+  }
+};
+```
+
+### 2. Indicador de Seção Ativa
+
+- Indicador de navegação ativa com transição mais suave e natural
+- Melhoria da detecção de seção ativa para maior precisão
+- Transição baseada em spring para movimento mais orgânico
+- Prevenção de falsos positivos durante rolagem
+
+```jsx
+{isActive && (
+  <motion.div
+    className="absolute -bottom-1 left-0 w-full h-0.5 bg-[var(--color-accent)] rounded-full"
+    layoutId="activeNavIndicator"
+    transition={{ 
+      type: "spring", 
+      stiffness: 500, 
+      damping: 30 
+    }}
+  />
+)}
+```
+
+### 3. Experiência de Rolagem Suave
+
+- Aprimoramento da rolagem suave utilizando `requestAnimationFrame` para eliminar irregularidades
+- Cálculo mais preciso das posições de rolagem com compensação de altura do cabeçalho
+- Offset adicional para evitar que o conteúdo comece exatamente sob o cabeçalho
+- Bloqueio inteligente da rolagem durante abertura/fechamento do menu
+
+```javascript
+// Rolagem suave aprimorada
+const handleLinkClick = (href: string) => {
+  // ...
+  requestAnimationFrame(() => {
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - headerHeight - 20; // 20px de margem extra
+    
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    });
+  });
+  // ...
+};
+```
+
+## Refinamento de Microinterações
+
+### Hero e Componentes Principais
+
+Padronização das microinterações em todos os componentes interativos:
+
+1. **Botões CTAs**
+   - Hover: Elevação suave (y: -2px) + escala (1.04)
+   - Clique: Compressão natural (scale: 0.97)
+   - Efeito de brilho em botões de destaque
+
+2. **Cartões de Serviço**
+   - Hover: Elevação (y: -8px) + sombra suave
+   - Clique: Compressão leve (scale: 0.98)
+   - Animações estáticas das partículas/ícones para dar vida sem distrair
+
+3. **Animações de Entrada**
+   - Sequenciamento consistente de elementos principais
+   - Staggering (atraso sequencial) em listas e grids
+   - Animações de fade/slide direcionais consistentes
+
+4. **Botões de Ação Secundária**
+   - Sutil mas perceptível feedback visual nos estados hover/active
+   - Transições de cor respeitando o design system
+   - Hover/tap consistente com outros elementos para familiaridade
+
+## Suporte a Prefers-Reduced-Motion
+
+O sistema inclui suporte integrado para a preferência do usuário `prefers-reduced-motion`, seguindo as melhores práticas de acessibilidade:
+
+### Hook Personalizado
+
+```typescript
+// Hook para verificar se o usuário prefere movimento reduzido
+export const usePrefersReducedMotion = () => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  
+  useEffect(() => {
+    // Verificar a preferência do usuário
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    // Listener para atualizar se a preferência mudar
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+    
+    // Adiciona e remove listeners adequadamente
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    } else {
+      // Fallback para navegadores mais antigos
+      mediaQuery.addListener(handleChange);
+      return () => mediaQuery.removeListener(handleChange);
+    }
+  }, []);
+  
+  return prefersReducedMotion;
+};
+```
+
+### Utilitários para Aplicar Corretamente
+
+```typescript
+// Utilitário para desativar animações complexas
+export const getReducedMotionVariants = (prefersReducedMotion: boolean) => {
+  if (prefersReducedMotion) {
+    return {
+      hidden: { opacity: 0 },
+      visible: { opacity: 1, transition: { duration: 0.2 } },
+      exit: { opacity: 0, transition: { duration: 0.2 } }
+    };
+  }
+  return null;
+};
+
+// Aplicar variante com segurança
+export const applyVariant = (prefersReducedMotion: boolean, variant: any) => {
+  return prefersReducedMotion
+    ? { transition: { duration: 0.2 } }
+    : variant;
+};
+```
+
+### Exemplo de Uso
+
+```jsx
+import { usePrefersReducedMotion, applyVariant, buttonVariants } from '@/lib/motion-variants';
+
+const MyComponent = () => {
+  const prefersReducedMotion = usePrefersReducedMotion();
+  
+  return (
+    <motion.button
+      whileHover={applyVariant(prefersReducedMotion, buttonVariants.hover)}
+      whileTap={applyVariant(prefersReducedMotion, buttonVariants.tap)}
+    >
+      Clique-me
+    </motion.button>
+  );
+};
+```
+
+Isso garante que usuários que preferem movimento reduzido ainda recebam feedback visual adequado, mas sem animações que podem causar desconforto.
+
+## Como Usar
+
+Para implementar estas animações e microinterações em novos componentes:
+
+1. **Importe as variantes necessárias**:
+
+```jsx
+import { 
+  buttonVariants, 
+  cardVariants, 
+  entranceVariants,
+  usePrefersReducedMotion,
+  applyVariant 
+} from '@/lib/motion-variants';
+```
+
+2. **Verifique a preferência do usuário**:
+
+```jsx
+const prefersReducedMotion = usePrefersReducedMotion();
+```
+
+3. **Aplique as variantes aos elementos com segurança**:
+
+```jsx
+<motion.button
+  whileHover={applyVariant(prefersReducedMotion, buttonVariants.hover)}
+  whileTap={applyVariant(prefersReducedMotion, buttonVariants.tap)}
+  className="..."
+>
+  Conteúdo do botão
+</motion.button>
+```
+
+4. **Para animações de entrada/saída**:
+
+```jsx
+<motion.div
+  variants={prefersReducedMotion 
+    ? getReducedMotionVariants(prefersReducedMotion) 
+    : entranceVariants.slideUp}
+  initial="hidden"
+  animate="visible"
+  exit="hidden"
+>
+  Conteúdo
+</motion.div>
+```
+
+5. **Para listas com staggering**:
+
+```jsx
+<motion.ul
+  variants={prefersReducedMotion 
+    ? getReducedMotionVariants(prefersReducedMotion) 
+    : containerVariants}
+  initial="hidden"
+  animate="visible"
+>
+  {items.map(item => (
+    <motion.li 
+      key={item.id} 
+      variants={prefersReducedMotion 
+        ? undefined 
+        : entranceVariants.slideUp}
+    >
+      {item.content}
+    </motion.li>
+  ))}
+</motion.ul>
+```
+
+## Boas Práticas
+
+1. **Performance Primeiro**
+   - Anime apenas propriedades performáticas: `transform`, `opacity`
+   - Evite animar `width`, `height`, `top`, `left`, etc.
+   - Use `will-change` com moderação
+
+2. **Acessibilidade**
+   - **SEMPRE** respeite `prefers-reduced-motion` para usuários sensíveis a movimento
+   - Mantenha animações sutis (não excessivas)
+   - Nunca dependa apenas de animação para transmitir informações importantes
+
+3. **Consistência**
+   - Use as variantes padronizadas em vez de criar novas
+   - Mantenha a "personalidade" das animações consistente em toda a aplicação
+   - Para casos especiais, crie variantes estendendo as existentes
+
+4. **Simplificação Progressiva**
+   - As animações devem degradar graciosamente em dispositivos com menos recursos
+   - Usuários que preferem movimento reduzido ainda devem receber feedback visual adequado
+
+---
+
+*Este sistema de animações foi projetado para evoluir com o projeto. Sinta-se à vontade para adicionar novas variantes conforme necessário, mas mantenha a consistência com o sistema existente.*
+```
+
+
+---
+### 📄 Arquivo: `README.md`
+
+```markdown
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -14233,18 +20200,114 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
 ```
 
-- 📄 tailwind.config.mjs
-  [Arquivo binário]
 
-- 📄 tsconfig.json
+---
+### 📄 Arquivo: `tailwind.config.mjs`
+
+```mjs
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: ['class', '[data-theme="dark"]'],
+  content: [
+    './src/app/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+  ],
+  safelist: [
+    'dark:bg-opacity-10',
+    'dark:border-opacity-20',
+    'dark:bg-[var(--color-neutral)]',
+    'dark:border-[var(--color-neutral)]',
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+        dm: ['DM Sans', 'sans-serif'],
+      },
+      colors: {
+        primary: 'var(--color-primary)',
+        accent: 'var(--color-accent)',
+        secondary: 'var(--color-secondary)',
+        neutral: 'var(--color-neutral)',
+        'text-color': 'var(--color-text)',
+        dark: 'var(--color-dark)',
+        light: 'var(--color-light)',
+        gray: 'var(--color-gray)',
+        paralel: 'var(--color-paralel)',
+        'accent-dark': 'var(--color-accent-dark)',
+        black: '#252525',
+        'gray-medium': '#8D9192',
+        'light-gray': '#EDEDED',
+        white: '#FFFFFF',
+        teal: '#2B8D9A',
+        accent: {
+          DEFAULT: 'var(--color-accent)',
+          20: 'rgba(var(--color-accent-rgb), 0.2)',
+        },
+        gray: {
+          900: '#252525',
+          600: '#4B5563',
+          500: '#6B7280',
+          400: '#9CA3AF',
+          300: '#D1D5DB',
+        },
+      },
+      borderColor: {
+        'neutral-30': 'rgba(var(--color-neutral-rgb), 0.3)',
+        'accent-20': 'rgba(var(--color-accent-rgb), 0.2)',
+      },
+      borderRadius: {
+        '4xl': '2rem',
+      },
+      animation: {
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        float: 'float 4s ease-in-out infinite',
+      },
+      transitionProperty: {
+        width: 'width',
+        height: 'height',
+        spacing: 'margin, padding',
+      },
+      backdropBlur: {
+        xs: '2px',
+      },
+      boxShadow: {
+        'inner-sm': 'inset 0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        'custom-sm': 'var(--shadow-sm)',
+        'custom-md': 'var(--shadow-md)',
+        'custom-lg': 'var(--shadow-lg)',
+        'custom-xl': 'var(--shadow-xl)',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
+      },
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1536px',
+      },
+    },
+  },
+  plugins: [],
+};
+```
+
+
+---
+### 📄 Arquivo: `tsconfig.json`
 
 ```json
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "esnext", // Alinhar com "module": "esnext" para consistência
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -14266,13 +20329,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/new-estimate/PageHeader.tsx"],
   "exclude": ["node_modules"]
 }
-
 ```
 
-- 📄 tsconfig.tsnode.json
+
+---
+### 📄 Arquivo: `tsconfig.tsnode.json`
 
 ```json
 {
@@ -14289,4 +20353,41 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
     }
   }
 ```
-  
+
+
+## 6. Instruções e Prompts para Análise via IA
+
+**Lembrete:** Use **apenas** o contexto fornecido neste documento.
+
+Com base nas informações detalhadas acima, você pode solicitar à IA diversas análises. Aqui estão alguns exemplos de prompts e modelos:
+
+**1. Identificação de Problemas e Bugs:**
+   - *Prompt Exemplo:* `Revise o código em [NomeDoArquivo.ext] e [OutroArquivo.ext]. Existem possíveis bugs lógicos, condições de corrida ou erros de tratamento de exceção? Liste-os e explique por quê.`
+   - *Modelo:* `Analise o fluxo de [Funcionalidade Específica] envolvendo os arquivos [ArquivoA.js], [ArquivoB.ts]. Há algum potencial para [Tipo de Erro, ex: NullPointerException, Loop Infinito]?`
+
+**2. Sugestões de Melhoria e Refatoração:**
+   - *Prompt Exemplo:* `Sugira 3 refatorações no arquivo [NomeDoArquivoLongo.java] para melhorar a legibilidade e aplicar o princípio SOLID.`
+   - *Modelo:* `Olhando para o componente [NomeDoComponente.vue], como ele poderia ser otimizado para performance? Existe algum código repetido que poderia ser extraído para um utilitário?`
+   - *Modelo:* `Avalie a arquitetura geral baseada na estrutura de pastas e nos pontos de entrada. Quais são os pontos fortes e fracos? Há sugestões para melhorar a separação de responsabilidades?`
+
+**3. Análise de Performance:**
+   - *Prompt Exemplo:* `No arquivo [ArquivoComLoops.py], identifique loops ou operações que podem ser gargalos de performance. Sugira otimizações.`
+   - *Modelo:* `Considerando as dependências listadas ([DepA], [DepB]), existem alternativas mais performáticas conhecidas para as tarefas que elas realizam (baseado no código onde são usadas)?` (Nota: a IA pode precisar de conhecimento geral aqui, mas deve basear a aplicabilidade no código fornecido).
+
+**4. Verificação de Segurança (Básica):**
+   - *Prompt Exemplo:* `Analise o código que lida com [Entrada do Usuário/Acesso a Dados] no arquivo [SecuritySensitive.php]. Existem vulnerabilidades óbvias como [SQL Injection, XSS, etc.]?`
+   - *Modelo:* `Verifique se alguma das dependências listadas ([DepX], [DepY]) tem vulnerabilidades conhecidas e críticas (CVEs).` (Nota: Requer capacidade da IA de acessar dados externos, mas pode ser solicitado).
+
+**5. Explicação de Código:**
+   - *Prompt Exemplo:* `Explique o que a função [nomeDaFuncaoComplexa] no arquivo [ArquivoComplexo.ts] faz, qual seu propósito e como ela interage com [OutraParteDoCodigo].`
+   - *Modelo:* `Descreva o fluxo de dados para a funcionalidade de [Login/Cadastro/Etc.], começando por [ArquivoDeEntrada.js].`
+
+**6. Geração de Documentação:**
+   - *Prompt Exemplo:* `Gere comentários no formato JSDoc para a função [nomeDaFuncao] em [Arquivo.js].`
+   - *Modelo:* `Com base no README e na estrutura, escreva uma seção de 'Como Começar' (Getting Started) para a documentação do projeto.`
+
+**7. Perguntas Específicas:**
+   - *Prompt Exemplo:* `Onde a variável de ambiente [NOME_VAR] é utilizada no projeto?`
+   - *Modelo:* `Qual a versão da dependência [NomeDependencia] utilizada e onde ela é importada/requerida no código?`
+
+**Lembre-se de ser específico em seus prompts para obter os melhores resultados!**

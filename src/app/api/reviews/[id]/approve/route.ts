@@ -1,15 +1,15 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import ReviewModel from '@/models/review';
 
-export async function POST(req: Request, { params }: { params: { id: string } }) {
+export async function POST(request: NextRequest, context: any) {
   try {
     await dbConnect();
-    const { id } = params;
+    const id = context.params.id;
 
     console.log('Aprovando review com _id:', id);
 
-    const review = await ReviewModel.findById(id); // Usa _id em vez de token
+    const review = await ReviewModel.findById(id);
     if (!review) {
       return NextResponse.json({ error: 'Avaliação não encontrada' }, { status: 404 });
     }

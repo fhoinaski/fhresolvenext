@@ -1,26 +1,36 @@
 'use client';
 
-import React from 'react';
-import { ThemeProvider } from '@/context/ThemeContext';
-import { SiteConfigProvider } from '@/context/SiteConfigContext';
+import { SessionProvider } from 'next-auth/react';
 import { FeedbackProvider } from '@/context/FeedbackContext';
+import { AppProvider } from '@/context/AppContext';
+import React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-export function Providers({
-  children,
-  initialTheme = 'light',
-  isDashboard = false
-}: {
+// Criar uma instância do QueryClient
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 60 * 1000, // 1 hora de "stale time" para cache
+      gcTime: 24 * 60 * 60 * 1000, // 24 horas de tempo de limpeza do garbage collector
+    },
+  },
+});
+
+interface ProvidersProps {
   children: React.ReactNode;
   initialTheme?: 'light' | 'dark' | 'system';
-  isDashboard?: boolean;
-}) {
+}
+
+export function Providers({ children, initialTheme = 'system' }: ProvidersProps) {
   return (
-    <SiteConfigProvider>
-      <ThemeProvider initialTheme={initialTheme} isDashboard={isDashboard}>
-        <FeedbackProvider>
-          {children}
-        </FeedbackProvider>
-      </ThemeProvider>
-    </SiteConfigProvider>
+    <SessionProvider>
+      <QueryClientProvider client={queryClient}>
+        <AppProvider isDashboard={false}>
+          <FeedbackProvider>
+            {children}
+          </FeedbackProvider>
+        </AppProvider>
+      </QueryClientProvider>
+    </SessionProvider>
   );
 }
