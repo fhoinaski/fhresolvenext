@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { MessageCircle, CreditCard, ArrowDown, Wrench, Droplet, ShieldCheck, ChevronRight, Star } from 'lucide-react';
 import { 
   buttonVariants, 
@@ -9,7 +9,6 @@ import {
   containerVariants, 
   entranceVariants, 
   iconButtonVariants, 
-  spring,
   usePrefersReducedMotion,
   applyVariant,
   getReducedMotionVariants
@@ -123,6 +122,7 @@ const Hero: React.FC = () => {
     // Limpar animações anteriores antes de configurar novas
     ScrollTrigger.getAll().forEach((t) => t.kill());
     
+    // Animação de parallax mais suave para o fundo
     gsap.to('.hero-bg', {
       y: '30%',
       ease: 'none',
@@ -133,19 +133,9 @@ const Hero: React.FC = () => {
         scrub: true
       }
     });
-
-    // Animação otimizada para dispositivos móveis e desktop
-    gsap.from('.service-card', {
-      y: isMobile ? 10 : 20,
-      opacity: 0.8,
-      stagger: isMobile ? 0.1 : 0.2,
-      scrollTrigger: {
-        trigger: contentRef.current,
-        start: 'top center',
-        end: 'center center',
-        scrub: isMobile ? 0.5 : 1
-      }
-    });
+    
+    // Removendo a animação que faz os cards sumirem
+    // A animação do service-card agora será controlada apenas pelo Framer Motion
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -229,6 +219,7 @@ const Hero: React.FC = () => {
         style={{ opacity: contentOpacity }}
       >
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16">
+          {/* Coluna de texto */}
           <div className="w-full lg:w-1/2 max-w-xl">
             <motion.div 
               initial="hidden"
@@ -321,14 +312,14 @@ const Hero: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Container dos cards com maior visibilidade e mais adequado para mobile */}
+          {/* Container dos cards - Melhorias para responsividade e visibilidade */}
           <motion.div 
             className="w-full lg:w-1/2 mt-8 lg:mt-0"
             variants={containerAnimVariants}
             initial="hidden"
             animate="visible"
           >
-            <div className="grid gap-3 sm:gap-4">
+            <div className="grid gap-3 sm:gap-4 md:grid-cols-1">
               {services.map((service, index) => (
                 <ServiceCard 
                   key={index}
