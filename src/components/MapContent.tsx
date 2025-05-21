@@ -89,8 +89,8 @@ const MapContent: React.FC<MapContentProps> = ({
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
   };
 
-  // Configuração inicial do mapa
-  const defaultCenter: [number, number] = [-27.5132, -48.4618];
+  // Configuração inicial do mapa usando formato { lat, lng }
+  const defaultCenter = { lat: -27.5132, lng: -48.4618 };
   const defaultZoom = 12;
 
   // Opções de estilo para o mapa

@@ -4,11 +4,18 @@
 import { useState } from 'react';
 import { Settings, Mail, Shield } from 'lucide-react';
 
-export default function SettingsSidebar({ activeTab, setActiveTab }) {
+type SettingsTab = 'general' | 'contact' | 'advanced';
+
+interface SettingsSidebarProps {
+  activeTab: SettingsTab;
+  setActiveTab: (tab: SettingsTab) => void;
+}
+
+export default function SettingsSidebar({ activeTab, setActiveTab }: SettingsSidebarProps) {
   const tabs = [
-    { id: 'general', label: 'Geral', icon: <Settings size={20} /> },
-    { id: 'contact', label: 'Contato', icon: <Mail size={20} /> },
-    { id: 'advanced', label: 'Avançado', icon: <Shield size={20} /> },
+    { id: 'general' as SettingsTab, label: 'Geral', icon: <Settings size={20} /> },
+    { id: 'contact' as SettingsTab, label: 'Contato', icon: <Mail size={20} /> },
+    { id: 'advanced' as SettingsTab, label: 'Avançado', icon: <Shield size={20} /> },
   ];
 
   return (

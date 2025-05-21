@@ -4,8 +4,12 @@ import { FileText } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { UseFormRegister, UseFormSetValue } from 'react-hook-form';
 
-interface EstimateFormValues {
-  estimateType: string;
+import { EstimateFormValues, EstimateType } from '@/types/estimate';
+
+interface EstimateTypeOption {
+  id: EstimateType;
+  title: string;
+  description: string;
 }
 
 export default function EstimateTypeSelector({ 
@@ -14,10 +18,10 @@ export default function EstimateTypeSelector({
   setValue 
 }: { 
   register: UseFormRegister<EstimateFormValues>;
-  estimateType: string;
+  estimateType: EstimateType;
   setValue: UseFormSetValue<EstimateFormValues>;
 }) {
-  const estimateTypes = [
+  const estimateTypes: EstimateTypeOption[] = [
     {
       id: 'detailed',
       title: 'Orçamento Detalhado',
@@ -52,16 +56,15 @@ export default function EstimateTypeSelector({
                 estimateType === type.id 
                   ? 'border-[var(--color-accent)] bg-[var(--color-accent)]/5' 
                   : 'border-[var(--color-neutral)]/30 hover:border-[var(--color-accent)]/50'
-              }`}
-              onClick={() => setValue('estimateType', type.id)}
-            >
+              }`}              onClick={() => setValue('estimateType', type.id as EstimateType)}
+              >
               <div className="flex items-center gap-2 mb-2">
                 <input
                   type="radio"
                   id={`type-${type.id}`}
                   value={type.id}
                   checked={estimateType === type.id}
-                  {...register('estimateType')}
+                  {...register('estimateType', { required: true })}
                   className="h-4 w-4 text-[var(--color-accent)]"
                 />
                 <label htmlFor={`type-${type.id}`} className="font-medium text-[var(--color-card-text)]">

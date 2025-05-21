@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Moon, Sun, Bell, User, Calculator } from 'lucide-react';
+import { Bell, User, Calculator } from 'lucide-react';
 import Link from 'next/link';
 import { useFeedback } from '@/context/FeedbackContext';
 
@@ -67,23 +67,7 @@ export function Topbar() {
       className="sticky top-0 z-30 bg-[var(--color-card-bg)] text-[var(--color-card-text)] border-b border-[var(--color-neutral)]/30 shadow-md"
     >
       <div className="flex items-center justify-between px-4 py-3">
-        <h1 className="text-xl font-semibold hidden md:block">Admin Dashboard</h1>
-
-        <div className="flex items-center space-x-4">
-          {/* Botão de Tema */}
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="p-2 rounded-lg bg-[var(--color-neutral)]/20 hover:bg-[var(--color-accent)]/20 transition-colors"
-            aria-label="Alternar tema"
-          >
-            {theme === 'dark' ? (
-              <Sun size={20} className="text-[var(--color-accent)]" />
-            ) : (
-              <Moon size={20} className="text-[var(--color-accent)]" />
-            )}
-          </motion.button>
-
+        <h1 className="text-xl font-semibold hidden md:block">Admin Dashboard</h1>        <div className="flex items-center space-x-4">
           {/* Notificações */}
           <div className="relative">
             <motion.button

@@ -6,11 +6,6 @@ import { Menu, X, Wrench, MessageCircle } from 'lucide-react';
 import { useFeedback } from '../context/FeedbackContext';
 import { useSiteConfig } from '@/context/SiteConfigContext';
 
-interface CommonContextType {
-  theme?: 'light' | 'dark';
-  toggleTheme?: () => void;
-}
-
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

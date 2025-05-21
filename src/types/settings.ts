@@ -17,8 +17,10 @@ export interface Style {
 }
 
 export interface IconOption {
+  name: string;
   value: string;
   label: string;
+  icon?: string;
 }
 
 export interface Service {
@@ -48,6 +50,11 @@ export interface SettingsData {
     instagram: string;
     facebook: string;
     whatsapp: string;
+  };
+  tracking: {
+    facebookPixel: string;
+    tiktokPixel: string;
+    googleTagManager: string;
   };
   services: Service[];
   templates: Template[];

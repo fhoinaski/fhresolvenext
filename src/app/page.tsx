@@ -28,7 +28,6 @@ const SectionLoader = () => (
 );
 
 export default function Home() {
-  const [defaultTheme, setDefaultTheme] = useState<'light' | 'dark' | 'system'>('system');
   const [maintenanceMode, setMaintenanceMode] = useState(false);
 
   useEffect(() => {
@@ -40,10 +39,6 @@ export default function Home() {
           console.error('Erro na requisição de settings:', error);
           return { data: {} };
         });
-        
-        if (response.data?.defaultTheme) {
-          setDefaultTheme(response.data.defaultTheme);
-        }
         
         if (response.data?.maintenanceMode !== undefined) {
           setMaintenanceMode(response.data.maintenanceMode);
@@ -57,7 +52,7 @@ export default function Home() {
 
   if (maintenanceMode) {
     return (
-      <Providers initialTheme={defaultTheme}>
+      <Providers>
         <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-[var(--color-gray)] dark:bg-[var(--color-primary)]">
           <div className="text-center max-w-lg">
             <h1 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--color-accent)]">
@@ -94,7 +89,7 @@ export default function Home() {
   }
 
   return (
-    <Providers initialTheme={defaultTheme}>
+    <Providers>
       <motion.div
         key="content"
         initial={{ opacity: 0 }}

@@ -24,9 +24,31 @@ export interface EstimateItem {
     by: string;
   }
   
-  export interface Estimate {
+  export type EstimateType = 'detailed' | 'materials' | 'simple';
+
+export interface EstimateFormValues {
+    estimateType: EstimateType;
+    clientName: string;
+    clientEmail?: string;
+    clientPhone: string;
+    address?: string;
+    title: string;
+    description?: string;
+    items?: EstimateItem[];
+    materials?: MaterialItem[];
+    services?: ServiceItem[];
+    subtotal: number;
+    discount?: number;
+    tax?: number;
+    total: number;
+    notes?: string;
+    paymentTerms?: string;
+    validUntil?: string;
+}
+
+export interface Estimate {
     _id: string;
-    estimateType: 'detailed' | 'materials' | 'simple';
+    estimateType: EstimateType;
     clientName: string;
     clientEmail?: string;
     clientPhone: string;

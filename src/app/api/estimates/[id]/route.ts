@@ -1,15 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
+import { getServerSession } from 'next-auth/next';
 import { Types } from 'mongoose';
 import dbConnect from '@/lib/mongodb';
 import EstimateModel from '@/models/estimate';
+import { authOptions } from '@/lib/auth';
+// import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+
+// Definindo a interface para os parâmetros da rota
+type RouteParams = {
+  params: Promise<{
+    id: string
+  }>
+}
 
 // Função GET
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> }
+) {
   try {
     await dbConnect();
 
-    const id = await params.id; // Desestruturando params diretamente
+    const { id } = await context.params; // Aguardando a resolução dos parâmetros
     let estimate = null;
     console.log('id:', id);
 
@@ -42,9 +54,15 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
 }
 
 // Função PUT
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> }
+) {
   try {
-    const session = await getServerSession();
+
+
+
+    const session = await getServerSession(authOptions);
 
     if (!session) {
       return NextResponse.json(
@@ -54,7 +72,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
     }
 
     await dbConnect();
-    const id  = params.id; // Desestruturando params diretamente
+    const { id } = await context.params; // Aguardando a resolução dos parâmetros
     const data = await request.json();
 
     if (!data.clientName || !data.clientPhone || !data.title) {
@@ -98,9 +116,13 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
 }
 
 // Função DELETE
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> }
+) {
   try {
-    const session = await getServerSession();
+
+    const session = await getServerSession(authOptions);
 
     if (!session) {
       return NextResponse.json(
@@ -110,7 +132,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
     }
 
     await dbConnect();
-    const  id  = params.id; // Desestruturando params diretamente
+    const { id } = await context.params; // Aguardando a resolução dos parâmetros
 
     if (!Types.ObjectId.isValid(id)) {
       return NextResponse.json(

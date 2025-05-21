@@ -46,8 +46,8 @@ export default function EstimatesPage() {
   const [linkCopied, setLinkCopied] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [sendingEmail, setSendingEmail] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [sortConfig, setSortConfig] = useState<{key: keyof Estimate, direction: 'asc' | 'desc'}>({
+  const [searchTerm, setSearchTerm] = useState('');  type SortableFields = 'createdAt' | 'clientName' | 'title' | 'total' | 'status';
+  const [sortConfig, setSortConfig] = useState<{key: SortableFields, direction: 'asc' | 'desc'}>({
     key: 'createdAt',
     direction: 'desc'
   });
@@ -181,16 +181,14 @@ export default function EstimatesPage() {
       currency: 'BRL'
     }).format(value);
   };
-
   // Ordenação de tabela
-  const requestSort = (key: keyof Estimate) => {
+  const requestSort = (key: SortableFields) => {
     let direction: 'asc' | 'desc' = 'asc';
     if (sortConfig.key === key && sortConfig.direction === 'asc') {
       direction = 'desc';
     }
     setSortConfig({ key, direction });
   };
-
   const getSortedEstimates = () => {
     const filteredEstimates = searchTerm
       ? estimates.filter(
@@ -201,10 +199,19 @@ export default function EstimatesPage() {
       : estimates;
 
     return [...filteredEstimates].sort((a, b) => {
-      if (a[sortConfig.key] < b[sortConfig.key]) {
+      const aVal = a[sortConfig.key];
+      const bVal = b[sortConfig.key];
+      
+      if (typeof aVal === 'string' && typeof bVal === 'string') {
+        return sortConfig.direction === 'asc' 
+          ? aVal.localeCompare(bVal)
+          : bVal.localeCompare(aVal);
+      }
+      
+      if (aVal < bVal) {
         return sortConfig.direction === 'asc' ? -1 : 1;
       }
-      if (a[sortConfig.key] > b[sortConfig.key]) {
+      if (aVal > bVal) {
         return sortConfig.direction === 'asc' ? 1 : -1;
       }
       return 0;

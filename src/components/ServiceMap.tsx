@@ -311,10 +311,9 @@ const ServiceMap: React.FC = () => {
               >
                 <div className={`h-[450px] md:h-[500px] relative overflow-hidden p-2 rounded-lg border border-[var(--color-neutral)]/30 shadow-custom-sm ${
                   isDarkMode ? 'bg-[#333333]' : 'bg-white'
-                }`}>
-                  {isMounted && (
+                }`}>                  {isMounted && (
                     <MapContainer
-                      center={[-27.5132, -48.4618]}
+                      center={{ lat: -27.5132, lng: -48.4618 }}
                       zoom={12}
                       style={{ height: '100%', width: '100%', borderRadius: '0.5rem' }}
                       className="z-10"

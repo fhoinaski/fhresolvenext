@@ -36,14 +36,13 @@ export const ServiceEditor: React.FC<ServiceEditorProps> = ({
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <div>                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Título
                 </label>
                 <motion.input
                   type="text"
-                  value={service.title}
-                  onChange={(e) => updateService(index, 'title', e.target.value)}
+                  value={service.name || ''}
+                  onChange={(e) => updateService(index, 'name', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
                   whileFocus={{ scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
                 />
@@ -64,19 +63,47 @@ export const ServiceEditor: React.FC<ServiceEditorProps> = ({
                   ))}
                 </motion.select>
               </div>
-            </div>
-            
-            <div className="mt-3">
+            </div>              <div className="mt-3">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Descrição
               </label>
               <motion.input
                 type="text"
-                value={service.desc}
-                onChange={(e) => updateService(index, 'desc', e.target.value)}
+                value={service.description || ''}
+                onChange={(e) => updateService(index, 'description', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
                 whileFocus={{ scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
               />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Preço
+                </label>
+                <motion.input
+                  type="text"
+                  value={service.price || ''}
+                  onChange={(e) => updateService(index, 'price', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
+                  whileFocus={{ scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
+                  placeholder="Ex: A partir de R$ 100"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Duração
+                </label>
+                <motion.input
+                  type="text"
+                  value={service.duration || ''}
+                  onChange={(e) => updateService(index, 'duration', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white"
+                  whileFocus={{ scale: 1.01, boxShadow: '0 0 0 2px rgba(43, 141, 154, 0.3)' }}
+                  placeholder="Ex: 1-2 horas"
+                />
+              </div>
             </div>
           </motion.div>
         ))}

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/Card';
 import { useSiteConfig } from '@/hooks/useSiteConfig';
+import { Service, Template } from '@/types/settings';
 import { ServiceEditor } from '@/components/settings/ServiceEditor';
 import { TemplateEditor } from '@/components/settings/TemplateEditor';
 
@@ -11,24 +12,45 @@ export default function AppearancePage() {
   const { config, updateConfig, loading } = useSiteConfig();
   const [activeTab, setActiveTab] = useState<'template' | 'general'>('template');
 
-  const tabs = [
-    { id: 'template', label: 'Templates', icon: <span className="i-lucide-layout" /> },
-    { id: 'general', label: 'Geral', icon: <span className="i-lucide-settings" /> },
-  ];
+ const tabs = [
+  { id: 'template', label: 'Templates', icon: <span className="i-lucide-layout" /> },
+  { id: 'general', label: 'Geral', icon: <span className="i-lucide-settings" /> },
+];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     updateConfig({ [name]: value });
+  };  const updateService = (index: number, field: string, value: string) => {
+    const newServices = [...(config.services || [])];
+    let currentService = newServices[index];
+    
+    if (!currentService) {
+      currentService = {
+        id: crypto.randomUUID(),
+        name: '',
+        description: '',
+        icon: ''
+      };
+      newServices[index] = currentService;
+    }
+    
+ // Validar se o field é uma propriedade válida do Service
+if (field in currentService || field === 'title') {
+  newServices[index] = { 
+    ...currentService, 
+    [field]: value,
+    // Se o campo for 'title', atualize também o 'name' para manter compatibilidade
+    ...(field === 'title' ? { name: value } : {})
   };
-
-  const updateService = (index: number, field: string, value: string) => {
-    const newServices = [...config.services];
-    newServices[index] = { ...newServices[index], [field]: value };
-    updateConfig({ services: newServices });
+  updateConfig({ services: newServices });
+}
   };
-
   const addTemplate = () => {
-    const newTemplates = [...config.templates, { name: 'Novo Template', styles: {} }];
+    const newTemplates = [...(config.templates || []), { 
+      id: crypto.randomUUID(),
+      name: 'Novo Template', 
+      styles: {} 
+    }];
     updateConfig({ templates: newTemplates });
   };
 
@@ -43,25 +65,24 @@ export default function AppearancePage() {
 
   const [newTemplateName, setNewTemplateName] = useState('');
   const [newTemplateStyles, setNewTemplateStyles] = useState<{ [key: string]: string }>({});
+const iconOptions = [
+  { name: 'wrench', value: 'wrench', label: 'Chave Inglesa', icon: 'i-lucide-wrench' },
+  { name: 'hammer', value: 'hammer', label: 'Martelo', icon: 'i-lucide-hammer' },
+  { name: 'screwdriver', value: 'screwdriver', label: 'Chave de Fenda', icon: 'i-lucide-screwdriver' },
+  { name: 'paint-roller', value: 'paint-roller', label: 'Rolo de Tinta', icon: 'i-lucide-paint-roller' },
+  { name: 'brush', value: 'brush', label: 'Pincel', icon: 'i-lucide-brush' },
+  { name: 'ruler', value: 'ruler', label: 'Régua', icon: 'i-lucide-ruler' },
+  { name: 'tape-measure', value: 'tape-measure', label: 'Fita Métrica', icon: 'i-lucide-ruler-square' },
+  { name: 'tool', value: 'tool', label: 'Ferramenta', icon: 'i-lucide-tool' },
+];
 
-  const iconOptions = [
-    { value: 'wrench', label: 'Chave Inglesa' },
-    { value: 'hammer', label: 'Martelo' },
-    { value: 'screwdriver', label: 'Chave de Fenda' },
-    { value: 'paint-roller', label: 'Rolo de Tinta' },
-    { value: 'brush', label: 'Pincel' },
-    { value: 'ruler', label: 'Régua' },
-    { value: 'tape-measure', label: 'Fita Métrica' },
-    { value: 'tool', label: 'Ferramenta' },
-  ];
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-accent)]" />
-      </div>
-    );
-  }
+ if (loading) {
+  return (
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-accent)]" />
+    </div>
+  );
+}
 
   return (
     <div className="container mx-auto px-4 py-8">

@@ -3,31 +3,10 @@ import { useState, useEffect } from 'react';
 import axios from '@/lib/axios';
 import { isAxiosError } from 'axios';
 import { useFeedback } from '@/context/FeedbackContext';
-
-export interface SettingsData {
-  siteName: string;
-  siteDescription: string;
-  contactInfo: {
-    email: string;
-    phone: string;
-    address: string;
-  };
-  socialMedia: {
-    instagram: string;
-    facebook: string;
-    whatsapp: string;
-  };
-  tracking: {
-    facebookPixel: string;
-    tiktokPixel: string;
-    googleTagManager: string;
-  };
-  maintenanceMode: boolean;
-}
+import { SettingsData, Service, Template } from '@/types/settings';
 
 export const useSettingsData = () => {
   const { showToast } = useFeedback();
-
   const [settings, setSettings] = useState<SettingsData>({
     siteName: 'FH Resolve',
     siteDescription: 'Serviços profissionais de manutenção residencial em Florianópolis',
@@ -47,6 +26,11 @@ export const useSettingsData = () => {
       googleTagManager: '',
     },
     maintenanceMode: false,
+    services: [],
+    templates: [],
+    activeTemplate: '',
+    logoUrl: '',
+    faviconUrl: '',
   });
 
   const [loading, setLoading] = useState(true);

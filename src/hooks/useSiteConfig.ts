@@ -11,8 +11,8 @@ export const useSiteConfig = () => {
     config: context.config,
     updateConfig: context.updateConfig,
     loading: context.loading,
-    theme: context.theme,
-    setTheme: context.setTheme,
-    toggleTheme: context.toggleTheme
+    // theme: context.theme,
+    // setTheme: context.setTheme,
+    // toggleTheme: context.toggleTheme
   };
 }; 

@@ -71,8 +71,7 @@ export default function AdvancedSettings({ settings, handleChange }: AdvancedSet
               variants={inputVariants}
             />
           </div>
-        </div>
-        <SaveButton onSave={saveSettings} saving={saving} saved={saved} />
+        </div>        <SaveButton onClick={saveSettings} disabled={false} saving={saving} saved={saved} />
       </div>
     </Card>
   );

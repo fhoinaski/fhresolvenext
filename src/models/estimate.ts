@@ -6,14 +6,14 @@ const { Schema, models } = mongoose;
 const estimateItemSchema = new Schema({
   description: {
     type: String,
-    required: function() {
+    required: function(this: any) {
       // Somente requer descrição se o tipo de orçamento for "detailed"
       return this.parent().estimateType === 'detailed';
     },
   },
   quantity: {
     type: Number,
-    required: function() {
+    required: function(this: any) {
       return this.parent().estimateType === 'detailed';
     },
     min: [0.01, 'Quantidade deve ser maior que 0'],
@@ -24,7 +24,7 @@ const estimateItemSchema = new Schema({
   },
   unitPrice: {
     type: Number,
-    required: function() {
+    required: function(this: any) {
       return this.parent().estimateType === 'detailed';
     },
     min: [0, 'Preço unitário não pode ser negativo'],
@@ -35,13 +35,13 @@ const estimateItemSchema = new Schema({
 const materialItemSchema = new Schema({
   description: {
     type: String,
-    required: function() {
+    required: function(this: any) {
       return this.parent().estimateType === 'materials';
     },
   },
   quantity: {
     type: Number,
-    required: function() {
+    required: function(this: any) {
       return this.parent().estimateType === 'materials';
     },
     min: [0.01, 'Quantidade deve ser maior que 0'],
@@ -52,7 +52,7 @@ const materialItemSchema = new Schema({
   },
   unitPrice: {
     type: Number,
-    required: function() {
+    required: function(this: any) {
       return this.parent().estimateType === 'materials';
     },
     min: [0, 'Preço unitário não pode ser negativo'],
@@ -63,13 +63,13 @@ const materialItemSchema = new Schema({
 const serviceItemSchema = new Schema({
   description: {
     type: String,
-    required: function() {
+    required: function(this: any) {
       return this.parent().estimateType === 'simple' || this.parent().estimateType === 'materials';
     },
   },
   value: {
     type: Number,
-    required: function() {
+    required: function(this: any) {
       return this.parent().estimateType === 'simple' || this.parent().estimateType === 'materials';
     },
     min: [0, 'Valor não pode ser negativo'],
@@ -108,7 +108,7 @@ const estimateSchema = new Schema({
     type: [estimateItemSchema],
     validate: [
       {
-        validator: function(items) {
+        validator: function(this: any, items: any[]) {
           // Somente valida se o tipo for "detailed"
           if (this.estimateType === 'detailed') {
             return items && items.length > 0;
@@ -124,7 +124,7 @@ const estimateSchema = new Schema({
     type: [materialItemSchema],
     validate: [
       {
-        validator: function(materials) {
+        validator: function(this: any, materials: any[]) {
           // Somente valida se o tipo for "materials"
           if (this.estimateType === 'materials') {
             return materials && materials.length > 0;
@@ -140,7 +140,7 @@ const estimateSchema = new Schema({
     type: [serviceItemSchema],
     validate: [
       {
-        validator: function(services) {
+        validator: function(this: any, services: any[]) {
           // Valida se o tipo for "simple" ou "materials"
           if (this.estimateType === 'simple' || this.estimateType === 'materials') {
             return services && services.length > 0;
@@ -203,21 +203,21 @@ const estimateSchema = new Schema({
 });
 
 // Pré-save para calcular valores com base no tipo de orçamento
-estimateSchema.pre('save', function (next) {
+estimateSchema.pre('save', function(this: any, next) {
   let subtotal = 0;
 
   if (this.estimateType === 'detailed' && this.items && this.items.length > 0) {
-    subtotal = this.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0);
+    subtotal = this.items.reduce((sum: number, item: any) => sum + (item.quantity * item.unitPrice), 0);
   } else if (this.estimateType === 'materials') {
     const materialTotal = this.materials && this.materials.length > 0 
-      ? this.materials.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0)
+      ? this.materials.reduce((sum: number, item: any) => sum + (item.quantity * item.unitPrice), 0)
       : 0;
     const serviceTotal = this.services && this.services.length > 0
-      ? this.services.reduce((sum, service) => sum + service.value, 0)
+      ? this.services.reduce((sum: number, service: any) => sum + service.value, 0)
       : 0;
     subtotal = materialTotal + serviceTotal;
   } else if (this.estimateType === 'simple' && this.services && this.services.length > 0) {
-    subtotal = this.services.reduce((sum, service) => sum + service.value, 0);
+    subtotal = this.services.reduce((sum: number, service: any) => sum + service.value, 0);
   }
 
   this.subtotal = subtotal;

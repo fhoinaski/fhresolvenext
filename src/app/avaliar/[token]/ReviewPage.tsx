@@ -137,7 +137,7 @@ export default function ReviewPage() {
                 "{review.text}"
               </p>
               <motion.a
-                href={typeof window !== 'undefined' ? window.location.origin : '/'}
+                href="/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary w-full mt-6 inline-block text-center"

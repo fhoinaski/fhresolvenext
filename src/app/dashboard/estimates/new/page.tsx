@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import axios from '@/lib/axios';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
+import type { FormEvent } from 'react';
 
 import { Calculator } from 'lucide-react';
 import PageHeader from '@/components/new-estimate/PageHeader';
@@ -41,14 +42,15 @@ export default function NewEstimatePage() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const { register, handleSubmit, control, watch, setValue, formState: { errors, isDirty } } = useForm({
+  const { register, handleSubmit, control, watch, setValue, formState: { errors, isDirty } } = useForm<EstimateFormValues>({
     resolver: zodResolver(estimateSchema),
     defaultValues: {
       estimateType: 'detailed',
       clientName: '',
       clientEmail: '',
       clientPhone: '',
+      subtotal: 0,
+      total: 0,
       address: '',
       title: '',
       description: '',
@@ -81,10 +83,14 @@ export default function NewEstimatePage() {
     calculateServicesSubtotal,
     formatCurrency
   } = useCalculations(items, materials, services, discount, tax, estimateType);
+  useEffect(() => {
+    if (currentEstimateType !== estimateType) setEstimateType(() => currentEstimateType as EstimateType);
+  }, [currentEstimateType, estimateType]);
 
   useEffect(() => {
-    if (currentEstimateType !== estimateType) setEstimateType(currentEstimateType);
-  }, [currentEstimateType, estimateType]);
+    setValue('subtotal', calculateSubtotal());
+    setValue('total', calculateTotal());
+  }, [items, materials, services, discount, tax, calculateSubtotal, calculateTotal, setValue]);
 
   const onSubmit = async (data: EstimateFormValues) => {
     console.log('Iniciando submissão do formulário:', data);

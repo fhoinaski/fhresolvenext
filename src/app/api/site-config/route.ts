@@ -76,8 +76,7 @@ async function getConfig(): Promise<SiteConfig> {
   const now = Date.now();
   if (cachedConfig && now - cacheTime < CACHE_TTL) return cachedConfig;
 
-  await dbConnect();
-  const siteConfig = await SettingsModel.findOne({}).lean();
+  await dbConnect();  const siteConfig = await SettingsModel.findOne({}).lean() as SiteConfig | null;
 
   if (!siteConfig) {
     await SettingsModel.create(defaultConfig);
@@ -86,7 +85,15 @@ async function getConfig(): Promise<SiteConfig> {
     return defaultConfig;
   }
 
-  cachedConfig = { ...defaultConfig, ...siteConfig, updatedAt: siteConfig.updatedAt || new Date() };
+  // Garantindo que todos os campos obrigatórios existam
+  cachedConfig = {
+    ...defaultConfig,
+    ...siteConfig,
+    updatedAt: siteConfig.updatedAt || new Date(),
+    contactInfo: { ...defaultConfig.contactInfo, ...siteConfig.contactInfo },
+    socialMedia: { ...defaultConfig.socialMedia, ...siteConfig.socialMedia },
+    tracking: { ...defaultConfig.tracking, ...siteConfig.tracking }
+  };
   cacheTime = now;
   return cachedConfig;
 }
