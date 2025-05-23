@@ -3,36 +3,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Paleta de cores baseada no design fornecido */
+/* Paleta de cores baseada no logo FH Resolve */
 :root {
-  /* Cores principais da nova paleta */
-  --color-primary: #252525; /* Preto */
-  --color-accent: #2B8D9A; /* Azul Turquesa */
-  --color-secondary: #8D9192; /* Cinza Médio */
-  --color-neutral: #EDEDED; /* Cinza Claro */
-  --color-text: #252525; /* Preto para texto */
+  /* Cores principais baseadas no logo */
+  --color-primary: #1B3A5C; /* Azul escuro do fundo do logo */
+  --color-accent: #2E94D4; /* Azul principal do logo */
+  --color-secondary: #B8C5D1; /* Cinza azulado claro do logo */
+  --color-neutral: #F0F3F6; /* Cinza muito claro */
+  --color-text: #1B3A5C; /* Azul escuro para texto */
   --color-text-light: #FFFFFF; /* Branco para texto sobre fundos escuros */
-  --color-dark: #252525; /* Preto para fundos escuros */
+  --color-dark: #1B3A5C; /* Azul escuro para fundos escuros */
   --color-light: #FFFFFF; /* Branco para fundos claros */
-  --color-gray: #EDEDED; /* Cinza Claro para backgrounds secundários */
+  --color-gray: #F0F3F6; /* Cinza claro para backgrounds secundários */
   --color-card-bg: #FFFFFF; /* Branco para cards */
-  --color-card-text: #252525; /* Preto para texto em cards */
-  --color-paralel: #F5F5F5; /* Cinza muito claro para paralax */
+  --color-card-text: #1B3A5C; /* Azul escuro para texto em cards */
+  --color-paralel: #F8FAFB; /* Cinza muito claro para paralax */
   
-  /* Adição de tom intermediário */
-  --color-accent-dark: #247885; /* Versão mais escura do turquesa para hover */
-  --color-accent-light: #4BAAB7; /* Versão mais clara do turquesa para efeitos */
+  /* Variações do azul principal */
+  --color-accent-dark: #2680B8; /* Versão mais escura do azul para hover */
+  --color-accent-light: #4BA8E0; /* Versão mais clara do azul para efeitos */
   
   /* Cores de ação */
   --color-success: #22c55e; /* Verde para indicar sucesso */
   --color-warning: #f59e0b; /* Amarelo para indicar avisos */
   --color-error: #ef4444; /* Vermelho para indicar erros */
-  --color-info: #3b82f6; /* Azul para informações */
+  --color-info: #2E94D4; /* Azul do logo para informações */
   
   /* RGB para animações e opacidades */
-  --color-accent-rgb: 43, 141, 154; /* Azul Turquesa em RGB */
-  --color-secondary-rgb: 141, 145, 146; /* Cinza Médio em RGB */
-  --color-neutral-rgb: 237, 237, 237; /* Cinza Claro em RGB */
+  --color-accent-rgb: 46, 148, 212; /* Azul principal em RGB */
+  --color-secondary-rgb: 184, 197, 209; /* Cinza azulado em RGB */
+  --color-neutral-rgb: 240, 243, 246; /* Cinza claro em RGB */
+  --color-primary-rgb: 27, 58, 92; /* Azul escuro em RGB */
   
   /* Sistema de espaçamento consistente */
   --space-xs: 0.25rem;
@@ -44,10 +45,10 @@
   --space-3xl: 3rem;
 
   /* Elevações para sombras consistentes */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 2px rgba(27, 58, 92, 0.08);
+  --shadow-md: 0 4px 6px -1px rgba(27, 58, 92, 0.12), 0 2px 4px -1px rgba(27, 58, 92, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(27, 58, 92, 0.12), 0 4px 6px -2px rgba(27, 58, 92, 0.06);
+  --shadow-xl: 0 20px 25px -5px rgba(27, 58, 92, 0.12), 0 10px 10px -5px rgba(27, 58, 92, 0.05);
   
   /* Variáveis para animações */
   --transition-fast: 150ms;
@@ -114,7 +115,7 @@ html.no-scroll {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(243, 244, 246, 0.2); 
+  background: rgba(240, 243, 246, 0.2); 
 }
 
 ::-webkit-scrollbar-thumb {
@@ -123,7 +124,7 @@ html.no-scroll {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary);
+  background: var(--color-accent-dark);
 }
 
 /* Foco */
@@ -199,11 +200,20 @@ html.no-scroll {
   
   /* Utilitários para glassmorphism */
   .glass {
-    @apply bg-white/70 backdrop-blur-md border border-white/20;
+    @apply bg-white/80 backdrop-blur-md border border-[var(--color-secondary)]/30;
   }
   
   .glass-light {
-    @apply bg-white/70 backdrop-blur-md border border-white/20;
+    @apply bg-white/80 backdrop-blur-md border border-[var(--color-secondary)]/20;
+  }
+  
+  /* Gradient baseado nas cores do logo */
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
   }
 }
 
@@ -218,21 +228,23 @@ html.no-scroll {
   }
 
   .btn-primary {
-    @apply bg-[var(--color-accent)] text-[var(--color-text-light)];
+    @apply bg-[var(--color-accent)] text-[var(--color-text-light)] hover:shadow-lg;
   }
   .btn-primary:hover {
     background-color: var(--color-accent-dark);
+    transform: translateY(-1px);
   }
 
   .btn-secondary {
-    @apply bg-[var(--color-secondary)] text-[var(--color-text-light)] hover:bg-opacity-90;
+    @apply bg-[var(--color-secondary)] text-[var(--color-primary)] hover:bg-opacity-90;
   }
 
   .btn-outline {
-    @apply border border-[var(--color-accent)] text-[var(--color-accent)];
+    @apply border-2 border-[var(--color-accent)] text-[var(--color-accent)] bg-transparent;
   }
   .btn-outline:hover {
-    background-color: rgba(var(--color-accent-rgb), 0.1);
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
   }
   
   .btn-success {
@@ -248,7 +260,7 @@ html.no-scroll {
   }
   
   .btn-info {
-    @apply bg-blue-600 text-white hover:bg-blue-700;
+    @apply bg-[var(--color-info)] text-white hover:bg-[var(--color-accent-dark)];
   }
 
   .section-title {
@@ -258,14 +270,14 @@ html.no-scroll {
   .section-subtitle {
     @apply text-base md:text-lg font-normal mb-8 text-[var(--color-text)] opacity-80 leading-relaxed max-w-3xl mx-auto;
   }
-
   .card {
-    @apply bg-[var(--color-card-bg)] p-6 rounded-lg transition-all duration-300 border border-neutral-30;
+    @apply bg-[var(--color-card-bg)] p-6 rounded-lg transition-all duration-300 border border-opacity-50 border-[var(--color-neutral)];
     box-shadow: var(--shadow-sm);
   }
   
   .card:hover {
     box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
   }
 
   .card-text {
@@ -277,7 +289,7 @@ html.no-scroll {
   }
 
   .input-field {
-    @apply w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 transition-all;
+    @apply w-full px-4 py-3 rounded-md border border-[var(--color-neutral)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:border-[var(--color-accent)] transition-all;
   }
 
   .badge {
@@ -285,48 +297,48 @@ html.no-scroll {
   }
 
   .badge-primary {
-    @apply bg-[var(--color-accent)]/20 text-[var(--color-accent)];
+    @apply bg-[var(--color-accent)]/20 text-[var(--color-accent)] border border-[var(--color-accent)]/30;
   }
   
   .badge-success {
-    @apply bg-green-100 text-green-800;
+    @apply bg-green-100 text-green-800 border border-green-200;
   }
   
   .badge-warning {
-    @apply bg-yellow-100 text-yellow-800;
+    @apply bg-yellow-100 text-yellow-800 border border-yellow-200;
   }
   
   .badge-danger {
-    @apply bg-red-100 text-red-800;
+    @apply bg-red-100 text-red-800 border border-red-200;
   }
   
   .badge-info {
-    @apply bg-blue-100 text-blue-800;
+    @apply bg-blue-100 text-blue-800 border border-blue-200;
   }
   
   .badge-neutral {
-    @apply bg-gray-100 text-gray-800;
+    @apply bg-[var(--color-secondary)]/20 text-[var(--color-primary)] border border-[var(--color-secondary)]/30;
   }
   
   /* Componentes de tabela responsiva */
   .table-container {
-    @apply w-full overflow-x-auto rounded-lg shadow-sm;
+    @apply w-full overflow-x-auto rounded-lg shadow-sm border border-[var(--color-neutral)]/30;
   }
   
   .table-responsive {
-    @apply min-w-full divide-y divide-[var(--color-neutral)]/20;
+    @apply min-w-full divide-y divide-[var(--color-neutral)]/30;
   }
   
   .table-header {
-    @apply bg-[var(--color-neutral)]/10 border-b border-[var(--color-neutral)]/20;
+    @apply bg-[var(--color-neutral)]/30 border-b border-[var(--color-neutral)]/40;
   }
   
   .table-header-cell {
-    @apply px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-[var(--color-card-text)] opacity-70 cursor-pointer hover:text-[var(--color-accent)];
+    @apply px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-[var(--color-primary)] opacity-80 cursor-pointer hover:text-[var(--color-accent)] hover:opacity-100;
   }
   
   .table-row {
-    @apply hover:bg-[var(--color-neutral)]/5 transition-colors;
+    @apply hover:bg-[var(--color-neutral)]/20 transition-colors;
   }
   
   .table-cell {
@@ -335,16 +347,16 @@ html.no-scroll {
   
   /* Componentes de botões de ação */
   .action-icon-button {
-    @apply p-1.5 rounded-full text-[var(--color-card-text)] opacity-70 hover:bg-[var(--color-accent)]/10 hover:text-[var(--color-accent)] hover:opacity-100 transition-all;
+    @apply p-1.5 rounded-full text-[var(--color-card-text)] opacity-70 hover:bg-[var(--color-accent)]/15 hover:text-[var(--color-accent)] hover:opacity-100 transition-all;
   }
   
   /* Componentes de cards para mobile */
   .mobile-card {
-    @apply bg-[var(--color-neutral)]/5 rounded-lg overflow-hidden border border-[var(--color-neutral)]/20 mb-4;
+    @apply bg-[var(--color-neutral)]/10 rounded-lg overflow-hidden border border-[var(--color-neutral)]/30 mb-4;
   }
   
   .mobile-card-header {
-    @apply p-4 flex justify-between items-start;
+    @apply p-4 flex justify-between items-start bg-gradient-to-r from-[var(--color-accent)]/5 to-transparent;
   }
   
   .mobile-card-content {
@@ -352,20 +364,20 @@ html.no-scroll {
   }
   
   .mobile-card-footer {
-    @apply bg-[var(--color-neutral)]/10 px-4 py-3 flex justify-end gap-2;
+    @apply bg-[var(--color-neutral)]/20 px-4 py-3 flex justify-end gap-2;
   }
   
   /* Componentes de modais */
   .modal-overlay {
-    @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm;
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--color-primary)]/60 backdrop-blur-sm;
   }
   
   .modal-container {
-    @apply bg-[var(--color-card-bg)] rounded-lg shadow-xl w-full max-w-md overflow-hidden;
+    @apply bg-[var(--color-card-bg)] rounded-lg shadow-xl w-full max-w-md overflow-hidden border border-[var(--color-neutral)]/20;
   }
   
   .modal-accent-border {
-    @apply p-1 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)];
+    @apply p-1 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-light)];
   }
   
   .modal-content {
@@ -373,11 +385,26 @@ html.no-scroll {
   }
   
   .modal-header {
-    @apply flex items-center gap-3 mb-6;
+    @apply flex items-center gap-3 mb-6 border-b border-[var(--color-neutral)]/30 pb-4;
   }
   
   .modal-footer {
-    @apply flex justify-end space-x-3 mt-6;
+    @apply flex justify-end space-x-3 mt-6 pt-4 border-t border-[var(--color-neutral)]/30;
+  }
+  
+  /* Header personalizado com cores do logo */
+  .header-primary {
+    @apply bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] text-[var(--color-text-light)] shadow-lg;
+  }
+  
+  /* Footer com cores do logo */
+  .footer-primary {
+    @apply bg-[var(--color-primary)] text-[var(--color-text-light)];
+  }
+  
+  /* Seção hero com gradiente */
+  .hero-section {
+    @apply bg-gradient-to-br from-[var(--color-primary)] via-[var(--color-accent)] to-[var(--color-accent-light)] text-[var(--color-text-light)];
   }
 }
 
@@ -422,6 +449,22 @@ html.no-scroll {
 
 .animate-spin-slow {
   animation: spin 3s linear infinite;
+}
+
+/* Animação de gradiente para elementos especiais */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background: linear-gradient(-45deg, var(--color-primary), var(--color-accent), var(--color-accent-light), var(--color-secondary));
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
 }
 
 /* Responsividade */
@@ -632,9 +675,46 @@ html.no-scroll {
 /* Correções para Leaflet popups */
 .leaflet-popup-content-wrapper {
   background-color: white !important;
-  color: #333 !important;
+  color: var(--color-primary) !important;
 }
 
 .leaflet-popup-tip {
   background-color: white !important;
+}
+
+/* Classes utilitárias específicas para FH Resolve */
+.fh-primary {
+  color: var(--color-primary);
+}
+
+.fh-accent {
+  color: var(--color-accent);
+}
+
+.fh-secondary {
+  color: var(--color-secondary);
+}
+
+.bg-fh-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-fh-accent {
+  background-color: var(--color-accent);
+}
+
+.bg-fh-secondary {
+  background-color: var(--color-secondary);
+}
+
+.border-fh-primary {
+  border-color: var(--color-primary);
+}
+
+.border-fh-accent {
+  border-color: var(--color-accent);
+}
+
+.border-fh-secondary {
+  border-color: var(--color-secondary);
 }
