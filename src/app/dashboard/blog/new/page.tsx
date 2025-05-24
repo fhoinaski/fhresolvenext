@@ -7,7 +7,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import axios from '@/lib/axios';
 import toast from 'react-hot-toast';
-import { Card, Heading } from '@/components/ui/Card';
+import { Card } from '@/components/ui/Card';
+import { Heading } from '@/components/ui/Heading';
 import { Loader2, ArrowLeft, Upload, X, Calendar, Tag, Eye } from 'lucide-react';
 
 // Schema de validação sem transformação para evitar conflitos de tipo

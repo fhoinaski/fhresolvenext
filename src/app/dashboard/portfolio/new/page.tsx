@@ -8,7 +8,8 @@ import { z } from 'zod';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-import { Card,Heading } from '@/components/ui/Card';
+import { Card } from '@/components/ui/Card';
+import { Heading } from '@/components/ui/Heading';
 import { Loader2, ArrowLeft, Upload, X } from 'lucide-react';
 
 const portfolioSchema = z.object({

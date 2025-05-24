@@ -3,7 +3,8 @@
 
 import { useEffect, useState } from 'react';
 
-import { Card,Heading } from '@/components/ui/Card';
+import { Card } from '@/components/ui/Card';
+import { Heading } from '@/components/ui/Heading';
 import { Plus, Pencil, Trash2, User, Shield, AlertTriangle } from 'lucide-react';
 import axios from 'axios';
 import toast from 'react-hot-toast';

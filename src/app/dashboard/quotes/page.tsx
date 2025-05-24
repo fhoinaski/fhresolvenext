@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Card, Heading } from '@/components/ui/Card';
+import { Card } from '@/components/ui/Card';
+import { Heading } from '@/components/ui/Heading';
 import { Check, Clock, Phone, MessageSquare, Loader2, Eye, Filter, Calendar, X, Calculator } from 'lucide-react';
 import axios from '@/lib/axios';
 import toast from 'react-hot-toast';

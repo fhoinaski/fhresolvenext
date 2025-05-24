@@ -1,7 +1,7 @@
 // components/new-estimate/PageHeader.tsx
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
-import { Heading } from '@/components/ui/Card';
+import { Heading } from '@/components/ui/Heading';
 import { useRouter } from 'next/navigation';
 import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
