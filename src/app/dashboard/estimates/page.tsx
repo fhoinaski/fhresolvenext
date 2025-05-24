@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Card, Heading } from '@/components/ui/Card';
+import { Card } from '@/components/ui/Card';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Plus, 
@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import axios from '@/lib/axios';
 import toast from 'react-hot-toast';
+import { Heading } from '@/components/ui/Heading';
 
 interface Estimate {
   _id: string;

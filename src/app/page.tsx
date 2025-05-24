@@ -115,9 +115,9 @@ export default function Home() {
           <Suspense fallback={<SectionLoader />}>
             <About />
           </Suspense>
-          <Suspense fallback={<SectionLoader />}>
+          {/* <Suspense fallback={<SectionLoader />}>
             <Portfolio />
-          </Suspense>
+          </Suspense> */}
           <Suspense fallback={<SectionLoader />}>
             <Testimonials />
           </Suspense>
@@ -131,7 +131,7 @@ export default function Home() {
         <Suspense fallback={<div className="h-20" />}>
           <Footer />
         </Suspense>
-        <motion.a
+        {/* <motion.a
           href="https://wa.me/5548991919791"
           target="_blank"
           rel="noopener noreferrer"
@@ -144,7 +144,7 @@ export default function Home() {
           aria-label="Entre em contato via WhatsApp"
         >
           <MessageCircle size={26} />
-        </motion.a>
+        </motion.a> */}
       </motion.div>
     </Providers>
   );

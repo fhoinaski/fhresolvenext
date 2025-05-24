@@ -283,7 +283,7 @@ const Hero: React.FC = () => {
                 )}
                 
                 <MessageCircle size={18} className="text-white" />
-                <span className="font-semibold text-sm sm:text-base">Orçamento em 1 Hora</span>
+                <span className="font-semibold text-sm sm:text-base">Falar com Fernando</span>
                 {!prefersReducedMotion && (
                   <motion.span 
                     className="absolute -right-4 -top-4 bg-white/20 rounded-full text-[10px] font-bold px-2 py-1 rotate-12"
