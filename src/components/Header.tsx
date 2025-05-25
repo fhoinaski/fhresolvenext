@@ -206,17 +206,6 @@ const Header = () => {
           </AnimatePresence>
         </div>
       </motion.header>
-
-      {/* 🔥 Botão WhatsApp flutuante no Mobile */}
-      <a
-        href="https://wa.me/5548991919791"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="md:hidden fixed bottom-6 right-6 z-50 bg-[var(--color-accent)] text-white p-4 rounded-full shadow-lg"
-        aria-label="Fale conosco no WhatsApp"
-      >
-        <MessageCircle className="w-5 h-5" />
-      </a>
     </>
   );
 };

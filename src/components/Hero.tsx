@@ -262,9 +262,7 @@ const Hero: React.FC = () => {
               initial="hidden"
               animate="visible"
               transition={{ delay: prefersReducedMotion ? 0.2 : 0.6 }}
-            >
-              {/* CTA Principal Otimizado */}
-              <motion.a
+            >              <motion.a
                 href="https://wa.me/5548991919791"
                 target="_blank"
                 rel="noopener noreferrer"
