@@ -9,15 +9,8 @@ import { Providers } from './providers';
 
 import Hero from '../components/Hero';
 import Header from '../components/Header';
+import Benefits from '@/components/Benefits';
 
-// Componentes carregados dinamicamente
-const About = dynamic(() => import('../components/About'), { ssr: false });
-const Benefits = dynamic(() => import('../components/Benefits'), { ssr: false });
-const Portfolio = dynamic(() => import('../components/Portfolio'), { ssr: false });
-const Testimonials = dynamic(() => import('../components/Testimonials'), { ssr: false });
-const Contact = dynamic(() => import('../components/Contact'), { ssr: false });
-const ServiceMap = dynamic(() => import('../components/ServiceMap'), { ssr: false });
-const Footer = dynamic(() => import('../components/Footer'), { ssr: false });
 
 // Componente de carregamento
 const SectionLoader = () => (
@@ -26,6 +19,32 @@ const SectionLoader = () => (
     <p className="text-sm text-[var(--color-text)]/70">Carregando conteúdo...</p>
   </div>
 );
+
+// Componentes carregados dinamicamente
+const About = dynamic(() => import('../components/About'), { 
+  ssr: false,
+  loading: () => <SectionLoader />
+});
+const Portfolio = dynamic(() => import('../components/Portfolio'), { 
+  ssr: false,
+  loading: () => <SectionLoader />
+});
+const Testimonials = dynamic(() => import('../components/Testimonials_new'), { 
+  ssr: false,
+  loading: () => <SectionLoader />
+});
+const Contact = dynamic(() => import('../components/Contact_new'), { 
+  ssr: false,
+  loading: () => <SectionLoader />
+});
+const ServiceMap = dynamic(() => import('../components/ServiceMap'), { 
+  ssr: false,
+  loading: () => <SectionLoader />
+});
+const Footer = dynamic(() => import('../components/Footer_new'), { 
+  ssr: false,
+  loading: () => <SectionLoader />
+});
 
 export default function Home() {
   const [maintenanceMode, setMaintenanceMode] = useState(false);
@@ -106,12 +125,9 @@ export default function Home() {
           transition={{ delay: 0.3, duration: 0.5 }}
         >
           <Header />
-        </motion.div>
-        <main className="flex-grow">
+        </motion.div>        <main className="flex-grow">
           <Hero />
-          <Suspense fallback={<SectionLoader />}>
-            <Benefits />
-          </Suspense>
+          <Benefits />
           <Suspense fallback={<SectionLoader />}>
             <About />
           </Suspense>
@@ -122,7 +138,7 @@ export default function Home() {
             <Testimonials />
           </Suspense>
           <Suspense fallback={<SectionLoader />}>
-            <ServiceMap />
+            {/* <ServiceMap /> */}
           </Suspense>
           <Suspense fallback={<SectionLoader />}>
             <Contact />

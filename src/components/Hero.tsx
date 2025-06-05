@@ -94,19 +94,16 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, desc, index, pre
           <motion.div
             initial={{ rotate: 0, scale: 1 }}
             animate={{ rotate: [0, 5, 0, -5, 0] }}
-            whileHover={{ scale: 1.1, rotate: 360 }}
-            transition={{ 
+            whileHover={{ scale: 1.1, rotate: 360 }}            transition={{ 
               rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-              scale: { duration: 0.3 },
-              rotate: { duration: 0.6 }
+              scale: { duration: 0.3 }
             }}
             className="text-[var(--color-accent)] text-2xl"
           >
             {icon}
           </motion.div>
         )}
-      </div>
-      <div className="flex-1">
+      </div>      <div className="flex-1">
         <h3 className="text-lg sm:text-xl font-bold text-[var(--color-text)] mb-2 
                      group-hover:text-[var(--color-accent)] transition-colors duration-300">
           {title}
@@ -133,8 +130,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, desc, index, pre
 
 const StatCard: React.FC<StatCardProps> = ({ icon, value, label, index, prefersReducedMotion }) => (
   <motion.div
-    className="stat-card text-center p-4 sm:p-6 rounded-xl bg-white/10 backdrop-blur-md
-               border border-white/20 hover:bg-white/15 transition-all duration-300"
+    className="stat-card text-center p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl 
+               bg-white/10 backdrop-blur-md border border-white/20 
+               hover:bg-white/15 transition-all duration-300"
     initial={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.8 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ 
@@ -144,14 +142,14 @@ const StatCard: React.FC<StatCardProps> = ({ icon, value, label, index, prefersR
     }}
     whileHover={applyVariant(prefersReducedMotion, { scale: 1.05, y: -4 })}
   >
-    <div className="mb-3 flex justify-center">
-      <div className="h-12 w-12 flex items-center justify-center rounded-full
+    <div className="mb-2 sm:mb-3 flex justify-center">
+      <div className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 flex items-center justify-center rounded-full
                     bg-[var(--color-accent)]/20 text-[var(--color-accent)]">
         {icon}
       </div>
     </div>
-    <div className="text-2xl sm:text-3xl font-bold text-white mb-1">{value}</div>
-    <div className="text-sm text-white/80">{label}</div>
+    <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-[var(--color-text)] mb-1">{value}</div>
+    <div className="text-xs sm:text-sm text-[var(--color-text)]/80 leading-tight">{label}</div>
   </motion.div>
 );
 
@@ -164,14 +162,30 @@ const Hero: React.FC = () => {
     target: heroRef,
     offset: ["start start", "end start"]
   });
-  
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 30]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, prefersReducedMotion ? 1 : 0.5]);
+    const backgroundY = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 50]);
+  // Corrigido: valores mais suaves para mobile e evita o efeito de "sumir"
+  const contentOpacity = useTransform(
+    scrollYProgress, 
+    [0, 0.8], 
+    [1, prefersReducedMotion || isMobile ? 0.8 : 0.4]
+  );
+  const contentScale = useTransform(
+    scrollYProgress, 
+    [0, 0.8], 
+    [1, prefersReducedMotion || isMobile ? 0.98 : 0.95]
+  );
 
   const services = [
-    { icon: <Wrench size={22} />, title: 'Reparos Elétricos', desc: 'Instalações, consertos e manutenção profissional realizada com segurança e garantia.' },
-    { icon: <Droplet size={22} />, title: 'Serviços Hidráulicos', desc: 'Soluções completas para vazamentos, entupimentos e instalação de sistemas hidráulicos.' },
-    { icon: <ShieldCheck size={22} />, title: 'Qualidade Garantida', desc: 'Atendimento rápido, materiais de primeira linha e garantia nos serviços realizados.' },
+    { icon: <Wrench size={24} />, title: 'Reparos Elétricos', desc: 'Instalações, consertos e manutenção profissional realizada com segurança e garantia total.' },
+    { icon: <Droplet size={24} />, title: 'Serviços Hidráulicos', desc: 'Soluções completas para vazamentos, entupimentos e instalação de sistemas hidráulicos.' },
+    { icon: <ShieldCheck size={24} />, title: 'Qualidade Garantida', desc: 'Atendimento rápido, materiais de primeira linha e garantia nos serviços realizados.' },
+  ];
+
+  const stats = [
+    { icon: <Award size={20} />, value: '5+', label: 'Anos de Experiência' },
+    { icon: <Heart size={20} />, value: '100+', label: 'Clientes Satisfeitos' },
+    { icon: <Zap size={20} />, value: '24h', label: 'Atendimento Rápido' },
+    { icon: <Star size={20} />, value: '5★', label: 'Avaliação' },
   ];
 
   // Verificar se é dispositivo móvel
@@ -180,38 +194,47 @@ const Hero: React.FC = () => {
       setIsMobile(window.innerWidth < 768);
     };
     
-    handleResize(); // Verificar no carregamento inicial
+    handleResize();
     window.addEventListener('resize', handleResize);
     
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
   useEffect(() => {
-    // Se o usuário prefere movimento reduzido, não aplicamos as animações GSAP
     if (prefersReducedMotion) return;
     
     const heroElement = heroRef.current;
     if (!heroElement) return;
     
-    // Limpar animações anteriores antes de configurar novas
     ScrollTrigger.getAll().forEach((t) => t.kill());
     
-    // Animação de parallax mais suave para o fundo
+    // Animação de parallax aprimorada - mais suave no mobile
     gsap.to('.hero-bg', {
-      y: '30%',
+      y: isMobile ? '20%' : '40%', // Movimento mais sutil no mobile
       ease: 'none',
       scrollTrigger: {
         trigger: heroElement,
         start: 'top top',
         end: 'bottom top',
-        scrub: true
+        scrub: isMobile ? 0.5 : 1.2 // Scrub mais suave no mobile
       }
     });
-    
-    // Removendo a animação que faz os cards sumirem
-    // A animação do service-card agora será controlada apenas pelo Framer Motion
+
+    // Animação das partículas flutuantes - desabilitada no mobile para performance
+    if (!isMobile) {
+      gsap.to('.floating-particle', {
+        y: '-100vh',
+        rotation: 360,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroElement,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 2
+        }
+      });
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -225,7 +248,6 @@ const Hero: React.FC = () => {
     }
   };
 
-  // Determina quais variantes usar com base na preferência do usuário
   const fadeInVariants = prefersReducedMotion 
     ? getReducedMotionVariants(true) 
     : entranceVariants.fadeIn;
@@ -238,162 +260,226 @@ const Hero: React.FC = () => {
     ? getReducedMotionVariants(true) 
     : containerVariants;
 
-  return (
-    <section
+  return (    <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-20 sm:pt-20 md:pt-0"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-12 sm:pt-20 md:pt-16"
     >
+      {/* Background aprimorado com múltiplas camadas */}
       <motion.div
-        className="hero-bg absolute inset-0 bg-cover bg-center"
+        className="hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1574873934798-d7ef3dc98c86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
           y: backgroundY
         }}
       >
-        {/* Overlay gradiente aprimorado */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-primary)]/90 via-[var(--color-primary)]/75 to-[var(--color-primary)]/60"></div>
+        {/* Overlay gradiente mais sofisticado */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/95 via-[var(--color-primary)]/80 to-[var(--color-accent)]/60"></div>
         
-        {/* Efeito de partículas sutis - Apenas exibir quando não há preferência por movimento reduzido */}
-        {!prefersReducedMotion && (
-          <div className="absolute inset-0 opacity-20">
-            {[...Array(6)].map((_, i) => (
+        {/* Mesh gradient overlay */}
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent)]/20 via-transparent to-[var(--color-accent)]/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-accent)]/10 to-transparent"></div>
+        </div>
+          {/* Partículas flutuantes aprimoradas - otimizadas para mobile */}
+        {!prefersReducedMotion && !isMobile && (
+          <div className="absolute inset-0 opacity-30">
+            {[...Array(8)].map((_, i) => ( // Reduzido de 12 para 8 partículas
               <motion.div
                 key={i}
-                className="absolute rounded-full bg-[var(--color-light)]/30 blur-xl"
+                className="floating-particle absolute rounded-full bg-white/20 blur-sm"
                 initial={{ 
-                  x: Math.random() * 100, 
-                  y: Math.random() * 100,
-                  opacity: 0.2
+                  x: Math.random() * 100 + '%', 
+                  y: Math.random() * 100 + '%',
+                  scale: Math.random() * 0.8 + 0.2,
+                  opacity: Math.random() * 0.6 + 0.2
                 }}
                 animate={{
-                  x: Math.random() * 100,
-                  y: Math.random() * 100,
-                  opacity: [0.2, 0.5, 0.2]
+                  x: Math.random() * 100 + '%',
+                  y: Math.random() * 100 + '%',
+                  scale: [
+                    Math.random() * 0.8 + 0.2,
+                    Math.random() * 1.2 + 0.5,
+                    Math.random() * 0.8 + 0.2
+                  ],
+                  opacity: [
+                    Math.random() * 0.6 + 0.2,
+                    Math.random() * 0.8 + 0.4,
+                    Math.random() * 0.6 + 0.2
+                  ]
                 }}
                 transition={{
-                  duration: Math.random() * 5 + 5,
+                  duration: Math.random() * 8 + 6,
                   repeat: Infinity,
-                  repeatType: "reverse"
+                  repeatType: "reverse",
+                  ease: "easeInOut"
                 }}
                 style={{
-                  width: `${Math.random() * 300 + 100}px`,
-                  height: `${Math.random() * 300 + 100}px`,
-                  top: `${Math.random() * 90}%`,
-                  left: `${Math.random() * 90}%`,
+                  width: `${Math.random() * 120 + 40}px`,
+                  height: `${Math.random() * 120 + 40}px`,
                 }}
               />
             ))}
           </div>
         )}
-      </motion.div>
 
+        {/* Grid pattern overlay */}
+        <div 
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }}
+        />
+      </motion.div>      {/* Content Container */}
       <motion.div 
         ref={contentRef} 
-        className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-0"
-        style={{ opacity: contentOpacity }}
-      >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16">
-          {/* Coluna de texto */}
-          <div className="w-full lg:w-1/2 max-w-xl">
+        className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 mb-20 sm:mb-16 lg:mb-8"
+        style={
+          // Aplicar transforms apenas em desktop para evitar problemas no mobile
+          !isMobile && !prefersReducedMotion 
+            ? { 
+                opacity: contentOpacity,
+                scale: contentScale
+              }
+            : {}
+        }
+      >        <div className="grid lg:grid-cols-2 gap-16 sm:gap-12 lg:gap-16 items-center">
+          {/* Left Column - Text Content */}
+          <div className="text-center lg:text-left space-y-6 sm:space-y-8">{/* Badge */}
             <motion.div 
               initial="hidden"
               animate="visible"
               variants={fadeInVariants}
-              className="mb-6 inline-flex items-center px-3 py-1.5 rounded-full bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20"
+              className="mb-8 sm:mb-6 inline-flex items-center px-4 py-2 rounded-full 
+                       bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20
+                       backdrop-blur-sm"
             >
-              <span className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[var(--color-accent)]">
-                <Star size={14} className="fill-[var(--color-accent)]" /> 
+              <span className="flex items-center gap-2 text-sm font-medium text-[var(--color-accent)]">
+                <Star size={16} className="fill-[var(--color-accent)]" /> 
                 <span>Serviços residenciais de confiança</span>
               </span>
-            </motion.div>
-
+            </motion.div>{/* Main Title */}
             <motion.h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-text)] mb-4 md:mb-6 leading-tight tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-text)] mb-6 leading-tight"
               variants={slideUpVariants}
               initial="hidden"
               animate="visible"
               transition={{ delay: prefersReducedMotion ? 0 : 0.2 }}
             >
-              <span className="block mb-2">Solução Completa</span>
-              <span className="bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] text-transparent bg-clip-text">para sua Casa</span>
-            </motion.h1>
-
+              <span className="block mb-2">Solução</span>
+              <span className="block bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-light)] 
+                             text-transparent bg-clip-text">Completa</span>
+              <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mt-2 text-[var(--color-text)]/90">
+                para sua Casa
+              </span>
+            </motion.h1>            {/* Subtitle */}
             <motion.p 
-              className="text-lg sm:text-xl leading-relaxed text-[var(--color-text)]/80 mb-6 md:mb-8 max-w-lg"
+              className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-[var(--color-text)]/80 mb-8 max-w-2xl mx-auto lg:mx-0"
               variants={slideUpVariants}
               initial="hidden"
               animate="visible"
               transition={{ delay: prefersReducedMotion ? 0.1 : 0.4 }}
             >
               Reparos elétricos, hidráulicos e serviços gerais em 
-              <span className="mx-1 font-medium">Florianópolis</span> 
+              <span className="mx-1 font-semibold text-[var(--color-accent-light)]">Florianópolis</span> 
               com rapidez, qualidade e preço justo.
             </motion.p>
 
+            {/* CTA Buttons */}
             <motion.div 
-              className="flex flex-wrap gap-3 sm:gap-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
               variants={slideUpVariants}
               initial="hidden"
               animate="visible"
               transition={{ delay: prefersReducedMotion ? 0.2 : 0.6 }}
-            >              <motion.a
+            >
+              <motion.a
                 href="https://wa.me/5548991919791"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative overflow-hidden inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-4 bg-[var(--color-accent)] text-white rounded-md font-medium transition-all shadow-lg shadow-[var(--color-accent)]/20 group"
-                whileHover={applyVariant(prefersReducedMotion, buttonVariants.hover)}
-                whileTap={applyVariant(prefersReducedMotion, buttonVariants.tap)}
+                className="group relative overflow-hidden inline-flex items-center justify-center gap-3 
+                         px-8 py-4 bg-[var(--color-accent)] text-white rounded-xl font-semibold text-lg
+                         shadow-xl shadow-[var(--color-accent)]/30 transition-all duration-300
+                         hover:shadow-2xl hover:shadow-[var(--color-accent)]/40"
+                whileHover={applyVariant(prefersReducedMotion, {
+                  scale: 1.05,
+                  y: -2
+                })}
+                whileTap={applyVariant(prefersReducedMotion, { scale: 0.98 })}
               >
-                {/* Efeito de brilho no botão - Só exibe se não preferir movimento reduzido */}
+                {/* Shimmer effect */}
                 {!prefersReducedMotion && (
                   <motion.span 
-                    className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
                     initial={{ x: '-100%' }}
                     animate={{ x: '100%' }}
-                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                    transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
                   />
                 )}
                 
-                <MessageCircle size={18} className="text-white" />
-                <span className="font-semibold text-sm sm:text-base">Falar com Fernando</span>
-                {!prefersReducedMotion && (
-                  <motion.span 
-                    className="absolute -right-4 -top-4 bg-white/20 rounded-full text-[10px] font-bold px-2 py-1 rotate-12"
-                    animate={{ scale: [1, 1.1, 1], rotate: [12, 8, 12] }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                  >
-                    GRÁTIS
-                  </motion.span>
-                )}
+                <MessageCircle size={22} />
+                <span>Falar com Fernando</span>
+                
+                {/* Pulse indicator */}
+                <div className="absolute -top-2 -right-2 h-4 w-4 bg-green-400 rounded-full">
+                  {!prefersReducedMotion && (
+                    <motion.div
+                      className="absolute inset-0 bg-green-400 rounded-full"
+                      animate={{ scale: [1, 1.5, 1], opacity: [1, 0, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                  )}
+                </div>
               </motion.a>
-              
-              <motion.div 
-                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-md border border-[var(--color-neutral)]/30 bg-white/5 backdrop-blur-sm text-[var(--color-text)]"
+                <motion.div 
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl 
+                         border-2 border-white/30 bg-white/10 backdrop-blur-sm text-[var(--color-text)]
+                         hover:bg-white/20 transition-all duration-300"
                 whileHover={applyVariant(prefersReducedMotion, { 
-                  backgroundColor: 'rgba(var(--color-neutral-rgb), 0.05)',
-                  borderColor: 'rgba(var(--color-accent-rgb), 0.3)',
-                  y: -2
+                  scale: 1.02,
+                  borderColor: 'rgba(var(--color-accent-rgb), 0.5)'
                 })}
-                whileTap={applyVariant(prefersReducedMotion, { y: 0 })}
               >
-                <CreditCard size={16} className="text-[var(--color-accent)]" />
-                <span className="text-xs sm:text-sm">
-                  Até <span className="font-bold text-[var(--color-accent)]">12x</span> sem juros
+                <CreditCard size={20} />
+                <span className="font-medium">
+                  Até <span className="font-bold text-[var(--color-accent-light)]">12x</span> sem juros
                 </span>
               </motion.div>
+            </motion.div>            {/* Stats Row - Layout otimizado para mobile */}
+            <motion.div 
+              className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 max-w-sm sm:max-w-lg mx-auto lg:mx-0 mt-8"
+              variants={containerAnimVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: prefersReducedMotion ? 0.3 : 0.8 }}
+            >
+              {stats.map((stat, index) => (
+                <StatCard 
+                  key={index}
+                  icon={stat.icon}
+                  value={stat.value}
+                  label={stat.label}
+                  index={index}
+                  prefersReducedMotion={prefersReducedMotion}
+                />
+              ))}
             </motion.div>
           </div>
 
-          {/* Container dos cards - Melhorias para responsividade e visibilidade */}
+          {/* Right Column - Service Cards */}
           <motion.div 
-            className="w-full lg:w-1/2 mt-8 lg:mt-0"
+            className="lg:pl-8"
             variants={containerAnimVariants}
             initial="hidden"
             animate="visible"
+            transition={{ delay: prefersReducedMotion ? 0.4 : 1.0 }}
           >
-            <div className="grid gap-3 sm:gap-4 md:grid-cols-1">
+            <div className="grid gap-4 sm:gap-6">
               {services.map((service, index) => (
                 <ServiceCard 
                   key={index}
@@ -407,34 +493,38 @@ const Hero: React.FC = () => {
             </div>
           </motion.div>
         </div>
-      </motion.div>
-
-      {/* Separador Visual */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[var(--color-gray)] to-transparent dark:from-[var(--color-primary)] z-5" />
-
+      </motion.div>      {/* Scroll Indicator - Corrigida centralização */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: prefersReducedMotion ? 0.2 : 1.2, duration: prefersReducedMotion ? 0.2 : 0.8 }}
-        aria-label="Rolar para a seção Sobre"
+        className="absolute bottom-6 sm:bottom-8 left-0 right-0 flex justify-center cursor-pointer z-20"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: prefersReducedMotion ? 0.5 : 1.5, duration: 0.8 }}
         onClick={scrollToNextSection}
       >
         <motion.div
-          animate={prefersReducedMotion ? undefined : { y: [0, 8, 0] }}
-          transition={prefersReducedMotion ? undefined : { repeat: Infinity, duration: 2 }}
-          className="flex flex-col items-center"
+          className="flex flex-col items-center group"
+          animate={prefersReducedMotion ? undefined : { y: [0, 6, 0] }}
+          transition={prefersReducedMotion ? undefined : { repeat: Infinity, duration: 2.5 }}
         >
-          <span className="text-[var(--color-text)]/60 text-xs sm:text-sm mb-2">Saiba Mais</span>
+          <span className="text-[var(--color-text)]/70 text-xs sm:text-sm mb-2 sm:mb-3 group-hover:text-[var(--color-text)]/90 transition-colors">
+            Saiba Mais
+          </span>
           <motion.div 
-            className="h-8 w-8 sm:h-10 sm:w-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm"
-            whileHover={applyVariant(prefersReducedMotion, iconButtonVariants.hover)}
-            whileTap={applyVariant(prefersReducedMotion, iconButtonVariants.tap)}
+            className="h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center rounded-full 
+                     bg-white/10 backdrop-blur-sm border border-white/20
+                     group-hover:bg-white/20 group-hover:border-[var(--color-accent)]/50
+                     transition-all duration-300"
+            whileHover={applyVariant(prefersReducedMotion, { scale: 1.1 })}
+            whileTap={applyVariant(prefersReducedMotion, { scale: 0.95 })}
           >
             <ArrowDown className="text-[var(--color-accent)] h-4 w-4 sm:h-5 sm:w-5" />
           </motion.div>
         </motion.div>
       </motion.div>
+
+      {/* Bottom Fade */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t 
+                   from-[var(--color-gray)] to-transparent pointer-events-none z-5" />
     </section>
   );
 };
