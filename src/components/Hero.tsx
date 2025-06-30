@@ -119,12 +119,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, desc, index, pre
           </motion.div>
         )}
       </div>      <div className="flex-1">
-        <h3 className="text-lg sm:text-xl font-bold text-[var(--color-text)] mb-2 
+        <h3 className="text-lg sm:text-xl font-bold text-white mb-2 drop-shadow-md
                      group-hover:text-[var(--color-accent)] transition-colors duration-300">
           {title}
         </h3>
-        <p className="text-sm sm:text-base leading-relaxed text-[var(--color-text)]/70 
-                     group-hover:text-[var(--color-text)]/80 transition-colors duration-300">
+        <p className="text-sm sm:text-base leading-relaxed text-white/85 drop-shadow-sm
+                     group-hover:text-white/95 transition-colors duration-300">
           {desc}
         </p>
       </div>
@@ -146,8 +146,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, desc, index, pre
 const StatCard: React.FC<StatCardProps> = ({ icon, value, label, index, prefersReducedMotion }) => (
   <motion.div
     className="stat-card text-center p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl 
-               bg-white/10 backdrop-blur-md border border-white/20 
-               hover:bg-white/15 transition-all duration-300"
+               bg-white/15 backdrop-blur-md border border-white/30 
+               hover:bg-white/20 transition-all duration-300 drop-shadow-lg"
     initial={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.8 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ 
@@ -159,12 +159,12 @@ const StatCard: React.FC<StatCardProps> = ({ icon, value, label, index, prefersR
   >
     <div className="mb-2 sm:mb-3 flex justify-center">
       <div className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 flex items-center justify-center rounded-full
-                    bg-[var(--color-accent)]/20 text-[var(--color-accent)]">
+                    bg-[var(--color-accent)]/30 text-[var(--color-accent)]">
         {icon}
       </div>
     </div>
-    <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-[var(--color-text)] mb-1">{value}</div>
-    <div className="text-xs sm:text-sm text-[var(--color-text)]/80 leading-tight">{label}</div>
+    <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-1 drop-shadow-md">{value}</div>
+    <div className="text-xs sm:text-sm text-white/90 leading-tight drop-shadow-sm">{label}</div>
   </motion.div>
 );
 
@@ -281,23 +281,19 @@ const Hero: React.FC = () => {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-12 sm:pt-20 md:pt-16"
     >
-      {/* Background aprimorado com múltiplas camadas */}
+      {/* Background com imagem local e overlay escuro */}
       <motion.div
         className="hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1574873934798-d7ef3dc98c86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
+          backgroundImage: "url('/image/hero-image.png')",
           y: backgroundY
         }}
       >
-        {/* Overlay gradiente mais sofisticado */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/95 via-[var(--color-primary)]/80 to-[var(--color-accent)]/60"></div>
+        {/* Overlay escuro para garantir contraste do texto branco */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-[var(--color-primary)]/85"></div>
         
-        {/* Mesh gradient overlay */}
-        <div className="absolute inset-0 opacity-40">
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent)]/20 via-transparent to-[var(--color-accent)]/20"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-accent)]/10 to-transparent"></div>
-        </div>
+        {/* Overlay adicional para reforçar o contraste */}
+        <div className="absolute inset-0 bg-black/30"></div>
         {/* Partículas flutuantes - valores totalmente fixos para evitar hidratação */}
         {!prefersReducedMotion && !isMobile && (
           <div className="absolute inset-0 opacity-30">
@@ -361,22 +357,22 @@ const Hero: React.FC = () => {
         }
       >        <div className="grid lg:grid-cols-2 gap-16 sm:gap-12 lg:gap-16 items-center">
           {/* Left Column - Text Content */}
-          <div className="text-center lg:text-left space-y-6 sm:space-y-8">{/* Badge */}
+          <div className="text-center lg:text-left space-y-6 sm:space-y-8">            {/* Badge */}
             <motion.div 
               initial="hidden"
               animate="visible"
               variants={fadeInVariants}
               className="mb-8 sm:mb-6 inline-flex items-center px-4 py-2 rounded-full 
-                       bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20
-                       backdrop-blur-sm"
+                       bg-white/20 border border-white/30
+                       backdrop-blur-sm drop-shadow-lg"
             >
-              <span className="flex items-center gap-2 text-sm font-medium text-[var(--color-accent)]">
-                <Star size={16} className="fill-[var(--color-accent)]" /> 
+              <span className="flex items-center gap-2 text-sm font-semibold text-white">
+                <Star size={16} className="fill-[var(--color-accent)] text-[var(--color-accent)]" /> 
                 <span>Serviços residenciais de confiança</span>
               </span>
             </motion.div>{/* Main Title */}
             <motion.h1 
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-text)] mb-6 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
               variants={slideUpVariants}
               initial="hidden"
               animate="visible"
@@ -385,12 +381,12 @@ const Hero: React.FC = () => {
               <span className="block mb-2">Solução</span>
               <span className="block bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-light)] 
                              text-transparent bg-clip-text">Completa</span>
-              <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mt-2 text-[var(--color-text)]/90">
+              <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mt-2 text-white/95 drop-shadow-lg">
                 para sua Casa
               </span>
             </motion.h1>            {/* Subtitle */}
             <motion.p 
-              className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-[var(--color-text)]/80 mb-8 max-w-2xl mx-auto lg:mx-0"
+              className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-white/90 mb-8 max-w-2xl mx-auto lg:mx-0 drop-shadow-md"
               variants={slideUpVariants}
               initial="hidden"
               animate="visible"
@@ -447,11 +443,11 @@ const Hero: React.FC = () => {
               </motion.button>
                 <motion.div 
                 className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl 
-                         border-2 border-white/30 bg-white/10 backdrop-blur-sm text-[var(--color-text)]
-                         hover:bg-white/20 transition-all duration-300"
+                         border-2 border-white/40 bg-white/15 backdrop-blur-sm text-white
+                         hover:bg-white/25 transition-all duration-300 drop-shadow-lg"
                 whileHover={applyVariant(prefersReducedMotion, { 
                   scale: 1.02,
-                  borderColor: 'rgba(var(--color-accent-rgb), 0.5)'
+                  borderColor: 'rgba(255, 255, 255, 0.6)'
                 })}
               >
                 <CreditCard size={20} />
