@@ -316,21 +316,77 @@ const Contact: React.FC = () => {
 
                 {submitted ? (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="flex flex-col items-center justify-center text-center p-8 bg-green-50 rounded-xl border border-green-200"
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    className="relative flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl border-2 border-green-200 overflow-hidden"
                   >
-                    <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
-                    <h4 className="text-xl font-bold mb-2 text-[var(--color-text)]">Mensagem Enviada!</h4>
-                    <p className="text-[var(--color-text)]/70 mb-4">Retornaremos em até 2 horas.</p>
-                    <motion.button
-                      onClick={() => setSubmitted(false)}
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="px-6 py-3 bg-[var(--color-accent)] text-white rounded-xl font-semibold hover:bg-[var(--color-accent)]/90 transition-colors"
+                    {/* Confetti effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 to-blue-400/10"></div>
+                    
+                    {/* Success icon with animation */}
+                    <motion.div
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ delay: 0.2, type: "spring", damping: 15 }}
+                      className="relative mb-6"
                     >
-                      Enviar Outra Mensagem
-                    </motion.button>
+                      <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-20"></div>
+                      <CheckCircle className="h-20 w-20 text-green-500 relative z-10" />
+                    </motion.div>
+                    
+                    <motion.h4
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                      className="text-2xl font-bold mb-3 text-green-700"
+                    >
+                      🎉 Mensagem Enviada com Sucesso!
+                    </motion.h4>
+                    
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.6 }}
+                      className="text-green-600 mb-2 font-medium"
+                    >
+                      Retornaremos em até <span className="font-bold">2 horas</span>
+                    </motion.p>
+                    
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.8 }}
+                      className="text-green-600/80 text-sm mb-6"
+                    >
+                      Enquanto isso, que tal falar conosco no WhatsApp?
+                    </motion.p>
+                    
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <motion.button
+                        onClick={() => setIsWhatsAppModalOpen(true)}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 1 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-6 py-3 bg-green-500 text-white rounded-xl font-semibold hover:bg-green-600 transition-colors shadow-lg flex items-center gap-2"
+                      >
+                        <MessageCircle size={18} />
+                        Falar no WhatsApp
+                      </motion.button>
+                      
+                      <motion.button
+                        onClick={() => setSubmitted(false)}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 1.2 }}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="px-6 py-3 bg-white border-2 border-green-300 text-green-700 rounded-xl font-semibold hover:bg-green-50 transition-colors"
+                      >
+                        Enviar Outra Mensagem
+                      </motion.button>
+                    </div>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">

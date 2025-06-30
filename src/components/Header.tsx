@@ -110,7 +110,7 @@ const Header = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed w-full z-50 backdrop-blur-md transition-all duration-300 ${
+        className={`fixed w-full z-[90] backdrop-blur-md transition-all duration-300 ${
           scrolled 
             ? 'bg-white/95 shadow-lg shadow-black/5 py-2' 
             : 'bg-white/90 py-3'
@@ -184,7 +184,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="lg:hidden z-50 p-2.5 rounded-lg bg-[var(--color-accent)] text-white shadow-md"
+            className="lg:hidden z-[95] p-2.5 rounded-lg bg-[var(--color-accent)] text-white shadow-md"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
             whileHover={{ scale: 1.05 }}
@@ -223,7 +223,7 @@ const Header = () => {
             <motion.div
               id="mobile-menu"
               ref={navRef}
-              className="fixed inset-0 w-full min-h-screen lg:hidden z-40"
+              className="fixed inset-0 w-full min-h-screen lg:hidden z-[100]"
               initial="closed"
               animate="open"
               exit="closed"

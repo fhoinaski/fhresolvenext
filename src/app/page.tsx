@@ -26,11 +26,19 @@ const About = dynamic(() => import('../components/About'), {
   ssr: false,
   loading: () => <SectionLoader />
 });
+const HowItWorks = dynamic(() => import('../components/HowItWorks'), { 
+  ssr: false,
+  loading: () => <SectionLoader />
+});
 const Portfolio = dynamic(() => import('../components/Portfolio'), { 
   ssr: false,
   loading: () => <SectionLoader />
 });
 const Testimonials = dynamic(() => import('../components/Testimonials_new'), { 
+  ssr: false,
+  loading: () => <SectionLoader />
+});
+const FAQ = dynamic(() => import('../components/FAQ'), { 
   ssr: false,
   loading: () => <SectionLoader />
 });
@@ -129,6 +137,9 @@ export default function Home() {
           <Hero />
           <Benefits />
           <Suspense fallback={<SectionLoader />}>
+            <HowItWorks />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
             <About />
           </Suspense>
           {/* <Suspense fallback={<SectionLoader />}>
@@ -136,6 +147,9 @@ export default function Home() {
           </Suspense> */}
           <Suspense fallback={<SectionLoader />}>
             <Testimonials />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <FAQ />
           </Suspense>
           <Suspense fallback={<SectionLoader />}>
             {/* <ServiceMap /> */}
@@ -147,12 +161,12 @@ export default function Home() {
         <Suspense fallback={<div className="h-20" />}>
           <Footer />
         </Suspense>
-        {/* <motion.a
-          href="https://wa.me/5548991919791"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed bottom-6 right-6 bg-[var(--color-accent)] text-white p-3 rounded-full shadow-lg z-50 flex items-center justify-center"
-          whileHover={{ scale: 1.1, boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
+        
+        {/* FAB WhatsApp Button */}
+        <motion.button
+          onClick={() => setIsWhatsAppModalOpen(true)}
+          className="fixed bottom-6 right-6 bg-[var(--color-accent)] text-white p-4 rounded-full shadow-lg z-50 flex items-center justify-center group"
+          whileHover={{ scale: 1.1, boxShadow: "0 8px 16px rgba(51, 144, 255, 0.4)" }}
           whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -160,7 +174,23 @@ export default function Home() {
           aria-label="Entre em contato via WhatsApp"
         >
           <MessageCircle size={26} />
-        </motion.a> */}
+          
+          {/* Pulse animation */}
+          <motion.div
+            className="absolute inset-0 bg-[var(--color-accent)] rounded-full"
+            animate={{ scale: [1, 1.4, 1], opacity: [0.7, 0, 0.7] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+          
+          {/* Online indicator */}
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white">
+            <motion.div
+              className="absolute inset-0 bg-green-400 rounded-full"
+              animate={{ scale: [1, 1.3, 1], opacity: [1, 0, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+          </div>
+        </motion.button>
 
         {/* WhatsApp Modal */}
         <WhatsAppModal 

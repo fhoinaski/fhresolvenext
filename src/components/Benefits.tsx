@@ -118,9 +118,29 @@ const Benefits: React.FC = () => {
     <section
       id="benefits"
       ref={sectionRef}
-      className={`py-16 sm:py-24 ${isDarkMode ? 'bg-[#3A3A3A]' : 'bg-[#EDEDED]'}`}
+      className={`py-16 sm:py-24 ${isDarkMode ? 'bg-[#3A3A3A]' : 'bg-[#EDEDED]'} relative overflow-hidden`}
+      style={{
+        backgroundImage: `
+          linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
+          linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px)
+        `,
+        backgroundSize: '40px 40px'
+      }}
     >
-      <div className="container">        {/* Header da seção */}
+      {/* Textura sutil de blueprint */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 20px 20px, rgba(51, 144, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(45deg, rgba(51, 144, 255, 0.05) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(51, 144, 255, 0.05) 25%, transparent 25%)
+          `,
+          backgroundSize: '40px 40px, 20px 20px, 20px 20px'
+        }}
+      />
+      
+      <div className="container relative z-10">        {/* Header da seção */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}

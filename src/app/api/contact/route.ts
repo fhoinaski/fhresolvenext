@@ -1,18 +1,57 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { z } from 'zod';
+import { rateLimit } from '@/lib/rate-limit';
+
+// Schema de validação com Zod
+const ContactSchema = z.object({
+  name: z.string()
+    .min(2, "Nome deve ter pelo menos 2 caracteres")
+    .max(50, "Nome deve ter no máximo 50 caracteres")
+    .regex(/^[a-zA-ZÀ-ÿ\s]+$/, "Nome deve conter apenas letras e espaços"),
+  phone: z.string()
+    .regex(/^\(\d{2}\)\s\d{4,5}-\d{4}$/, "Formato de telefone inválido. Use (XX) XXXXX-XXXX"),
+  message: z.string()
+    .min(10, "Mensagem deve ter pelo menos 10 caracteres")
+    .max(500, "Mensagem deve ter no máximo 500 caracteres")
+});
 
 export async function POST(request: NextRequest) {
+  // Rate Limiting - máximo 3 tentativas por minuto por IP
+  const rateLimitResult = rateLimit(request, {
+    interval: 60 * 1000, // 1 minuto
+    uniqueTokenPerInterval: 3, // Máximo de 3 envios por minuto por IP
+  });
+
+  if (!rateLimitResult.success) {
+    return NextResponse.json(
+      { 
+        error: 'Muitas tentativas de envio. Tente novamente em alguns minutos.',
+        type: 'rate_limit'
+      }, 
+      { status: 429 }
+    );
+  }
+
   try {
     const body = await request.json();
-    const { name, phone, message } = body;
+    
+    // Validação com Zod
+    const validation = ContactSchema.safeParse(body);
 
-    // Validação dos dados
-    if (!name || !phone || !message) {
+    if (!validation.success) {
+      const errors = validation.error.flatten().fieldErrors;
       return NextResponse.json(
-        { error: 'Todos os campos são obrigatórios' },
+        { 
+          error: "Dados inválidos", 
+          details: errors,
+          type: 'validation_error'
+        }, 
         { status: 400 }
       );
     }
+
+    const { name, phone, message } = validation.data;
 
     // Configuração do transportador de email para Hostinger
     const transporter = nodemailer.createTransport({
@@ -97,9 +136,20 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Erro ao enviar email:', error);
+    
+    // Log detalhado do erro para debug
+    if (error instanceof Error) {
+      console.error('Error details:', {
+        message: error.message,
+        stack: error.stack,
+        name: error.name
+      });
+    }
+    
     return NextResponse.json(
       { 
-        error: 'Erro interno do servidor. Tente novamente mais tarde.' 
+        error: 'Erro interno do servidor. Tente novamente mais tarde.',
+        type: 'server_error'
       },
       { status: 500 }
     );

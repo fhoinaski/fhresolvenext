@@ -18,7 +18,8 @@ const testimonials = [
     text: 'Sugiro procurar os serviços desse servidor. Profissional muito competente. Discreto e educado. Estamos de mudança para uma casa e vamos contratar os serviços dele. Preço justo, qualidade e eficiência!',
     image: 'https://lh3.googleusercontent.com/a-/ALV-UjUMqU1mxXs-7nXN3P1MFgNW0Pllo18DxtPulXTfqZplcmnvYoDqhw=s36-c-rp-mo-br100',
     verified: true,
-    source: 'Google Maps'
+    source: 'Google Maps',
+    googleUrl: 'https://g.co/kgs/LRFtA1G'
   },
   {
     id: 2,
@@ -30,7 +31,8 @@ const testimonials = [
     text: 'Muito rápido e solícito, atendeu todas dúvidas e fez o serviço com maestria',
     image: 'https://lh3.googleusercontent.com/a-/ALV-UjXUfV0kA9xl2NCvzPF7xEUvYXrmL-MgnzgpkreGidJVomSSJ4NT-A=s36-c-rp-mo-br100',
     verified: true,
-    source: 'Google Maps'
+    source: 'Google Maps',
+    googleUrl: 'https://g.co/kgs/LRFtA1G'
   },
   {
     id: 3,
@@ -42,7 +44,8 @@ const testimonials = [
     text: 'Resolve mesmo gentem. Podem confiar super indico!',
     image: 'https://lh3.googleusercontent.com/a-/ALV-UjUBxjam5ngFe-G--ezB6w-5tTfZizTHaXcZE08sMI_tTU9m5FMEvg=s36-c-rp-mo-br100',
     verified: true,
-    source: 'Google Maps'
+    source: 'Google Maps',
+    googleUrl: 'https://g.co/kgs/LRFtA1G'
   },
   {
     id: 4,
@@ -54,7 +57,8 @@ const testimonials = [
     text: 'Ótimo profissional e preço justo.',
     image: 'https://lh3.googleusercontent.com/a-/ALV-UjW_GPsnZZ-MXXkFS0Y7dTYtGAMWDw5DVWVZ4WmM4U85VNMnbq28TA=s36-c-rp-mo-ba2-br100',
     verified: true,
-    source: 'Google Maps'
+    source: 'Google Maps',
+    googleUrl: 'https://g.co/kgs/LRFtA1G'
   },
   {
     id: 5,
@@ -66,7 +70,8 @@ const testimonials = [
     text: 'Super recomendo os serviços do Fernando, detalhista em tudo o que faz e trabalho bem feito ✨',
     image: 'https://lh3.googleusercontent.com/a/ACg8ocLD-o4NRLsZ1lAIEys8XoR6BfnZritmxpOORBikcaCWAh-xL88a=s36-c-rp-mo-br100',
     verified: true,
-    source: 'Google Maps'
+    source: 'Google Maps',
+    googleUrl: 'https://g.co/kgs/LRFtA1G'
   },
   {
     id: 6,
@@ -78,7 +83,8 @@ const testimonials = [
     text: 'Profissional muito competente. Detalhista e cuidadoso. A qualidade dos seus trabalhos é um destaque. Recomendo muito.',
     image: 'https://lh3.googleusercontent.com/a-/ALV-UjVtSNeWZkOR5-Y-CW_h4ssJIAeRSTq0OIyMQXkJK6NyVfsQRgZN2w=s36-c-rp-mo-ba3-br100',
     verified: true,
-    source: 'Google Maps'
+    source: 'Google Maps',
+    googleUrl: 'https://g.co/kgs/LRFtA1G'
   },
   {
     id: 7,
@@ -90,7 +96,8 @@ const testimonials = [
     text: 'Um ótimo atendimento, venho até meu apartamento e resolveu de forma rápida e eficaz sem enrolação. Valor justo. Recomendo',
     image: 'https://lh3.googleusercontent.com/a/ACg8ocI3fCnJfoxZOvoDWPRAsI1kNewlvJy0A7H7bcqBJ_Ml6B3DdjTR=s36-c-rp-mo-br100',
     verified: true,
-    source: 'Google Maps'
+    source: 'Google Maps',
+    googleUrl: 'https://g.co/kgs/LRFtA1G'
   }
 ];
 
@@ -191,8 +198,21 @@ const Testimonials: React.FC = () => {
       ref={sectionRef}
       className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full">
+      {/* Background Image with Texture */}
+      <div className="absolute inset-0">
+        {/* Subtle photographic texture background */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3Ccircle cx='19' cy='19' r='1'/%3E%3Ccircle cx='25' cy='25' r='1'/%3E%3Ccircle cx='31' cy='31' r='1'/%3E%3Ccircle cx='37' cy='37' r='1'/%3E%3Ccircle cx='43' cy='43' r='1'/%3E%3Ccircle cx='49' cy='49' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '60px 60px'
+          }}
+        />
+        
+        {/* Subtle gradient overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/20" />
+        
+        {/* Existing gradient elements */}
         <div className="absolute top-20 -right-20 w-64 h-64 sm:w-80 sm:h-80 bg-gradient-to-l from-[var(--color-accent)]/10 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 -left-20 w-48 h-48 sm:w-64 sm:h-64 bg-gradient-to-r from-[var(--color-secondary)]/10 to-transparent rounded-full blur-3xl"></div>
       </div>
@@ -291,9 +311,12 @@ const Testimonials: React.FC = () => {
                           <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shadow-lg border-4 border-white">
                             <Image
                               src={testimonials[current].image}
-                              alt={testimonials[current].name}
+                              alt={`Foto de perfil de ${testimonials[current].name}`}
                               width={80}
                               height={80}
+                              sizes="80px"
+                              quality={90}
+                              loading="lazy"
                               className="w-full h-full object-cover"
                             />
                           </div>
@@ -313,9 +336,16 @@ const Testimonials: React.FC = () => {
                               <span className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-xs sm:text-sm font-medium">
                                 Cliente Verificado
                               </span>
-                              <span className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs sm:text-sm font-medium border border-blue-200">
+                              <motion.a
+                                href={testimonials[current].googleUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs sm:text-sm font-medium border border-blue-200 hover:bg-blue-100 transition-colors duration-200 cursor-pointer"
+                              >
                                 {testimonials[current].source}
-                              </span>
+                              </motion.a>
                             </div>
                           </div>
                           
@@ -404,15 +434,29 @@ const Testimonials: React.FC = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-[var(--color-accent)] text-white rounded-xl font-semibold text-sm sm:text-base shadow-lg shadow-[var(--color-accent)]/30 hover:shadow-xl hover:shadow-[var(--color-accent)]/40 transition-all duration-300"
-          >
-            <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-current" />
-            <span>Seja Nosso Próximo Cliente Satisfeito</span>
-          </motion.a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-[var(--color-accent)] text-white rounded-xl font-semibold text-sm sm:text-base shadow-lg shadow-[var(--color-accent)]/30 hover:shadow-xl hover:shadow-[var(--color-accent)]/40 transition-all duration-300"
+            >
+              <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-current" />
+              <span>Seja Nosso Próximo Cliente Satisfeito</span>
+            </motion.a>
+            
+            <motion.a
+              href="https://g.co/kgs/LRFtA1G"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-white text-[var(--color-accent)] rounded-xl font-semibold text-sm border-2 border-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white transition-all duration-300"
+            >
+              <span>📱</span>
+              <span>Ver mais de 200+ avaliações no Google</span>
+            </motion.a>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -207,7 +207,7 @@ const About: React.FC = () => {
                   alt="Profissional da FH Resolve realizando serviço de manutenção residencial"
                   width={800}
                   height={600}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain md:object-cover"
                   loading="lazy"
                 />
                 </div>

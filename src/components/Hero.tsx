@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import Image from 'next/image';
 import { 
   MessageCircle, 
   CreditCard, 
@@ -29,6 +30,7 @@ import {
   getReducedMotionVariants
 } from '@/lib/motion-variants';
 import WhatsAppModal from './WhatsAppModal';
+import ShapeDivider from './ui/ShapeDivider';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -82,9 +84,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, desc, index, pre
     whileHover={applyVariant(prefersReducedMotion, {
       y: -8,
       scale: 1.02,
-      boxShadow: "0 20px 40px rgba(27, 58, 92, 0.2)"
+      boxShadow: "0 20px 40px rgba(27, 58, 92, 0.2)",
+      borderColor: "rgba(51, 144, 255, 0.4)"
     })}
-    whileTap={applyVariant(prefersReducedMotion, cardVariants.tap)}
+    whileTap={applyVariant(prefersReducedMotion, { scale: 0.98 })}
   >
     {/* Gradient Overlay Effect */}
     <div className="absolute top-0 right-0 w-32 sm:w-36 h-32 sm:h-36 bg-gradient-radial 
@@ -108,10 +111,18 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, desc, index, pre
         ) : (
           <motion.div
             initial={{ rotate: 0, scale: 1 }}
-            animate={{ rotate: [0, 5, 0, -5, 0] }}
-            whileHover={{ scale: 1.1, rotate: 360 }}            transition={{ 
-              rotate: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-              scale: { duration: 0.3 }
+            animate={{ 
+              rotate: [0, 5, 0, -5, 0],
+              scale: [1, 1.05, 1]
+            }}
+            whileHover={{ 
+              scale: 1.1, 
+              rotate: 15,
+              transition: { duration: 0.3 }
+            }}
+            transition={{ 
+              rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+              scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
             }}
             className="text-[var(--color-accent)] text-2xl"
           >
@@ -178,7 +189,10 @@ const Hero: React.FC = () => {
     target: heroRef,
     offset: ["start start", "end start"]
   });
-    const backgroundY = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 50]);
+    const backgroundY = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : -100]);
+  // Efeito parallax mais suave e perceptível
+  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1, prefersReducedMotion ? 1 : 1.1]);
+  
   // Corrigido: valores mais suaves para mobile e evita o efeito de "sumir"
   const contentOpacity = useTransform(
     scrollYProgress, 
@@ -276,27 +290,32 @@ const Hero: React.FC = () => {
     ? getReducedMotionVariants(true) 
     : containerVariants;
 
-  return (    <section
+  return (
+    <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-12 sm:pt-20 md:pt-16"
+      className="relative bg-[#EDEDED] min-h-[110vh] flex items-center justify-center overflow-hidden pt-12 sm:pt-20 md:pt-16"
     >
-      {/* Background com imagem local e overlay escuro */}
-      <motion.div
-        className="hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/image/hero-image.png')",
-          y: backgroundY
-        }}
-      >
+      {/* Background com imagem otimizada e overlay escuro */}
+      <div className="absolute inset-0">
+        <Image
+          src="/image/hero-image.png"
+          alt="Profissional da FH Resolve realizando serviços de manutenção residencial em Florianópolis"
+          fill
+          quality={85}
+          priority
+          sizes="100vw"
+          className="hero-bg object-cover"
+        />
+        
         {/* Overlay escuro para garantir contraste do texto branco */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-[var(--color-primary)]/85"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-[var(--color-primary)]/85 z-10"></div>
         
         {/* Overlay adicional para reforçar o contraste */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/30 z-20"></div>
         {/* Partículas flutuantes - valores totalmente fixos para evitar hidratação */}
         {!prefersReducedMotion && !isMobile && (
-          <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0 opacity-30 z-30">
             {PARTICLE_CONFIG.map((particle, i) => (
               <motion.div
                 key={`particle-${i}`}
@@ -333,7 +352,7 @@ const Hero: React.FC = () => {
 
         {/* Grid pattern overlay */}
         <div 
-          className="absolute inset-0 opacity-5"
+          className="absolute inset-0 opacity-5 z-40"
           style={{
             backgroundImage: `
               linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
@@ -342,10 +361,10 @@ const Hero: React.FC = () => {
             backgroundSize: '60px 60px'
           }}
         />
-      </motion.div>      {/* Content Container */}
+      </div>      {/* Content Container */}
       <motion.div 
         ref={contentRef} 
-        className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 mb-20 sm:mb-16 lg:mb-8"
+        className="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24 mb-24 sm:mb-20 lg:mb-16"
         style={
           // Aplicar transforms apenas em desktop para evitar problemas no mobile
           !isMobile && !prefersReducedMotion 
@@ -370,9 +389,9 @@ const Hero: React.FC = () => {
                 <Star size={16} className="fill-[var(--color-accent)] text-[var(--color-accent)]" /> 
                 <span>Serviços residenciais de confiança</span>
               </span>
-            </motion.div>{/* Main Title */}
+            </motion.div>            {/* Main Title */}
             <motion.h1 
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold text-white mb-6 leading-tight drop-shadow-lg"
               variants={slideUpVariants}
               initial="hidden"
               animate="visible"
@@ -410,12 +429,14 @@ const Hero: React.FC = () => {
                 className="group relative overflow-hidden inline-flex items-center justify-center gap-3 
                          px-8 py-4 bg-[var(--color-accent)] text-white rounded-xl font-semibold text-lg
                          shadow-xl shadow-[var(--color-accent)]/30 transition-all duration-300
-                         hover:shadow-2xl hover:shadow-[var(--color-accent)]/40"
+                         hover:shadow-2xl hover:shadow-[var(--color-accent)]/40 hover:scale-105
+                         active:scale-95"
                 whileHover={applyVariant(prefersReducedMotion, {
                   scale: 1.05,
-                  y: -2
+                  y: -2,
+                  boxShadow: "0 20px 40px rgba(51, 144, 255, 0.4)"
                 })}
-                whileTap={applyVariant(prefersReducedMotion, { scale: 0.98 })}
+                whileTap={applyVariant(prefersReducedMotion, { scale: 0.95 })}
               >
                 {/* Shimmer effect */}
                 {!prefersReducedMotion && (
@@ -500,7 +521,7 @@ const Hero: React.FC = () => {
         </div>
       </motion.div>      {/* Scroll Indicator - Corrigida centralização */}
       <motion.div 
-        className="absolute bottom-6 sm:bottom-8 left-0 right-0 flex justify-center cursor-pointer z-20"
+        className="absolute bottom-16 sm:bottom-20 left-0 right-0 flex justify-center cursor-pointer z-40"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: prefersReducedMotion ? 0.5 : 1.5, duration: 0.8 }}
@@ -511,7 +532,7 @@ const Hero: React.FC = () => {
           animate={prefersReducedMotion ? undefined : { y: [0, 6, 0] }}
           transition={prefersReducedMotion ? undefined : { repeat: Infinity, duration: 2.5 }}
         >
-          <span className="text-[var(--color-text)]/70 text-xs sm:text-sm mb-2 sm:mb-3 group-hover:text-[var(--color-text)]/90 transition-colors">
+          <span className="text-white hover:bg-white/25 text-xs sm:text-sm mb-2 sm:mb-3 group-hover:text-[var(--color-text)]/90 transition-colors">
             Saiba Mais
           </span>
           <motion.div 
@@ -529,7 +550,16 @@ const Hero: React.FC = () => {
 
       {/* Bottom Fade */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t 
-                   from-[var(--color-gray)] to-transparent pointer-events-none z-5" />
+                   from-[#EDEDED] to-transparent pointer-events-none z-5" />
+
+      {/* Shape Divider for smooth transition */}
+      <ShapeDivider 
+        position="bottom"
+        color="#EDEDED"
+        height="100px"
+        type="wave"
+        className="z-20 "
+      />
 
       {/* WhatsApp Modal */}
       <WhatsAppModal 

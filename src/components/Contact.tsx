@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { MessageCircle, Phone, Mail, MapPin, Send, CheckCircle, X, CreditCard, Clock, Star, Users, Zap, Shield, Loader2 } from 'lucide-react';
+import { MessageCircle, Phone, Mail, MapPin, Send, CheckCircle, X, CreditCard, Clock, Star, Users, Zap, Shield, Loader2, ToggleLeft, ToggleRight, Sparkles } from 'lucide-react';
 import WhatsAppModal from './WhatsAppModal';
+import ConversationalForm from './ConversationalForm';
 
 const Contact: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -13,6 +14,7 @@ const Contact: React.FC = () => {
   const [errors, setErrors] = useState({ name: '', phone: '', message: '' });
   const [formTouched, setFormTouched] = useState({ name: false, phone: false, message: false });
   const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
+  const [isConversationalMode, setIsConversationalMode] = useState(false);
 
   const validateField = (name: string, value: string) => {
     switch (name) {
@@ -375,9 +377,32 @@ const Contact: React.FC = () => {
               <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-r from-[var(--color-accent)]/10 to-transparent rounded-full blur-2xl"></div>
               
               <div className="relative z-10">
-                <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text)] mb-6">
-                  Envie uma Mensagem
-                </h3>
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text)]">
+                    Envie uma Mensagem
+                  </h3>
+                  
+                  {/* Form Mode Toggle */}
+                  <motion.button
+                    onClick={() => setIsConversationalMode(!isConversationalMode)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-2 px-3 py-2 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-medium hover:bg-[var(--color-accent)]/20 transition-colors"
+                  >
+                    {isConversationalMode ? (
+                      <>
+                        <ToggleRight className="h-4 w-4" />
+                        <Sparkles className="h-3 w-3" />
+                        Conversacional
+                      </>
+                    ) : (
+                      <>
+                        <ToggleLeft className="h-4 w-4" />
+                        Tradicional
+                      </>
+                    )}
+                  </motion.button>
+                </div>
 
                 {submitted || submitStatus !== 'idle' ? (
                   <motion.div
@@ -434,6 +459,8 @@ const Contact: React.FC = () => {
                       )}
                     </div>
                   </motion.div>
+                ) : isConversationalMode ? (
+                  <ConversationalForm />
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
