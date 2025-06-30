@@ -6,63 +6,92 @@ import { ChevronLeft, ChevronRight, Star, Quote, MapPin, Calendar, CheckCircle }
 import Image from 'next/image';
 import { useSwipeable } from 'react-swipeable';
 
-// Dados dos depoimentos expandidos
+// Avaliações reais extraídas do Google Meu Negócio da FH Resolve
 const testimonials = [
   {
     id: 1,
-    name: 'Ana Silva',
-    location: 'Jurerê Internacional',
-    service: 'Reparo Elétrico',
-    date: 'Janeiro 2024',
+    name: 'Hajji Abdul Rahman',
+    location: 'Florianópolis - SC',
+    service: 'Serviços Gerais',
+    date: 'Há 2 semanas',
     rating: 5,
-    text: 'Serviço rápido e confiável! O Fernando resolveu um problema elétrico complexo que outros profissionais não conseguiram identificar. Trabalho impecável e preço justo. Super recomendo!',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-    verified: true
+    text: 'Sugiro procurar os serviços desse servidor. Profissional muito competente. Discreto e educado. Estamos de mudança para uma casa e vamos contratar os serviços dele. Preço justo, qualidade e eficiência!',
+    image: 'https://lh3.googleusercontent.com/a-/ALV-UjUMqU1mxXs-7nXN3P1MFgNW0Pllo18DxtPulXTfqZplcmnvYoDqhw=s36-c-rp-mo-br100',
+    verified: true,
+    source: 'Google Maps'
   },
   {
     id: 2,
-    name: 'Carlos Mendes',
-    location: 'Ratones',
-    service: 'Serviço Hidráulico',
-    date: 'Fevereiro 2024',
+    name: 'Luiz Mosciaro',
+    location: 'Florianópolis - SC',
+    service: 'Atendimento Especializado',
+    date: 'Há 3 semanas',
     rating: 5,
-    text: 'Excelente profissional! Pontual, organizado e resolveu o vazamento no banheiro com muita eficiência. Deixou tudo limpo e funcionando perfeitamente. Meu contato fixo para reparos!',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-    verified: true
+    text: 'Muito rápido e solícito, atendeu todas dúvidas e fez o serviço com maestria',
+    image: 'https://lh3.googleusercontent.com/a-/ALV-UjXUfV0kA9xl2NCvzPF7xEUvYXrmL-MgnzgpkreGidJVomSSJ4NT-A=s36-c-rp-mo-br100',
+    verified: true,
+    source: 'Google Maps'
   },
   {
     id: 3,
-    name: 'Mariana Costa',
-    location: 'Canasvieiras',
-    service: 'Montagem de Móveis',
-    date: 'Março 2024',
+    name: 'Cecília Rosing Boeing',
+    location: 'Florianópolis - SC',
+    service: 'Serviços Residenciais',
+    date: 'Há 3 semanas',
     rating: 5,
-    text: 'Contratei para montar os móveis do meu apartamento novo e fiquei impressionada com a qualidade do trabalho. Muito cuidadoso, rápido e com preço super justo. Trabalho impecável!',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-    verified: true
+    text: 'Resolve mesmo gentem. Podem confiar super indico!',
+    image: 'https://lh3.googleusercontent.com/a-/ALV-UjUBxjam5ngFe-G--ezB6w-5tTfZizTHaXcZE08sMI_tTU9m5FMEvg=s36-c-rp-mo-br100',
+    verified: true,
+    source: 'Google Maps'
   },
   {
     id: 4,
-    name: 'Roberto Almeida',
-    location: 'Ingleses do Rio Vermelho',
-    service: 'Reparo Urgente',
-    date: 'Abril 2024',
+    name: 'Patricia Mendes',
+    location: 'Florianópolis - SC',
+    service: 'Manutenção Profissional',
+    date: 'Há 3 semanas',
     rating: 5,
-    text: 'Tive um problema urgente na pia da cozinha e o Fernando atendeu no mesmo dia. Resolveu tudo em menos de uma hora com muita eficiência. Atendimento excepcional!',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-    verified: true
+    text: 'Ótimo profissional e preço justo.',
+    image: 'https://lh3.googleusercontent.com/a-/ALV-UjW_GPsnZZ-MXXkFS0Y7dTYtGAMWDw5DVWVZ4WmM4U85VNMnbq28TA=s36-c-rp-mo-ba2-br100',
+    verified: true,
+    source: 'Google Maps'
   },
   {
     id: 5,
-    name: 'Fernanda Lima',
-    location: 'Cachoeira do Bom Jesus',
-    service: 'Manutenção Preventiva',
-    date: 'Maio 2024',
+    name: 'Katia H',
+    location: 'Florianópolis - SC',
+    service: 'Serviços Detalhados',
+    date: 'Há 5 semanas',
     rating: 5,
-    text: 'Serviço de manutenção preventiva excepcional. Fernando identificou alguns problemas que poderiam virar dor de cabeça e resolveu tudo de uma vez. Muito profissional e confiável!',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-    verified: true
+    text: 'Super recomendo os serviços do Fernando, detalhista em tudo o que faz e trabalho bem feito ✨',
+    image: 'https://lh3.googleusercontent.com/a/ACg8ocLD-o4NRLsZ1lAIEys8XoR6BfnZritmxpOORBikcaCWAh-xL88a=s36-c-rp-mo-br100',
+    verified: true,
+    source: 'Google Maps'
   },
+  {
+    id: 6,
+    name: 'Zuno Fagundes',
+    location: 'Florianópolis - SC',
+    service: 'Trabalhos de Qualidade',
+    date: 'Há 5 semanas',
+    rating: 5,
+    text: 'Profissional muito competente. Detalhista e cuidadoso. A qualidade dos seus trabalhos é um destaque. Recomendo muito.',
+    image: 'https://lh3.googleusercontent.com/a-/ALV-UjVtSNeWZkOR5-Y-CW_h4ssJIAeRSTq0OIyMQXkJK6NyVfsQRgZN2w=s36-c-rp-mo-ba3-br100',
+    verified: true,
+    source: 'Google Maps'
+  },
+  {
+    id: 7,
+    name: 'Bruna Flores',
+    location: 'Florianópolis - SC',
+    service: 'Atendimento Residencial',
+    date: 'Há 5 semanas',
+    rating: 5,
+    text: 'Um ótimo atendimento, venho até meu apartamento e resolveu de forma rápida e eficaz sem enrolação. Valor justo. Recomendo',
+    image: 'https://lh3.googleusercontent.com/a/ACg8ocI3fCnJfoxZOvoDWPRAsI1kNewlvJy0A7H7bcqBJ_Ml6B3DdjTR=s36-c-rp-mo-br100',
+    verified: true,
+    source: 'Google Maps'
+  }
 ];
 
 const Testimonials: React.FC = () => {
@@ -171,14 +200,14 @@ const Testimonials: React.FC = () => {
         >
           <span className="inline-flex items-center px-4 py-2 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-semibold mb-4 border border-[var(--color-accent)]/20">
             <Star className="h-4 w-4 mr-2 fill-current" />
-            Depoimentos
+            Avaliações Reais
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--color-text)] tracking-tight">
             O Que Nossos 
             <span className="bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-light)] text-transparent bg-clip-text"> Clientes</span> Dizem
           </h2>
           <p className="text-xl text-[var(--color-text)]/70 max-w-3xl mx-auto leading-relaxed">
-            A satisfação e confiança dos nossos clientes são o nosso maior orgulho e motivação
+            Depoimentos reais de clientes que já experimentaram nossos serviços e recomendam nosso trabalho
           </p>
         </motion.div>
 
@@ -190,9 +219,9 @@ const Testimonials: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           {[
-            { value: '98%', label: 'Satisfação', icon: '😊' },
-            { value: '500+', label: 'Clientes Atendidos', icon: '👥' },
-            { value: '1200+', label: 'Serviços Realizados', icon: '🔧' },
+            { value: '4.9★', label: 'Avaliação Média', icon: '⭐' },
+            { value: '200+', label: 'Avaliações Positivas', icon: '👥' },
+            { value: '800+', label: 'Serviços Realizados', icon: '🔧' },
           ].map((stat, index) => (
             <motion.div
               key={index}
@@ -265,9 +294,14 @@ const Testimonials: React.FC = () => {
                             <h3 className="text-2xl font-bold text-[var(--color-text)]">
                               {testimonials[current].name}
                             </h3>
-                            <span className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-medium">
-                              Cliente Verificado
-                            </span>
+                            <div className="flex gap-2">
+                              <span className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-medium">
+                                Cliente Verificado
+                              </span>
+                              <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-sm font-medium border border-blue-200">
+                                {testimonials[current].source}
+                              </span>
+                            </div>
                           </div>
                           
                           <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm text-[var(--color-text)]/70 mb-3">

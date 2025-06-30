@@ -10,6 +10,7 @@ import { Providers } from './providers';
 import Hero from '../components/Hero';
 import Header from '../components/Header';
 import Benefits from '@/components/Benefits';
+import WhatsAppModal from '@/components/WhatsAppModal';
 
 
 // Componente de carregamento
@@ -33,7 +34,7 @@ const Testimonials = dynamic(() => import('../components/Testimonials_new'), {
   ssr: false,
   loading: () => <SectionLoader />
 });
-const Contact = dynamic(() => import('../components/Contact_new'), { 
+const Contact = dynamic(() => import('../components/Contact'), { 
   ssr: false,
   loading: () => <SectionLoader />
 });
@@ -48,6 +49,7 @@ const Footer = dynamic(() => import('../components/Footer_new'), {
 
 export default function Home() {
   const [maintenanceMode, setMaintenanceMode] = useState(false);
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchSettings = async () => {
@@ -92,15 +94,13 @@ export default function Home() {
             <p className="mt-8 text-sm text-[var(--color-text)]/60">
               Para solicitações urgentes, entre em contato pelo WhatsApp
             </p>
-            <a 
-              href="https://wa.me/5548991919791" 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setIsWhatsAppModalOpen(true)}
               className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-accent)] text-white rounded-md hover:bg-[var(--color-accent-dark)] transition-all shadow-sm"
             >
               <MessageCircle size={18} />
               Contato via WhatsApp
-            </a>
+            </button>
           </div>
         </div>
       </Providers>
@@ -161,6 +161,12 @@ export default function Home() {
         >
           <MessageCircle size={26} />
         </motion.a> */}
+
+        {/* WhatsApp Modal */}
+        <WhatsAppModal 
+          isOpen={isWhatsAppModalOpen} 
+          onClose={() => setIsWhatsAppModalOpen(false)} 
+        />
       </motion.div>
     </Providers>
   );

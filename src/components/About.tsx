@@ -1,4 +1,6 @@
-import React, { useRef } from 'react';
+'use client';
+
+import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { 
   Clock, 
@@ -14,11 +16,13 @@ import {
   MessageCircle,
   Phone
 } from 'lucide-react';
+import WhatsAppModal from './WhatsAppModal';
 import Image from 'next/image';
 
 const About: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const inView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -125,7 +129,7 @@ const About: React.FC = () => {
               
               <div className="space-y-3 md:space-y-4 text-base md:text-lg text-[var(--color-text)]/80 leading-relaxed">
                 <p>
-                  A <span className="font-semibold text-[var(--color-accent)]">FH Resolve</span> nasceu da paixão por resolver problemas e ajudar pessoas. Com mais de 5 anos de experiência, atendemos residências em toda Florianópolis e região.
+                  A <span className="font-semibold text-[var(--color-accent)]">FH Resolve</span> nasceu da paixão por resolver problemas e ajudar pessoas. Com mais de 15 anos de experiência, atendemos residências em toda Florianópolis e região.
                 </p>
                 <p>
                   Nossa missão é proporcionar tranquilidade e segurança para você e sua família, oferecendo soluções rápidas e eficazes para todos os tipos de reparos e manutenções.
@@ -158,10 +162,8 @@ const About: React.FC = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4 md:pt-6">
-              <motion.a
-                href="https://wa.me/5548991919791"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.button
+                onClick={() => setIsWhatsAppModalOpen(true)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
@@ -171,7 +173,7 @@ const About: React.FC = () => {
               >
                 <MessageCircle size={18} className="md:w-5 md:h-5" />
                 <span>Conversar no WhatsApp</span>
-              </motion.a>
+              </motion.button>
               
               <motion.a
                 href="tel:+5548991919791"
@@ -198,17 +200,17 @@ const About: React.FC = () => {
           >
             <div className="relative">
               {/* Main Image */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl h-64 md:h-96 lg:h-[500px]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)]/10 to-transparent z-10"></div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl h-64 md:h-96 lg:h-[500px]">
+                
                 <Image
-                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  src="/image/capa.png"
                   alt="Profissional da FH Resolve realizando serviço de manutenção residencial"
                   width={800}
                   height={600}
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-              </div>
+                </div>
 
               {/* Stats Card - responsivo */}
               <motion.div
@@ -221,7 +223,7 @@ const About: React.FC = () => {
                   <div className="flex items-center justify-center w-8 h-8 md:w-12 md:h-12 bg-[var(--color-accent)]/10 rounded-full mb-2 md:mb-3 mx-auto">
                     <Award className="h-4 w-4 md:h-6 md:w-6 text-[var(--color-accent)]" />
                   </div>
-                  <p className="font-bold text-lg md:text-2xl text-[var(--color-text)]">5+</p>
+                  <p className="font-bold text-lg md:text-2xl text-[var(--color-text)]">15+</p>
                   <p className="text-xs md:text-sm text-[var(--color-text)]/70 font-medium">Anos de Experiência</p>
                 </div>
               </motion.div>
@@ -290,6 +292,12 @@ const About: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* WhatsApp Modal */}
+      <WhatsAppModal 
+        isOpen={isWhatsAppModalOpen} 
+        onClose={() => setIsWhatsAppModalOpen(false)} 
+      />
     </section>
   );
 };

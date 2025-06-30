@@ -1,0 +1,47 @@
+{
+  "timestamp": "2025-06-29T21:18:59.892Z",
+  "uptime": "0.01h",
+  "systemHealth": "HEALTHY",
+  "components": {
+    "aiServiceHealth": "HEALTHY",
+    "fileSystemHealth": "HEALTHY",
+    "parsingHealth": "HEALTHY"
+  },
+  "metrics": {
+    "aiService": {
+      "totalCalls": 2,
+      "successfulCalls": 2,
+      "failedCalls": 0,
+      "circuitBreakerActivations": 0,
+      "avgResponseTime": 12665,
+      "lastHealthCheck": "2025-06-29T21:18:59.622Z",
+      "errorRate": "0.00%",
+      "circuitBreakerRate": "0.00%"
+    },
+    "fileSystem": {
+      "totalReads": 1,
+      "successfulReads": 1,
+      "failedReads": 0,
+      "retriedReads": 0,
+      "avgReadTime": 32,
+      "lastHealthCheck": "2025-06-29T21:18:34.139Z",
+      "errorRate": "0.00%",
+      "retryRate": "0.00%"
+    },
+    "parsing": {
+      "totalFiles": 0,
+      "successfulParsing": 0,
+      "fallbackParsing": 0,
+      "failedParsing": 0,
+      "lastHealthCheck": null,
+      "fallbackRate": "0%",
+      "errorRate": "0%"
+    }
+  },
+  "rates": {
+    "ai": 1,
+    "fileSystem": 1,
+    "parsing": 1,
+    "overall": 1
+  }
+}

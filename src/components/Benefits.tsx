@@ -62,7 +62,7 @@ const Benefits: React.FC = () => {
         'Reparo de vazamentos',
         'Desentupimento de pias e ralos',
         'Instalação de torneiras e chuveiros',
-        'Manutenção de bombas d\'água'
+        'Manutenção hidras torneiras e chuveiros'
       ]
     },
     {

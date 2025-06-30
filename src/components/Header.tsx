@@ -4,11 +4,13 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Wrench, MessageCircle, Phone } from 'lucide-react';
 import { useFeedback } from '../context/FeedbackContext';
+import WhatsAppModal from './WhatsAppModal';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
 
   const headerRef = useRef<HTMLElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
@@ -169,17 +171,15 @@ const Header = () => {
               <span className="hidden xl:inline">Ligar</span>
             </motion.a>
             
-            <motion.a
-              href="https://wa.me/5548991919791"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={() => setIsWhatsAppModalOpen(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-2 px-4 py-2 bg-[var(--color-accent)] text-white rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300"
             >
               <MessageCircle className="h-4 w-4" />
               <span className="hidden xl:inline">WhatsApp</span>
-            </motion.a>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -266,15 +266,16 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
                 >
-                  <a
-                    href="https://wa.me/5548991919791"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => {
+                      setIsWhatsAppModalOpen(true);
+                      setIsOpen(false);
+                    }}
                     className="flex items-center justify-center gap-3 w-full px-6 py-4 bg-[var(--color-accent)] text-white rounded-xl font-semibold text-lg shadow-lg"
                   >
                     <MessageCircle className="h-5 w-5" />
                     <span>Conversar no WhatsApp</span>
-                  </a>
+                  </button>
                   
                   <a
                     href="tel:+5548991919791"
@@ -301,6 +302,12 @@ const Header = () => {
           )}
         </AnimatePresence>
       </motion.header>
+
+      {/* WhatsApp Modal */}
+      <WhatsAppModal 
+        isOpen={isWhatsAppModalOpen} 
+        onClose={() => setIsWhatsAppModalOpen(false)} 
+      />
     </>
   );
 };

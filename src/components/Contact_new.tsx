@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MessageCircle, Phone, Mail, MapPin, Send, CheckCircle, X, CreditCard, Clock, Star, Users, Zap, Shield } from 'lucide-react';
+import WhatsAppModal from './WhatsAppModal';
 
 const Contact: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -9,6 +10,7 @@ const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({ name: '', phone: '', message: '' });
   const [formTouched, setFormTouched] = useState({ name: false, phone: false, message: false });
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
 
   const validateField = (name: string, value: string) => {
     switch (name) {
@@ -81,7 +83,7 @@ const Contact: React.FC = () => {
 
   const contactInfo = [
     { icon: <Phone className="h-5 w-5 text-[var(--color-accent)]" />, title: 'Telefone', value: '+55 48 99191-9791', link: 'tel:+5548991919791' },
-    { icon: <MessageCircle className="h-5 w-5 text-[var(--color-accent)]" />, title: 'WhatsApp', value: '+55 48 99191-9791', link: 'https://wa.me/5548991919791' },
+    { icon: <MessageCircle className="h-5 w-5 text-[var(--color-accent)]" />, title: 'WhatsApp', value: 'Alexandre e Fernando', link: '', isWhatsApp: true },
     { icon: <Mail className="h-5 w-5 text-[var(--color-accent)]" />, title: 'Email', value: 'contato@fhresolve.com.br', link: 'mailto:contato@fhresolve.com.br' },
     { icon: <MapPin className="h-5 w-5 text-[var(--color-accent)]" />, title: 'Localização', value: 'Ratones, Florianópolis - SC', link: 'https://maps.google.com/?q=Ratones,Florianópolis,SC' },
   ];
@@ -205,27 +207,49 @@ const Contact: React.FC = () => {
                 
                 <div className="space-y-4">
                   {contactInfo.map((info, index) => (
-                    <motion.a
-                      key={index}
-                      href={info.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                      transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                      whileHover={{ x: 5, scale: 1.02 }}
-                      className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 hover:bg-[var(--color-accent)]/5 border border-gray-100 hover:border-[var(--color-accent)]/20 transition-all duration-300 group"
-                    >
-                      <div className="p-3 rounded-xl bg-white shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                        {info.icon}
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors duration-300">
-                          {info.title}
-                        </h4>
-                        <p className="text-[var(--color-text)]/70 font-medium">{info.value}</p>
-                      </div>
-                    </motion.a>
+                    info.isWhatsApp ? (
+                      <motion.button
+                        key={index}
+                        onClick={() => setIsWhatsAppModalOpen(true)}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                        transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                        whileHover={{ x: 5, scale: 1.02 }}
+                        className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 hover:bg-[var(--color-accent)]/5 border border-gray-100 hover:border-[var(--color-accent)]/20 transition-all duration-300 group w-full text-left"
+                      >
+                        <div className="p-3 rounded-xl bg-white shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                          {info.icon}
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors duration-300">
+                            {info.title}
+                          </h4>
+                          <p className="text-[var(--color-text)]/70 font-medium">{info.value}</p>
+                        </div>
+                      </motion.button>
+                    ) : (
+                      <motion.a
+                        key={index}
+                        href={info.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                        transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                        whileHover={{ x: 5, scale: 1.02 }}
+                        className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 hover:bg-[var(--color-accent)]/5 border border-gray-100 hover:border-[var(--color-accent)]/20 transition-all duration-300 group"
+                      >
+                        <div className="p-3 rounded-xl bg-white shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                          {info.icon}
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors duration-300">
+                            {info.title}
+                          </h4>
+                          <p className="text-[var(--color-text)]/70 font-medium">{info.value}</p>
+                        </div>
+                      </motion.a>
+                    )
                   ))}
                 </div>
               </div>
@@ -407,17 +431,15 @@ const Contact: React.FC = () => {
                         <Send className="h-5 w-5" />
                         Enviar Mensagem
                       </motion.button>
-                      <motion.a
-                        href="https://wa.me/5548991919791"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <motion.button
+                        onClick={() => setIsWhatsAppModalOpen(true)}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-4 bg-green-600 text-white rounded-xl font-semibold text-lg shadow-lg shadow-green-600/30 hover:shadow-xl hover:shadow-green-600/40 transition-all duration-300"
                       >
                         <MessageCircle className="h-5 w-5" />
                         WhatsApp
-                      </motion.a>
+                      </motion.button>
                     </div>
                     
                     <div className="p-4 bg-[var(--color-accent)]/5 rounded-xl border border-[var(--color-accent)]/20">
@@ -440,6 +462,11 @@ const Contact: React.FC = () => {
           </motion.div>
         </div>
       </div>
+      {/* WhatsApp Modal */}
+      <WhatsAppModal 
+        isOpen={isWhatsAppModalOpen} 
+        onClose={() => setIsWhatsAppModalOpen(false)} 
+      />
     </section>
   );
 };

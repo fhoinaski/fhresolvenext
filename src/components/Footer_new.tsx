@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { 
   Phone, 
   Mail, 
@@ -17,10 +17,14 @@ import {
   Facebook,
   Linkedin
 } from 'lucide-react';
+import { useCurrentYear } from '@/hooks/useCurrentYear';
+import WhatsAppModal from './WhatsAppModal';
 
 const Footer: React.FC = () => {
   const footerRef = useRef<HTMLElement>(null);
   const inView = useInView(footerRef, { once: true, margin: "-100px" });
+  const currentYear = useCurrentYear();
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -223,19 +227,30 @@ const Footer: React.FC = () => {
               <motion.div variants={itemVariants}>
                 <h4 className="font-semibold text-white mb-6">Entre em Contato</h4>
                 <div className="space-y-4">
-                  <motion.a
-                    href="tel:+5548991919791"
+                  {/* Telefones */}
+                  <motion.div
                     whileHover={{ x: 5 }}
-                    className="flex items-center gap-3 text-white/70 hover:text-white transition-all duration-300 text-sm group"
+                    className="flex items-start gap-3 text-white/70 hover:text-white transition-all duration-300 text-sm group"
                   >
                     <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-[var(--color-accent)] group-hover:border-[var(--color-accent)] transition-all duration-300">
                       <Phone size={16} />
                     </div>
                     <div>
-                      <div className="font-medium text-white">Telefone</div>
-                      <div>(48) 99191-9791</div>
+                      <div className="font-medium text-white">Telefones</div>
+                      <div className="space-y-1">
+                        <div>
+                          <a href="tel:+5548991130536" className="hover:text-[var(--color-accent)] transition-colors">
+                            (48) 99113-0536 - Alexandre
+                          </a>
+                        </div>
+                        <div>
+                          <a href="tel:+5548991919791" className="hover:text-[var(--color-accent)] transition-colors">
+                            (48) 99191-9791 - Fernando
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                  </motion.a>
+                  </motion.div>
 
                   <motion.a
                     href="mailto:contato@fhresolve.com.br"
@@ -267,17 +282,15 @@ const Footer: React.FC = () => {
 
                 {/* CTA Button */}
                 <motion.div className="mt-6">
-                  <motion.a
-                    href="https://wa.me/5548991919791"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <motion.button
+                    onClick={() => setIsWhatsAppModalOpen(true)}
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-white rounded-xl font-semibold shadow-lg shadow-[var(--color-accent)]/30 hover:shadow-xl hover:shadow-[var(--color-accent)]/40 transition-all duration-300"
                   >
                     <MessageCircle size={18} />
                     <span>Solicitar Orçamento</span>
-                  </motion.a>
+                  </motion.button>
                 </motion.div>
               </motion.div>
             </div>
@@ -295,7 +308,7 @@ const Footer: React.FC = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="text-center md:text-left">
                 <p className="text-white/60 text-sm">
-                  © {new Date().getFullYear()} FH Resolve. Todos os direitos reservados.
+                  © {currentYear} FH Resolve. Todos os direitos reservados.
                 </p>
                 <p className="text-white/40 text-xs mt-1">
                   CNPJ: 00.000.000/0000-00 • Desenvolvido com ❤️ para seus projetos
@@ -311,6 +324,12 @@ const Footer: React.FC = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* WhatsApp Modal */}
+      <WhatsAppModal 
+        isOpen={isWhatsAppModalOpen} 
+        onClose={() => setIsWhatsAppModalOpen(false)} 
+      />
     </footer>
   );
 };

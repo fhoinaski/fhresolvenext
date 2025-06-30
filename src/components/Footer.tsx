@@ -1,8 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useCurrentYear } from '@/hooks/useCurrentYear';
 
 const Footer: React.FC = () => {
+  const currentYear = useCurrentYear();
+
   return (
     <footer className="py-12 bg-[var(--color-dark)] text-[var(--color-text-light)] relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-accent)]/10 to-transparent pointer-events-none" />
@@ -27,7 +30,10 @@ const Footer: React.FC = () => {
           >
             <h3 className="text-xl md:text-2xl font-semibold mb-4">Contato</h3>
             <p className="text-sm md:text-base opacity-80">contato@fhresolve.com.br</p>
-            <p className="text-sm md:text-base opacity-80">+55 (48) 99191-9791</p>
+            <div className="space-y-1">
+              <p className="text-sm md:text-base opacity-80">(48) 99113-0536 - Alexandre</p>
+              <p className="text-sm md:text-base opacity-80">(48) 99191-9791 - Fernando</p>
+            </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -47,7 +53,7 @@ const Footer: React.FC = () => {
           </motion.div>
         </div>
         <div className="mt-8 text-center text-sm opacity-60">
-          © {new Date().getFullYear()} FH Resolve. Todos os direitos reservados.
+          © {currentYear} FH Resolve. Todos os direitos reservados.
         </div>
       </div>
     </footer>

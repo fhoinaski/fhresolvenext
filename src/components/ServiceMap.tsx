@@ -16,6 +16,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { usePrefersReducedMotion } from '@/lib/motion-variants';
+import WhatsAppModal from './WhatsAppModal';
 
 // Dados dos bairros e regiões atendidas - Expandido
 const neighborhoods = [
@@ -177,6 +178,7 @@ const ServiceMap: React.FC = () => {
   const [selectedRegion, setSelectedRegion] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedNeighborhood, setSelectedNeighborhood] = useState<string | null>(null);
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
 
   // Filtrar bairros por região e termo de busca
   const filteredNeighborhoods = neighborhoods.filter(neighborhood => {
@@ -406,18 +408,18 @@ const ServiceMap: React.FC = () => {
                 {/* Card Actions */}
                 <div className="px-6 pb-6">
                   <div className="grid grid-cols-2 gap-3">
-                    <a
-                      href="https://wa.me/5548991919791"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsWhatsAppModalOpen(true);
+                      }}
                       className="flex items-center justify-center gap-2 px-4 py-2 
                                bg-green-600 text-white font-medium rounded-lg 
                                hover:bg-green-700 transition-colors duration-200"
-                      onClick={(e) => e.stopPropagation()}
                     >
                       <MessageCircle className="h-4 w-4" />
                       WhatsApp
-                    </a>
+                    </button>
                     <a
                       href="tel:+5548991919791"
                       className="flex items-center justify-center gap-2 px-4 py-2 
@@ -498,10 +500,8 @@ const ServiceMap: React.FC = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="https://wa.me/5548991919791"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setIsWhatsAppModalOpen(true)}
                 className="flex items-center gap-3 px-6 py-3 bg-blue-600 text-white 
                          font-semibold rounded-xl hover:bg-blue-700 transition-all duration-200
                          shadow-lg hover:shadow-xl"
@@ -509,7 +509,7 @@ const ServiceMap: React.FC = () => {
                 <MessageCircle className="h-5 w-5" />
                 Consultar no WhatsApp
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </button>
               <a
                 href="tel:+5548991919791"
                 className="flex items-center gap-3 px-6 py-3 border-2 border-blue-600 
@@ -523,6 +523,12 @@ const ServiceMap: React.FC = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* WhatsApp Modal */}
+      <WhatsAppModal 
+        isOpen={isWhatsAppModalOpen} 
+        onClose={() => setIsWhatsAppModalOpen(false)} 
+      />
     </section>
   );
 };

@@ -28,6 +28,21 @@ import {
   applyVariant,
   getReducedMotionVariants
 } from '@/lib/motion-variants';
+import WhatsAppModal from './WhatsAppModal';
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Valores totalmente fixos para partículas para evitar problemas de hidratação SSR/CSR
+const PARTICLE_CONFIG = [
+  { x: 15, y: 25, width: 80, height: 80, opacity: 0.3, scale: 0.8 },
+  { x: 75, y: 10, width: 60, height: 60, opacity: 0.4, scale: 0.6 },
+  { x: 85, y: 60, width: 100, height: 100, opacity: 0.2, scale: 0.9 },
+  { x: 10, y: 80, width: 70, height: 70, opacity: 0.5, scale: 0.7 },
+  { x: 50, y: 30, width: 90, height: 90, opacity: 0.3, scale: 0.8 },
+  { x: 25, y: 70, width: 65, height: 65, opacity: 0.4, scale: 0.5 },
+  { x: 65, y: 85, width: 75, height: 75, opacity: 0.3, scale: 0.6 },
+  { x: 40, y: 15, width: 85, height: 85, opacity: 0.2, scale: 0.7 }
+];
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -158,6 +173,7 @@ const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
@@ -182,7 +198,7 @@ const Hero: React.FC = () => {
   ];
 
   const stats = [
-    { icon: <Award size={20} />, value: '5+', label: 'Anos de Experiência' },
+    { icon: <Award size={20} />, value: '15+', label: 'Anos de Experiência' },
     { icon: <Heart size={20} />, value: '100+', label: 'Clientes Satisfeitos' },
     { icon: <Zap size={20} />, value: '24h', label: 'Atendimento Rápido' },
     { icon: <Star size={20} />, value: '5★', label: 'Avaliação' },
@@ -282,42 +298,37 @@ const Hero: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent)]/20 via-transparent to-[var(--color-accent)]/20"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-accent)]/10 to-transparent"></div>
         </div>
-          {/* Partículas flutuantes aprimoradas - otimizadas para mobile */}
+        {/* Partículas flutuantes - valores totalmente fixos para evitar hidratação */}
         {!prefersReducedMotion && !isMobile && (
           <div className="absolute inset-0 opacity-30">
-            {[...Array(8)].map((_, i) => ( // Reduzido de 12 para 8 partículas
+            {PARTICLE_CONFIG.map((particle, i) => (
               <motion.div
-                key={i}
+                key={`particle-${i}`}
                 className="floating-particle absolute rounded-full bg-white/20 blur-sm"
                 initial={{ 
-                  x: Math.random() * 100 + '%', 
-                  y: Math.random() * 100 + '%',
-                  scale: Math.random() * 0.8 + 0.2,
-                  opacity: Math.random() * 0.6 + 0.2
+                  x: `${particle.x}%`, 
+                  y: `${particle.y}%`,
+                  scale: particle.scale,
+                  opacity: particle.opacity
                 }}
                 animate={{
-                  x: Math.random() * 100 + '%',
-                  y: Math.random() * 100 + '%',
-                  scale: [
-                    Math.random() * 0.8 + 0.2,
-                    Math.random() * 1.2 + 0.5,
-                    Math.random() * 0.8 + 0.2
-                  ],
-                  opacity: [
-                    Math.random() * 0.6 + 0.2,
-                    Math.random() * 0.8 + 0.4,
-                    Math.random() * 0.6 + 0.2
-                  ]
+                  x: [`${particle.x}%`, `${particle.x + 5}%`, `${particle.x}%`],
+                  y: [`${particle.y}%`, `${particle.y - 10}%`, `${particle.y}%`],
+                  scale: [particle.scale, particle.scale * 1.1, particle.scale],
+                  opacity: [particle.opacity, particle.opacity * 1.3, particle.opacity]
                 }}
                 transition={{
-                  duration: Math.random() * 8 + 6,
+                  duration: 12 + i,
                   repeat: Infinity,
                   repeatType: "reverse",
-                  ease: "easeInOut"
+                  ease: "easeInOut",
+                  delay: i * 0.5
                 }}
                 style={{
-                  width: `${Math.random() * 120 + 40}px`,
-                  height: `${Math.random() * 120 + 40}px`,
+                  width: `${particle.width}px`,
+                  height: `${particle.height}px`,
+                  transform: `translateX(${particle.x}%) translateY(${particle.y}%) scale(${particle.scale})`,
+                  opacity: particle.opacity
                 }}
               />
             ))}
@@ -398,10 +409,8 @@ const Hero: React.FC = () => {
               animate="visible"
               transition={{ delay: prefersReducedMotion ? 0.2 : 0.6 }}
             >
-              <motion.a
-                href="https://wa.me/5548991919791"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.button
+                onClick={() => setIsWhatsAppModalOpen(true)}
                 className="group relative overflow-hidden inline-flex items-center justify-center gap-3 
                          px-8 py-4 bg-[var(--color-accent)] text-white rounded-xl font-semibold text-lg
                          shadow-xl shadow-[var(--color-accent)]/30 transition-all duration-300
@@ -423,7 +432,7 @@ const Hero: React.FC = () => {
                 )}
                 
                 <MessageCircle size={22} />
-                <span>Falar com Fernando</span>
+                <span>Contato WhatsApp</span>
                 
                 {/* Pulse indicator */}
                 <div className="absolute -top-2 -right-2 h-4 w-4 bg-green-400 rounded-full">
@@ -435,7 +444,7 @@ const Hero: React.FC = () => {
                     />
                   )}
                 </div>
-              </motion.a>
+              </motion.button>
                 <motion.div 
                 className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl 
                          border-2 border-white/30 bg-white/10 backdrop-blur-sm text-[var(--color-text)]
@@ -525,6 +534,12 @@ const Hero: React.FC = () => {
       {/* Bottom Fade */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t 
                    from-[var(--color-gray)] to-transparent pointer-events-none z-5" />
+
+      {/* WhatsApp Modal */}
+      <WhatsAppModal 
+        isOpen={isWhatsAppModalOpen} 
+        onClose={() => setIsWhatsAppModalOpen(false)} 
+      />
     </section>
   );
 };

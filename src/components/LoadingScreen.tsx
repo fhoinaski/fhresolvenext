@@ -4,24 +4,32 @@ import { gsap } from 'gsap';
 import { Wrench } from 'lucide-react';
 import 'animate.css';
 
+// Função para gerar valores determinísticos baseados em seed
+const seededRandom = (seed: number) => {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+};
+
 const LoadingScreen: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   
   useEffect(() => {
+    setIsMounted(true);
     // Impedir scroll durante a animação
     document.documentElement.classList.add('no-scroll');
     
-    // Simulação de progresso de carregamento
+    // Simulação de progresso de carregamento com incrementos fixos
     const progressInterval = setInterval(() => {
       setLoadingProgress(prev => {
         if (prev >= 100) {
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + Math.random() * 10;
+        return prev + 8; // Incremento fixo em vez de random
       });
     }, 200);
     
@@ -184,42 +192,56 @@ const LoadingScreen: React.FC = () => {
         </div>
       </div>
 
-      {/* Elementos decorativos - partículas flutuantes com Animate.css */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(15)].map((_, i) => (
-          <motion.div 
-            key={i}
-            className={`loading-particles absolute rounded-full bg-[var(--color-accent)]/5 animate__animated ${getAnimationClass(i)} animate__infinite animate__slower`}
-            initial={{ 
-              x: Math.random() * 100 - 50, 
-              y: Math.random() * 100 - 50,
-              opacity: 0
-            }}
-            animate={{
-              x: Math.random() * 100 - 50,
-              y: Math.random() * 100 - 50,
-              opacity: 0.5
-            }}
-            exit={{
-              opacity: 0,
-              scale: 0,
-              transition: { duration: 0.5 }
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
-            style={{
-              width: `${Math.random() * 100 + 30}px`,
-              height: `${Math.random() * 100 + 30}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${Math.random() * 5 + 3}s`
-            }}
-          />
-        ))}
+      {/* Elementos decorativos - partículas flutuantes */}
+      {isMounted && (
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {[...Array(15)].map((_, i) => {
+            const seed = i + 1;
+            const randomX = seededRandom(seed) * 100 - 50;
+            const randomY = seededRandom(seed + 100) * 100 - 50;
+            const size = seededRandom(seed + 200) * 100 + 30;
+            const topPos = seededRandom(seed + 300) * 100;
+            const leftPos = seededRandom(seed + 400) * 100;
+            const animDelay = seededRandom(seed + 500) * 5;
+            const animDuration = seededRandom(seed + 600) * 5 + 3;
+            
+            return (
+              <motion.div 
+                key={i}
+                className={`loading-particles absolute rounded-full bg-[var(--color-accent)]/5 animate__animated ${getAnimationClass(i)} animate__infinite animate__slower`}
+                initial={{ 
+                  x: randomX, 
+                  y: randomY,
+                  opacity: 0
+                }}
+                animate={{
+                  x: randomX + 20,
+                  y: randomY + 20,
+                  opacity: 0.5
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0,
+                  transition: { duration: 0.5 }
+                }}
+                transition={{
+                  duration: 3 + (seed % 3),
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+                style={{
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  top: `${topPos}%`,
+                  left: `${leftPos}%`,
+                  animationDelay: `${animDelay}s`,
+                  animationDuration: `${animDuration}s`
+                }}
+              />
+            );
+          })}
+        </div>
+      )}
         
         {/* Elementos de ferramentas estilizados no fundo com animações */}
         <motion.div 
@@ -253,26 +275,33 @@ const LoadingScreen: React.FC = () => {
         </motion.div>
         
         {/* Novo elemento de bolhas flutuantes */}
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={`bubble-${i}`}
-            className="absolute rounded-full bg-white/5 backdrop-blur-sm animate__animated animate__fadeInUp animate__infinite"
-            style={{
-              width: `${Math.random() * 40 + 15}px`,
-              height: `${Math.random() * 40 + 15}px`,
-              bottom: `-50px`,
-              left: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 10 + 5}s`,
-              animationDelay: `${Math.random() * 5}s`
-            }}
-            exit={{
-              opacity: 0,
-              y: -100,
-              transition: { duration: 0.5 }
-            }}
-          />
-        ))}
-      </div>
+        {isMounted && [...Array(8)].map((_, i) => {
+          const seed = i + 1000;
+          const size = seededRandom(seed) * 40 + 15;
+          const leftPos = seededRandom(seed + 100) * 100;
+          const animDuration = seededRandom(seed + 200) * 10 + 5;
+          const animDelay = seededRandom(seed + 300) * 5;
+          
+          return (
+            <motion.div
+              key={`bubble-${i}`}
+              className="absolute rounded-full bg-white/5 backdrop-blur-sm animate__animated animate__fadeInUp animate__infinite"
+              style={{
+                width: `${size}px`,
+                height: `${size}px`,
+                bottom: `-50px`,
+                left: `${leftPos}%`,
+                animationDuration: `${animDuration}s`,
+                animationDelay: `${animDelay}s`
+              }}
+              exit={{
+                opacity: 0,
+                y: -100,
+                transition: { duration: 0.5 }
+              }}
+            />
+          );
+        })}
     </motion.div>
   );
 };

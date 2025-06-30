@@ -5,9 +5,11 @@ import { getProjects } from '../../data/projects';
 import Link from 'next/link';
 import { ArrowLeft, Wrench } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useCurrentYear } from '@/hooks/useCurrentYear';
 
 export default function PortfolioPage() {
   const projects = getProjects();
+  const currentYear = useCurrentYear();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -73,7 +75,7 @@ export default function PortfolioPage() {
       <footer className="bg-white dark:bg-gray-800 py-8">
         <div className="container mx-auto px-4 text-center">
           <p className="text-gray-600 dark:text-gray-300">
-            © {new Date().getFullYear()} FH Resolve - Todos os direitos reservados
+            © {currentYear} FH Resolve - Todos os direitos reservados
           </p>
         </div>
       </footer>
