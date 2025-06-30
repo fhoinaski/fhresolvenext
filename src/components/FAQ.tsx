@@ -41,13 +41,13 @@ const FAQ: React.FC = () => {
     },
     {
       icon: <Phone className="h-5 w-5" />,
-      question: "A visita para orçamento tem custo?",
-      answer: "A visita para orçamento é GRATUITA em toda região de Florianópolis. Nossos especialistas fazem uma avaliação completa e apresentam um orçamento detalhado sem compromisso. Só cobramos se você aprovar e executarmos o serviço."
+      question: "Como funciona a visita para orçamento?",
+      answer: "Oferecemos 2 modalidades:\n\n🔧 OPÇÃO 1 - Visita técnica presencial\nValor: R$ 150,00 (inclui deslocamento, diagnóstico completo e pequenos reparos imediatos como torneiras, chuveiros, tomadas). Para serviços complexos, este valor é totalmente abatido do orçamento final.\n\n📱 OPÇÃO 2 - Orçamento por fotos/vídeos (GRATUITO)\nEnvie fotos e vídeos detalhados do problema que fazemos um orçamento baseado nessas informações sem nenhum custo."
     },
     {
       icon: <CheckCircle className="h-5 w-5" />,
       question: "Vocês atendem em que regiões?",
-      answer: "Atendemos toda Florianópolis e região metropolitana, incluindo: Centro, Norte da Ilha (Ratones, Jurerê, Daniela), Sul da Ilha (Campeche, Ribeirão da Ilha), Continente (Barreiros, Coqueiros) e São José. Para outras localidades, consulte a disponibilidade."
+      answer: "Atendemos principalmente o Norte da Ilha e Centro de Florianópolis, incluindo: Jurerê, Canasvieiras, Ratones, Rio Vermelho, Ingleses, Vargem Grande, Vargem Pequena, Santo Antônio, Cacupé, João Paulo, Trindade, Agronômica, Centro e bairros próximos. Para outras localidades, consulte a disponibilidade."
     }
   ];
 
@@ -171,7 +171,7 @@ const FAQ: React.FC = () => {
                       className="overflow-hidden"
                     >
                       <div className="px-6 pb-6 pl-[88px]">
-                        <p className="text-[var(--color-text)]/80 leading-relaxed">
+                        <p className="text-[var(--color-text)]/80 leading-relaxed whitespace-pre-line">
                           {item.answer}
                         </p>
                       </div>
